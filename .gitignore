@@ -1,0 +1,60 @@
+# APP
+# Logs
+app/logs
+app/*.log
+app/npm-debug.log*
+app/yarn-debug.log*
+app/yarn-error.log*
+app/pnpm-debug.log*
+app/lerna-debug.log*
+
+app/node_modules
+app/dist
+app/dist-ssr
+app/*.local
+
+# Editor directories and files
+app/.vscode/*
+app/!.vscode/extensions.json
+app/.idea
+app/.DS_Store
+app/*.suo
+app/*.ntvs*
+app/*.njsproj
+app/*.sln
+app/*.sw?
+
+
+# API
+api/target/
+api/!.mvn/wrapper/maven-wrapper.jar
+api/!**/src/main/**/target/
+api/!**/src/test/**/target/
+
+### STS ###
+api/.apt_generated
+api/.classpath
+api/.factorypath
+api/.project
+api/.settings
+api/.springBeans
+api/.sts4-cache
+
+### IntelliJ IDEA ###
+api/.idea
+api/*.iws
+api/*.iml
+api/*.ipr
+
+### NetBeans ###
+api//nbproject/private/
+api//nbbuild/
+api//dist/
+api//nbdist/
+api//.nb-gradle/
+api/build/
+api/!**/src/main/**/build/
+api/!**/src/test/**/build/
+
+### VS Code ###
+api/.vscode/
