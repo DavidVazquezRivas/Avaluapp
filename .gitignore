@@ -58,3 +58,7 @@ api/!**/src/test/**/build/
 
 ### VS Code ###
 api/.vscode/
+
+# Environment variables
+app/.env
+api/.env
