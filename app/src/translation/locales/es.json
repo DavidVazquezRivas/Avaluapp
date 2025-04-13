@@ -1,0 +1,10 @@
+{
+  "globals": {},
+  "notFound": {
+    "title": "¡Oops! Página no encontrada",
+    "description": "Lo sentimos, la página que estás buscando no existe o ha sido movida.",
+    "home": "Volver a la página de inicio",
+    "back": "Volver a la página anterior",
+    "alt": "Página no encontrada"
+  }
+}
