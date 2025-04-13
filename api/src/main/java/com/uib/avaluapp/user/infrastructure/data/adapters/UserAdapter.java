@@ -26,29 +26,29 @@ public class UserAdapter implements UserPort {
     @Override
     public User getSingleUser(Long id) {
         UserEntity userEntity = userRepository.findById(id).orElseThrow(() -> new BaseException(ExceptionCode.USER_NOT_FOUND));
-        return UserMapper.INSTANCE.toDomain(userEntity);
+        return UserEntityMapper.INSTANCE.toDomain(userEntity);
     }
 
     @Override
     public User getUserByUsername(String username) {
         UserEntity userEntity = userRepository.findByUsername(username)
                 .orElseThrow(() -> new BaseException(ExceptionCode.USER_NOT_FOUND));
-        return UserMapper.INSTANCE.toDomain(userEntity);
+        return UserEntityMapper.INSTANCE.toDomain(userEntity);
     }
 
     @Override
     public List<User> getAllUsers() {
         Iterable<UserEntity> userEntities = userRepository.findAll();
         return StreamSupport.stream(userEntities.spliterator(), false)
-                .map(UserMapper.INSTANCE::toDomain)
+                .map(UserEntityMapper.INSTANCE::toDomain)
                 .collect(Collectors.toList());
     }
 
     @Override
     public User createUser(User user) {
         try {
-            UserEntity entity = userRepository.save(UserMapper.INSTANCE.toEntity(user));
-            return UserMapper.INSTANCE.toDomain(entity);
+            UserEntity entity = userRepository.save(UserEntityMapper.INSTANCE.toEntity(user));
+            return UserEntityMapper.INSTANCE.toDomain(entity);
         } catch (Exception e) {
             throw new BaseException(ExceptionCode.USER_ALREADY_EXISTS);
         }
