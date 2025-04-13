@@ -7,7 +7,6 @@ import com.uib.avaluapp.user.domain.ports.UserPort;
 import com.uib.avaluapp.user.infrastructure.data.models.UserEntity;
 import com.uib.avaluapp.user.infrastructure.data.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -31,6 +30,13 @@ public class UserAdapter implements UserPort {
     }
 
     @Override
+    public User getUserByUsername(String username) {
+        UserEntity userEntity = userRepository.findByUsername(username)
+                .orElseThrow(() -> new BaseException(ExceptionCode.USER_NOT_FOUND));
+        return UserMapper.INSTANCE.toDomain(userEntity);
+    }
+
+    @Override
     public List<User> getAllUsers() {
         Iterable<UserEntity> userEntities = userRepository.findAll();
         return StreamSupport.stream(userEntities.spliterator(), false)
@@ -43,7 +49,7 @@ public class UserAdapter implements UserPort {
         try {
             UserEntity entity = userRepository.save(UserMapper.INSTANCE.toEntity(user));
             return UserMapper.INSTANCE.toDomain(entity);
-        } catch (DataIntegrityViolationException e) {
+        } catch (Exception e) {
             throw new BaseException(ExceptionCode.USER_ALREADY_EXISTS);
         }
     }

@@ -1,6 +1,5 @@
 package com.uib.avaluapp.user.domain.services;
 
-import com.uib.avaluapp.auth.domain.utils.PasswordGenerator;
 import com.uib.avaluapp.user.domain.models.User;
 import com.uib.avaluapp.user.domain.ports.UserPort;
 import com.uib.avaluapp.user.infrastructure.web.requests.CreateUserRequest;
@@ -39,7 +38,7 @@ public class UserServiceImpl implements UserService {
                 .username(createUserRequest.getUsername())
                 .email(createUserRequest.getEmail())
                 .role(createUserRequest.getRole())
-                .password(encoder.encode(PasswordGenerator.generatePassword()))
+                .password(encoder.encode(createUserRequest.getPassword()))
                 .build();
 
         return userPort.createUser(user);
