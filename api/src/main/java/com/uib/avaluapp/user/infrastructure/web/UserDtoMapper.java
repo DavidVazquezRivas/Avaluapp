@@ -14,4 +14,8 @@ public interface UserDtoMapper {
     UserDto toDto(User user);
 
     List<UserDto> toDtoList(List<User> users);
+
+    default List<UserDto> toSingletonDtoList(User user) {
+        return List.of(toDto(user));
+    }
 }

@@ -1,12 +1,13 @@
 package com.uib.avaluapp.auth.infrastructure.web.controllers;
 
 import com.uib.avaluapp.auth.domain.services.AuthService;
+import com.uib.avaluapp.auth.domain.services.JwtService;
 import com.uib.avaluapp.auth.infrastructure.web.requests.AuthRequest;
 import com.uib.avaluapp.auth.infrastructure.web.requests.RefreshTokenRequest;
 import com.uib.avaluapp.auth.infrastructure.web.responses.AuthResponse;
 import com.uib.avaluapp.global.insfrastructure.web.BaseController;
 import com.uib.avaluapp.global.insfrastructure.web.response.ApiResponse;
-import lombok.RequiredArgsConstructor;
+import com.uib.avaluapp.user.domain.ports.UserPort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,9 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/auth")
-@RequiredArgsConstructor
 public class AuthController extends BaseController {
     private final AuthService authService;
+
+    public AuthController(AuthService authService, JwtService jwtService, UserPort userPort) {
+        super(jwtService, userPort);
+        this.authService = authService;
+    }
 
     @PostMapping("/login")
     public ResponseEntity<ApiResponse<AuthResponse>> login(@RequestBody AuthRequest authRequest) {
