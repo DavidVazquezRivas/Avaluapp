@@ -13,7 +13,8 @@ public enum ExceptionCode {
     INVALID_CREDENTIALS("Invalid username or password", HttpStatus.UNAUTHORIZED),
     INVALID_REFRESH_TOKEN("Invalid refresh token", HttpStatus.UNAUTHORIZED),
     INVALID_TOKEN("Invalid token", HttpStatus.UNAUTHORIZED),
-    UNAUTHORIZED("Unauthorized", HttpStatus.UNAUTHORIZED);
+    UNAUTHORIZED("Unauthorized", HttpStatus.UNAUTHORIZED),
+    INSUFFICIENT_PERMISSIONS("Insufficient permissions", HttpStatus.FORBIDDEN);
 
     private final String message;
     private final HttpStatus code;

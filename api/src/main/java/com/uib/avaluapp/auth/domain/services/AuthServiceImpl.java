@@ -1,7 +1,7 @@
 package com.uib.avaluapp.auth.domain.services;
 
 import com.uib.avaluapp.auth.infrastructure.web.requests.AuthRequest;
-import com.uib.avaluapp.auth.infrastructure.web.requests.RefreshTokenRequest;
+import com.uib.avaluapp.auth.infrastructure.web.responses.AccessTokenResponse;
 import com.uib.avaluapp.auth.infrastructure.web.responses.AuthResponse;
 import com.uib.avaluapp.global.exceptions.BaseException;
 import com.uib.avaluapp.global.exceptions.ExceptionCode;
@@ -44,24 +44,22 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public AuthResponse refreshToken(RefreshTokenRequest refreshTokenRequest) {
-        String refreshToken = refreshTokenRequest.getRefreshToken();
-        if (refreshToken == null || refreshToken.isEmpty() || !jwtService.validateToken(refreshToken)) {
+    public AccessTokenResponse refreshToken(String token) {
+
+        if (token == null || token.isEmpty() || !jwtService.validateToken(token)) {
             throw new BaseException(ExceptionCode.INVALID_REFRESH_TOKEN);
         }
 
-        String username = jwtService.extractUsername(refreshToken);
+        String username = jwtService.extractUsername(token);
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-        if (!jwtService.validateToken(refreshToken, userDetails)) {
+        if (!jwtService.validateToken(token, userDetails)) {
             throw new BaseException(ExceptionCode.INVALID_REFRESH_TOKEN);
         }
 
         String newAccessToken = jwtService.generateAccessToken(userDetails);
-        String newRefreshToken = jwtService.generateRefreshToken(userDetails);
-        return AuthResponse
+        return AccessTokenResponse
                 .builder()
                 .accessToken(newAccessToken)
-                .refreshToken(newRefreshToken)
                 .build();
     }
 }

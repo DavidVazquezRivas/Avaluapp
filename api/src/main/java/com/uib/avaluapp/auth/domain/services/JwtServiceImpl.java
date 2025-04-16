@@ -1,6 +1,8 @@
 package com.uib.avaluapp.auth.domain.services;
 
 import com.uib.avaluapp.auth.domain.models.CustomUserDetails;
+import com.uib.avaluapp.global.exceptions.BaseException;
+import com.uib.avaluapp.global.exceptions.ExceptionCode;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
@@ -91,5 +93,13 @@ public class JwtServiceImpl implements JwtService {
 
     private Date extractExpiration(String token) {
         return extractClaim(token, Claims::getExpiration);
+    }
+
+    @Override
+    public String getTokenFromHeader(String authorizationHeader) {
+        if (authorizationHeader == null || !authorizationHeader.startsWith("Bearer "))
+            throw new BaseException(ExceptionCode.INVALID_TOKEN);
+
+        return authorizationHeader.substring(7);
     }
 }

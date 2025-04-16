@@ -1,30 +1,30 @@
 package com.uib.avaluapp.user.domain.services;
 
+import com.uib.avaluapp.auth.domain.services.JwtService;
 import com.uib.avaluapp.user.domain.models.User;
 import com.uib.avaluapp.user.domain.ports.UserPort;
 import com.uib.avaluapp.user.infrastructure.web.requests.CreateUserRequest;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
 
     private final UserPort userPort;
     private final BCryptPasswordEncoder encoder;
-
-    @Autowired
-    public UserServiceImpl(UserPort userPort, BCryptPasswordEncoder encoder) {
-        this.userPort = userPort;
-        this.encoder = encoder;
-    }
+    private final JwtService jwtService;
 
     @Override
-    public User getSingleUser(Long id) {
-        // TODO check the user requesting is the same as the one in the token
-        return userPort.getSingleUser(id);
+    public User getSingleUser(String authorization) {
+        String token = jwtService.getTokenFromHeader(authorization);
+        String username = jwtService.extractUsername(token);
+        User user = userPort.getUserByUsername(username);
+
+        return userPort.getSingleUser(user.getId());
     }
 
     @Override

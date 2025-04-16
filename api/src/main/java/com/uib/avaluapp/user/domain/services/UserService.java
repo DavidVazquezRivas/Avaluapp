@@ -6,7 +6,7 @@ import com.uib.avaluapp.user.infrastructure.web.requests.CreateUserRequest;
 import java.util.List;
 
 public interface UserService {
-    User getSingleUser(Long id);
+    User getSingleUser(String authorization);
 
     List<User> getAllUsers();
 
