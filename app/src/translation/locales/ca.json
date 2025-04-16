@@ -1,5 +1,16 @@
 {
   "globals": {},
+  "login": {
+    "quotes": {
+
+    },
+    "title": "Iniciar sessió",
+    "name": "Nom",
+    "namePlaceholder": "Introdueix el teu nom",
+    "password": "Contrasenya",
+    "login": "Iniciar sessió",
+    "remember": "Recorda'm"
+  },
   "notFound": {
     "title": "Uops! Pàgina no trobada",
     "description": "Ho sentim, la pàgina que estàs cercant no existeix o ha estat moguda.",

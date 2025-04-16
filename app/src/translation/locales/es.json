@@ -1,5 +1,17 @@
 {
-  "globals": {},
+  "globals": {
+  },
+  "login": {
+    "quotes": {
+
+    },
+    "title": "Iniciar sesión",
+    "name": "Nombre",
+    "namePlaceholder": "Introduce tu nombre",
+    "password": "Contraseña",
+    "login": "Iniciar sesión",
+    "remember": "Recuérdame"
+  },
   "notFound": {
     "title": "¡Oops! Página no encontrada",
     "description": "Lo sentimos, la página que estás buscando no existe o ha sido movida.",
