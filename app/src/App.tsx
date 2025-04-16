@@ -1,20 +1,21 @@
 import NotFound from '@/pages/notfound/NotFound'
-import { CssBaseline, ThemeProvider } from '@mui/material'
-import { useThemeContext } from '@/theme/ThemeContextProvider'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Login from '@/pages/login/Login'
+import { PUBLIC_ROUTES } from './constants/routes'
+import AppTheme from './theme/AppTheme'
+import { CssBaseline } from '@mui/material'
 
 function App() {
-  const { theme } = useThemeContext()
-
   return (
-    <ThemeProvider theme={theme}>
+    <AppTheme>
       <CssBaseline />
       <BrowserRouter>
         <Routes>
+          <Route path={PUBLIC_ROUTES.LOGIN} element={<Login />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </BrowserRouter>
-    </ThemeProvider>
+    </AppTheme>
   )
 }
 

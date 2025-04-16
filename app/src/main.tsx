@@ -6,15 +6,12 @@ import '@/translation/i18n'
 import App from './App.tsx'
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import { ThemeContextProvider } from '@/theme/ThemeContextProvider.tsx'
 
 // TODO, if any API call uses language, rerender the app when language changes
 // see how to: https://github.com/DavidVazquezRivas/Filmema/commit/0762144edeef4548a38b2c7c43b8ff11f65e9eb4
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeContextProvider>
-      <App />
-    </ThemeContextProvider>
+    <App />
   </StrictMode>
 )
