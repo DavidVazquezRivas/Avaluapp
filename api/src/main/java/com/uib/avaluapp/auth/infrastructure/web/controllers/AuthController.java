@@ -44,7 +44,7 @@ public class AuthController extends BaseController {
             ResponseCookie refreshCookie = ResponseCookie.from("refreshToken", authResponse.getRefreshToken())
                     .httpOnly(true)
                     .secure(secure)
-                    .path("/api/auth/refresh")
+                    .path("/api/auth")
                     .maxAge(Duration.ofMillis(cookieExpiration))
                     .sameSite("Strict")
                     .build();
@@ -74,6 +74,32 @@ public class AuthController extends BaseController {
                             .success(false)
                             .message("Unexpected error: " + e.getMessage())
                             .build());
+        }
+
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<ApiResponse<Void>> logout(@CookieValue(name = "refreshToken", required = false) String refreshToken, HttpServletResponse response) {
+        try {
+            ResponseCookie cookie = ResponseCookie.from("refreshToken", null)
+                    .httpOnly(true)
+                    .secure(secure)
+                    .path("/api/auth")
+                    .maxAge(0)
+                    .sameSite("Strict")
+                    .build();
+            response.setHeader(HttpHeaders.SET_COOKIE, cookie.toString());
+            return ResponseEntity.ok(ApiResponse.<Void>builder()
+                    .message("Logout successful")
+                    .build());
+        } catch (BaseException e) {
+            return ResponseEntity
+                    .status(e.getCode())
+                    .build();
+        } catch (Exception e) {
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .build();
         }
 
     }
