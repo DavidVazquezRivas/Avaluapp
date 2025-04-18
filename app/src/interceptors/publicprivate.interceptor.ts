@@ -27,7 +27,9 @@ export const PublicPrivateInterceptor = () => {
 
   const updateHeadersAuth = async (request: InternalAxiosRequestConfig) => {
     request.headers.set('Content-Type', 'application/json')
-    request.withCredentials = true
+    if (typeof request.withCredentials === 'undefined') {
+      request.withCredentials = true
+    }
 
     return request
   }
