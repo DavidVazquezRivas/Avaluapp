@@ -1,30 +1,41 @@
 import store from '@/redux/store'
 import { Credential } from '@/models/credential.model'
-import { clearToken, setToken } from '@/redux/states/auth'
+import {
+  AuthEmptyState,
+  AuthState,
+  clearSession,
+  setSession,
+} from '@/redux/states/auth'
 import { login } from '@/services/auth/login.service'
 import { refresh } from '@/services/auth/refresh.service'
 import { logout } from '@/services/auth/logout.service'
 
-export const createSession = async (credential: Credential) => {
-  const { data } = await login(credential)
+export const createSession = async (
+  credential: Credential,
+  disableCookies?: boolean
+) => {
+  const { data } = await login(credential, disableCookies)
 
-  const token = data.data.accessToken
-  store.dispatch(setToken(token))
+  store.dispatch(setSession(data.data))
 }
 
 export const deleteSession = async () => {
   await logout()
 
-  store.dispatch(clearToken())
+  store.dispatch(clearSession())
 }
 
 export const refreshSession = async () => {
   const { data } = await refresh()
 
-  const token = data.data.accessToken
-  store.dispatch(setToken(token))
+  store.dispatch(setSession(data.data))
 }
 
-export const getSession = (): string | null => {
-  return store.getState().auth.accessToken
+export const getSession = (): AuthState => {
+  return store.getState().auth
+}
+
+export const haveSession = (): boolean => {
+  const auth = store.getState().auth
+  return auth !== AuthEmptyState
 }
