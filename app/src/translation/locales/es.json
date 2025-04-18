@@ -8,9 +8,12 @@
     "title": "Iniciar sesión",
     "name": "Nombre",
     "namePlaceholder": "Introduce tu nombre",
+    "nameRequired": "El nombre de usuario es obligatorio",
     "password": "Contraseña",
+    "passwordRequired": "La contraseña es obligatoria",
     "login": "Iniciar sesión",
-    "remember": "Recuérdame"
+    "remember": "Recuérdame",
+    "invalid": "Nombre de usuario o contraseña incorrectos"
   },
   "notFound": {
     "title": "¡Oops! Página no encontrada",

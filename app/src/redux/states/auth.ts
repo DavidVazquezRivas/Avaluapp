@@ -1,13 +1,9 @@
+import { User } from '@/models/user.model'
 import { createSlice } from '@reduxjs/toolkit'
 
 export interface AuthState {
   accessToken: string | null
-  user: {
-    id: string
-    name: string
-    email: string
-    role: string
-  } | null
+  user: User | null
 }
 
 export const AuthEmptyState = {

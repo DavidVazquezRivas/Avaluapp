@@ -7,9 +7,12 @@
     "title": "Login",
     "name": "Name",
     "namePlaceholder": "Enter your name",
+    "nameRequired": "Username is required",
     "password": "Password",
+    "passwordRequired": "Password is required",
     "login": "Login",
-    "remember": "Remember me"
+    "remember": "Remember me",
+    "invalid": "Invalid username or password"
   },
   "notFound": {
     "title": "Oops! Page Not Found",
