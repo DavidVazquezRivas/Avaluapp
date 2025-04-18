@@ -8,7 +8,6 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import { styled } from '@mui/material/styles'
-import { SitemarkIcon } from './CustomIcons' // TODO replace with app icon
 import { useTranslation } from 'react-i18next'
 import { createSession } from '@/utils/session.utils'
 import { useState } from 'react'
@@ -111,9 +110,6 @@ export default function SignInCard() {
   return (
     <Card variant='outlined'>
       {/* Heading */}
-      <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-        <SitemarkIcon />
-      </Box>
       <Typography
         component='h1'
         variant='h4'

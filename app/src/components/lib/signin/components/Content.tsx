@@ -5,7 +5,7 @@ import AutoFixHighRoundedIcon from '@mui/icons-material/AutoFixHighRounded'
 import ConstructionRoundedIcon from '@mui/icons-material/ConstructionRounded'
 import SettingsSuggestRoundedIcon from '@mui/icons-material/SettingsSuggestRounded'
 import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded'
-import { SitemarkIcon } from './CustomIcons' // TODO replace with app icon
+import { Icon } from '@/assets/Icon'
 
 const items = [
   {
@@ -44,7 +44,7 @@ export default function Content() {
         maxWidth: 450,
       }}>
       <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-        <SitemarkIcon />
+        <Icon />
       </Box>
       {items.map((item, index) => (
         <Stack key={index} direction='row' sx={{ gap: 2 }}>

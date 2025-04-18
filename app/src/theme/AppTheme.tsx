@@ -45,9 +45,5 @@ export default function AppTheme(props: AppThemeProps) {
   if (disableCustomTheme) {
     return <React.Fragment>{children}</React.Fragment>
   }
-  return (
-    <ThemeProvider theme={theme} disableTransitionOnChange>
-      {children}
-    </ThemeProvider>
-  )
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
 }

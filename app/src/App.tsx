@@ -8,7 +8,7 @@ import {
   UserRoutes,
 } from './constants/routes'
 import { CssBaseline } from '@mui/material'
-import { Suspense, useEffect, useState, lazy } from 'react'
+import { Suspense, useEffect, lazy } from 'react'
 import { PublicPrivateInterceptor } from '@/interceptors/publicprivate.interceptor'
 import { ErrorInterceptor } from '@/interceptors/error.interceptor'
 import { LoadingInterceptor } from '@/interceptors/loading.interceptor'
