@@ -10,10 +10,13 @@ import {
 import { CssBaseline } from '@mui/material'
 import { Suspense, useEffect, useState, lazy } from 'react'
 import { PublicPrivateInterceptor } from '@/interceptors/publicprivate.interceptor'
+import { ErrorInterceptor } from '@/interceptors/error.interceptor'
+import { LoadingInterceptor } from '@/interceptors/loading.interceptor'
 import { haveSession, refreshSession } from '@/utils/session.utils'
 import { PrivateGuard } from '@/guards/private.guard'
 import { RoleGuard } from '@/guards/role.guard'
 import { Role } from '@/models/role.model'
+import LoadingSpinner from './components/spinner/Spinner'
 
 const Login = lazy(() => import('@/pages/login/Login'))
 const Private = lazy(() => import('@/pages/private/Private'))
@@ -21,33 +24,26 @@ const Admin = lazy(() => import('@/pages/admin/Admin'))
 const User = lazy(() => import('@/pages/user/User'))
 
 function App() {
-  const [loading, setLoading] = useState(true)
-
   const tryRefreshSession = async () => {
     try {
       await refreshSession()
     } catch (e) {
       // User not logged, guards will redirect if needed
-    } finally {
-      setLoading(false)
     }
   }
 
   useEffect(() => {
     PublicPrivateInterceptor()
+    ErrorInterceptor()
+    LoadingInterceptor()
     if (!haveSession()) tryRefreshSession()
   }, [])
-
-  const loader = <div>Loading...</div> // TODO: Add a spinner or loading screen
-
-  if (loading) {
-    return loader
-  }
 
   return (
     <AppTheme>
       <CssBaseline />
-      <Suspense fallback={loader}>
+      <LoadingSpinner />
+      <Suspense fallback={<LoadingSpinner />}>
         <BrowserRouter>
           <RoutesWithNotFound>
             <Route path='/' element={<Navigate to={PrivateRoutes.Private} />} />
