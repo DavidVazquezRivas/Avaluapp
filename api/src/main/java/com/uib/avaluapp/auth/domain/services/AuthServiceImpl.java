@@ -1,10 +1,13 @@
 package com.uib.avaluapp.auth.domain.services;
 
 import com.uib.avaluapp.auth.infrastructure.web.requests.AuthRequest;
-import com.uib.avaluapp.auth.infrastructure.web.responses.AccessTokenResponse;
+import com.uib.avaluapp.auth.infrastructure.web.responses.AuthDto;
 import com.uib.avaluapp.auth.infrastructure.web.responses.AuthResponse;
 import com.uib.avaluapp.global.exceptions.BaseException;
 import com.uib.avaluapp.global.exceptions.ExceptionCode;
+import com.uib.avaluapp.user.domain.models.User;
+import com.uib.avaluapp.user.domain.ports.UserPort;
+import com.uib.avaluapp.user.infrastructure.web.UserDtoMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -19,9 +22,10 @@ public class AuthServiceImpl implements AuthService {
     private final AuthenticationManager authenticationManager;
     private final JwtService jwtService;
     private final CustomUserDetailsService userDetailsService;
+    private final UserPort userPort;
 
     @Override
-    public AuthResponse login(AuthRequest authRequest) {
+    public AuthDto login(AuthRequest authRequest) {
         try {
             Authentication authentication = authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
@@ -31,11 +35,15 @@ public class AuthServiceImpl implements AuthService {
             UserDetails userDetails = (UserDetails) authentication.getPrincipal();
             String accessToken = jwtService.generateAccessToken(userDetails);
             String refreshToken = jwtService.generateRefreshToken(userDetails);
+            String username = jwtService.extractUsername(accessToken);
 
-            return AuthResponse
+            User user = userPort.getUserByUsername(username);
+
+            return AuthDto
                     .builder()
                     .accessToken(accessToken)
                     .refreshToken(refreshToken)
+                    .user(UserDtoMapper.INSTANCE.toDto(user))
                     .build();
         } catch (Exception e) {
             throw new BaseException(ExceptionCode.INVALID_CREDENTIALS);
@@ -44,7 +52,7 @@ public class AuthServiceImpl implements AuthService {
     }
 
     @Override
-    public AccessTokenResponse refreshToken(String token) {
+    public AuthResponse refreshToken(String token) {
 
         if (token == null || token.isEmpty() || !jwtService.validateToken(token)) {
             throw new BaseException(ExceptionCode.INVALID_REFRESH_TOKEN);
@@ -57,9 +65,12 @@ public class AuthServiceImpl implements AuthService {
         }
 
         String newAccessToken = jwtService.generateAccessToken(userDetails);
-        return AccessTokenResponse
+
+        User user = userPort.getUserByUsername(username);
+        return AuthResponse
                 .builder()
                 .accessToken(newAccessToken)
+                .user(UserDtoMapper.INSTANCE.toDto(user))
                 .build();
     }
 }

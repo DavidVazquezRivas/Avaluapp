@@ -3,7 +3,7 @@ package com.uib.avaluapp.auth.infrastructure.web.controllers;
 import com.uib.avaluapp.auth.domain.services.AuthService;
 import com.uib.avaluapp.auth.domain.services.JwtService;
 import com.uib.avaluapp.auth.infrastructure.web.requests.AuthRequest;
-import com.uib.avaluapp.auth.infrastructure.web.responses.AccessTokenResponse;
+import com.uib.avaluapp.auth.infrastructure.web.responses.AuthDto;
 import com.uib.avaluapp.auth.infrastructure.web.responses.AuthResponse;
 import com.uib.avaluapp.global.exceptions.BaseException;
 import com.uib.avaluapp.global.insfrastructure.web.BaseController;
@@ -34,14 +34,14 @@ public class AuthController extends BaseController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<ApiResponse<AccessTokenResponse>> login(
+    public ResponseEntity<ApiResponse<AuthResponse>> login(
             @RequestBody AuthRequest authRequest,
             HttpServletResponse response
     ) {
         try {
-            AuthResponse authResponse = authService.login(authRequest);
+            AuthDto authDto = authService.login(authRequest);
 
-            ResponseCookie refreshCookie = ResponseCookie.from("refreshToken", authResponse.getRefreshToken())
+            ResponseCookie refreshCookie = ResponseCookie.from("refreshToken", authDto.getRefreshToken())
                     .httpOnly(true)
                     .secure(secure)
                     .path("/api/auth")
@@ -52,17 +52,19 @@ public class AuthController extends BaseController {
             response.setHeader(HttpHeaders.SET_COOKIE, refreshCookie.toString());
 
             return ResponseEntity.ok(
-                    ApiResponse.<AccessTokenResponse>builder()
+                    ApiResponse.<AuthResponse>builder()
+                            .success(true)
                             .message("Login successful")
-                            .data(AccessTokenResponse.builder()
-                                    .accessToken(authResponse.getAccessToken())
+                            .data(AuthResponse.builder()
+                                    .accessToken(authDto.getAccessToken())
+                                    .user(authDto.getUser())
                                     .build())
                             .build()
             );
         } catch (BaseException e) {
             return ResponseEntity
                     .status(e.getCode())
-                    .body(ApiResponse.<AccessTokenResponse>builder()
+                    .body(ApiResponse.<AuthResponse>builder()
                             .success(false)
                             .message(e.getMessage())
                             .build());
@@ -70,7 +72,7 @@ public class AuthController extends BaseController {
         } catch (Exception e) {
             return ResponseEntity
                     .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(ApiResponse.<AccessTokenResponse>builder()
+                    .body(ApiResponse.<AuthResponse>builder()
                             .success(false)
                             .message("Unexpected error: " + e.getMessage())
                             .build());
@@ -105,7 +107,7 @@ public class AuthController extends BaseController {
     }
 
     @PostMapping("/refresh")
-    public ResponseEntity<ApiResponse<AccessTokenResponse>> refresh(@CookieValue(name = "refreshToken", required = false) String refreshToken) {
+    public ResponseEntity<ApiResponse<AuthResponse>> refresh(@CookieValue(name = "refreshToken", required = false) String refreshToken) {
         return (handle(() -> authService.refreshToken(refreshToken), "Token refreshed successfully", HttpStatus.OK));
     }
 }
