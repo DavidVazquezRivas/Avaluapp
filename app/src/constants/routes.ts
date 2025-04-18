@@ -8,8 +8,10 @@ export const PrivateRoutes = {
 
 export const UserRoutes = {
   Base: '/user',
+  Dashboard: 'dashboard',
 }
 
 export const AdminRoutes = {
   Base: '/admin',
+  Dashboard: 'dashboard',
 }
