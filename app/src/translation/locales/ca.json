@@ -1,5 +1,32 @@
 {
-  "globals": {},
+  "globals": {
+    "header": {
+      "language": {
+        "en": "Anglès",
+        "es": "Espanyol",
+        "ca": "Català"
+      },
+      "logout": "Tancar sessió",
+      "navs": {
+        "dashboard": "Tauler de control",
+        "users": "Usuaris"
+      }
+    }
+  },
+  "login": {
+    "quotes": {
+
+    },
+    "title": "Iniciar sessió",
+    "name": "Nom",
+    "namePlaceholder": "Introdueix el teu nom",
+    "nameRequired": "El nom d'usuari és obligatori",
+    "password": "Contrasenya",
+    "passwordRequired": "La contrasenya és obligatòria",
+    "login": "Iniciar sessió",
+    "remember": "Recorda'm",
+    "invalid": "Nom d'usuari o contrasenya incorrectes"
+  },
   "notFound": {
     "title": "Uops! Pàgina no trobada",
     "description": "Ho sentim, la pàgina que estàs cercant no existeix o ha estat moguda.",

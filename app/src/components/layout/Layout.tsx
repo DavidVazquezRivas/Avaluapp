@@ -1,22 +1,29 @@
 import { Attribution } from '@/models/attribution.model'
-import { Box } from '@mui/material'
+import { Box, Container } from '@mui/material'
+import Header from '@/components/layout/header/Header'
+import Footer from '@/components/layout/footer/Footer'
 
 interface LayoutProps {
   children: React.ReactNode
   attributions?: Attribution[]
 }
 
-// This is a placeholder layout component.
 const Layout: React.FC<LayoutProps> = ({ children, attributions }) => {
-  // TODO - Add attributions to the footer
   return (
-    <Box
-      minHeight='100vh'
-      width='100%'
-      display='grid'
-      sx={{ placeItems: 'center' }}>
-      {children}
-    </Box>
+    <>
+      <Box
+        component='section'
+        display='flex'
+        flexDirection='column'
+        justifyContent='center'
+        minHeight='100vh'>
+        <Header />
+        <Container maxWidth='lg' sx={{ mt: 5 }}>
+          {children}
+        </Container>
+      </Box>
+      <Footer attributions={attributions} />
+    </>
   )
 }
 

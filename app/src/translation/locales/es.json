@@ -1,5 +1,32 @@
 {
-  "globals": {},
+  "globals": {
+    "header": {
+      "language": {
+        "en": "Inglés",
+        "es": "Español",
+        "ca": "Catalán"
+      },
+      "logout": "Cerrar sesión",
+      "navs": {
+        "dashboard": "Panel de control",
+        "users": "Usuarios"
+      }
+    }
+  },
+  "login": {
+    "quotes": {
+
+    },
+    "title": "Iniciar sesión",
+    "name": "Nombre",
+    "namePlaceholder": "Introduce tu nombre",
+    "nameRequired": "El nombre de usuario es obligatorio",
+    "password": "Contraseña",
+    "passwordRequired": "La contraseña es obligatoria",
+    "login": "Iniciar sesión",
+    "remember": "Recuérdame",
+    "invalid": "Nombre de usuario o contraseña incorrectos"
+  },
   "notFound": {
     "title": "¡Oops! Página no encontrada",
     "description": "Lo sentimos, la página que estás buscando no existe o ha sido movida.",

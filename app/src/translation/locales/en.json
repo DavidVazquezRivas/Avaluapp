@@ -1,5 +1,32 @@
 {
-  "globals": {},
+  "globals": {
+    "header": {
+      "language": {
+        "en": "English",
+        "es": "Spanish",
+        "ca": "Catalan"
+      },
+      "logout": "Log out",
+      "navs": {
+        "dashboard": "Dashboard",
+        "users": "Users"
+      }
+    }
+  },
+  "login": {
+    "quotes": {
+
+    },
+    "title": "Login",
+    "name": "Name",
+    "namePlaceholder": "Enter your name",
+    "nameRequired": "Username is required",
+    "password": "Password",
+    "passwordRequired": "Password is required",
+    "login": "Login",
+    "remember": "Remember me",
+    "invalid": "Invalid username or password"
+  },
   "notFound": {
     "title": "Oops! Page Not Found",
     "description": "Sorry, the page you're looking for doesn't exist or has been moved.",
