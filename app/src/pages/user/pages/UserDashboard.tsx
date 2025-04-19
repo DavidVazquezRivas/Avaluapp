@@ -1,9 +1,13 @@
+import Layout from '@/components/layout/Layout'
+
 export const UserDashboard = () => {
   return (
-    <div>
-      <h1>User Dashboard</h1>
-      <p>Welcome to the User dashboard!</p>
-    </div>
+    <Layout>
+      <div>
+        <h1>User Dashboard</h1>
+        <p>Welcome to the User dashboard!</p>
+      </div>
+    </Layout>
   )
 }
 
