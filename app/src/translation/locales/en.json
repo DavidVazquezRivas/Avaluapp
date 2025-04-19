@@ -1,5 +1,18 @@
 {
-  "globals": {},
+  "globals": {
+    "header": {
+      "language": {
+        "en": "English",
+        "es": "Spanish",
+        "ca": "Catalan"
+      },
+      "logout": "Log out",
+      "navs": {
+        "dashboard": "Dashboard",
+        "users": "Users"
+      }
+    }
+  },
   "login": {
     "quotes": {
 

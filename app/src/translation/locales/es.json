@@ -1,5 +1,17 @@
 {
   "globals": {
+    "header": {
+      "language": {
+        "en": "Inglés",
+        "es": "Español",
+        "ca": "Catalán"
+      },
+      "logout": "Cerrar sesión",
+      "navs": {
+        "dashboard": "Panel de control",
+        "users": "Usuarios"
+      }
+    }
   },
   "login": {
     "quotes": {
