@@ -1,5 +1,5 @@
 import Layout from '@/components/layout/Layout'
-import SignIn from '@/components/lib/signin/SignIn'
+import SignIn from '@/pages/login/components/SignIn'
 import { deleteSession } from '@/utils/session.utils'
 import { useEffect } from 'react'
 

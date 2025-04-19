@@ -1,6 +1,6 @@
 import Stack from '@mui/material/Stack'
-import SignInCard from './components/SignInCard'
-import Content from './components/Content'
+import SignInCard from './SignInCard'
+import Content from './Content'
 
 export default function SignIn() {
   return (
