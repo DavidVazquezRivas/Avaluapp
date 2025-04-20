@@ -11,15 +11,16 @@ import Drawer from '@mui/material/Drawer'
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
 import ColorModeIconDropdown from '@/theme/ColorModeIconDropdown'
+import LanguageSelect from './LanguageSelect'
 import { styled, alpha } from '@mui/material/styles'
 import { Icon } from '@/assets/Icon'
-import { deleteSession, getSession, haveSession } from '@/utils/session.utils'
 import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Role } from '@/models/role.model'
 import { AdminNavs, UserNavs } from '@/constants/navs'
 import { NavItem } from '@/models/nav.model'
-import LanguageSelect from './LanguageSelect'
+import { useSession } from '@/hooks/useSession'
+import { getSession } from '@/utils/session.utils'
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: 'flex',
@@ -41,6 +42,7 @@ export default function Header() {
   const [open, setOpen] = React.useState(false)
   const navigate = useNavigate()
   const { t } = useTranslation()
+  const { haveSession, deleteSession } = useSession()
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen)
@@ -50,8 +52,6 @@ export default function Header() {
     await deleteSession()
     navigate('/', { replace: true })
   }
-
-  const isLoggedIn = haveSession()
 
   const navButtons = getNavItems().map((item: NavItem) => (
     <Button
@@ -95,7 +95,7 @@ export default function Header() {
               gap: 1,
               alignItems: 'center',
             }}>
-            {isLoggedIn && (
+            {haveSession && (
               <Button
                 color='primary'
                 variant='text'
@@ -136,7 +136,7 @@ export default function Header() {
                 {navMenuItems}
                 <Divider sx={{ my: 3 }} />
                 <MenuItem>
-                  {isLoggedIn && (
+                  {haveSession && (
                     <Button
                       fullWidth
                       color='primary'
