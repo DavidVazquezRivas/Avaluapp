@@ -8,7 +8,7 @@ import {
   UserRoutes,
 } from './constants/routes'
 import { CssBaseline } from '@mui/material'
-import { Suspense, useEffect, lazy } from 'react'
+import { Suspense, useEffect, lazy, useState } from 'react'
 import { PublicPrivateInterceptor } from '@/interceptors/publicprivate.interceptor'
 import { ErrorInterceptor } from '@/interceptors/error.interceptor'
 import { LoadingInterceptor } from '@/interceptors/loading.interceptor'
@@ -24,11 +24,16 @@ const Admin = lazy(() => import('@/pages/admin/Admin'))
 const User = lazy(() => import('@/pages/user/User'))
 
 function App() {
+  const [sessionChecked, setSessionChecked] = useState(false)
   const tryRefreshSession = async () => {
+    setSessionChecked(false)
     try {
+      if (haveSession()) throw new Error('Session already exists')
       await refreshSession()
     } catch (e) {
-      // User not logged, guards will redirect if needed
+      // User not logged or already existing session, guards will redirect if needed
+    } finally {
+      setSessionChecked(true)
     }
   }
 
@@ -38,6 +43,15 @@ function App() {
     LoadingInterceptor()
     if (!haveSession()) tryRefreshSession()
   }, [])
+
+  if (!sessionChecked) {
+    return (
+      <AppTheme>
+        <CssBaseline />
+        <LoadingSpinner />
+      </AppTheme>
+    )
+  }
 
   return (
     <AppTheme>
