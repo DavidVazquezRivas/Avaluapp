@@ -42,6 +42,7 @@ export default function Content() {
         alignSelf: 'center',
         gap: 4,
         maxWidth: 450,
+        display: { xs: 'none', md: 'flex' },
       }}>
       <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
         <Icon />
