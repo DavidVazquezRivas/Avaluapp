@@ -38,8 +38,8 @@
       "toolbarFiltersLabel": "Show filters",
       "toolbarFiltersTooltipHide": "Hide filters",
       "toolbarFiltersTooltipShow": "Show filters",
-      "toolbarFiltersTooltipActive_1": "{{count}} active filter",
-      "toolbarFiltersTooltipActive": "{{count}} active filters",
+      "toolbarFiltersTooltipActive_one": "{{count}} active filter",
+      "toolbarFiltersTooltipActive_other": "{{count}} active filters",
 
       "toolbarQuickFilterPlaceholder": "Search…",
       "toolbarQuickFilterLabel": "Search",
@@ -130,13 +130,13 @@
       "columnMenuSortDesc": "Sort DESC",
       "columnMenuManagePivot": "Manage pivot",
 
-      "columnHeaderFiltersTooltipActive_1": "{{count}} active filter",
-      "columnHeaderFiltersTooltipActive": "{{count}} active filters",
+      "columnHeaderFiltersTooltipActive_one": "{{count}} active filter",
+      "columnHeaderFiltersTooltipActive_other": "{{count}} active filters",
       "columnHeaderFiltersLabel": "Show filters",
       "columnHeaderSortIconLabel": "Sort",
 
-      "footerRowSelected_1": "{{count}} row selected",
-      "footerRowSelected": "{{count}} rows selected",
+      "footerRowSelected_one": "{{count}} row selected",
+      "footerRowSelected_other": "{{count}} rows selected",
 
       "footerTotalRows": "Total Rows:",
       "footerTotalVisibleRows": "{{visibleCount}} of {{totalCount}}",

@@ -38,8 +38,8 @@
       "toolbarFiltersLabel": "Mostrar filtres",
       "toolbarFiltersTooltipHide": "Amagar filtres",
       "toolbarFiltersTooltipShow": "Mostrar filtres",
-      "toolbarFiltersTooltipActive_1": "{{count}} filtre actiu",
-      "toolbarFiltersTooltipActive": "{{count}} filtres actius",
+      "toolbarFiltersTooltipActive_one": "{{count}} filtre actiu",
+      "toolbarFiltersTooltipActive_other": "{{count}} filtres actius",
 
       "toolbarQuickFilterPlaceholder": "Cercar…",
       "toolbarQuickFilterLabel": "Cercar",
@@ -130,13 +130,13 @@
       "columnMenuSortDesc": "Ordenar DESC",
       "columnMenuManagePivot": "Gestionar pivot",
 
-      "columnHeaderFiltersTooltipActive_1": "{{count}} filtre actiu",
-      "columnHeaderFiltersTooltipActive": "{{count}} filtres actius",
+      "columnHeaderFiltersTooltipActive_one": "{{count}} filtre actiu",
+      "columnHeaderFiltersTooltipActive_other": "{{count}} filtres actius",
       "columnHeaderFiltersLabel": "Mostrar filtres",
       "columnHeaderSortIconLabel": "Ordenar",
 
-      "footerRowSelected_1": "{{count}} fila seleccionada",
-      "footerRowSelected": "{{count}} files seleccionades",
+      "footerRowSelected_one": "{{count}} fila seleccionada",
+      "footerRowSelected_other": "{{count}} files seleccionades",
 
       "footerTotalRows": "Total de files:",
       "footerTotalVisibleRows": "{{visibleCount}} de {{totalCount}}",

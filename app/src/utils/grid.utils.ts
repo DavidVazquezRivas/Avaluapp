@@ -29,12 +29,7 @@ export const getGridLocaleText = (
     toolbarFiltersTooltipHide: t('globals.grid.toolbarFiltersTooltipHide'),
     toolbarFiltersTooltipShow: t('globals.grid.toolbarFiltersTooltipShow'),
     toolbarFiltersTooltipActive: (count: number) =>
-      t(
-        count === 1
-          ? 'toolbarFiltersTooltipActive_1'
-          : 'toolbarFiltersTooltipActive',
-        { count }
-      ),
+      t('globals.grid.toolbarFiltersTooltipActive', { count }),
 
     toolbarQuickFilterPlaceholder: t(
       'globals.grid.toolbarQuickFilterPlaceholder'
@@ -151,17 +146,12 @@ export const getGridLocaleText = (
     columnMenuSortDesc: t('globals.grid.columnMenuSortDesc'),
 
     columnHeaderFiltersTooltipActive: (count) =>
-      t(
-        count === 1
-          ? 'columnHeaderFiltersTooltipActive_1'
-          : 'columnHeaderFiltersTooltipActive',
-        { count }
-      ),
+      t('globals.grid.columnHeaderFiltersTooltipActive', { count }),
     columnHeaderFiltersLabel: t('globals.grid.columnHeaderFiltersLabel'),
     columnHeaderSortIconLabel: t('globals.grid.columnHeaderSortIconLabel'),
 
     footerRowSelected: (count) =>
-      t(count === 1 ? 'footerRowSelected_1' : 'footerRowSelected', { count }),
+      t('globals.grid.footerRowSelected', { count }),
     footerTotalRows: t('globals.grid.footerTotalRows'),
     footerTotalVisibleRows: (visibleCount, totalCount) =>
       t('globals.grid.footerTotalVisibleRows', { visibleCount, totalCount }),
