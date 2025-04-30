@@ -4,12 +4,12 @@ import axios, { InternalAxiosRequestConfig } from 'axios'
 
 export const PublicPrivateInterceptor = () => {
   const updateHeaders = async (request: InternalAxiosRequestConfig) => {
-    let token = getSession()
+    let token = getSession().accessToken
     if (!token) {
       try {
         console.log('Token not found. Refreshing session...')
         await refreshSession()
-        token = getSession()
+        token = getSession().accessToken
       } catch (error) {
         return Promise.reject(new Error('Refresh failed'))
       }
