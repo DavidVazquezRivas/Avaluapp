@@ -262,5 +262,21 @@
     "back": "Back to previous page",
     "home": "Back to homepage",
     "alt": "Page Not Found"
+  },
+  "admin": {
+    "users": {
+      "grid": {
+        "columns": {
+          "id": "ID",
+          "username": "Username",
+          "email": "Email",
+          "role": "Role"
+        },
+        "filters": {
+          "admin": "Administrators",
+          "user": "Project Leads"
+        }
+      }
+    }
   }
 }

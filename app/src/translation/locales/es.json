@@ -262,5 +262,21 @@
     "home": "Volver a la página de inicio",
     "back": "Volver a la página anterior",
     "alt": "Página no encontrada"
+  },
+  "admin": {
+    "users": {
+      "grid": {
+        "columns": {
+          "id": "ID",
+          "username": "Nombre de usuario",
+          "email": "Correo electrónico",
+          "role": "Rol"
+        },
+        "filters": {
+          "admin": "Administradores",
+          "user": "Líderes de proyecto"
+        }
+      }
+    }
   }
 }
