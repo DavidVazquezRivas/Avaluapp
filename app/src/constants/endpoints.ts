@@ -8,4 +8,9 @@ export const apiEndpoints = {
     logout: `${authPath}/logout`,
     refresh: `${authPath}/refresh`,
   },
+  users: {
+    get: `${apiBaseUrl}/users`,
+    create: `${apiBaseUrl}/users`,
+    delete: (id: number) => `${apiBaseUrl}/users/${id}`,
+  },
 }
