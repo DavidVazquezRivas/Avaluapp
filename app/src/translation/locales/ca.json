@@ -18,6 +18,28 @@
         "USER": "Cap de projecte"
       }
     },
+    "panel": {
+      "swipeable": {
+        "closeLabel": "Tancar"
+      },
+      "info": {
+        "text": "Informació",
+        "button": "D'acord"
+      },
+      "confirm": {
+        "text": "Estàs segur que vols continuar?",
+        "button": {
+          "ok": "D'acord",
+          "cancel": "Cancel·lar"
+        }
+      },
+      "form": {
+        "button": {
+          "submit": "Desar",
+          "cancel": "Sortir"
+        }
+      }
+    },
     "grid": {
       "noRowsLabel": "Sense files",
       "noResultsOverlayLabel": "Resultats no trobats",

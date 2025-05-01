@@ -18,6 +18,28 @@
         "USER": "Líder de proyecto"
       }
     },
+    "panel": {
+      "swipeable": {
+        "closeLabel": "Cerrar"
+      },
+      "info": {
+        "text": "Información",
+        "button": "Aceptar"
+      },
+      "confirm": {
+        "text": "¿Estás seguro de que deseas continuar?",
+        "button": {
+          "ok": "Aceptar",
+          "cancel": "Cancelar"
+        }
+      },
+      "form": {
+        "button": {
+          "submit": "Guardar",
+          "cancel": "Salir"
+        }
+      }
+    },
     "grid": {
       "noRowsLabel": "Sin filas",
       "noResultsOverlayLabel": "Resultados no encontrados",

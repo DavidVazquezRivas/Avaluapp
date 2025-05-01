@@ -18,6 +18,28 @@
         "USER": "Project Lead"
       }
     },
+    "panel": {
+      "swipeable": {
+        "closeLabel": "Close"
+      },
+      "info": {
+        "text": "Information",
+        "button": "OK"
+      },
+      "confirm": {
+        "text": "Are you sure you want to continue?",
+        "button": {
+          "ok": "OK",
+          "cancel": "Cancel"
+        }
+      },
+      "form": {
+        "button": {
+          "submit": "Save",
+          "cancel": "Exit"
+        }
+      }
+    },
     "grid": {
       "noRowsLabel": "No rows",
       "noResultsOverlayLabel": "No results found",
