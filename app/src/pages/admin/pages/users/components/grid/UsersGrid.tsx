@@ -19,7 +19,33 @@ export const UsersGrid = () => {
     callGetUsers()
   }, [])
 
-  const columns = getColumns(t)
+  const columns = [
+    {
+      field: 'id',
+      headerName: t('admin.users.grid.columns.id'),
+      minWidth: 60,
+      sortable: false,
+    },
+    {
+      field: 'username',
+      headerName: t('admin.users.grid.columns.username'),
+      minWidth: 150,
+      sortable: false,
+    },
+    {
+      field: 'email',
+      headerName: t('admin.users.grid.columns.email'),
+      minWidth: 250,
+      sortable: false,
+    },
+    {
+      field: 'role',
+      headerName: t('admin.users.grid.columns.role'),
+      minWidth: 150,
+      sortable: false,
+      valueGetter: (value: Role) => roleRenderer(value, t),
+    },
+  ]
   const defaultFilters = getDefaultFilters(t)
 
   return <Grid defaultFilters={defaultFilters} rows={rows} columns={columns} />
