@@ -1,12 +1,13 @@
-import AppTheme from './theme/AppTheme'
+import AppTheme from '@/theme/AppTheme'
 import RoutesWithNotFound from '@/components/routing/RoutesWithNotFound'
+import LoadingSpinner from '@/components/spinner/Spinner'
 import { BrowserRouter, Navigate, Route } from 'react-router-dom'
 import {
   AdminRoutes,
   PrivateRoutes,
   PublicRoutes,
   UserRoutes,
-} from './constants/routes'
+} from '@/constants/routes'
 import { CssBaseline } from '@mui/material'
 import { Suspense, useEffect, lazy, useState } from 'react'
 import { PublicPrivateInterceptor } from '@/interceptors/publicprivate.interceptor'
@@ -16,7 +17,8 @@ import { haveSession, refreshSession } from '@/utils/session.utils'
 import { PrivateGuard } from '@/guards/private.guard'
 import { RoleGuard } from '@/guards/role.guard'
 import { Role } from '@/models/role.model'
-import LoadingSpinner from './components/spinner/Spinner'
+import { PanelProvider } from '@/contexts/PanelContext'
+import { Panel } from '@/components/panel/Panel'
 
 const Login = lazy(() => import('@/pages/login/Login'))
 const Private = lazy(() => import('@/pages/private/Private'))
@@ -58,24 +60,30 @@ function App() {
       <CssBaseline />
       <LoadingSpinner />
       <Suspense fallback={<LoadingSpinner />}>
-        <BrowserRouter>
-          <RoutesWithNotFound>
-            <Route path='/' element={<Navigate to={PrivateRoutes.Private} />} />
-            <Route path={PublicRoutes.Login} element={<Login />} />
-            <Route element={<PrivateGuard />}>
+        <PanelProvider>
+          <BrowserRouter>
+            <RoutesWithNotFound>
               <Route
-                path={`${PrivateRoutes.Private}/*`}
-                element={<Private />}
+                path='/'
+                element={<Navigate to={PrivateRoutes.Private} />}
               />
-            </Route>
-            <Route element={<RoleGuard role={Role.Admin} />}>
-              <Route path={`${AdminRoutes.Base}/*`} element={<Admin />} />
-            </Route>
-            <Route element={<RoleGuard role={Role.User} />}>
-              <Route path={`${UserRoutes.Base}/*`} element={<User />} />
-            </Route>
-          </RoutesWithNotFound>
-        </BrowserRouter>
+              <Route path={PublicRoutes.Login} element={<Login />} />
+              <Route element={<PrivateGuard />}>
+                <Route
+                  path={`${PrivateRoutes.Private}/*`}
+                  element={<Private />}
+                />
+              </Route>
+              <Route element={<RoleGuard role={Role.Admin} />}>
+                <Route path={`${AdminRoutes.Base}/*`} element={<Admin />} />
+              </Route>
+              <Route element={<RoleGuard role={Role.User} />}>
+                <Route path={`${UserRoutes.Base}/*`} element={<User />} />
+              </Route>
+            </RoutesWithNotFound>
+            <Panel />
+          </BrowserRouter>
+        </PanelProvider>
       </Suspense>
     </AppTheme>
   )
