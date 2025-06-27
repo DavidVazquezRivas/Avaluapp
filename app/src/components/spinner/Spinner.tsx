@@ -1,34 +1,24 @@
-import { CircularProgress, Fade } from '@mui/material'
-import { useSelector } from 'react-redux'
-import { RootState } from '@/redux/store'
+import { CircularProgress, Box, useTheme } from '@mui/material'
 
 const LoadingSpinner = () => {
-  const isLoading = useSelector((state: RootState) => state.loading.isLoading)
+  const theme = useTheme()
 
   return (
-    <Fade in={isLoading} timeout={{ enter: 300, exit: 500 }}>
-      <div
-        style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100%',
-          height: '100%',
-          backgroundColor: 'rgba(255, 255, 255, 0.4)',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          zIndex: 9999,
-          backdropFilter: 'blur(4px)',
-          transition: 'all 0.3s ease-in-out',
-        }}>
-        <CircularProgress
-          thickness={4.5}
-          size={60}
-          style={{ color: '#1976d2' }}
-        />
-      </div>
-    </Fade>
+    <Box
+      sx={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh',
+        bgcolor: theme.palette.action.disabledBackground,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        zIndex: theme.zIndex.tooltip + 1000,
+      }}>
+      <CircularProgress />
+    </Box>
   )
 }
 

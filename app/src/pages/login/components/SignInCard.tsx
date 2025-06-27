@@ -9,10 +9,11 @@ import TextField from '@mui/material/TextField'
 import Typography from '@mui/material/Typography'
 import { styled } from '@mui/material/styles'
 import { useTranslation } from 'react-i18next'
-import { createSession } from '@/utils/session.utils'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { PrivateRoutes } from '@/constants/routes'
+import { useLoginMutation } from '../hooks/useLoginMutation'
+import { CircularProgress } from '@mui/material'
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',
@@ -55,15 +56,17 @@ export default function SignInCard() {
   const [errors, setErrors] = useState(initialErrorState)
   const [remember, setRemember] = useState(true)
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const loginMutation = useLoginMutation()
+
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     const data = new FormData(event.currentTarget)
     const username = (data.get('name') as string)?.trim() || ''
     const password = (data.get('password') as string)?.trim() || ''
 
     const newErrors: ErrorState = {
-      username: username === '' ? ErrorType.REQUIRED : errors.username,
-      password: password === '' ? ErrorType.REQUIRED : errors.password,
+      username: username === '' ? ErrorType.REQUIRED : ErrorType.NONE,
+      password: password === '' ? ErrorType.REQUIRED : ErrorType.NONE,
     }
 
     setErrors(newErrors)
@@ -74,17 +77,21 @@ export default function SignInCard() {
     )
       return
 
-    const credential = { username, password }
-    try {
-      await createSession(credential, !remember)
-      setErrors(initialErrorState)
-      navigate(PrivateRoutes.Private, { replace: true })
-    } catch (error) {
-      setErrors({
-        username: ErrorType.INVALID,
-        password: ErrorType.INVALID,
-      })
-    }
+    loginMutation.mutate(
+      { username, password, forget: !remember },
+      {
+        onSuccess: () => {
+          setErrors(initialErrorState)
+          navigate(PrivateRoutes.Private, { replace: true })
+        },
+        onError: () => {
+          setErrors({
+            username: ErrorType.INVALID,
+            password: ErrorType.INVALID,
+          })
+        },
+      }
+    )
   }
 
   const getErrorMessage = (
@@ -168,8 +175,16 @@ export default function SignInCard() {
           }
           label={t('login.remember')}
         />
-        <Button type='submit' fullWidth variant='contained'>
-          {t('login.login')}
+        <Button
+          type='submit'
+          fullWidth
+          variant='contained'
+          disabled={loginMutation.isPending}>
+          {loginMutation.isPending ? (
+            <CircularProgress size={24} color='primary' />
+          ) : (
+            t('login.login')
+          )}
         </Button>
       </Box>
     </Card>
