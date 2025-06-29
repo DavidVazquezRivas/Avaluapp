@@ -1,10 +1,11 @@
 import Grid from '@/components/grid/Grid'
 import { User } from '@/models/user.model'
 import { useTranslation } from 'react-i18next'
-import { getColumns } from './columns'
 import { getDefaultFilters } from './filters'
 import { useEffect, useState } from 'react'
 import { getUsers } from '@/pages/admin/pages/users/services/get.users.service'
+import { roleRenderer } from '@/utils/renderers/role.renderer'
+import { Role } from '@/models/role.model'
 
 export const UsersGrid = () => {
   const [rows, setRows] = useState<User[]>([])
