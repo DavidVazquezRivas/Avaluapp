@@ -12,5 +12,6 @@ export const apiEndpoints = {
     get: `${apiBaseUrl}/users`,
     create: `${apiBaseUrl}/users`,
     delete: (id: number) => `${apiBaseUrl}/users/${id}`,
+    update: (id: number) => `${apiBaseUrl}/users/${id}`,
   },
 }
