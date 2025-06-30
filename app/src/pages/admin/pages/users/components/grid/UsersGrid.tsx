@@ -127,7 +127,7 @@ export const UsersGrid = () => {
           <GridActionsCellItem
             icon={<EditIcon />}
             onClick={() => onClickEdit(params.row)}
-            label={t('admin.users.grid.ctions.edit')}
+            label={t('admin.users.grid.actions.edit')}
           />,
         ],
       },
