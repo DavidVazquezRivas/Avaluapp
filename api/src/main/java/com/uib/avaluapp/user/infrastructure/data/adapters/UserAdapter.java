@@ -59,4 +59,17 @@ public class UserAdapter implements UserPort {
         UserEntity userEntity = userRepository.findById(id).orElseThrow(() -> new BaseException(ExceptionCode.USER_NOT_FOUND));
         userRepository.delete(userEntity);
     }
+
+    @Override
+    public User updateUser(Long id, User user) {
+        UserEntity existingUserEntity = userRepository.findById(id)
+                .orElseThrow(() -> new BaseException(ExceptionCode.USER_NOT_FOUND));
+        
+        existingUserEntity.setUsername(user.getUsername());
+        existingUserEntity.setEmail(user.getEmail());
+        existingUserEntity.setRole(user.getRole());
+
+        UserEntity updatedUserEntity = userRepository.save(existingUserEntity);
+        return UserEntityMapper.INSTANCE.toDomain(updatedUserEntity);
+    }
 }
