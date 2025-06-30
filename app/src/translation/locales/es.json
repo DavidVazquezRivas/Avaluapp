@@ -11,12 +11,266 @@
         "dashboard": "Panel de control",
         "users": "Usuarios"
       }
+    },
+    "formatters": {
+      "role": {
+        "ADMIN": "Administrador",
+        "USER": "Líder de proyecto"
+      }
+    },
+    "panel": {
+      "swipeable": {
+        "closeLabel": "Cerrar"
+      },
+      "info": {
+        "text": "Información",
+        "button": "Aceptar"
+      },
+      "confirm": {
+        "text": "¿Estás seguro de que deseas continuar?",
+        "button": {
+          "ok": "Aceptar",
+          "cancel": "Cancelar"
+        }
+      },
+      "form": {
+        "button": {
+          "submit": "Guardar",
+          "cancel": "Salir"
+        },
+        "error": {
+          "default": "Error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde."
+        }
+      }
+    },
+    "grid": {
+      "noRowsLabel": "Sin filas",
+      "noResultsOverlayLabel": "Resultados no encontrados",
+      "noColumnsOverlayLabel": "Sin columnas",
+      "noColumnsOverlayManageColumns": "Administrar columnas",
+      "emptyPivotOverlayLabel": "Agrega campos a filas, columnas y valores para crear una tabla dinámica",
+
+      "toolbarDensity": "Densidad",
+      "toolbarDensityLabel": "Densidad",
+      "toolbarDensityCompact": "Compacta",
+      "toolbarDensityStandard": "Estándar",
+      "toolbarDensityComfortable": "Cómoda",
+
+      "toolbarColumns": "Columnas",
+      "toolbarColumnsLabel": "Seleccionar columnas",
+
+      "toolbarFilters": "Filtros",
+      "toolbarFiltersLabel": "Mostrar filtros",
+      "toolbarFiltersTooltipHide": "Ocultar filtros",
+      "toolbarFiltersTooltipShow": "Mostrar filtros",
+      "toolbarFiltersTooltipActive_one": "{{count}} filtro activo",
+      "toolbarFiltersTooltipActive_other": "{{count}} filtros activos",
+
+      "toolbarQuickFilterPlaceholder": "Buscar…",
+      "toolbarQuickFilterLabel": "Buscar",
+      "toolbarQuickFilterDeleteIconLabel": "Limpiar",
+
+      "toolbarExport": "Exportar",
+      "toolbarExportLabel": "Exportar",
+      "toolbarExportCSV": "Descargar como CSV",
+      "toolbarExportPrint": "Imprimir",
+      "toolbarExportExcel": "Descargar como Excel",
+
+      "toolbarPivot": "Pivot",
+      "toolbarAssistant": "Asistente IA",
+
+      "columnsManagementSearchTitle": "Buscar",
+      "columnsManagementNoColumns": "Sin columnas",
+      "columnsManagementShowHideAllText": "Mostrar/Ocultar todas",
+      "columnsManagementReset": "Restablecer",
+      "columnsManagementDeleteIconLabel": "Limpiar",
+
+      "filterPanelAddFilter": "Agregar filtro",
+      "filterPanelRemoveAll": "Remover todos",
+      "filterPanelDeleteIconLabel": "Borrar",
+      "filterPanelLogicOperator": "Operador lógico",
+      "filterPanelOperator": "Operadores",
+      "filterPanelOperatorAnd": "Y",
+      "filterPanelOperatorOr": "O",
+      "filterPanelColumns": "Columnas",
+      "filterPanelInputLabel": "Valor",
+      "filterPanelInputPlaceholder": "Valor de filtro",
+
+      "filterOperatorContains": "contiene",
+      "filterOperatorDoesNotContain": "no contiene",
+      "filterOperatorEquals": "es igual",
+      "filterOperatorDoesNotEqual": "es diferente a",
+      "filterOperatorStartsWith": "comienza con",
+      "filterOperatorEndsWith": "termina con",
+      "filterOperatorIs": "es",
+      "filterOperatorNot": "no es",
+      "filterOperatorAfter": "es posterior",
+      "filterOperatorOnOrAfter": "es en o posterior",
+      "filterOperatorBefore": "es anterior",
+      "filterOperatorOnOrBefore": "es en o anterior",
+      "filterOperatorIsEmpty": "está vacío",
+      "filterOperatorIsNotEmpty": "no está vacío",
+      "filterOperatorIsAnyOf": "es cualquiera de",
+      "filterOperator=": "=",
+      "filterOperator!=": "!=",
+      "filterOperator>": ">",
+      "filterOperator>=": ">=",
+      "filterOperator<": "<",
+      "filterOperator<=": "<=",
+
+      "headerFilterOperatorContains": "Contiene",
+      "headerFilterOperatorDoesNotContain": "No contiene",
+      "headerFilterOperatorEquals": "Es igual a",
+      "headerFilterOperatorDoesNotEqual": "Es diferente a",
+      "headerFilterOperatorStartsWith": "Comienza con",
+      "headerFilterOperatorEndsWith": "Termina con",
+      "headerFilterOperatorIs": "Es",
+      "headerFilterOperatorNot": "No es",
+      "headerFilterOperatorAfter": "Está después de",
+      "headerFilterOperatorOnOrAfter": "Está en o después de",
+      "headerFilterOperatorBefore": "Está antes de",
+      "headerFilterOperatorOnOrBefore": "Está en o antes de",
+      "headerFilterOperatorIsEmpty": "Está vacío",
+      "headerFilterOperatorIsNotEmpty": "No está vacío",
+      "headerFilterOperatorIsAnyOf": "Es cualquiera de",
+      "headerFilterOperator=": "Es igual a",
+      "headerFilterOperator!=": "Es diferente a",
+      "headerFilterOperator>": "Es mayor que",
+      "headerFilterOperator>=": "Es mayor o igual que",
+      "headerFilterOperator<": "Es menor que",
+      "headerFilterOperator<=": "Es menor o igual que",
+      "headerFilterClear": "Limpiar filtro",
+
+      "filterValueAny": "cualquiera",
+      "filterValueTrue": "verdadero",
+      "filterValueFalse": "falso",
+
+      "columnMenuLabel": "Menú",
+      "columnMenuShowColumns": "Mostrar columnas",
+      "columnMenuManageColumns": "Administrar columnas",
+      "columnMenuFilter": "Filtro",
+      "columnMenuHideColumn": "Ocultar",
+      "columnMenuUnsort": "Desordenar",
+      "columnMenuSortAsc": "Ordenar ASC",
+      "columnMenuSortDesc": "Ordenar DESC",
+      "columnMenuManagePivot": "Administrar pivot",
+
+      "columnHeaderFiltersTooltipActive_one": "{{count}} filtro activo",
+      "columnHeaderFiltersTooltipActive_other": "{{count}} filtros activos",
+      "columnHeaderFiltersLabel": "Mostrar filtros",
+      "columnHeaderSortIconLabel": "Ordenar",
+
+      "footerRowSelected_one": "{{count}} fila seleccionada",
+      "footerRowSelected_other": "{{count}} filas seleccionadas",
+
+      "footerTotalRows": "Filas Totales:",
+      "footerTotalVisibleRows": "{{visibleCount}} de {{totalCount}}",
+
+      "checkboxSelectionHeaderName": "Seleccionar casilla",
+      "checkboxSelectionSelectAllRows": "Seleccionar todas las filas",
+      "checkboxSelectionUnselectAllRows": "Deseleccionar todas las filas",
+      "checkboxSelectionSelectRow": "Seleccionar fila",
+      "checkboxSelectionUnselectRow": "Deseleccionar fila",
+
+      "booleanCellTrueLabel": "sí",
+      "booleanCellFalseLabel": "no",
+
+      "actionsCellMore": "más",
+
+      "pinToLeft": "Anclar a la izquierda",
+      "pinToRight": "Anclar a la derecha",
+      "unpin": "Desanclar",
+
+      "treeDataGroupingHeaderName": "Grupo",
+      "treeDataExpand": "mostrar hijos",
+      "treeDataCollapse": "ocultar hijos",
+
+      "groupingColumnHeaderName": "Grupo",
+      "groupColumn": "Agrupar por {{name}}",
+      "unGroupColumn": "No agrupar por {{name}}",
+
+      "detailPanelToggle": "Alternar detalle",
+      "expandDetailPanel": "Expandir",
+      "collapseDetailPanel": "Contraer",
+
+      "paginationRowsPerPage": "Filas por página:",
+      "paginationDisplayedRows": "{{from}}–{{to}} de {{count}}",
+      "paginationItemAriaLabel": "{{type}}",
+
+      "rowReorderingHeaderName": "Reordenar filas",
+
+      "aggregationMenuItemHeader": "Agregación",
+      "aggregationFunctionLabelSum": "suma",
+      "aggregationFunctionLabelAvg": "promedio",
+      "aggregationFunctionLabelMin": "mínimo",
+      "aggregationFunctionLabelMax": "máximo",
+      "aggregationFunctionLabelSize": "tamaño",
+
+      "pivotToggleLabel": "Pivot",
+      "pivotRows": "Filas",
+      "pivotColumns": "Columnas",
+      "pivotValues": "Valores",
+      "pivotCloseButton": "Cerrar configuración de pivot",
+      "pivotSearchButton": "Buscar campos",
+      "pivotSearchControlPlaceholder": "Buscar campos",
+      "pivotSearchControlLabel": "Buscar campos",
+      "pivotSearchControlClear": "Limpiar búsqueda",
+      "pivotNoFields": "Sin campos",
+      "pivotMenuMoveUp": "Mover arriba",
+      "pivotMenuMoveDown": "Mover abajo",
+      "pivotMenuMoveToTop": "Mover al inicio",
+      "pivotMenuMoveToBottom": "Mover al final",
+      "pivotMenuRows": "Filas",
+      "pivotMenuColumns": "Columnas",
+      "pivotMenuValues": "Valores",
+      "pivotMenuOptions": "Opciones del campo",
+      "pivotMenuAddToRows": "Agregar a filas",
+      "pivotMenuAddToColumns": "Agregar a columnas",
+      "pivotMenuAddToValues": "Agregar a valores",
+      "pivotMenuRemove": "Eliminar",
+      "pivotDragToRows": "Arrastra aquí para crear filas",
+      "pivotDragToColumns": "Arrastra aquí para crear columnas",
+      "pivotDragToValues": "Arrastra aquí para crear valores",
+      "pivotYearColumnHeaderName": "(Año)",
+      "pivotQuarterColumnHeaderName": "(Trimestre)",
+
+      "aiAssistantPanelTitle": "Asistente IA",
+      "aiAssistantPanelClose": "Cerrar asistente IA",
+      "aiAssistantPanelNewConversation": "Nueva conversación",
+      "aiAssistantPanelConversationHistory": "Historial de conversación",
+      "aiAssistantPanelEmptyConversation": "Sin historial de prompts",
+      "aiAssistantSuggestions": "Sugerencias",
+
+      "promptFieldLabel": "Prompt",
+      "promptFieldPlaceholder": "Escribe un prompt…",
+      "promptFieldPlaceholderWithRecording": "Escribe o graba un prompt…",
+      "promptFieldPlaceholderListening": "Esperando un prompt…",
+      "promptFieldSpeechRecognitionNotSupported": "El reconocimiento de voz no es compatible con este navegador",
+      "promptFieldSend": "Enviar",
+      "promptFieldRecord": "Grabar",
+      "promptFieldStopRecording": "Parar grabación",
+
+      "promptRerun": "Ejecutar de nuevo",
+      "promptProcessing": "Procesando…",
+      "promptAppliedChanges": "Cambios aplicados",
+
+      "promptChangeGroupDescription": "Agrupar por {{column}}",
+      "promptChangeAggregationLabel": "{{column}} ({{aggregation}})",
+      "promptChangeAggregationDescription": "Agregar {{column}} ({{aggregation}})",
+      "promptChangeFilterLabel": "Filtrar {{column}} {{operator}} {{value}}",
+      "promptChangeFilterDescription": "Filtrar {{column}} con {{operator}} = {{value}}",
+      "promptChangeSortDescription": "Ordenar por {{column}} ({{direction}})",
+      "promptChangePivotEnableLabel": "Pivot",
+      "promptChangePivotEnableDescription": "Activar pivot",
+      "promptChangePivotColumnsLabel": "Columnas ({{count}})",
+      "promptChangePivotColumnsDescription": "{{column}}{{direction ? ' (' + direction + ')' : ''}}",
+      "promptChangePivotRowsLabel": "Filas ({{count}})",
+      "promptChangePivotValuesLabel": "Valores ({{count}})",
+      "promptChangePivotValuesDescription": "{{column}} ({{aggregation}})"
     }
   },
   "login": {
-    "quotes": {
-
-    },
+    "quotes": {},
     "title": "Iniciar sesión",
     "name": "Nombre",
     "namePlaceholder": "Introduce tu nombre",
@@ -33,5 +287,72 @@
     "home": "Volver a la página de inicio",
     "back": "Volver a la página anterior",
     "alt": "Página no encontrada"
+  },
+  "admin": {
+    "users": {
+      "grid": {
+        "columns": {
+          "id": "ID",
+          "username": "Nombre de usuario",
+          "email": "Correo electrónico",
+          "role": "Rol"
+        },
+        "filters": {
+          "admin": "Administradores",
+          "user": "Líderes de proyecto"
+        },
+        "actions": {
+          "delete": {
+            "label": "Eliminar",
+            "confirm": {
+              "title": "Eliminar usuario",
+              "text": "¿Estás seguro de que deseas eliminar el usuario {{username}}?",
+              "button": {
+                "ok": "Eliminar",
+                "cancel": "Cancelar"
+              }
+            }
+          },
+          "edit": "Editar"
+        }
+      },
+      "form": {
+        "title": {
+          "create": "Crear usuario",
+          "edit": "Editar usuario"
+        },
+        "fields": {
+          "id": {
+            "label": "ID",
+            "placeholder": "ID del usuario",
+            "helperText": "El ID es obligatorio"
+          },
+          "username": {
+            "label": "Nombre de usuario",
+            "placeholder": "Introduce el nombre de usuario",
+            "helperText": "El nombre de usuario es obligatorio"
+          },
+          "email": {
+            "label": "Correo electrónico",
+            "placeholder": "Introduce el correo electrónico",
+            "helperText": "El correo electrónico es obligatorio y debe ser válido"
+          },
+          "password": {
+            "label": "Contraseña",
+            "placeholder": "••••••••",
+            "helperText": "La contraseña es obligatoria"
+          },
+          "role": {
+            "label": "Rol",
+            "placeholder": "Selecciona un rol",
+            "helperText": "El rol es obligatorio"
+          }
+        },
+        "error": {
+          "create": "Error al crear usuario. Ya existe un usuario con este nombre de usuario o correo electrónico.",
+          "update": "Error al actualizar usuario. Ya existe otro usuario con este nombre de usuario o correo electrónico."
+        }
+      }
+    }
   }
 }

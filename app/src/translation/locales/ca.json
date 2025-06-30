@@ -11,12 +11,266 @@
         "dashboard": "Tauler de control",
         "users": "Usuaris"
       }
+    },
+    "formatters": {
+      "role": {
+        "ADMIN": "Administrador",
+        "USER": "Cap de projecte"
+      }
+    },
+    "panel": {
+      "swipeable": {
+        "closeLabel": "Tancar"
+      },
+      "info": {
+        "text": "Informació",
+        "button": "D'acord"
+      },
+      "confirm": {
+        "text": "Estàs segur que vols continuar?",
+        "button": {
+          "ok": "D'acord",
+          "cancel": "Cancel·lar"
+        }
+      },
+      "form": {
+        "button": {
+          "submit": "Desar",
+          "cancel": "Sortir"
+        },
+        "error": {
+          "default": "Error en processar la sol·licitud. Si us plau, torna-ho a intentar més tard."
+        }
+      }
+    },
+    "grid": {
+      "noRowsLabel": "Sense files",
+      "noResultsOverlayLabel": "Resultats no trobats",
+      "noColumnsOverlayLabel": "Sense columnes",
+      "noColumnsOverlayManageColumns": "Gestiona columnes",
+      "emptyPivotOverlayLabel": "Afegeix camps a files, columnes i valors per crear una taula dinàmica",
+
+      "toolbarDensity": "Densitat",
+      "toolbarDensityLabel": "Densitat",
+      "toolbarDensityCompact": "Compacta",
+      "toolbarDensityStandard": "Estàndard",
+      "toolbarDensityComfortable": "Còmoda",
+
+      "toolbarColumns": "Columnes",
+      "toolbarColumnsLabel": "Seleccionar columnes",
+
+      "toolbarFilters": "Filtres",
+      "toolbarFiltersLabel": "Mostrar filtres",
+      "toolbarFiltersTooltipHide": "Amagar filtres",
+      "toolbarFiltersTooltipShow": "Mostrar filtres",
+      "toolbarFiltersTooltipActive_one": "{{count}} filtre actiu",
+      "toolbarFiltersTooltipActive_other": "{{count}} filtres actius",
+
+      "toolbarQuickFilterPlaceholder": "Cercar…",
+      "toolbarQuickFilterLabel": "Cercar",
+      "toolbarQuickFilterDeleteIconLabel": "Netejar",
+
+      "toolbarExport": "Exportar",
+      "toolbarExportLabel": "Exportar",
+      "toolbarExportCSV": "Descarregar com a CSV",
+      "toolbarExportPrint": "Imprimir",
+      "toolbarExportExcel": "Descarregar com a Excel",
+
+      "toolbarPivot": "Pivot",
+      "toolbarAssistant": "Assistent IA",
+
+      "columnsManagementSearchTitle": "Cercar",
+      "columnsManagementNoColumns": "Sense columnes",
+      "columnsManagementShowHideAllText": "Mostrar/Amagar totes",
+      "columnsManagementReset": "Restablir",
+      "columnsManagementDeleteIconLabel": "Netejar",
+
+      "filterPanelAddFilter": "Afegir filtre",
+      "filterPanelRemoveAll": "Eliminar tots",
+      "filterPanelDeleteIconLabel": "Esborrar",
+      "filterPanelLogicOperator": "Operador lògic",
+      "filterPanelOperator": "Operadors",
+      "filterPanelOperatorAnd": "I",
+      "filterPanelOperatorOr": "O",
+      "filterPanelColumns": "Columnes",
+      "filterPanelInputLabel": "Valor",
+      "filterPanelInputPlaceholder": "Valor del filtre",
+
+      "filterOperatorContains": "conté",
+      "filterOperatorDoesNotContain": "no conté",
+      "filterOperatorEquals": "és igual",
+      "filterOperatorDoesNotEqual": "és diferent de",
+      "filterOperatorStartsWith": "comença amb",
+      "filterOperatorEndsWith": "acaba amb",
+      "filterOperatorIs": "és",
+      "filterOperatorNot": "no és",
+      "filterOperatorAfter": "és posterior",
+      "filterOperatorOnOrAfter": "és en o posterior",
+      "filterOperatorBefore": "és anterior",
+      "filterOperatorOnOrBefore": "és en o anterior",
+      "filterOperatorIsEmpty": "està buit",
+      "filterOperatorIsNotEmpty": "no està buit",
+      "filterOperatorIsAnyOf": "és qualsevol de",
+      "filterOperator=": "=",
+      "filterOperator!=": "!=",
+      "filterOperator>": ">",
+      "filterOperator>=": ">=",
+      "filterOperator<": "<",
+      "filterOperator<=": "<=",
+
+      "headerFilterOperatorContains": "Conté",
+      "headerFilterOperatorDoesNotContain": "No conté",
+      "headerFilterOperatorEquals": "És igual a",
+      "headerFilterOperatorDoesNotEqual": "És diferent de",
+      "headerFilterOperatorStartsWith": "Comença amb",
+      "headerFilterOperatorEndsWith": "Acaba amb",
+      "headerFilterOperatorIs": "És",
+      "headerFilterOperatorNot": "No és",
+      "headerFilterOperatorAfter": "És després de",
+      "headerFilterOperatorOnOrAfter": "És en o després de",
+      "headerFilterOperatorBefore": "És abans de",
+      "headerFilterOperatorOnOrBefore": "És en o abans de",
+      "headerFilterOperatorIsEmpty": "Està buit",
+      "headerFilterOperatorIsNotEmpty": "No està buit",
+      "headerFilterOperatorIsAnyOf": "És qualsevol de",
+      "headerFilterOperator=": "És igual a",
+      "headerFilterOperator!=": "És diferent de",
+      "headerFilterOperator>": "És més gran que",
+      "headerFilterOperator>=": "És més gran o igual que",
+      "headerFilterOperator<": "És més petit que",
+      "headerFilterOperator<=": "És més petit o igual que",
+      "headerFilterClear": "Netejar filtre",
+
+      "filterValueAny": "qualsevol",
+      "filterValueTrue": "cert",
+      "filterValueFalse": "fals",
+
+      "columnMenuLabel": "Menú",
+      "columnMenuShowColumns": "Mostrar columnes",
+      "columnMenuManageColumns": "Gestionar columnes",
+      "columnMenuFilter": "Filtre",
+      "columnMenuHideColumn": "Amagar",
+      "columnMenuUnsort": "Desordenar",
+      "columnMenuSortAsc": "Ordenar ASC",
+      "columnMenuSortDesc": "Ordenar DESC",
+      "columnMenuManagePivot": "Gestionar pivot",
+
+      "columnHeaderFiltersTooltipActive_one": "{{count}} filtre actiu",
+      "columnHeaderFiltersTooltipActive_other": "{{count}} filtres actius",
+      "columnHeaderFiltersLabel": "Mostrar filtres",
+      "columnHeaderSortIconLabel": "Ordenar",
+
+      "footerRowSelected_one": "{{count}} fila seleccionada",
+      "footerRowSelected_other": "{{count}} files seleccionades",
+
+      "footerTotalRows": "Total de files:",
+      "footerTotalVisibleRows": "{{visibleCount}} de {{totalCount}}",
+
+      "checkboxSelectionHeaderName": "Seleccionar casella",
+      "checkboxSelectionSelectAllRows": "Seleccionar totes les files",
+      "checkboxSelectionUnselectAllRows": "Deseleccionar totes les files",
+      "checkboxSelectionSelectRow": "Seleccionar fila",
+      "checkboxSelectionUnselectRow": "Deseleccionar fila",
+
+      "booleanCellTrueLabel": "sí",
+      "booleanCellFalseLabel": "no",
+
+      "actionsCellMore": "més",
+
+      "pinToLeft": "Fixar a l'esquerra",
+      "pinToRight": "Fixar a la dreta",
+      "unpin": "Desfixar",
+
+      "treeDataGroupingHeaderName": "Grup",
+      "treeDataExpand": "mostrar fills",
+      "treeDataCollapse": "amagar fills",
+
+      "groupingColumnHeaderName": "Grup",
+      "groupColumn": "Agrupar per {{name}}",
+      "unGroupColumn": "Desagrupar {{name}}",
+
+      "detailPanelToggle": "Alternar detall",
+      "expandDetailPanel": "Expandir",
+      "collapseDetailPanel": "Contraure",
+
+      "paginationRowsPerPage": "Files per pàgina:",
+      "paginationDisplayedRows": "{{from}}–{{to}} de {{count}}",
+      "paginationItemAriaLabel": "{{type}}",
+
+      "rowReorderingHeaderName": "Reordenar files",
+
+      "aggregationMenuItemHeader": "Agrupació",
+      "aggregationFunctionLabelSum": "suma",
+      "aggregationFunctionLabelAvg": "mitjana",
+      "aggregationFunctionLabelMin": "mínim",
+      "aggregationFunctionLabelMax": "màxim",
+      "aggregationFunctionLabelSize": "mida",
+
+      "pivotToggleLabel": "Pivot",
+      "pivotRows": "Files",
+      "pivotColumns": "Columnes",
+      "pivotValues": "Valors",
+      "pivotCloseButton": "Tancar configuració del pivot",
+      "pivotSearchButton": "Cercar camps",
+      "pivotSearchControlPlaceholder": "Cercar camps",
+      "pivotSearchControlLabel": "Cercar camps",
+      "pivotSearchControlClear": "Netejar cerca",
+      "pivotNoFields": "Sense camps",
+      "pivotMenuMoveUp": "Moure amunt",
+      "pivotMenuMoveDown": "Moure avall",
+      "pivotMenuMoveToTop": "Moure a l'inici",
+      "pivotMenuMoveToBottom": "Moure al final",
+      "pivotMenuRows": "Files",
+      "pivotMenuColumns": "Columnes",
+      "pivotMenuValues": "Valors",
+      "pivotMenuOptions": "Opcions del camp",
+      "pivotMenuAddToRows": "Afegir a files",
+      "pivotMenuAddToColumns": "Afegir a columnes",
+      "pivotMenuAddToValues": "Afegir a valors",
+      "pivotMenuRemove": "Eliminar",
+      "pivotDragToRows": "Arrossega aquí per crear files",
+      "pivotDragToColumns": "Arrossega aquí per crear columnes",
+      "pivotDragToValues": "Arrossega aquí per crear valors",
+      "pivotYearColumnHeaderName": "(Any)",
+      "pivotQuarterColumnHeaderName": "(Trimestre)",
+
+      "aiAssistantPanelTitle": "Assistent IA",
+      "aiAssistantPanelClose": "Tancar assistent IA",
+      "aiAssistantPanelNewConversation": "Nova conversa",
+      "aiAssistantPanelConversationHistory": "Historial de conversa",
+      "aiAssistantPanelEmptyConversation": "Sense historial de prompts",
+      "aiAssistantSuggestions": "Suggeriments",
+
+      "promptFieldLabel": "Prompt",
+      "promptFieldPlaceholder": "Escriu un prompt…",
+      "promptFieldPlaceholderWithRecording": "Escriu o grava un prompt…",
+      "promptFieldPlaceholderListening": "Esperant un prompt…",
+      "promptFieldSpeechRecognitionNotSupported": "El reconeixement de veu no és compatible amb aquest navegador",
+      "promptFieldSend": "Enviar",
+      "promptFieldRecord": "Gravar",
+      "promptFieldStopRecording": "Aturar gravació",
+
+      "promptRerun": "Executar de nou",
+      "promptProcessing": "Processant…",
+      "promptAppliedChanges": "Canvis aplicats",
+
+      "promptChangeGroupDescription": "Agrupar per {{column}}",
+      "promptChangeAggregationLabel": "{{column}} ({{aggregation}})",
+      "promptChangeAggregationDescription": "Agrega {{column}} ({{aggregation}})",
+      "promptChangeFilterLabel": "Filtrar {{column}} {{operator}} {{value}}",
+      "promptChangeFilterDescription": "Filtrar {{column}} amb {{operator}} = {{value}}",
+      "promptChangeSortDescription": "Ordenar per {{column}} ({{direction}})",
+      "promptChangePivotEnableLabel": "Pivot",
+      "promptChangePivotEnableDescription": "Activar pivot",
+      "promptChangePivotColumnsLabel": "Columnes ({{count}})",
+      "promptChangePivotColumnsDescription": "{{column}}{{direction ? ' (' + direction + ')' : ''}}",
+      "promptChangePivotRowsLabel": "Files ({{count}})",
+      "promptChangePivotValuesLabel": "Valors ({{count}})",
+      "promptChangePivotValuesDescription": "{{column}} ({{aggregation}})"
     }
   },
   "login": {
-    "quotes": {
-
-    },
+    "quotes": {},
     "title": "Iniciar sessió",
     "name": "Nom",
     "namePlaceholder": "Introdueix el teu nom",
@@ -33,5 +287,72 @@
     "back": "Torna a la pàgina anterior",
     "home": "Torna a la pàgina d'inici",
     "alt": "Pàgina no trobada"
+  },
+  "admin": {
+    "users": {
+      "grid": {
+        "columns": {
+          "id": "ID",
+          "username": "Nom d'usuari",
+          "email": "Correu electrònic",
+          "role": "Rol"
+        },
+        "filters": {
+          "admin": "Administrador",
+          "user": "Caps de projecte"
+        },
+        "actions": {
+          "delete": {
+            "label": "Eliminar",
+            "confirm": {
+              "title": "Eliminar usuari",
+              "text": "Estàs segur que vols eliminar l'usuari {{username}}?",
+              "button": {
+                "ok": "Eliminar",
+                "cancel": "Cancel·lar"
+              }
+            }
+          },
+          "edit": "Editar"
+        },
+        "form": {
+          "title": {
+            "create": "Crear usuari",
+            "edit": "Editar usuari"
+          },
+          "fields": {
+            "id": {
+              "label": "ID",
+              "placeholder": "ID de l'usuari",
+              "helperText": "L'ID és obligatori"
+            },
+            "username": {
+              "label": "Nom d'usuari",
+              "placeholder": "Introdueix el nom d'usuari",
+              "helperText": "El nom d'usuari és obligatori"
+            },
+            "email": {
+              "label": "Correu electrònic",
+              "placeholder": "Introdueix el correu electrònic",
+              "helperText": "El correu electrònic és obligatori i ha de ser vàlid"
+            },
+            "password": {
+              "label": "Contrasenya",
+              "placeholder": "••••••••",
+              "helperText": "La contrasenya és obligatòria"
+            },
+            "role": {
+              "label": "Rol",
+              "placeholder": "Selecciona un rol",
+              "helperText": "El rol és obligatori"
+            }
+          },
+          "error": {
+            "create": "Error al crear usuari. Ja existeix un usuari amb aquest nom d'usuari o correu electrònic.",
+            "update": "Error en actualitzar l'usuari. Ja existeix un altre usuari amb aquest nom d'usuari o correu electrònic."
+          }
+        }
+      }
+    }
   }
 }

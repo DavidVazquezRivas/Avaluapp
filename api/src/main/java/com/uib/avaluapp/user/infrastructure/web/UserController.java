@@ -7,6 +7,7 @@ import com.uib.avaluapp.global.insfrastructure.web.response.ApiResponse;
 import com.uib.avaluapp.user.domain.ports.UserPort;
 import com.uib.avaluapp.user.domain.services.UserService;
 import com.uib.avaluapp.user.infrastructure.web.requests.CreateUserRequest;
+import com.uib.avaluapp.user.infrastructure.web.requests.UpdateUserRequest;
 import com.uib.avaluapp.user.infrastructure.web.responses.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -65,4 +66,17 @@ public class UserController extends BaseController {
         return handle(config);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<ApiResponse<UserDto>> updateUser(
+            @PathVariable Long id,
+            @RequestBody UpdateUserRequest updateUserRequest,
+            @RequestHeader("Authorization") String authorizationHeader) {
+        HandleConfig<UserDto> config = HandleConfig.<UserDto>builder()
+                .authorization(authorizationHeader)
+                .successMessage("User updated successfully")
+                .successStatus(HttpStatus.OK)
+                .adminHandler(() -> UserDtoMapper.INSTANCE.toDto(userService.updateUser(id, updateUserRequest)))
+                .build();
+        return handle(config);
+    }
 }

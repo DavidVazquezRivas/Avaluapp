@@ -29,6 +29,7 @@ export const refreshSession = async () => {
   const { data } = await refresh()
 
   store.dispatch(setSession(data.data))
+  return data.data
 }
 
 export const getSession = (): AuthState => {

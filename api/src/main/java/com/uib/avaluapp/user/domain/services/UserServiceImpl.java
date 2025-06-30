@@ -4,6 +4,7 @@ import com.uib.avaluapp.auth.domain.services.JwtService;
 import com.uib.avaluapp.user.domain.models.User;
 import com.uib.avaluapp.user.domain.ports.UserPort;
 import com.uib.avaluapp.user.infrastructure.web.requests.CreateUserRequest;
+import com.uib.avaluapp.user.infrastructure.web.requests.UpdateUserRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -47,5 +48,16 @@ public class UserServiceImpl implements UserService {
     @Override
     public void deleteUser(Long id) {
         userPort.deleteUser(id);
+    }
+
+    @Override
+    public User updateUser(Long id, UpdateUserRequest updateUserRequest) {
+        User user = User.builder()
+                .username(updateUserRequest.getUsername())
+                .email(updateUserRequest.getEmail())
+                .role(updateUserRequest.getRole())
+                .build();
+
+        return userPort.updateUser(id, user);
     }
 }

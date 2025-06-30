@@ -11,12 +11,266 @@
         "dashboard": "Dashboard",
         "users": "Users"
       }
+    },
+    "formatters": {
+      "role": {
+        "ADMIN": "Administrator",
+        "USER": "Project Lead"
+      }
+    },
+    "panel": {
+      "swipeable": {
+        "closeLabel": "Close"
+      },
+      "info": {
+        "text": "Information",
+        "button": "OK"
+      },
+      "confirm": {
+        "text": "Are you sure you want to continue?",
+        "button": {
+          "ok": "OK",
+          "cancel": "Cancel"
+        }
+      },
+      "form": {
+        "button": {
+          "submit": "Save",
+          "cancel": "Exit"
+        },
+        "error": {
+          "default": "Error processing the request. Please try again later."
+        }
+      }
+    },
+    "grid": {
+      "noRowsLabel": "No rows",
+      "noResultsOverlayLabel": "No results found",
+      "noColumnsOverlayLabel": "No columns",
+      "noColumnsOverlayManageColumns": "Manage columns",
+      "emptyPivotOverlayLabel": "Add fields to rows, columns, and values to create a pivot table",
+
+      "toolbarDensity": "Density",
+      "toolbarDensityLabel": "Density",
+      "toolbarDensityCompact": "Compact",
+      "toolbarDensityStandard": "Standard",
+      "toolbarDensityComfortable": "Comfortable",
+
+      "toolbarColumns": "Columns",
+      "toolbarColumnsLabel": "Select columns",
+
+      "toolbarFilters": "Filters",
+      "toolbarFiltersLabel": "Show filters",
+      "toolbarFiltersTooltipHide": "Hide filters",
+      "toolbarFiltersTooltipShow": "Show filters",
+      "toolbarFiltersTooltipActive_one": "{{count}} active filter",
+      "toolbarFiltersTooltipActive_other": "{{count}} active filters",
+
+      "toolbarQuickFilterPlaceholder": "Search…",
+      "toolbarQuickFilterLabel": "Search",
+      "toolbarQuickFilterDeleteIconLabel": "Clear",
+
+      "toolbarExport": "Export",
+      "toolbarExportLabel": "Export",
+      "toolbarExportCSV": "Download as CSV",
+      "toolbarExportPrint": "Print",
+      "toolbarExportExcel": "Download as Excel",
+
+      "toolbarPivot": "Pivot",
+      "toolbarAssistant": "AI Assistant",
+
+      "columnsManagementSearchTitle": "Search",
+      "columnsManagementNoColumns": "No columns",
+      "columnsManagementShowHideAllText": "Show/Hide all",
+      "columnsManagementReset": "Reset",
+      "columnsManagementDeleteIconLabel": "Clear",
+
+      "filterPanelAddFilter": "Add filter",
+      "filterPanelRemoveAll": "Remove all",
+      "filterPanelDeleteIconLabel": "Delete",
+      "filterPanelLogicOperator": "Logical operator",
+      "filterPanelOperator": "Operators",
+      "filterPanelOperatorAnd": "AND",
+      "filterPanelOperatorOr": "OR",
+      "filterPanelColumns": "Columns",
+      "filterPanelInputLabel": "Value",
+      "filterPanelInputPlaceholder": "Filter value",
+
+      "filterOperatorContains": "contains",
+      "filterOperatorDoesNotContain": "does not contain",
+      "filterOperatorEquals": "equals",
+      "filterOperatorDoesNotEqual": "does not equal",
+      "filterOperatorStartsWith": "starts with",
+      "filterOperatorEndsWith": "ends with",
+      "filterOperatorIs": "is",
+      "filterOperatorNot": "is not",
+      "filterOperatorAfter": "is after",
+      "filterOperatorOnOrAfter": "is on or after",
+      "filterOperatorBefore": "is before",
+      "filterOperatorOnOrBefore": "is on or before",
+      "filterOperatorIsEmpty": "is empty",
+      "filterOperatorIsNotEmpty": "is not empty",
+      "filterOperatorIsAnyOf": "is any of",
+      "filterOperator=": "=",
+      "filterOperator!=": "!=",
+      "filterOperator>": ">",
+      "filterOperator>=": ">=",
+      "filterOperator<": "<",
+      "filterOperator<=": "<=",
+
+      "headerFilterOperatorContains": "Contains",
+      "headerFilterOperatorDoesNotContain": "Does not contain",
+      "headerFilterOperatorEquals": "Equals",
+      "headerFilterOperatorDoesNotEqual": "Does not equal",
+      "headerFilterOperatorStartsWith": "Starts with",
+      "headerFilterOperatorEndsWith": "Ends with",
+      "headerFilterOperatorIs": "Is",
+      "headerFilterOperatorNot": "Is not",
+      "headerFilterOperatorAfter": "Is after",
+      "headerFilterOperatorOnOrAfter": "Is on or after",
+      "headerFilterOperatorBefore": "Is before",
+      "headerFilterOperatorOnOrBefore": "Is on or before",
+      "headerFilterOperatorIsEmpty": "Is empty",
+      "headerFilterOperatorIsNotEmpty": "Is not empty",
+      "headerFilterOperatorIsAnyOf": "Is any of",
+      "headerFilterOperator=": "Equals",
+      "headerFilterOperator!=": "Does not equal",
+      "headerFilterOperator>": "Greater than",
+      "headerFilterOperator>=": "Greater than or equal",
+      "headerFilterOperator<": "Less than",
+      "headerFilterOperator<=": "Less than or equal",
+      "headerFilterClear": "Clear filter",
+
+      "filterValueAny": "any",
+      "filterValueTrue": "true",
+      "filterValueFalse": "false",
+
+      "columnMenuLabel": "Menu",
+      "columnMenuShowColumns": "Show columns",
+      "columnMenuManageColumns": "Manage columns",
+      "columnMenuFilter": "Filter",
+      "columnMenuHideColumn": "Hide",
+      "columnMenuUnsort": "Unsort",
+      "columnMenuSortAsc": "Sort ASC",
+      "columnMenuSortDesc": "Sort DESC",
+      "columnMenuManagePivot": "Manage pivot",
+
+      "columnHeaderFiltersTooltipActive_one": "{{count}} active filter",
+      "columnHeaderFiltersTooltipActive_other": "{{count}} active filters",
+      "columnHeaderFiltersLabel": "Show filters",
+      "columnHeaderSortIconLabel": "Sort",
+
+      "footerRowSelected_one": "{{count}} row selected",
+      "footerRowSelected_other": "{{count}} rows selected",
+
+      "footerTotalRows": "Total Rows:",
+      "footerTotalVisibleRows": "{{visibleCount}} of {{totalCount}}",
+
+      "checkboxSelectionHeaderName": "Select checkbox",
+      "checkboxSelectionSelectAllRows": "Select all rows",
+      "checkboxSelectionUnselectAllRows": "Unselect all rows",
+      "checkboxSelectionSelectRow": "Select row",
+      "checkboxSelectionUnselectRow": "Unselect row",
+
+      "booleanCellTrueLabel": "yes",
+      "booleanCellFalseLabel": "no",
+
+      "actionsCellMore": "more",
+
+      "pinToLeft": "Pin to left",
+      "pinToRight": "Pin to right",
+      "unpin": "Unpin",
+
+      "treeDataGroupingHeaderName": "Group",
+      "treeDataExpand": "show children",
+      "treeDataCollapse": "hide children",
+
+      "groupingColumnHeaderName": "Group",
+      "groupColumn": "Group by {{name}}",
+      "unGroupColumn": "Ungroup {{name}}",
+
+      "detailPanelToggle": "Toggle detail",
+      "expandDetailPanel": "Expand",
+      "collapseDetailPanel": "Collapse",
+
+      "paginationRowsPerPage": "Rows per page:",
+      "paginationDisplayedRows": "{{from}}–{{to}} of {{count}}",
+      "paginationItemAriaLabel": "{{type}}",
+
+      "rowReorderingHeaderName": "Reorder rows",
+
+      "aggregationMenuItemHeader": "Aggregation",
+      "aggregationFunctionLabelSum": "sum",
+      "aggregationFunctionLabelAvg": "average",
+      "aggregationFunctionLabelMin": "minimum",
+      "aggregationFunctionLabelMax": "maximum",
+      "aggregationFunctionLabelSize": "size",
+
+      "pivotToggleLabel": "Pivot",
+      "pivotRows": "Rows",
+      "pivotColumns": "Columns",
+      "pivotValues": "Values",
+      "pivotCloseButton": "Close pivot settings",
+      "pivotSearchButton": "Search fields",
+      "pivotSearchControlPlaceholder": "Search fields",
+      "pivotSearchControlLabel": "Search fields",
+      "pivotSearchControlClear": "Clear search",
+      "pivotNoFields": "No fields",
+      "pivotMenuMoveUp": "Move up",
+      "pivotMenuMoveDown": "Move down",
+      "pivotMenuMoveToTop": "Move to top",
+      "pivotMenuMoveToBottom": "Move to bottom",
+      "pivotMenuRows": "Rows",
+      "pivotMenuColumns": "Columns",
+      "pivotMenuValues": "Values",
+      "pivotMenuOptions": "Field options",
+      "pivotMenuAddToRows": "Add to rows",
+      "pivotMenuAddToColumns": "Add to columns",
+      "pivotMenuAddToValues": "Add to values",
+      "pivotMenuRemove": "Remove",
+      "pivotDragToRows": "Drag here to create rows",
+      "pivotDragToColumns": "Drag here to create columns",
+      "pivotDragToValues": "Drag here to create values",
+      "pivotYearColumnHeaderName": "(Year)",
+      "pivotQuarterColumnHeaderName": "(Quarter)",
+
+      "aiAssistantPanelTitle": "AI Assistant",
+      "aiAssistantPanelClose": "Close AI assistant",
+      "aiAssistantPanelNewConversation": "New conversation",
+      "aiAssistantPanelConversationHistory": "Conversation history",
+      "aiAssistantPanelEmptyConversation": "No prompt history",
+      "aiAssistantSuggestions": "Suggestions",
+
+      "promptFieldLabel": "Prompt",
+      "promptFieldPlaceholder": "Type a prompt…",
+      "promptFieldPlaceholderWithRecording": "Type or record a prompt…",
+      "promptFieldPlaceholderListening": "Listening for a prompt…",
+      "promptFieldSpeechRecognitionNotSupported": "Speech recognition is not supported in this browser",
+      "promptFieldSend": "Send",
+      "promptFieldRecord": "Record",
+      "promptFieldStopRecording": "Stop recording",
+
+      "promptRerun": "Run again",
+      "promptProcessing": "Processing…",
+      "promptAppliedChanges": "Changes applied",
+
+      "promptChangeGroupDescription": "Group by {{column}}",
+      "promptChangeAggregationLabel": "{{column}} ({{aggregation}})",
+      "promptChangeAggregationDescription": "Aggregate {{column}} ({{aggregation}})",
+      "promptChangeFilterLabel": "Filter {{column}} {{operator}} {{value}}",
+      "promptChangeFilterDescription": "Filter {{column}} with {{operator}} = {{value}}",
+      "promptChangeSortDescription": "Sort by {{column}} ({{direction}})",
+      "promptChangePivotEnableLabel": "Pivot",
+      "promptChangePivotEnableDescription": "Enable pivot",
+      "promptChangePivotColumnsLabel": "Columns ({{count}})",
+      "promptChangePivotColumnsDescription": "{{column}}{{direction ? ' (' + direction + ')' : ''}}",
+      "promptChangePivotRowsLabel": "Rows ({{count}})",
+      "promptChangePivotValuesLabel": "Values ({{count}})",
+      "promptChangePivotValuesDescription": "{{column}} ({{aggregation}})"
     }
   },
   "login": {
-    "quotes": {
-
-    },
+    "quotes": {},
     "title": "Login",
     "name": "Name",
     "namePlaceholder": "Enter your name",
@@ -33,5 +287,72 @@
     "back": "Back to previous page",
     "home": "Back to homepage",
     "alt": "Page Not Found"
+  },
+  "admin": {
+    "users": {
+      "grid": {
+        "columns": {
+          "id": "ID",
+          "username": "Username",
+          "email": "Email",
+          "role": "Role"
+        },
+        "filters": {
+          "admin": "Administrators",
+          "user": "Project Leads"
+        },
+        "actions": {
+          "delete": {
+            "label": "Delete",
+            "confirm": {
+              "title": "Delete user",
+              "text": "Are you sure you want to delete the user {{username}}?",
+              "button": {
+                "ok": "Delete",
+                "cancel": "Cancel"
+              }
+            }
+          },
+          "edit": "Edit"
+        },
+        "form": {
+          "title": {
+            "create": "Create user",
+            "edit": "Edit user"
+          },
+          "fields": {
+            "id": {
+              "label": "ID",
+              "placeholder": "User ID",
+              "helperText": "ID is required"
+            },
+            "username": {
+              "label": "Username",
+              "placeholder": "Enter the username",
+              "helperText": "Username is required"
+            },
+            "email": {
+              "label": "Email",
+              "placeholder": "Enter the email address",
+              "helperText": "Email is required and must be valid"
+            },
+            "password": {
+              "label": "Password",
+              "placeholder": "••••••••",
+              "helperText": "Password is required"
+            },
+            "role": {
+              "label": "Role",
+              "placeholder": "Select a role",
+              "helperText": "Role is required"
+            }
+          },
+          "error": {
+            "create": "Error creating user. A user with this username or email already exists.",
+            "update": "Error updating user. Another user already exists with this username or email."
+          }
+        }
+      }
+    }
   }
 }
