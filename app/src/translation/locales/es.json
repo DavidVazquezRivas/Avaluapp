@@ -37,6 +37,9 @@
         "button": {
           "submit": "Guardar",
           "cancel": "Salir"
+        },
+        "error": {
+          "default": "Error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde."
         }
       }
     },
@@ -344,6 +347,10 @@
             "placeholder": "Selecciona un rol",
             "helperText": "El rol es obligatorio"
           }
+        },
+        "error": {
+          "create": "Error al crear usuario. Ya existe un usuario con este nombre de usuario o correo electrónico.",
+          "update": "Error al actualizar usuario. Ya existe otro usuario con este nombre de usuario o correo electrónico."
         }
       }
     }

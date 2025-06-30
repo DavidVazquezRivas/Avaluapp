@@ -37,6 +37,9 @@
         "button": {
           "submit": "Desar",
           "cancel": "Sortir"
+        },
+        "error": {
+          "default": "Error en processar la sol·licitud. Si us plau, torna-ho a intentar més tard."
         }
       }
     },
@@ -343,6 +346,10 @@
               "placeholder": "Selecciona un rol",
               "helperText": "El rol és obligatori"
             }
+          },
+          "error": {
+            "create": "Error al crear usuari. Ja existeix un usuari amb aquest nom d'usuari o correu electrònic.",
+            "update": "Error en actualitzar l'usuari. Ja existeix un altre usuari amb aquest nom d'usuari o correu electrònic."
           }
         }
       }

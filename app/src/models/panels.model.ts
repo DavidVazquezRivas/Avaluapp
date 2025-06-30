@@ -46,6 +46,7 @@ export interface FormDialogPanelState extends BasePanelState {
   text?: string
   submitText?: string
   cancelText?: string
+  errorText?: string
 }
 
 export type PanelState =

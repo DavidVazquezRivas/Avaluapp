@@ -37,6 +37,9 @@
         "button": {
           "submit": "Save",
           "cancel": "Exit"
+        },
+        "error": {
+          "default": "Error processing the request. Please try again later."
         }
       }
     },
@@ -343,6 +346,10 @@
               "placeholder": "Select a role",
               "helperText": "Role is required"
             }
+          },
+          "error": {
+            "create": "Error creating user. A user with this username or email already exists.",
+            "update": "Error updating user. Another user already exists with this username or email."
           }
         }
       }

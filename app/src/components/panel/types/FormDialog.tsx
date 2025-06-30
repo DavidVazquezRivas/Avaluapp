@@ -3,12 +3,15 @@ import { FormDialogPanelState } from '@/models/panels.model'
 import {
   Box,
   Button,
+  CircularProgress,
   Dialog,
   DialogActions,
   DialogContent,
   DialogContentText,
   DialogTitle,
+  Typography,
 } from '@mui/material'
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 export const FormDialog: React.FC<FormDialogPanelState> = ({
@@ -18,18 +21,29 @@ export const FormDialog: React.FC<FormDialogPanelState> = ({
   text,
   submitText,
   cancelText,
+  errorText,
   onSubmit,
   onCancel,
 }) => {
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
   const { closePanel } = usePanel()
   const { t } = useTranslation()
 
   const handleClose = () => closePanel()
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    setError(null)
+    setLoading(true)
     const formData = new FormData(event.currentTarget)
-    onSubmit(formData)
-    closePanel()
+    try {
+      await onSubmit(formData)
+      closePanel()
+    } catch (error) {
+      setError(errorText || t('globals.panel.form.error.default'))
+    } finally {
+      setLoading(false)
+    }
   }
   const handleCancel = () => {
     if (onCancel) onCancel()
@@ -54,9 +68,14 @@ export const FormDialog: React.FC<FormDialogPanelState> = ({
         <DialogContent id='form-dialog-description'>
           {text && <DialogContentText>{text}</DialogContentText>}
           {content}
+          {error && (
+            <Typography color='error' mt={2}>
+              {error}
+            </Typography>
+          )}
         </DialogContent>
         <DialogActions>
-          <Button variant='contained' type='submit'>
+          <Button variant='contained' type='submit' disabled={loading}>
             {submitText ?? t('globals.panel.form.button.submit')}
           </Button>
           <Button onClick={handleCancel}>

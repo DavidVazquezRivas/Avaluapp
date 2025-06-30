@@ -45,7 +45,7 @@ export const UsersGrid = () => {
     })
   }
 
-  const handleCreate = (formData: FormData) => {
+  const handleCreate = async (formData: FormData) => {
     const user: UserWithCredentials = {
       username: formData.get('username') as string,
       email: formData.get('email') as string,
@@ -53,7 +53,7 @@ export const UsersGrid = () => {
       role: formData.get('role') as Role,
     }
 
-    createMutation.mutate(user)
+    await createMutation.mutateAsync(user)
   }
 
   const onClickCreate = () => {
@@ -62,10 +62,11 @@ export const UsersGrid = () => {
       title: t('admin.users.form.title.create'),
       content: <UserForm />,
       onSubmit: handleCreate,
+      errorText: t('admin.users.form.error.create'),
     })
   }
 
-  const handleEdit = (formData: FormData) => {
+  const handleEdit = async (formData: FormData) => {
     const updatedUser: User = {
       id: formData.get('id') as unknown as number,
       username: formData.get('username') as string,
@@ -73,7 +74,7 @@ export const UsersGrid = () => {
       role: formData.get('role') as Role,
     }
 
-    updateMutation.mutate(updatedUser)
+    await updateMutation.mutateAsync(updatedUser)
   }
 
   const onClickEdit = (user: User) => {
@@ -82,6 +83,7 @@ export const UsersGrid = () => {
       title: t('admin.users.form.title.edit'),
       content: <UserForm user={user} />,
       onSubmit: handleEdit,
+      errorText: t('admin.users.form.error.update'),
     })
   }
 
