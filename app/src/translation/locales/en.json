@@ -297,6 +297,53 @@
         "filters": {
           "admin": "Administrators",
           "user": "Project Leads"
+        },
+        "actions": {
+          "delete": {
+            "label": "Delete",
+            "confirm": {
+              "title": "Delete user",
+              "text": "Are you sure you want to delete the user {{username}}?",
+              "button": {
+                "ok": "Delete",
+                "cancel": "Cancel"
+              }
+            }
+          },
+          "edit": "Edit"
+        },
+        "form": {
+          "title": {
+            "create": "Create user",
+            "edit": "Edit user"
+          },
+          "fields": {
+            "id": {
+              "label": "ID",
+              "placeholder": "User ID",
+              "helperText": "ID is required"
+            },
+            "username": {
+              "label": "Username",
+              "placeholder": "Enter the username",
+              "helperText": "Username is required"
+            },
+            "email": {
+              "label": "Email",
+              "placeholder": "Enter the email address",
+              "helperText": "Email is required and must be valid"
+            },
+            "password": {
+              "label": "Password",
+              "placeholder": "••••••••",
+              "helperText": "Password is required"
+            },
+            "role": {
+              "label": "Role",
+              "placeholder": "Select a role",
+              "helperText": "Role is required"
+            }
+          }
         }
       }
     }

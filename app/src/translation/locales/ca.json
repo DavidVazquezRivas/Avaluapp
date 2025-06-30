@@ -297,6 +297,53 @@
         "filters": {
           "admin": "Administrador",
           "user": "Caps de projecte"
+        },
+        "actions": {
+          "delete": {
+            "label": "Eliminar",
+            "confirm": {
+              "title": "Eliminar usuari",
+              "text": "Estàs segur que vols eliminar l'usuari {{username}}?",
+              "button": {
+                "ok": "Eliminar",
+                "cancel": "Cancel·lar"
+              }
+            }
+          },
+          "edit": "Editar"
+        },
+        "form": {
+          "title": {
+            "create": "Crear usuari",
+            "edit": "Editar usuari"
+          },
+          "fields": {
+            "id": {
+              "label": "ID",
+              "placeholder": "ID de l'usuari",
+              "helperText": "L'ID és obligatori"
+            },
+            "username": {
+              "label": "Nom d'usuari",
+              "placeholder": "Introdueix el nom d'usuari",
+              "helperText": "El nom d'usuari és obligatori"
+            },
+            "email": {
+              "label": "Correu electrònic",
+              "placeholder": "Introdueix el correu electrònic",
+              "helperText": "El correu electrònic és obligatori i ha de ser vàlid"
+            },
+            "password": {
+              "label": "Contrasenya",
+              "placeholder": "••••••••",
+              "helperText": "La contrasenya és obligatòria"
+            },
+            "role": {
+              "label": "Rol",
+              "placeholder": "Selecciona un rol",
+              "helperText": "El rol és obligatori"
+            }
+          }
         }
       }
     }

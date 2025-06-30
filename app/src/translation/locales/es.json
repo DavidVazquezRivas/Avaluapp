@@ -297,6 +297,53 @@
         "filters": {
           "admin": "Administradores",
           "user": "Líderes de proyecto"
+        },
+        "actions": {
+          "delete": {
+            "label": "Eliminar",
+            "confirm": {
+              "title": "Eliminar usuario",
+              "text": "¿Estás seguro de que deseas eliminar el usuario {{username}}?",
+              "button": {
+                "ok": "Eliminar",
+                "cancel": "Cancelar"
+              }
+            }
+          },
+          "edit": "Editar"
+        }
+      },
+      "form": {
+        "title": {
+          "create": "Crear usuario",
+          "edit": "Editar usuario"
+        },
+        "fields": {
+          "id": {
+            "label": "ID",
+            "placeholder": "ID del usuario",
+            "helperText": "El ID es obligatorio"
+          },
+          "username": {
+            "label": "Nombre de usuario",
+            "placeholder": "Introduce el nombre de usuario",
+            "helperText": "El nombre de usuario es obligatorio"
+          },
+          "email": {
+            "label": "Correo electrónico",
+            "placeholder": "Introduce el correo electrónico",
+            "helperText": "El correo electrónico es obligatorio y debe ser válido"
+          },
+          "password": {
+            "label": "Contraseña",
+            "placeholder": "••••••••",
+            "helperText": "La contraseña es obligatoria"
+          },
+          "role": {
+            "label": "Rol",
+            "placeholder": "Selecciona un rol",
+            "helperText": "El rol es obligatorio"
+          }
         }
       }
     }
