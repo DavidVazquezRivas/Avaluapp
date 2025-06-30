@@ -41,7 +41,7 @@ export interface ConfirmDialogPanelState extends BasePanelState {
 
 export interface FormDialogPanelState extends BasePanelState {
   type: PanelType.FormDialog
-  onSubmit: () => void
+  onSubmit: (formData: FormData) => void
   onCancel?: () => void
   text?: string
   submitText?: string
