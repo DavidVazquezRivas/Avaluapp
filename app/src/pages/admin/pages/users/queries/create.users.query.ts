@@ -13,7 +13,7 @@ export default function createUsersQueryOptions(
       queryClient.invalidateQueries({ queryKey: [Queries.getUsers] })
     },
     onError: (error) => {
-      console.error('Error deleting user:', error)
+      console.error('Error creating user:', error)
     },
   }
 }
