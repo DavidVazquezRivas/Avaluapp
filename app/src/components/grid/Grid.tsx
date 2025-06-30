@@ -14,11 +14,13 @@ interface GridProps extends DataGridProps {
     label: string
     onClick: () => void
   }
+  isLoading?: boolean
 }
 
 export const Grid: React.FC<GridProps> = ({
   defaultFilters,
   createButton,
+  isLoading = false,
   ...props
 }) => {
   const apiRef = useGridApiRef()
@@ -45,6 +47,7 @@ export const Grid: React.FC<GridProps> = ({
         ignoreDiacritics
         disableColumnMenu
         showToolbar
+        loading={isLoading}
         pageSizeOptions={DEFAULT_PAGE_SIZE_OPTIONS}
         initialState={
           props.initialState ?? {
