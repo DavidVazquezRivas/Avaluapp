@@ -1,5 +1,5 @@
 import RoutesWithNotFound from '@/components/routing/RoutesWithNotFound'
-import refreshSessionQueryOptions from './queries/refreshSessionQueryOptions'
+import refreshSessionQueryOptions from './queries/refresh.query'
 import LoadingSpinner from './components/spinner/Spinner'
 import { BrowserRouter, Navigate, Route } from 'react-router-dom'
 import {
