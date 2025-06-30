@@ -1,55 +1,149 @@
 import Grid from '@/components/grid/Grid'
-import { User } from '@/models/user.model'
+import DeleteIcon from '@mui/icons-material/Delete'
+import EditIcon from '@mui/icons-material/Edit'
+import { GridActionsCellItem, GridColDef } from '@mui/x-data-grid'
+import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { getDefaultFilters } from './filters'
-import { useEffect, useState } from 'react'
-import { getUsers } from '@/pages/admin/pages/users/services/get.users.service'
-import { roleRenderer } from '@/utils/renderers/role.renderer'
+import { User, UserWithCredentials } from '@/models/user.model'
 import { Role } from '@/models/role.model'
+import { PanelType } from '@/models/panels.model'
+import { usePanel } from '@/contexts/PanelContext'
+import { roleRenderer } from '@/utils/renderers/role.renderer'
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
+import { getDefaultFilters } from './filters'
+import UserForm from '../panels/UserForm'
+import getUsersQueryOptions from '../../queries/get.users.query'
+import deleteUsersQueryOptions from '../../queries/delete.users.query'
+import createUsersQueryOptions from '../../queries/create.users.query'
+import updateUsersQueryOptions from '../../queries/update.users.query'
 
 export const UsersGrid = () => {
-  const [rows, setRows] = useState<User[]>([])
   const { t } = useTranslation()
+  const { openPanel } = usePanel()
+  const queryClient = useQueryClient()
 
-  const callGetUsers = async () => {
-    const { data } = await getUsers()
-    setRows(data.data)
+  const {
+    data: usersData,
+    isLoading,
+    isFetching,
+  } = useQuery(getUsersQueryOptions())
+
+  const deleteMutation = useMutation(deleteUsersQueryOptions(queryClient))
+
+  const createMutation = useMutation(createUsersQueryOptions(queryClient))
+
+  const updateMutation = useMutation(updateUsersQueryOptions(queryClient))
+
+  const handleDelete = (id: number, username: string) => {
+    openPanel({
+      type: PanelType.ConfirmDialog,
+      title: t('admin.users.grid.actions.delete.confirm.title'),
+      text: t('admin.users.grid.actions.delete.confirm.text', { username }),
+      confirmText: t('admin.users.grid.actions.delete.confirm.button.ok'),
+      cancelText: t('admin.users.grid.actions.delete.confirm.button.cancel'),
+      onConfirm: () => deleteMutation.mutate(id),
+    })
   }
 
-  useEffect(() => {
-    callGetUsers()
-  }, [])
+  const handleCreate = (formData: FormData) => {
+    const user: UserWithCredentials = {
+      username: formData.get('username') as string,
+      email: formData.get('email') as string,
+      password: formData.get('password') as string,
+      role: formData.get('role') as Role,
+    }
 
-  const columns = [
-    {
-      field: 'id',
-      headerName: t('admin.users.grid.columns.id'),
-      minWidth: 60,
-      sortable: false,
-    },
-    {
-      field: 'username',
-      headerName: t('admin.users.grid.columns.username'),
-      minWidth: 150,
-      sortable: false,
-    },
-    {
-      field: 'email',
-      headerName: t('admin.users.grid.columns.email'),
-      minWidth: 250,
-      sortable: false,
-    },
-    {
-      field: 'role',
-      headerName: t('admin.users.grid.columns.role'),
-      minWidth: 150,
-      sortable: false,
-      valueGetter: (value: Role) => roleRenderer(value, t),
-    },
-  ]
+    createMutation.mutate(user)
+  }
+
+  const onClickCreate = () => {
+    openPanel({
+      type: PanelType.FormDialog,
+      title: t('admin.users.form.title.create'),
+      content: <UserForm />,
+      onSubmit: handleCreate,
+    })
+  }
+
+  const handleEdit = (formData: FormData) => {
+    const updatedUser: User = {
+      id: formData.get('id') as unknown as number,
+      username: formData.get('username') as string,
+      email: formData.get('email') as string,
+      role: formData.get('role') as Role,
+    }
+
+    updateMutation.mutate(updatedUser)
+  }
+
+  const onClickEdit = (user: User) => {
+    openPanel({
+      type: PanelType.FormDialog,
+      title: t('admin.users.form.title.edit'),
+      content: <UserForm user={user} />,
+      onSubmit: handleEdit,
+    })
+  }
+
+  const columns: GridColDef<User>[] = useMemo(
+    () => [
+      {
+        field: 'id',
+        headerName: t('admin.users.grid.columns.id'),
+        minWidth: 60,
+        sortable: false,
+      },
+      {
+        field: 'username',
+        headerName: t('admin.users.grid.columns.username'),
+        minWidth: 150,
+        sortable: false,
+      },
+      {
+        field: 'email',
+        headerName: t('admin.users.grid.columns.email'),
+        minWidth: 250,
+        sortable: false,
+      },
+      {
+        field: 'role',
+        headerName: t('admin.users.grid.columns.role'),
+        minWidth: 150,
+        sortable: false,
+        valueGetter: (value: Role) => roleRenderer(value, t),
+      },
+      {
+        field: 'actions',
+        type: 'actions',
+        minWidth: 80,
+        getActions: (params: { row: User }) => [
+          <GridActionsCellItem
+            icon={<DeleteIcon />}
+            onClick={() => handleDelete(params.row.id, params.row.username)}
+            label={t('admin.users.grid.actions.delete.label')}
+          />,
+          <GridActionsCellItem
+            icon={<EditIcon />}
+            onClick={() => onClickEdit(params.row)}
+            label={t('admin.users.grid.ctions.edit')}
+          />,
+        ],
+      },
+    ],
+    [t]
+  )
+
   const defaultFilters = getDefaultFilters(t)
 
-  return <Grid defaultFilters={defaultFilters} rows={rows} columns={columns} />
+  return (
+    <Grid
+      isLoading={isLoading || isFetching}
+      defaultFilters={defaultFilters}
+      rows={usersData ?? []}
+      columns={columns}
+      createButton={{ onClick: onClickCreate, label: 'Crear usuario' }}
+    />
+  )
 }
 
 export default UsersGrid

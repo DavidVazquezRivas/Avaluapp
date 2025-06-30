@@ -1,6 +1,7 @@
 import { usePanel } from '@/contexts/PanelContext'
 import { FormDialogPanelState } from '@/models/panels.model'
 import {
+  Box,
   Button,
   Dialog,
   DialogActions,
@@ -26,7 +27,8 @@ export const FormDialog: React.FC<FormDialogPanelState> = ({
   const handleClose = () => closePanel()
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    onSubmit()
+    const formData = new FormData(event.currentTarget)
+    onSubmit(formData)
     closePanel()
   }
   const handleCancel = () => {
@@ -47,19 +49,21 @@ export const FormDialog: React.FC<FormDialogPanelState> = ({
           onSubmit: handleSubmit,
         },
       }}>
-      {title && <DialogTitle id='form-dialog-title'>{title}</DialogTitle>}
-      <DialogContent id='form-dialog-description'>
-        {text && <DialogContentText>{text}</DialogContentText>}
-        {content}
-      </DialogContent>
-      <DialogActions>
-        <Button variant='contained' type='submit'>
-          {submitText ?? t('globals.panel.form.button.submit')}
-        </Button>
-        <Button onClick={handleCancel}>
-          {cancelText ?? t('globals.panel.form.button.cancel')}
-        </Button>
-      </DialogActions>
+      <Box sx={{ backgroundColor: 'background.default' }}>
+        {title && <DialogTitle id='form-dialog-title'>{title}</DialogTitle>}
+        <DialogContent id='form-dialog-description'>
+          {text && <DialogContentText>{text}</DialogContentText>}
+          {content}
+        </DialogContent>
+        <DialogActions>
+          <Button variant='contained' type='submit'>
+            {submitText ?? t('globals.panel.form.button.submit')}
+          </Button>
+          <Button onClick={handleCancel}>
+            {cancelText ?? t('globals.panel.form.button.cancel')}
+          </Button>
+        </DialogActions>
+      </Box>
     </Dialog>
   )
 }
