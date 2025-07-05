@@ -371,7 +371,8 @@
           },
           "edit": {
             "label": "Editar",
-            "title": "Editar proyecto"
+            "title": "Editar proyecto",
+            "error": "Error al actualizar el proyecto. Por favor, inténtalo de nuevo más tarde."
           },
           "delete": {
             "label": "Eliminar",

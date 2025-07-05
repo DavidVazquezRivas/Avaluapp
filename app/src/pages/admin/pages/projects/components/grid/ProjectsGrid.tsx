@@ -73,10 +73,10 @@ export const ProjectsGrid = () => {
   const onClickUpdate = (project: Project) => {
     openPanel({
       type: PanelType.FormDialog,
-      title: t('admin.projects.grid.actions.update.title'),
+      title: t('admin.projects.grid.actions.edit.title'),
       content: <ProjectForm project={project} />,
       onSubmit: handleUpdate,
-      errorText: t('admin.projects.grid.actions.update.error'),
+      errorText: t('admin.projects.grid.actions.edit.error'),
     })
   }
 

@@ -371,7 +371,8 @@
           },
           "edit": {
             "label": "Edit",
-            "title": "Edit project"
+            "title": "Edit project",
+            "error": "Error updating project. Please try again later."
           },
           "delete": {
             "label": "Delete",

@@ -371,7 +371,8 @@
           },
           "edit": {
             "label": "Editar",
-            "title": "Editar projecte"
+            "title": "Editar projecte",
+            "error": "Error al actualitzar el projecte. Si us plau, torna-ho a intentar més tard."
           },
           "delete": {
             "label": "Eliminar",
