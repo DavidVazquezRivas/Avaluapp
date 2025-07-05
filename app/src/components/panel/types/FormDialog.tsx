@@ -3,7 +3,6 @@ import { FormDialogPanelState } from '@/models/panels.model'
 import {
   Box,
   Button,
-  CircularProgress,
   Dialog,
   DialogActions,
   DialogContent,

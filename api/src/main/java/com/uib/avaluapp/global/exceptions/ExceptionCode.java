@@ -8,13 +8,21 @@ import org.springframework.http.HttpStatus;
 @Getter
 public enum ExceptionCode {
     DEFAULT("An error occurred", HttpStatus.INTERNAL_SERVER_ERROR),
-    USER_NOT_FOUND("User not found", HttpStatus.NOT_FOUND),
-    USER_ALREADY_EXISTS("User already exists", HttpStatus.CONFLICT),
+    // Auth related exceptions
     INVALID_CREDENTIALS("Invalid username or password", HttpStatus.UNAUTHORIZED),
     INVALID_REFRESH_TOKEN("Invalid refresh token", HttpStatus.UNAUTHORIZED),
     INVALID_TOKEN("Invalid token", HttpStatus.UNAUTHORIZED),
     UNAUTHORIZED("Unauthorized", HttpStatus.UNAUTHORIZED),
-    INSUFFICIENT_PERMISSIONS("Insufficient permissions", HttpStatus.FORBIDDEN);
+    INSUFFICIENT_PERMISSIONS("Insufficient permissions", HttpStatus.FORBIDDEN),
+
+    // User related exceptions
+    USER_NOT_FOUND("User not found", HttpStatus.NOT_FOUND),
+    USER_ALREADY_EXISTS("User already exists", HttpStatus.CONFLICT),
+
+    // Project related exceptions
+    PROJECT_NOT_FOUND("Project not found", HttpStatus.NOT_FOUND),
+    PROJECT_UNAUTHORIZED("You are not authorized to access this project", HttpStatus.FORBIDDEN);
+
 
     private final String message;
     private final HttpStatus code;

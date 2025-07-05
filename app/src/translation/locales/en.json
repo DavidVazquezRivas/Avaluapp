@@ -9,7 +9,8 @@
       "logout": "Log out",
       "navs": {
         "dashboard": "Dashboard",
-        "users": "Users"
+        "users": "Users",
+        "projects": "Projects"
       }
     },
     "formatters": {
@@ -351,6 +352,66 @@
             "create": "Error creating user. A user with this username or email already exists.",
             "update": "Error updating user. Another user already exists with this username or email."
           }
+        }
+      }
+    },
+    "projects": {
+      "grid": {
+        "columns": {
+          "name": "Name",
+          "description": "Description",
+          "createdAt": "Creation Date",
+          "admin": "Administrator"
+        },
+        "actions": {
+          "create": {
+            "label": "Create Project",
+            "title": "Create a new project",
+            "error": "Error creating project. Please try again later."
+          },
+          "edit": {
+            "label": "Edit",
+            "title": "Edit project"
+          },
+          "delete": {
+            "label": "Delete",
+            "confirm": {
+              "title": "Delete project",
+              "text": "Are you sure you want to delete the project {{name}}?",
+              "button": {
+                "ok": "Delete",
+                "cancel": "Cancel"
+              }
+            }
+          }
+        }
+      },
+      "form": {
+        "fields": {
+          "name": {
+            "label": "Name",
+            "placeholder": "Enter the project name",
+            "helperText": "Project name is required"
+          },
+          "description": {
+            "label": "Description",
+            "placeholder": "Enter the project description",
+            "helperText": "Project description is required"
+          },
+          "createdAt": {
+            "label": "Creation Date",
+            "placeholder": "Select the creation date",
+            "helperText": "Creation date is required"
+          },
+          "adminId": {
+            "label": "Administrator",
+            "placeholder": "Select an administrator",
+            "helperText": "Administrator is required"
+          }
+        },
+        "error": {
+          "create": "Error creating project. A project with this name already exists.",
+          "update": "Error updating project. Another project already exists with this name."
         }
       }
     }
