@@ -90,12 +90,6 @@ export const UsersGrid = () => {
   const columns: GridColDef<User>[] = useMemo(
     () => [
       {
-        field: 'id',
-        headerName: t('admin.users.grid.columns.id'),
-        minWidth: 60,
-        sortable: false,
-      },
-      {
         field: 'username',
         headerName: t('admin.users.grid.columns.username'),
         minWidth: 150,
