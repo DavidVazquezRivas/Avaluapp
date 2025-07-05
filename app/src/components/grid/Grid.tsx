@@ -15,12 +15,14 @@ interface GridProps extends DataGridProps {
     onClick: () => void
   }
   isLoading?: boolean
+  onRowDoubleClick?: (params: any) => void
 }
 
 export const Grid: React.FC<GridProps> = ({
   defaultFilters,
   createButton,
   isLoading = false,
+  onRowDoubleClick = () => {},
   ...props
 }) => {
   const apiRef = useGridApiRef()
@@ -58,6 +60,7 @@ export const Grid: React.FC<GridProps> = ({
             },
           }
         }
+        onRowDoubleClick={onRowDoubleClick}
         {...props}
         sx={{
           boxShadow: (theme) => theme.shadows[3],

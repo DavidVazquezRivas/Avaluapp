@@ -87,6 +87,10 @@ export const UsersGrid = () => {
     })
   }
 
+  const onItemDoubleClick = (params: { row: User }) => {
+    onClickEdit(params.row)
+  }
+
   const columns: GridColDef<User>[] = useMemo(
     () => [
       {
@@ -138,6 +142,7 @@ export const UsersGrid = () => {
       rows={usersData ?? []}
       columns={columns}
       createButton={{ onClick: onClickCreate, label: 'Crear usuario' }}
+      onRowDoubleClick={onItemDoubleClick}
     />
   )
 }
