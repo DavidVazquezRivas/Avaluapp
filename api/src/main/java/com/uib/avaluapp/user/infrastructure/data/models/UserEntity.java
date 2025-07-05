@@ -1,8 +1,11 @@
 package com.uib.avaluapp.user.infrastructure.data.models;
 
+import com.uib.avaluapp.project.infrastructure.data.models.ProjectEntity;
 import com.uib.avaluapp.user.domain.models.Role;
 import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -28,4 +31,7 @@ public class UserEntity {
     @Enumerated(EnumType.ORDINAL)
     @Column(nullable = false)
     private Role role;
+
+    @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ProjectEntity> projects;
 }
