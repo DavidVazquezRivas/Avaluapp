@@ -33,6 +33,8 @@ export const FilterComponent: React.FC<FilterComponentProps> = ({
     setAnchorEl(null)
   }
 
+  if (!defaultFilters || defaultFilters.length === 0) return <div></div>
+
   return (
     <Box
       display='grid'
