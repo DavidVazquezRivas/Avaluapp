@@ -8,4 +8,5 @@ export const UserNavs: NavItem[] = [
 export const AdminNavs: NavItem[] = [
   { value: 'dashboard', href: `${AdminRoutes.Base}/${AdminRoutes.Dashboard}` },
   { value: 'users', href: `${AdminRoutes.Base}/${AdminRoutes.Users}` },
+  { value: 'projects', href: `${AdminRoutes.Base}/${AdminRoutes.Projects}` },
 ]
