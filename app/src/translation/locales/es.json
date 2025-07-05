@@ -9,7 +9,8 @@
       "logout": "Cerrar sesión",
       "navs": {
         "dashboard": "Panel de control",
-        "users": "Usuarios"
+        "users": "Usuarios",
+        "projects": "Proyectos"
       }
     },
     "formatters": {
@@ -351,6 +352,70 @@
         "error": {
           "create": "Error al crear usuario. Ya existe un usuario con este nombre de usuario o correo electrónico.",
           "update": "Error al actualizar usuario. Ya existe otro usuario con este nombre de usuario o correo electrónico."
+        }
+      }
+    },
+    "projects": {
+      "grid": {
+        "columns": {
+          "name": "Nombre",
+          "description": "Descripción",
+          "createdAt": "Fecha de creación",
+          "admin": "Administrador"
+        },
+        "actions": {
+          "create": {
+            "label": "Crear proyecto",
+            "title": "Crear nuevo proyecto",
+            "error": "Error al crear el proyecto. Por favor, inténtalo de nuevo más tarde."
+          },
+          "edit": {
+            "label": "Editar",
+            "title": "Editar proyecto"
+          },
+          "delete": {
+            "label": "Eliminar",
+            "confirm": {
+              "title": "Eliminar proyecto",
+              "text": "¿Estás seguro de que deseas eliminar el proyecto {{name}}?",
+              "button": {
+                "ok": "Eliminar",
+                "cancel": "Cancelar"
+              }
+            }
+          }
+        }
+      },
+      "form": {
+        "title": {
+          "create": "Crear proyecto",
+          "edit": "Editar proyecto"
+        },
+        "fields": {
+          "name": {
+            "label": "Nombre del proyecto",
+            "placeholder": "Introduce el nombre del proyecto",
+            "helperText": "El nombre del proyecto es obligatorio"
+          },
+          "description": {
+            "label": "Descripción",
+            "placeholder": "Introduce una descripción del proyecto",
+            "helperText": "La descripción es opcional"
+          },
+          "createdAt": {
+            "label": "Fecha de creación",
+            "placeholder": "Selecciona la fecha de creación",
+            "helperText": "La fecha de creación es opcional"
+          },
+          "adminId": {
+            "label": "Administrador del proyecto",
+            "placeholder": "Selecciona un administrador",
+            "helperText": "El administrador es obligatorio"
+          }
+        },
+        "error": {
+          "create": "Error al crear el proyecto. Ya existe un proyecto con este nombre.",
+          "update": "Error al actualizar el proyecto. Ya existe otro proyecto con este nombre."
         }
       }
     }

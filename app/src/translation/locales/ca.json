@@ -9,7 +9,8 @@
       "logout": "Tancar sessió",
       "navs": {
         "dashboard": "Tauler de control",
-        "users": "Usuaris"
+        "users": "Usuaris",
+        "projects": "Projectes"
       }
     },
     "formatters": {
@@ -351,6 +352,66 @@
             "create": "Error al crear usuari. Ja existeix un usuari amb aquest nom d'usuari o correu electrònic.",
             "update": "Error en actualitzar l'usuari. Ja existeix un altre usuari amb aquest nom d'usuari o correu electrònic."
           }
+        }
+      }
+    },
+    "projects": {
+      "grid": {
+        "columns": {
+          "name": "Nom",
+          "description": "Descripció",
+          "createdAt": "Data de creació",
+          "admin": "Administrador"
+        },
+        "actions": {
+          "create": {
+            "label": "Crear projecte",
+            "title": "Crear projecte",
+            "error": "Error al crear el projecte. Si us plau, torna-ho a intentar més tard."
+          },
+          "edit": {
+            "label": "Editar",
+            "title": "Editar projecte"
+          },
+          "delete": {
+            "label": "Eliminar",
+            "confirm": {
+              "title": "Eliminar projecte",
+              "text": "Estàs segur que vols eliminar el projecte {{name}}?",
+              "button": {
+                "ok": "Eliminar",
+                "cancel": "Cancel·lar"
+              }
+            }
+          }
+        }
+      },
+      "form": {
+        "fields": {
+          "name": {
+            "label": "Nom",
+            "placeholder": "Introdueix el nom del projecte",
+            "helperText": "El nom del projecte és obligatori"
+          },
+          "description": {
+            "label": "Descripció",
+            "placeholder": "Introdueix una descripció del projecte",
+            "helperText": "La descripció del projecte és opcional"
+          },
+          "createdAt": {
+            "label": "Data de creació",
+            "placeholder": "Selecciona la data de creació",
+            "helperText": "La data de creació és opcional"
+          },
+          "admin": {
+            "label": "Administrador",
+            "placeholder": "Selecciona un administrador",
+            "helperText": "L'administrador del projecte és obligatori"
+          }
+        },
+        "error": {
+          "create": "Error al crear el projecte. Si us plau, torna-ho a intentar més tard.",
+          "update": "Error en actualitzar el projecte. Si us plau, torna-ho a intentar més tard."
         }
       }
     }
