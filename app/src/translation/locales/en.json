@@ -10,7 +10,10 @@
       "navs": {
         "dashboard": "Dashboard",
         "users": "Users",
-        "projects": "Projects"
+        "projects": {
+          "title": "Projects",
+          "list": "Manage Projects"
+        }
       }
     },
     "formatters": {

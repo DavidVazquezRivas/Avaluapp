@@ -10,7 +10,10 @@
       "navs": {
         "dashboard": "Panel de control",
         "users": "Usuarios",
-        "projects": "Proyectos"
+        "projects": {
+          "title": "Proyectos",
+          "list": "Gestionar proyectos"
+        }
       }
     },
     "formatters": {
