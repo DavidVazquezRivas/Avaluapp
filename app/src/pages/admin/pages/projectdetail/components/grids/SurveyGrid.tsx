@@ -1,6 +1,7 @@
 import getAllSurveysQueryOptions from '../../queries/survey/getAll.survey.query'
 import createSurveyQueryOptions from '../../queries/survey/create.survey.query'
 import deleteSurveyQueryOptions from '../../queries/survey/delete.survey.query'
+import updateSurveyQueryOptions from '../../queries/survey/update.survey.query'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
 import { usePanel } from '@/contexts/PanelContext'
@@ -14,7 +15,6 @@ import { User } from '@/models/user.model'
 import { dateRenderer } from '@/utils/renderers/date.renderer'
 import Grid from '@/components/grid/Grid'
 import { SurveyForm } from '../panels/SurveyForm'
-import updateSurveyQueryOptions from '../../queries/survey/create.survey.query'
 
 interface SurveyGridProps {
   projectId: number
