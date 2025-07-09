@@ -1,4 +1,6 @@
+import { JSX } from 'react'
+
 export interface TabModel {
   label: string // Use it as a key for locales
-  component: React.ReactNode
+  component: JSX.Element
 }
