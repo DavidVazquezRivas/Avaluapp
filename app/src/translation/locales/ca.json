@@ -418,6 +418,13 @@
           "update": "Error en actualitzar el projecte. Si us plau, torna-ho a intentar més tard."
         }
       }
+    },
+    "projectdetail": {
+      "tabs": {
+        "surveys": {
+          "label": "Enquestes"
+        }
+      }
     }
   }
 }

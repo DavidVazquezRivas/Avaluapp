@@ -418,6 +418,13 @@
           "update": "Error updating project. Another project already exists with this name."
         }
       }
+    },
+    "projectdetail": {
+      "tabs": {
+        "surveys": {
+          "label": "Surveys"
+        }
+      }
     }
   }
 }

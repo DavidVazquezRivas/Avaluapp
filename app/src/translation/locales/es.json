@@ -422,6 +422,13 @@
           "update": "Error al actualizar el proyecto. Ya existe otro proyecto con este nombre."
         }
       }
+    },
+    "projectdetail": {
+      "tabs": {
+        "surveys": {
+          "label": "Encuestas"
+        }
+      }
     }
   }
 }
