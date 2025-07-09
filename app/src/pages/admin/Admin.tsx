@@ -6,6 +6,9 @@ import { lazy } from 'react'
 const AdminDashboard = lazy(() => import('./pages/dashboard/AdminDashboard'))
 const UsersPage = lazy(() => import('./pages/users/UsersPage'))
 const ProjectsPage = lazy(() => import('./pages/projects/ProjectsPage'))
+const ProjectDetailPage = lazy(
+  () => import('./pages/projectdetail/ProjectDetailPage')
+)
 
 export const Admin = () => {
   return (
@@ -14,6 +17,7 @@ export const Admin = () => {
       <Route path={AdminRoutes.Dashboard} element={<AdminDashboard />} />
       <Route path={AdminRoutes.Users} element={<UsersPage />} />
       <Route path={AdminRoutes.Projects} element={<ProjectsPage />} />
+      <Route path={AdminRoutes.ProjectDetail} element={<ProjectDetailPage />} />
     </RoutesWithNotFound>
   )
 }
