@@ -426,7 +426,60 @@
     "projectdetail": {
       "tabs": {
         "surveys": {
-          "label": "Encuestas"
+          "label": "Encuestas",
+          "grid": {
+            "columns": {
+              "name": "Nombre",
+              "lead": "Responsable",
+              "urlCode": "Código de URL",
+              "createdAt": "Fecha de creación"
+            },
+            "actions": {
+              "create": {
+                "label": "Crear encuesta",
+                "title": "Crear nueva encuesta",
+                "error": "Error al crear la encuesta. Por favor, inténtalo de nuevo más tarde."
+              },
+              "edit": {
+                "label": "Editar",
+                "title": "Editar encuesta",
+                "error": "Error al actualizar la encuesta. Por favor, inténtalo de nuevo más tarde."
+              },
+              "delete": {
+                "label": "Eliminar",
+                "confirm": {
+                  "title": "Eliminar encuesta",
+                  "text": "¿Estás seguro de que deseas eliminar la encuesta {{name}}?",
+                  "button": {
+                    "ok": "Eliminar",
+                    "cancel": "Cancelar"
+                  }
+                }
+              }
+            }
+          },
+          "form": {
+            "title": {
+              "create": "Crear encuesta",
+              "edit": "Editar encuesta"
+            },
+            "fields": {
+              "name": {
+                "label": "Nombre de la encuesta",
+                "placeholder": "Introduce el nombre de la encuesta",
+                "helperText": "El nombre de la encuesta es obligatorio"
+              },
+              "lead": {
+                "label": "Responsable de la encuesta",
+                "placeholder": "Selecciona un responsable",
+                "helperText": "El responsable es obligatorio"
+              }
+            },
+            "error": {
+              "create": "Error al crear la encuesta. Ya existe una encuesta con este nombre.",
+              "update": "Error al actualizar la encuesta. Ya existe otra encuesta con este nombre."
+            }
+          }
         }
       }
     }

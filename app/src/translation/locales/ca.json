@@ -422,7 +422,60 @@
     "projectdetail": {
       "tabs": {
         "surveys": {
-          "label": "Enquestes"
+          "label": "Enquestes",
+          "grid": {
+            "columns": {
+              "name": "Nom",
+              "lead": "Responsable",
+              "urlCode": "Codi URL",
+              "createdAt": "Data de creació"
+            },
+            "actions": {
+              "create": {
+                "label": "Crear enquesta",
+                "title": "Crear una nova enquesta",
+                "error": "Error en crear l'enquesta. Si us plau, torna-ho a intentar més tard."
+              },
+              "edit": {
+                "label": "Editar",
+                "title": "Editar enquesta",
+                "error": "Error en actualitzar l'enquesta. Si us plau, torna-ho a intentar més tard."
+              },
+              "delete": {
+                "label": "Eliminar",
+                "confirm": {
+                  "title": "Eliminar enquesta",
+                  "text": "Estàs segur que vols eliminar l'enquesta {{name}}?",
+                  "button": {
+                    "ok": "Eliminar",
+                    "cancel": "Cancel·lar"
+                  }
+                }
+              }
+            }
+          },
+          "form": {
+            "title": {
+              "create": "Crear enquesta",
+              "edit": "Editar enquesta"
+            },
+            "fields": {
+              "name": {
+                "label": "Nom de l'enquesta",
+                "placeholder": "Introdueix el nom de l'enquesta",
+                "helperText": "El nom de l'enquesta és obligatori"
+              },
+              "lead": {
+                "label": "Responsable de l'enquesta",
+                "placeholder": "Selecciona un responsable",
+                "helperText": "El responsable és obligatori"
+              }
+            },
+            "error": {
+              "create": "Error en crear l'enquesta. Ja existeix una enquesta amb aquest nom.",
+              "update": "Error en actualitzar l'enquesta. Ja existeix una altra enquesta amb aquest nom."
+            }
+          }
         }
       }
     }
