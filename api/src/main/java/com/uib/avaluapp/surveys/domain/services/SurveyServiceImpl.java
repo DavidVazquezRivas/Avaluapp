@@ -89,6 +89,6 @@ public class SurveyServiceImpl implements SurveyService {
         survey.setName(request.getName());
         survey.setLead(lead);
 
-        return SurveyDtoMapper.INSTANCE.toDto(surveyPort.createSurvey(survey));
+        return SurveyDtoMapper.INSTANCE.toDto(surveyPort.updateSurvey(survey));
     }
 }
