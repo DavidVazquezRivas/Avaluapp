@@ -14,7 +14,7 @@ export default function updateSurveyQueryOptions(
       queryClient.invalidateQueries({ queryKey: [Queries.getSurveys] })
     },
     onError: (error) => {
-      console.error('Error creating survey:', error)
+      console.error('Error updating survey:', error)
     },
   }
 }

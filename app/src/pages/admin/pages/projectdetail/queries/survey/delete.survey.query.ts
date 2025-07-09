@@ -13,7 +13,7 @@ export default function deleteSurveyQueryOptions(
       queryClient.invalidateQueries({ queryKey: [Queries.getSurveys] })
     },
     onError: (error) => {
-      console.error('Error deleting project:', error)
+      console.error('Error deleting survey:', error)
     },
   }
 }
