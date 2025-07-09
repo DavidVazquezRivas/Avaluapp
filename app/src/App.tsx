@@ -17,6 +17,7 @@ import { Role } from '@/models/role.model'
 import { useQueries } from '@tanstack/react-query'
 import { PanelProvider } from '@/contexts/PanelContext'
 import { Panel } from '@/components/panel/Panel'
+import { useLoadMasters } from './hooks/useLoadMasters'
 
 const Login = lazy(() => import('@/pages/login/Login'))
 const Private = lazy(() => import('@/pages/private/Private'))
@@ -27,6 +28,8 @@ function App() {
   const [{ isPending }] = useQueries({
     queries: [refreshSessionQueryOptions()],
   })
+
+  useLoadMasters()
 
   useEffect(() => {
     PublicPrivateInterceptor()

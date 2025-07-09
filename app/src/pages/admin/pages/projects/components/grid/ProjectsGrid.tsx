@@ -1,6 +1,7 @@
 import Grid from '@/components/grid/Grid'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
+import VisibilityIcon from '@mui/icons-material/Visibility'
 import ProjectForm from '../panels/ProjectForm'
 import getAllProjectsQueryOptions from '../../queries/getAll.project.query'
 import createProjectQueryOptions from '../../queries/create.project.query'
@@ -8,7 +9,6 @@ import { GridActionsCellItem, GridColDef } from '@mui/x-data-grid'
 import { Project, ProjectBase } from '../../models/project.model'
 import { useMemo } from 'react'
 import { useTranslation } from 'react-i18next'
-import { User } from '@/models/user.model'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { Box, Tooltip, Typography } from '@mui/material'
 import { dateRenderer } from '@/utils/renderers/date.renderer'
@@ -16,11 +16,13 @@ import { usePanel } from '@/contexts/PanelContext'
 import { PanelType } from '@/models/panels.model'
 import deleteProjectQueryOptions from '../../queries/delete.project.query'
 import updateProjectQueryOptions from '../../queries/update.project.query'
+import { useNavigate } from 'react-router-dom'
 
 export const ProjectsGrid = () => {
   const { t } = useTranslation()
   const { openPanel } = usePanel()
   const queryClient = useQueryClient()
+  const navigate = useNavigate()
 
   const { data, isLoading, isFetching } = useQuery(getAllProjectsQueryOptions())
 
@@ -80,17 +82,25 @@ export const ProjectsGrid = () => {
     })
   }
 
+  const handleOpenDetail = (project: Project) => {
+    navigate(project.id.toString())
+  }
+
+  const onItemDoubleClick = (params: { row: Project }) => {
+    handleOpenDetail(params.row)
+  }
+
   const columns: GridColDef<Project>[] = useMemo(
     () => [
       {
         field: 'name',
         headerName: t('admin.projects.grid.columns.name'),
-        minWidth: 200,
+        flex: 1,
       },
       {
         field: 'description',
         headerName: t('admin.projects.grid.columns.description'),
-        minWidth: 400,
+        flex: 2,
         renderCell: (params) => (
           <Tooltip title={params.value || ''}>
             <Box
@@ -117,22 +127,23 @@ export const ProjectsGrid = () => {
       {
         field: 'createdAt',
         headerName: t('admin.projects.grid.columns.createdAt'),
-        minWidth: 150,
+        flex: 1,
         renderCell: (params) => {
           const date = new Date(params.value)
           return dateRenderer(date)
         },
       },
-      {
-        field: 'admin',
-        headerName: t('admin.projects.grid.columns.admin'),
-        minWidth: 200,
-        valueGetter: (value: User) => value.username,
-      },
+      // Redundant because admins only see their own projects
+      // {
+      //   field: 'admin',
+      //   headerName: t('admin.projects.grid.columns.admin'),
+      //   minWidth: 200,
+      //   valueGetter: (value: User) => value.username,
+      // },
       {
         field: 'actions',
         type: 'actions',
-        minWidth: 80,
+        minWidth: 140,
         getActions: (params: { row: Project }) => [
           <GridActionsCellItem
             icon={<DeleteIcon />}
@@ -143,6 +154,11 @@ export const ProjectsGrid = () => {
             icon={<EditIcon />}
             onClick={() => onClickUpdate(params.row)}
             label={t('admin.projects.grid.actions.update.label')}
+          />,
+          <GridActionsCellItem
+            icon={<VisibilityIcon />}
+            onClick={() => handleOpenDetail(params.row)}
+            label={t('admin.projects.grid.actions.view.label')}
           />,
         ],
       },
@@ -159,6 +175,7 @@ export const ProjectsGrid = () => {
         onClick: onClickCreate,
         label: t('admin.projects.grid.actions.create.label'),
       }}
+      onRowDoubleClick={onItemDoubleClick}
     />
   )
 }

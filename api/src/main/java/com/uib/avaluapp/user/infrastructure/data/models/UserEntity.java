@@ -1,6 +1,7 @@
 package com.uib.avaluapp.user.infrastructure.data.models;
 
 import com.uib.avaluapp.project.infrastructure.data.models.ProjectEntity;
+import com.uib.avaluapp.surveys.infrastructure.data.models.SurveyEntity;
 import com.uib.avaluapp.user.domain.models.Role;
 import jakarta.persistence.*;
 import lombok.*;
@@ -34,4 +35,7 @@ public class UserEntity {
 
     @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProjectEntity> projects;
+
+    @OneToMany(mappedBy = "lead", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private List<SurveyEntity> surveys;
 }

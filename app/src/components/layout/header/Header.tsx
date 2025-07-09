@@ -8,10 +8,17 @@ import Container from '@mui/material/Container'
 import Divider from '@mui/material/Divider'
 import MenuItem from '@mui/material/MenuItem'
 import Drawer from '@mui/material/Drawer'
+import Menu from '@mui/material/Menu'
+import Collapse from '@mui/material/Collapse'
+import List from '@mui/material/List'
+import ListItemButton from '@mui/material/ListItemButton'
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
+import ExpandLessIcon from '@mui/icons-material/ExpandLess'
 import MenuIcon from '@mui/icons-material/Menu'
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
 import ColorModeIconDropdown from '@/theme/ColorModeIconDropdown'
 import LanguageSelect from './LanguageSelect'
+import store from '@/redux/store'
 import { styled, alpha } from '@mui/material/styles'
 import { Icon } from '@/assets/Icon'
 import { useNavigate } from 'react-router-dom'
@@ -21,6 +28,7 @@ import { AdminNavs, UserNavs } from '@/constants/navs'
 import { NavItem } from '@/models/nav.model'
 import { useSession } from '@/hooks/useSession'
 import { getSession } from '@/utils/session.utils'
+import { AdminRoutes } from '@/constants/routes'
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: 'flex',
@@ -40,6 +48,12 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 
 export default function Header() {
   const [open, setOpen] = React.useState(false)
+  const [anchorEls, setAnchorEls] = React.useState<
+    Record<string, HTMLElement | null>
+  >({})
+  const [collapseOpen, setCollapseOpen] = React.useState<
+    Record<string, boolean>
+  >({})
   const navigate = useNavigate()
   const { t } = useTranslation()
   const { haveSession, deleteSession } = useSession()
@@ -53,24 +67,65 @@ export default function Header() {
     navigate('/', { replace: true })
   }
 
-  const navButtons = getNavItems().map((item: NavItem) => (
-    <Button
-      key={item.value}
-      variant='text'
-      color='info'
-      size='small'
-      onClick={() => navigate(item.href, { replace: true })}>
-      {t(`globals.header.navs.${item.value}`)}
-    </Button>
-  ))
+  const handleMenuOpen = (
+    event: React.MouseEvent<HTMLElement>,
+    key: string
+  ) => {
+    setAnchorEls((prev) => ({ ...prev, [key]: event.currentTarget }))
+  }
 
-  const navMenuItems = getNavItems().map((item: NavItem) => (
-    <MenuItem
-      key={item.value}
-      onClick={() => navigate(item.href, { replace: true })}>
-      {t(`globals.header.navs.${item.value}`)}
-    </MenuItem>
-  ))
+  const handleMenuClose = (key: string) => {
+    setAnchorEls((prev) => ({ ...prev, [key]: null }))
+  }
+
+  const handleCollapseToggle = (key: string) => {
+    setCollapseOpen((prev) => ({ ...prev, [key]: !prev[key] }))
+  }
+
+  const navItems = getNavItems()
+
+  const navButtons = navItems.map((item: NavItem) => {
+    if (item.children?.length) {
+      return (
+        <React.Fragment key={item.value}>
+          <Button
+            color='info'
+            size='small'
+            onClick={(e) => handleMenuOpen(e, item.value)}
+            endIcon={<ExpandMoreIcon />}>
+            {t(`globals.header.navs.${item.value}`)}
+          </Button>
+          <Menu
+            anchorEl={anchorEls[item.value]}
+            open={Boolean(anchorEls[item.value])}
+            onClose={() => handleMenuClose(item.value)}>
+            {item.children.map((subItem) => (
+              <MenuItem
+                key={subItem.value}
+                onClick={() => {
+                  navigate(subItem.href || '/')
+                  handleMenuClose(item.value)
+                }}>
+                {subItem.unlocated
+                  ? subItem.value
+                  : t(`globals.header.navs.${subItem.value}`)}
+              </MenuItem>
+            ))}
+          </Menu>
+        </React.Fragment>
+      )
+    }
+    return (
+      <Button
+        key={item.value}
+        variant='text'
+        color='info'
+        size='small'
+        onClick={() => navigate(item.href || '/', { replace: true })}>
+        {t(`globals.header.navs.${item.value}`)}
+      </Button>
+    )
+  })
 
   return (
     <AppBar
@@ -117,26 +172,54 @@ export default function Header() {
               anchor='top'
               open={open}
               onClose={toggleDrawer(false)}
-              PaperProps={{
-                sx: {
-                  top: 'var(--template-frame-height, 0px)',
-                },
-              }}>
+              PaperProps={{ sx: { top: 'var(--template-frame-height, 0px)' } }}>
               <Box sx={{ p: 2, backgroundColor: 'background.default' }}>
-                <Box
-                  sx={{
-                    display: 'flex',
-                    justifyContent: 'flex-end',
-                  }}>
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                   <IconButton onClick={toggleDrawer(false)}>
                     <CloseRoundedIcon sx={{ color: 'text.primary' }} />
                   </IconButton>
                 </Box>
-
-                {navMenuItems}
+                <List>
+                  {navItems.map((item) => (
+                    <React.Fragment key={item.value}>
+                      <ListItemButton
+                        onClick={() =>
+                          item.children?.length
+                            ? handleCollapseToggle(item.value)
+                            : navigate(item.href || '/')
+                        }>
+                        {t(`globals.header.navs.${item.value}`)}
+                        {item.children?.length ? (
+                          collapseOpen[item.value] ? (
+                            <ExpandLessIcon />
+                          ) : (
+                            <ExpandMoreIcon />
+                          )
+                        ) : null}
+                      </ListItemButton>
+                      {item.children?.length && (
+                        <Collapse
+                          in={collapseOpen[item.value]}
+                          timeout='auto'
+                          unmountOnExit>
+                          <List component='div' disablePadding>
+                            {item.children.map((subItem) => (
+                              <ListItemButton
+                                key={subItem.value}
+                                sx={{ pl: 4 }}
+                                onClick={() => navigate(subItem.href || '/')}>
+                                {t(`globals.header.navs.${subItem.value}`)}
+                              </ListItemButton>
+                            ))}
+                          </List>
+                        </Collapse>
+                      )}
+                    </React.Fragment>
+                  ))}
+                </List>
                 <Divider sx={{ my: 3 }} />
-                <MenuItem>
-                  {haveSession && (
+                {haveSession && (
+                  <MenuItem>
                     <Button
                       fullWidth
                       color='primary'
@@ -144,8 +227,8 @@ export default function Header() {
                       onClick={handleLogout}>
                       {t('globals.header.logout')}
                     </Button>
-                  )}
-                </MenuItem>
+                  </MenuItem>
+                )}
               </Box>
             </Drawer>
           </Box>
@@ -159,7 +242,22 @@ function getNavItems(): NavItem[] {
   const session = getSession()
   switch (session?.user?.role) {
     case Role.Admin:
-      return AdminNavs
+      const projects = store.getState().project.projects
+      const projectsNav: NavItem[] = projects.map((project) => ({
+        value: project.name,
+        href: `${AdminRoutes.Base}/${AdminRoutes.Projects}/${project.id}`,
+        unlocated: true,
+      }))
+
+      return AdminNavs.map((nav) => {
+        if (nav.value === 'projects.title') {
+          return {
+            ...nav,
+            children: [...(nav.children || []), ...projectsNav],
+          }
+        }
+        return nav
+      })
     case Role.User:
       return UserNavs
     default:

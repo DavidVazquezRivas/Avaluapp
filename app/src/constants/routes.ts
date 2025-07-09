@@ -16,4 +16,5 @@ export const AdminRoutes = {
   Dashboard: 'dashboard',
   Users: 'users',
   Projects: 'projects',
+  ProjectDetail: 'projects/:id',
 }

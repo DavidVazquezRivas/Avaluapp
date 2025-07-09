@@ -10,7 +10,10 @@
       "navs": {
         "dashboard": "Dashboard",
         "users": "Users",
-        "projects": "Projects"
+        "projects": {
+          "title": "Projects",
+          "list": "Manage Projects"
+        }
       }
     },
     "formatters": {
@@ -413,6 +416,66 @@
         "error": {
           "create": "Error creating project. A project with this name already exists.",
           "update": "Error updating project. Another project already exists with this name."
+        }
+      }
+    },
+    "projectdetail": {
+      "tabs": {
+        "surveys": {
+          "label": "Surveys",
+          "grid": {
+            "columns": {
+              "name": "Name",
+              "lead": "Responsible",
+              "urlCode": "URL Code",
+              "createdAt": "Creation Date"
+            },
+            "actions": {
+              "create": {
+                "label": "Create survey",
+                "title": "Create new survey",
+                "error": "Error creating the survey. Please try again later."
+              },
+              "edit": {
+                "label": "Edit",
+                "title": "Edit survey",
+                "error": "Error updating the survey. Please try again later."
+              },
+              "delete": {
+                "label": "Delete",
+                "confirm": {
+                  "title": "Delete survey",
+                  "text": "Are you sure you want to delete the survey {{name}}?",
+                  "button": {
+                    "ok": "Delete",
+                    "cancel": "Cancel"
+                  }
+                }
+              }
+            }
+          },
+          "form": {
+            "title": {
+              "create": "Create survey",
+              "edit": "Edit survey"
+            },
+            "fields": {
+              "name": {
+                "label": "Survey name",
+                "placeholder": "Enter the survey name",
+                "helperText": "The survey name is required"
+              },
+              "lead": {
+                "label": "Survey responsible",
+                "placeholder": "Select a responsible person",
+                "helperText": "The responsible person is required"
+              }
+            },
+            "error": {
+              "create": "Error creating the survey. A survey with this name already exists.",
+              "update": "Error updating the survey. Another survey with this name already exists."
+            }
+          }
         }
       }
     }
