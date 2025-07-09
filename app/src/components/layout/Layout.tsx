@@ -6,19 +6,24 @@ import Footer from '@/components/layout/footer/Footer'
 interface LayoutProps {
   children: React.ReactNode
   attributions?: Attribution[]
+  align?: 'center' | 'start' | 'end'
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, attributions }) => {
+const Layout: React.FC<LayoutProps> = ({
+  children,
+  attributions,
+  align = 'center',
+}) => {
   return (
     <>
       <Box
         component='section'
         display='flex'
         flexDirection='column'
-        justifyContent='center'
+        justifyContent={align}
         minHeight='100vh'>
         <Header />
-        <Container maxWidth='lg' sx={{ mt: 5 }}>
+        <Container maxWidth='lg' sx={{ mt: 15 }}>
           {children}
         </Container>
       </Box>
