@@ -3,6 +3,7 @@ export const Queries = {
   refresh: 'refresh',
   getProjects: 'getprojects',
   getProject: 'getproject',
+  getSurveys: 'getsurveys',
 }
 
 export default Queries
