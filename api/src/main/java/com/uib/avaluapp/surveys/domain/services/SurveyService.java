@@ -8,6 +8,8 @@ import java.util.List;
 public interface SurveyService {
     List<SurveyDto> getAllSurveys(String authorization, Long projectId);
 
+    List<SurveyDto> getAllLeadSurveys(String authorization);
+
     SurveyDto createSurvey(String authorization, CreateSurveyRequest request);
 
     void deleteSurvey(String authorization, Long surveyId);

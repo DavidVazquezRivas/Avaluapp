@@ -11,6 +11,8 @@ public interface SurveyPort {
 
     List<Survey> getAllSurveysByProjectId(Long projectId);
 
+    List<Survey> getAllSurveysByLeadId(Long leadId);
+
     Survey createSurvey(Survey survey);
 
     void deleteSurvey(Long surveyId);

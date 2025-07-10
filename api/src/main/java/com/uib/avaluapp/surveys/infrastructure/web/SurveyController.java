@@ -42,6 +42,19 @@ public class SurveyController extends BaseController {
         return handle(config);
     }
 
+    @GetMapping
+    public ResponseEntity<ApiResponse<List<SurveyDto>>> getAllLeadSurveys(
+            @RequestHeader("Authorization") String authorization) {
+        HandleConfig<List<SurveyDto>> config = HandleConfig.<List<SurveyDto>>builder()
+                .authorization(authorization)
+                .successMessage("Lead surveys retrieved successfully")
+                .successStatus(HttpStatus.OK)
+                .userHandler(() -> surveyService.getAllLeadSurveys(authorization))
+                .build();
+
+        return handle(config);
+    }
+
     @PostMapping
     public ResponseEntity<ApiResponse<SurveyDto>> createSurvey(
             @RequestHeader("Authorization") String authorization,

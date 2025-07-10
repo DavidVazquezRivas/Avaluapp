@@ -44,6 +44,19 @@ public class SurveyServiceImpl implements SurveyService {
     }
 
     @Override
+    public List<SurveyDto> getAllLeadSurveys(String authorization) {
+        User lead = userService.getSingleUser(authorization);
+
+        List<Survey> surveys = surveyPort.getAllSurveysByLeadId(lead.getId())
+                .stream()
+                .map(surveyPort::fetchProject)
+                .toList();
+
+
+        return SurveyDtoMapper.INSTANCE.toDtoList(surveys);
+    }
+
+    @Override
     public SurveyDto createSurvey(String authorization, CreateSurveyRequest request) {
         User admin = userService.getSingleUser(authorization);
 

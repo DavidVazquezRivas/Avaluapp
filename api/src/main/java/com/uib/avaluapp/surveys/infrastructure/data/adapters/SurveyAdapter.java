@@ -43,6 +43,14 @@ public class SurveyAdapter implements SurveyPort {
     }
 
     @Override
+    public List<Survey> getAllSurveysByLeadId(Long leadId) {
+        return surveyRepository.findAllByLeadId(leadId)
+                .stream()
+                .map(SurveyEntityMapper.INSTANCE::toDomain)
+                .toList();
+    }
+
+    @Override
     public Survey createSurvey(Survey survey) {
         SurveyEntity entity = surveyRepository.save(SurveyEntityMapper.INSTANCE.toEntity(survey));
         return SurveyEntityMapper.INSTANCE.toDomain(entity);
