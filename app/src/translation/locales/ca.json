@@ -428,7 +428,8 @@
               "name": "Nom",
               "lead": "Responsable",
               "urlCode": "Codi URL",
-              "createdAt": "Data de creació"
+              "createdAt": "Data de creació",
+              "status": "Estat"
             },
             "actions": {
               "create": {

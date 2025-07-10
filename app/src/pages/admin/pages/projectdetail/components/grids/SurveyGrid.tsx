@@ -15,6 +15,7 @@ import { User } from '@/models/user.model'
 import { dateRenderer } from '@/utils/renderers/date.renderer'
 import Grid from '@/components/grid/Grid'
 import { SurveyForm } from '../panels/SurveyForm'
+import { surveyStatusRenderer } from '@/utils/renderers/surveyStatus.renderer'
 
 interface SurveyGridProps {
   projectId: number
@@ -123,6 +124,13 @@ export const SurveyGrid: React.FC<SurveyGridProps> = ({ projectId }) => {
         ),
         flex: 1,
         valueGetter: (value: string) => dateRenderer(new Date(value)),
+      },
+      {
+        field: 'status',
+        headerAlign: 'center' as const,
+        align: 'center' as const,
+        headerName: t('admin.projectdetail.tabs.surveys.grid.columns.status'),
+        renderCell: ({ value }) => surveyStatusRenderer(value, t),
       },
       {
         field: 'actions',

@@ -20,6 +20,11 @@
       "role": {
         "ADMIN": "Administrador",
         "USER": "Líder de proyecto"
+      },
+      "surveyStatus": {
+        "PENDING": "Pendiente",
+        "ACCEPTED": "Aceptado",
+        "REJECTED": "Rechazado"
       }
     },
     "panel": {
@@ -432,7 +437,8 @@
               "name": "Nombre",
               "lead": "Responsable",
               "urlCode": "Código de URL",
-              "createdAt": "Fecha de creación"
+              "createdAt": "Fecha de creación",
+              "status": "Estado"
             },
             "actions": {
               "create": {
