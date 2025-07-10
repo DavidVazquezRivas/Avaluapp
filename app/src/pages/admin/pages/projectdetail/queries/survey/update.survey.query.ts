@@ -1,6 +1,6 @@
 import { MutationOptions, QueryClient } from '@tanstack/react-query'
 import { AxiosResponse } from 'axios'
-import { SurveyRequest } from '../../models/survey.model'
+import { SurveyRequest } from '@/models/survey.model'
 import { updateSurvey } from '../../services/survey/update.surveys.service'
 import Queries from '@/constants/queries.constants'
 

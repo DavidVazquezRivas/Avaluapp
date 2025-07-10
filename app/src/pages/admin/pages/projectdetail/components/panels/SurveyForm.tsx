@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Survey } from '../../models/survey.model'
+import { Survey } from '@/models/survey.model'
 import {
   Autocomplete,
   FormControl,

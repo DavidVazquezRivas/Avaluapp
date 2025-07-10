@@ -1,5 +1,5 @@
 import { User } from '@/models/user.model'
-import { Project } from '../../projects/models/project.model'
+import { Project } from '../pages/admin/pages/projects/models/project.model'
 
 export enum SurveyStatus {
   PENDING = 'PENDING',

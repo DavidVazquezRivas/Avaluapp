@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { SurveyRequest } from '../../models/survey.model'
+import { SurveyRequest } from '@/models/survey.model'
 import { apiEndpoints } from '@/constants/endpoints'
 
 export const createSurvey = async (request: SurveyRequest) => {
