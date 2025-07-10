@@ -13,13 +13,19 @@
         "projects": {
           "title": "Projectes",
           "list": "Gestionar projectes"
-        }
+        },
+        "surveys": "Enquestes"
       }
     },
     "formatters": {
       "role": {
         "ADMIN": "Administrador",
         "USER": "Cap de projecte"
+      },
+      "surveyStatus": {
+        "PENDING": "Pendent",
+        "ACCEPTED": "Acceptada",
+        "REJECTED": "Rebutjada"
       }
     },
     "panel": {
@@ -428,7 +434,8 @@
               "name": "Nom",
               "lead": "Responsable",
               "urlCode": "Codi URL",
-              "createdAt": "Data de creació"
+              "createdAt": "Data de creació",
+              "status": "Estat"
             },
             "actions": {
               "create": {
@@ -475,6 +482,58 @@
               "create": "Error en crear l'enquesta. Ja existeix una enquesta amb aquest nom.",
               "update": "Error en actualitzar l'enquesta. Ja existeix una altra enquesta amb aquest nom."
             }
+          }
+        }
+      }
+    }
+  },
+  "user": {
+    "survey": {
+      "grid": {
+        "filters": {
+          "status": {
+            "all": "Totes",
+            "pending": "Pendent",
+            "accepted": "Acceptades"
+          }
+        },
+        "columns": {
+          "name": "Nom",
+          "admin": "Administrador",
+          "createdAt": "Data de creació",
+          "status": "Estat"
+        },
+        "actions": {
+          "copy": {
+            "label": "Copiar enllaç",
+            "tooltip": "Copiar l'enllaç de l'enquesta al porta-retalls",
+            "success": "Enllaç copiat al porta-retalls"
+          },
+          "accept": {
+            "label": "Acceptar",
+            "tooltip": "Acceptar l'enquesta",
+            "confirm": {
+              "title": "Acceptar enquesta",
+              "text": "Estàs segur que vols acceptar l'enquesta {{name}}?",
+              "button": {
+                "ok": "Acceptar",
+                "cancel": "Cancel·lar"
+              }
+            },
+            "success": "Enquesta acceptada"
+          },
+          "reject": {
+            "label": "Rebutjar",
+            "tooltip": "Rebutjar l'enquesta",
+            "confirm": {
+              "title": "Rebutjar enquesta",
+              "text": "Estàs segur que vols rebutjar l'enquesta {{name}}?",
+              "button": {
+                "ok": "Rebutjar",
+                "cancel": "Cancel·lar"
+              }
+            },
+            "success": "Enquesta rebutjada"
           }
         }
       }

@@ -24,7 +24,9 @@ public enum ExceptionCode {
     PROJECT_UNAUTHORIZED("You are not authorized to access this project", HttpStatus.FORBIDDEN),
 
     // Survey related exceptions
-    SURVEY_NOT_FOUND("Survey not found", HttpStatus.NOT_FOUND);
+    SURVEY_NOT_FOUND("Survey not found", HttpStatus.NOT_FOUND),
+    SURVEY_UNAUTHORIZED("You are not authorized to access this survey", HttpStatus.FORBIDDEN),
+    INCONSISTENT_SURVEY_STATUS("The survey is not pending", HttpStatus.CONFLICT);
 
 
     private final String message;

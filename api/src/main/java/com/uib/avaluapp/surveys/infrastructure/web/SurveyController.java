@@ -42,6 +42,19 @@ public class SurveyController extends BaseController {
         return handle(config);
     }
 
+    @GetMapping
+    public ResponseEntity<ApiResponse<List<SurveyDto>>> getAllLeadSurveys(
+            @RequestHeader("Authorization") String authorization) {
+        HandleConfig<List<SurveyDto>> config = HandleConfig.<List<SurveyDto>>builder()
+                .authorization(authorization)
+                .successMessage("Lead surveys retrieved successfully")
+                .successStatus(HttpStatus.OK)
+                .userHandler(() -> surveyService.getAllLeadSurveys(authorization))
+                .build();
+
+        return handle(config);
+    }
+
     @PostMapping
     public ResponseEntity<ApiResponse<SurveyDto>> createSurvey(
             @RequestHeader("Authorization") String authorization,
@@ -51,6 +64,34 @@ public class SurveyController extends BaseController {
                 .successMessage("Survey created successfully")
                 .successStatus(HttpStatus.CREATED)
                 .adminHandler(() -> surveyService.createSurvey(authorization, request))
+                .build();
+
+        return handle(config);
+    }
+
+    @PostMapping("/{surveyId}/accept")
+    public ResponseEntity<ApiResponse<Void>> acceptSurvey(
+            @RequestHeader("Authorization") String authorization,
+            @PathVariable Long surveyId) {
+        HandleConfig<Void> config = HandleConfig.<Void>builder()
+                .authorization(authorization)
+                .successMessage("Survey accepted successfully")
+                .successStatus(HttpStatus.NO_CONTENT)
+                .userHandler(HandleConfig.from(() -> surveyService.acceptSurvey(authorization, surveyId)))
+                .build();
+
+        return handle(config);
+    }
+
+    @PostMapping("/{surveyId}/reject")
+    public ResponseEntity<ApiResponse<Void>> rejectSurvey(
+            @RequestHeader("Authorization") String authorization,
+            @PathVariable Long surveyId) {
+        HandleConfig<Void> config = HandleConfig.<Void>builder()
+                .authorization(authorization)
+                .successMessage("Survey rejected successfully")
+                .successStatus(HttpStatus.NO_CONTENT)
+                .userHandler(HandleConfig.from(() -> surveyService.rejectSurvey(authorization, surveyId)))
                 .build();
 
         return handle(config);

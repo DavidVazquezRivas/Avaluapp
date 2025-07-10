@@ -3,6 +3,7 @@ import { AdminRoutes, UserRoutes } from './routes'
 
 export const UserNavs: NavItem[] = [
   { value: 'dashboard', href: `${UserRoutes.Base}/${UserRoutes.Dashboard}` },
+  { value: 'surveys', href: `${UserRoutes.Base}/${UserRoutes.Survey}` },
 ]
 
 export const AdminNavs: NavItem[] = [

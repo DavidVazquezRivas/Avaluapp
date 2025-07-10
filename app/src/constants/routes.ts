@@ -1,3 +1,5 @@
+export const AppRoute = 'http://localhost:5173'
+
 export const PublicRoutes = {
   Login: '/login',
 }
@@ -9,6 +11,7 @@ export const PrivateRoutes = {
 export const UserRoutes = {
   Base: '/user',
   Dashboard: 'dashboard',
+  Survey: 'surveys',
 }
 
 export const AdminRoutes = {
@@ -17,4 +20,8 @@ export const AdminRoutes = {
   Users: 'users',
   Projects: 'projects',
   ProjectDetail: 'projects/:id',
+}
+
+export const getSurveyUrl = (urlCode: string): string => {
+  return `${AppRoute}/survey/${urlCode}`
 }

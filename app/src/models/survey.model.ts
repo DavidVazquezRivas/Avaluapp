@@ -1,5 +1,11 @@
 import { User } from '@/models/user.model'
-import { Project } from '../../projects/models/project.model'
+import { Project } from '../pages/admin/pages/projects/models/project.model'
+
+export enum SurveyStatus {
+  PENDING = 'PENDING',
+  ACCEPTED = 'ACCEPTED',
+  REJECTED = 'REJECTED',
+}
 
 export interface Survey {
   id: number
@@ -7,6 +13,7 @@ export interface Survey {
   urlCode: string
   project: Project
   lead: User
+  status: SurveyStatus
   createdAt?: string
 }
 

@@ -13,13 +13,19 @@
         "projects": {
           "title": "Projects",
           "list": "Manage Projects"
-        }
+        },
+        "surveys": "Surveys"
       }
     },
     "formatters": {
       "role": {
         "ADMIN": "Administrator",
         "USER": "Project Lead"
+      },
+      "surveyStatus": {
+        "PENDING": "Pending",
+        "ACCEPTED": "Accepted",
+        "REJECTED": "Rejected"
       }
     },
     "panel": {
@@ -428,7 +434,8 @@
               "name": "Name",
               "lead": "Responsible",
               "urlCode": "URL Code",
-              "createdAt": "Creation Date"
+              "createdAt": "Creation Date",
+              "status": "Status"
             },
             "actions": {
               "create": {
@@ -475,6 +482,58 @@
               "create": "Error creating the survey. A survey with this name already exists.",
               "update": "Error updating the survey. Another survey with this name already exists."
             }
+          }
+        }
+      }
+    }
+  },
+  "user": {
+    "survey": {
+      "grid": {
+        "filters": {
+          "status": {
+            "all": "All",
+            "pending": "Pending",
+            "accepted": "Accepted"
+          }
+        },
+        "columns": {
+          "name": "Name",
+          "admin": "Administrator",
+          "createdAt": "Creation date",
+          "status": "Status"
+        },
+        "actions": {
+          "copy": {
+            "label": "Copy link",
+            "tooltip": "Copy survey link to clipboard",
+            "success": "Link copied to clipboard"
+          },
+          "accept": {
+            "label": "Accept",
+            "tooltip": "Accept the survey",
+            "confirm": {
+              "title": "Accept survey",
+              "text": "Are you sure you want to accept the survey {{name}}?",
+              "button": {
+                "ok": "Accept",
+                "cancel": "Cancel"
+              }
+            },
+            "success": "Survey accepted"
+          },
+          "reject": {
+            "label": "Reject",
+            "tooltip": "Reject the survey",
+            "confirm": {
+              "title": "Reject survey",
+              "text": "Are you sure you want to reject the survey {{name}}?",
+              "button": {
+                "ok": "Reject",
+                "cancel": "Cancel"
+              }
+            },
+            "success": "Survey rejected"
           }
         }
       }

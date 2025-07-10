@@ -16,4 +16,6 @@ public interface SurveyRepository extends CrudRepository<SurveyEntity, Long> {
     Optional<SurveyEntity> findWithProject(@Param("id") Long id);
 
     List<SurveyEntity> findAllByProjectId(Long projectId);
+
+    List<SurveyEntity> findAllByLeadId(Long leadId);
 }
