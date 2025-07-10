@@ -26,5 +26,8 @@ export const apiEndpoints = {
     create: `${apiBaseUrl}/surveys`,
     delete: (id: number) => `${apiBaseUrl}/surveys/${id}`,
     update: (id: number) => `${apiBaseUrl}/surveys/${id}`,
+    getAllLead: `${apiBaseUrl}/surveys`,
+    accept: (id: number) => `${apiBaseUrl}/surveys/${id}/accept`,
+    reject: (id: number) => `${apiBaseUrl}/surveys/${id}/reject`,
   },
 }

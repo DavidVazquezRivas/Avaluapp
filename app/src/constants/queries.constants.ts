@@ -4,6 +4,7 @@ export const Queries = {
   getProjects: 'getprojects',
   getProject: 'getproject',
   getSurveys: 'getsurveys',
+  getLeadSurveys: 'getleadSurveys',
 }
 
 export default Queries
