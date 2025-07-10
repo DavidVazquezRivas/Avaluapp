@@ -13,7 +13,8 @@
         "projects": {
           "title": "Proyectos",
           "list": "Gestionar proyectos"
-        }
+        },
+        "surveys": "Encuestas"
       }
     },
     "formatters": {
@@ -485,6 +486,58 @@
               "create": "Error al crear la encuesta. Ya existe una encuesta con este nombre.",
               "update": "Error al actualizar la encuesta. Ya existe otra encuesta con este nombre."
             }
+          }
+        }
+      }
+    }
+  },
+  "user": {
+    "survey": {
+      "grid": {
+        "filters": {
+          "status": {
+            "all": "Todas",
+            "pending": "Pendientes",
+            "accepted": "Aceptadas"
+          }
+        },
+        "columns": {
+          "name": "Nombre",
+          "admin": "Administrador",
+          "createdAt": "Fecha de creación",
+          "status": "Estado"
+        },
+        "actions": {
+          "copy": {
+            "label": "Copiar enlace",
+            "tooltip": "Copiar enlace de la encuesta al portapapeles",
+            "success": "Enlace copiado al portapapeles"
+          },
+          "accept": {
+            "label": "Aceptar",
+            "tooltip": "Aceptar la encuesta",
+            "confirm": {
+              "title": "Aceptar encuesta",
+              "text": "¿Estás seguro de que deseas aceptar la encuesta {{name}}?",
+              "button": {
+                "ok": "Aceptar",
+                "cancel": "Cancelar"
+              }
+            },
+            "success": "Encuesta aceptada"
+          },
+          "reject": {
+            "label": "Rechazar",
+            "tooltip": "Rechazar la encuesta",
+            "confirm": {
+              "title": "Rechazar encuesta",
+              "text": "¿Estás seguro de que deseas rechazar la encuesta {{name}}?",
+              "button": {
+                "ok": "Rechazar",
+                "cancel": "Cancelar"
+              }
+            },
+            "success": "Encuesta rechazada"
           }
         }
       }
