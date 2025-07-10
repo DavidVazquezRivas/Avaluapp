@@ -13,6 +13,8 @@ public interface SurveyPort {
 
     List<Survey> getAllSurveysByLeadId(Long leadId);
 
+    Survey getSurvey(Long surveyId);
+
     Survey createSurvey(Survey survey);
 
     void deleteSurvey(Long surveyId);

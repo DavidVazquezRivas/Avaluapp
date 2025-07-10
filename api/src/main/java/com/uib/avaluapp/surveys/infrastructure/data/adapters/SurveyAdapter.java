@@ -51,6 +51,13 @@ public class SurveyAdapter implements SurveyPort {
     }
 
     @Override
+    public Survey getSurvey(Long surveyId) {
+        return surveyRepository.findById(surveyId)
+                .map(SurveyEntityMapper.INSTANCE::toDomain)
+                .orElseThrow(() -> new BaseException(ExceptionCode.SURVEY_NOT_FOUND));
+    }
+
+    @Override
     public Survey createSurvey(Survey survey) {
         SurveyEntity entity = surveyRepository.save(SurveyEntityMapper.INSTANCE.toEntity(survey));
         return SurveyEntityMapper.INSTANCE.toDomain(entity);

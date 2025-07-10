@@ -15,4 +15,8 @@ public interface SurveyService {
     void deleteSurvey(String authorization, Long surveyId);
 
     SurveyDto updateSurvey(String authorization, Long surveyId, CreateSurveyRequest request);
+
+    void acceptSurvey(String authorization, Long surveyId);
+
+    void rejectSurvey(String authorization, Long surveyId);
 }

@@ -69,6 +69,34 @@ public class SurveyController extends BaseController {
         return handle(config);
     }
 
+    @PostMapping("/{surveyId}/accept")
+    public ResponseEntity<ApiResponse<Void>> acceptSurvey(
+            @RequestHeader("Authorization") String authorization,
+            @PathVariable Long surveyId) {
+        HandleConfig<Void> config = HandleConfig.<Void>builder()
+                .authorization(authorization)
+                .successMessage("Survey accepted successfully")
+                .successStatus(HttpStatus.NO_CONTENT)
+                .userHandler(HandleConfig.from(() -> surveyService.acceptSurvey(authorization, surveyId)))
+                .build();
+
+        return handle(config);
+    }
+
+    @PostMapping("/{surveyId}/reject")
+    public ResponseEntity<ApiResponse<Void>> rejectSurvey(
+            @RequestHeader("Authorization") String authorization,
+            @PathVariable Long surveyId) {
+        HandleConfig<Void> config = HandleConfig.<Void>builder()
+                .authorization(authorization)
+                .successMessage("Survey rejected successfully")
+                .successStatus(HttpStatus.NO_CONTENT)
+                .userHandler(HandleConfig.from(() -> surveyService.rejectSurvey(authorization, surveyId)))
+                .build();
+
+        return handle(config);
+    }
+
     @DeleteMapping("/{surveyId}")
     public ResponseEntity<ApiResponse<Void>> deleteSurvey(
             @RequestHeader("Authorization") String authorization,
