@@ -35,6 +35,13 @@ public class ProjectAdapter implements ProjectPort {
     }
 
     @Override
+    public Project getProjectByQuestionId(Long questionId) {
+        ProjectEntity projectEntity = projectRepository.findByQuestionId(questionId)
+                .orElseThrow(() -> new BaseException(ExceptionCode.PROJECT_NOT_FOUND));
+        return ProjectEntityMapper.INSTANCE.toDomain(projectEntity);
+    }
+
+    @Override
     public List<Project> getAllProjectsByAdminId(Long adminId) {
         List<ProjectEntity> projectEntities = projectRepository.findAllByAdminId(adminId);
         if (projectEntities.isEmpty()) throw new BaseException(ExceptionCode.PROJECT_NOT_FOUND);
