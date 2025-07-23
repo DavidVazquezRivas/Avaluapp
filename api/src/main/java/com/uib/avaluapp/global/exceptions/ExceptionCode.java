@@ -26,7 +26,13 @@ public enum ExceptionCode {
     // Survey related exceptions
     SURVEY_NOT_FOUND("Survey not found", HttpStatus.NOT_FOUND),
     SURVEY_UNAUTHORIZED("You are not authorized to access this survey", HttpStatus.FORBIDDEN),
-    INCONSISTENT_SURVEY_STATUS("The survey is not pending", HttpStatus.CONFLICT);
+    INCONSISTENT_SURVEY_STATUS("The survey is not pending", HttpStatus.CONFLICT),
+
+    // Question related exceptions
+    QUESTION_NOT_FOUND("Question not found", HttpStatus.NOT_FOUND),
+    QUESTION_TYPE_MISMATCH("Question type mismatch", HttpStatus.BAD_REQUEST),
+    OPTION_NOT_FOUND("Option not found", HttpStatus.NOT_FOUND),
+    ;
 
 
     private final String message;
