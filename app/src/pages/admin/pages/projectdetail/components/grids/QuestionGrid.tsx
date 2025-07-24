@@ -184,7 +184,7 @@ export const QuestionGrid: React.FC<QuestionGridProps> = ({ projectId }) => {
         ],
       },
     ],
-    []
+    [t]
   )
 
   return (
