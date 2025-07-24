@@ -26,6 +26,16 @@
         "PENDING": "Pendiente",
         "ACCEPTED": "Aceptado",
         "REJECTED": "Rechazado"
+      },
+      "questionType": {
+        "SINGLE_CHOICE": "Opción única",
+        "MULTIPLE_CHOICE": "Opción múltiple",
+        "TEXT": "Texto",
+        "NUMERIC": "Número",
+        "RATING": "Valoración",
+        "SCALE": "Escala",
+        "DATE": "Fecha",
+        "YES_NO": "Sí/No"
       }
     },
     "panel": {
@@ -485,6 +495,81 @@
             "error": {
               "create": "Error al crear la encuesta. Ya existe una encuesta con este nombre.",
               "update": "Error al actualizar la encuesta. Ya existe otra encuesta con este nombre."
+            }
+          }
+        },
+        "questions": {
+          "label": "Preguntas",
+          "grid": {
+            "columns": {
+              "text": "Texto de la pregunta",
+              "type": "Tipo",
+              "createdAt": "Fecha de creación",
+              "required": "Obligatoria"
+            },
+            "actions": {
+              "create": {
+                "label": "Crear pregunta",
+                "title": "Crear nueva pregunta",
+                "error": "Error al crear la pregunta. Por favor, inténtalo de nuevo más tarde."
+              },
+              "edit": {
+                "label": "Editar",
+                "title": "Editar pregunta",
+                "error": "Error al actualizar la pregunta. Por favor, inténtalo de nuevo más tarde."
+              },
+              "delete": {
+                "label": "Eliminar",
+                "confirm": {
+                  "title": "Eliminar pregunta",
+                  "text": "¿Estás seguro de que deseas eliminar la pregunta \"{{text}}\"?",
+                  "button": {
+                    "ok": "Eliminar",
+                    "cancel": "Cancelar"
+                  }
+                }
+              }
+            }
+          },
+          "form": {
+            "title": {
+              "create": "Crear pregunta",
+              "edit": "Editar pregunta"
+            },
+            "fields": {
+              "text": {
+                "label": "Texto de la pregunta",
+                "placeholder": "Introduce el texto de la pregunta",
+                "helperText": "El texto de la pregunta es obligatorio"
+              },
+              "type": {
+                "label": "Tipo de pregunta",
+                "placeholder": "Selecciona un tipo de pregunta",
+                "helperText": "El tipo de pregunta es obligatorio"
+              },
+              "required": {
+                "label": "Obligatoria"
+              },
+              "createdAt": {
+                "label": "Fecha de creación",
+                "placeholder": "Selecciona la fecha de creación",
+                "helperText": "La fecha de creación es opcional"
+              },
+              "options": {
+                "title": "Opciones",
+                "placeholder": "Introduce una opción",
+                "helperText": "Tiene que haber al menos una opción correcta",
+                "correct": "Correcta"
+              },
+              "maxLength": {
+                "label": "Longitud máxima",
+                "placeholder": "Introduce la longitud máxima de la respuesta",
+                "helperText": "La longitud máxima es opcional"
+              }
+            },
+            "error": {
+              "create": "Error al crear la pregunta. Ya existe una pregunta con este texto.",
+              "update": "Error al actualizar la pregunta. Ya existe otra pregunta con este texto."
             }
           }
         }

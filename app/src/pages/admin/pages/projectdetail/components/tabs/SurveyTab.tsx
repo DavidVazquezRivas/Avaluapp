@@ -7,3 +7,5 @@ interface SurveyTabProps {
 export const SurveyTab: React.FC<SurveyTabProps> = ({ id }) => {
   return <SurveyGrid projectId={id} />
 }
+
+export default SurveyTab

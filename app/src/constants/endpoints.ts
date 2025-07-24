@@ -30,4 +30,12 @@ export const apiEndpoints = {
     accept: (id: number) => `${apiBaseUrl}/surveys/${id}/accept`,
     reject: (id: number) => `${apiBaseUrl}/surveys/${id}/reject`,
   },
+  questions: {
+    getAll: (projectId: number) =>
+      `${apiBaseUrl}/questions/project/${projectId}`,
+    get: (id: number) => `${apiBaseUrl}/questions/${id}`,
+    create: `${apiBaseUrl}/questions`,
+    delete: (id: number) => `${apiBaseUrl}/questions/${id}`,
+    update: (id: number) => `${apiBaseUrl}/questions/${id}`,
+  },
 }

@@ -26,6 +26,16 @@
         "PENDING": "Pending",
         "ACCEPTED": "Accepted",
         "REJECTED": "Rejected"
+      },
+      "questionType": {
+        "SINGLE_CHOICE": "Single Choice",
+        "MULTIPLE_CHOICE": "Multiple Choice",
+        "TEXT": "Text",
+        "NUMERIC": "Numeric",
+        "RATING": "Rating",
+        "SCALE": "Scale",
+        "DATE": "Date",
+        "YES_NO": "Yes/No"
       }
     },
     "panel": {
@@ -481,6 +491,81 @@
             "error": {
               "create": "Error creating the survey. A survey with this name already exists.",
               "update": "Error updating the survey. Another survey with this name already exists."
+            }
+          }
+        },
+        "questions": {
+          "label": "Questions",
+          "grid": {
+            "columns": {
+              "text": "Question Text",
+              "type": "Type",
+              "createdAt": "Creation Date",
+              "required": "Required"
+            },
+            "actions": {
+              "create": {
+                "label": "Create Question",
+                "title": "Create New Question",
+                "error": "Error creating the question. Please try again later."
+              },
+              "edit": {
+                "label": "Edit",
+                "title": "Edit Question",
+                "error": "Error updating the question. Please try again later."
+              },
+              "delete": {
+                "label": "Delete",
+                "confirm": {
+                  "title": "Delete Question",
+                  "text": "Are you sure you want to delete the question \"{{text}}\"?",
+                  "button": {
+                    "ok": "Delete",
+                    "cancel": "Cancel"
+                  }
+                }
+              }
+            }
+          },
+          "form": {
+            "title": {
+              "create": "Create Question",
+              "edit": "Edit Question"
+            },
+            "fields": {
+              "text": {
+                "label": "Question Text",
+                "placeholder": "Enter the question text",
+                "helperText": "Question text is required"
+              },
+              "type": {
+                "label": "Question Type",
+                "placeholder": "Select a question type",
+                "helperText": "Question type is required"
+              },
+              "required": {
+                "label": "Required"
+              },
+              "createdAt": {
+                "label": "Creation Date",
+                "placeholder": "Select the creation date",
+                "helperText": "Creation date is optional"
+              },
+              "options": {
+                "title": "Options",
+                "placeholder": "Enter an option",
+                "helperText": "There must be at least one correct option",
+                "correct": "Correct"
+              },
+              "maxLength": {
+                "label": "Maximum Length",
+                "placeholder": "Enter the maximum answer length",
+                "helperText": "Maximum length is optional"
+              }
+            },
+            "error": {
+              "create": "Error creating the question. A question with this text already exists.",
+              "update": "Error updating the question. Another question with this text already exists."
             }
           }
         }

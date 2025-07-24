@@ -1,5 +1,6 @@
 package com.uib.avaluapp.project.infrastructure.data.models;
 
+import com.uib.avaluapp.questions.infrastructure.data.models.QuestionEntity;
 import com.uib.avaluapp.surveys.infrastructure.data.models.SurveyEntity;
 import com.uib.avaluapp.user.infrastructure.data.models.UserEntity;
 import jakarta.persistence.*;
@@ -35,6 +36,9 @@ public class ProjectEntity {
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SurveyEntity> surveys;
+    
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<QuestionEntity> questions;
 
     @PrePersist
     protected void onCreate() {
