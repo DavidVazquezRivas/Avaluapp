@@ -120,9 +120,18 @@ public class QuestionServiceImpl implements QuestionService {
         Map<Long, Option> currentOptionsMap = question.getOptions().stream()
                 .collect(Collectors.toMap(Option::getId, Function.identity()));
 
-        Map<Long, Option> newOptionsMap = newOptions == null ? Collections.emptyMap() :
-                newOptions.stream().peek(option -> option.setQuestion(question))
-                        .collect(Collectors.toMap(Option::getId, Function.identity()));
+        List<Option> newOptionsList = newOptions == null ? Collections.emptyList() :
+                newOptions.stream()
+                        .peek(option -> option.setQuestion(question))
+                        .toList();
+
+        Map<Long, Option> newOptionsMap = newOptionsList.stream()
+                .filter(opt -> opt.getId() != null)
+                .collect(Collectors.toMap(Option::getId, Function.identity()));
+
+        List<Option> optionsToCreate = newOptionsList.stream()
+                .filter(opt -> opt.getId() == null)
+                .toList();
 
         // Deleted options
         currentOptionsMap.keySet().stream()
@@ -130,9 +139,7 @@ public class QuestionServiceImpl implements QuestionService {
                 .forEach(optionPort::deleteOption);
 
         // New options
-        newOptionsMap.keySet().stream()
-                .filter(id -> !currentOptionsMap.containsKey(id))
-                .forEach(id -> optionPort.createOption(newOptionsMap.get(id)));
+        optionsToCreate.forEach(optionPort::createOption);
 
         // Updated options
         newOptionsMap.keySet().stream()
