@@ -26,6 +26,16 @@
         "PENDING": "Pendent",
         "ACCEPTED": "Acceptada",
         "REJECTED": "Rebutjada"
+      },
+      "questionType": {
+        "SINGLE_CHOICE": "Elecció única",
+        "MULTIPLE_CHOICE": "Elecció múltiple",
+        "TEXT": "Text",
+        "NUMERIC": "Numèric",
+        "RATING": "Valoració",
+        "SCALE": "Escala",
+        "DATE": "Data",
+        "YES_NO": "Sí/No"
       }
     },
     "panel": {
@@ -481,6 +491,81 @@
             "error": {
               "create": "Error en crear l'enquesta. Ja existeix una enquesta amb aquest nom.",
               "update": "Error en actualitzar l'enquesta. Ja existeix una altra enquesta amb aquest nom."
+            }
+          }
+        },
+        "questions": {
+          "label": "Preguntes",
+          "grid": {
+            "columns": {
+              "text": "Text de la pregunta",
+              "type": "Tipus",
+              "createdAt": "Data de creació",
+              "required": "Obligatòria"
+            },
+            "actions": {
+              "create": {
+                "label": "Crear pregunta",
+                "title": "Crear nova pregunta",
+                "error": "Error en crear la pregunta. Torna-ho a intentar més tard."
+              },
+              "edit": {
+                "label": "Editar",
+                "title": "Editar pregunta",
+                "error": "Error en actualitzar la pregunta. Torna-ho a intentar més tard."
+              },
+              "delete": {
+                "label": "Eliminar",
+                "confirm": {
+                  "title": "Eliminar pregunta",
+                  "text": "Estàs segur que vols eliminar la pregunta \"{{text}}\"?",
+                  "button": {
+                    "ok": "Eliminar",
+                    "cancel": "Cancel·lar"
+                  }
+                }
+              }
+            }
+          },
+          "form": {
+            "title": {
+              "create": "Crear pregunta",
+              "edit": "Editar pregunta"
+            },
+            "fields": {
+              "text": {
+                "label": "Text de la pregunta",
+                "placeholder": "Introdueix el text de la pregunta",
+                "helperText": "El text de la pregunta és obligatori"
+              },
+              "type": {
+                "label": "Tipus de pregunta",
+                "placeholder": "Selecciona un tipus de pregunta",
+                "helperText": "El tipus de pregunta és obligatori"
+              },
+              "required": {
+                "label": "Obligatòria"
+              },
+              "createdAt": {
+                "label": "Data de creació",
+                "placeholder": "Selecciona la data de creació",
+                "helperText": "La data de creació és opcional"
+              },
+              "options": {
+                "title": "Opcions",
+                "placeholder": "Introdueix una opció",
+                "helperText": "Ha d’haver-hi almenys una opció correcta",
+                "correct": "Correcta"
+              },
+              "maxLength": {
+                "label": "Longitud màxima",
+                "placeholder": "Introdueix la longitud màxima de la resposta",
+                "helperText": "La longitud màxima és opcional"
+              }
+            },
+            "error": {
+              "create": "Error en crear la pregunta. Ja existeix una pregunta amb aquest text.",
+              "update": "Error en actualitzar la pregunta. Ja existeix una altra pregunta amb aquest text."
             }
           }
         }
