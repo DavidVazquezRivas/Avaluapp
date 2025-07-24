@@ -20,6 +20,7 @@ export const AdminRoutes = {
   Users: 'users',
   Projects: 'projects',
   ProjectDetail: 'projects/:id',
+  Questions: 'questions',
 }
 
 export const getSurveyUrl = (urlCode: string): string => {
