@@ -50,18 +50,22 @@ export const ErrorInterceptor = () => {
     })
   }
 
-  const shouldHandleError = (originalRequest: AxiosRequestConfig): boolean => {
+  const shouldHandleError = (
+    originalRequest: AxiosRequestConfig,
+    error: AxiosError
+  ): boolean => {
     const url = originalRequest.url || ''
     const isAuthEndpoint = url.includes('/auth')
     const isRetryAttempt = originalRequest._retry
-    return !isAuthEndpoint && !isRetryAttempt
+    const isUnauthorized = error.response?.status === 401
+    return !isAuthEndpoint && !isRetryAttempt && isUnauthorized
   }
 
   const handleUnauthorizedError = async (
     error: AxiosError,
     originalRequest: AxiosRequestConfig
   ): Promise<AxiosResponse> => {
-    if (!shouldHandleError(originalRequest)) {
+    if (!shouldHandleError(originalRequest, error)) {
       return Promise.reject(error)
     }
 
