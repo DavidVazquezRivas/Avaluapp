@@ -6,7 +6,6 @@ export enum QuestionType {
   Text = 'TEXT',
   Numeric = 'NUMERIC',
   Rating = 'RATING',
-  Scale = 'SCALE',
   Date = 'DATE',
   YesNo = 'YES_NO',
 }

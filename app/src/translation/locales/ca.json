@@ -20,7 +20,7 @@
     "formatters": {
       "role": {
         "ADMIN": "Administrador",
-        "USER": "Cap de projecte"
+        "USER": "Responsable"
       },
       "surveyStatus": {
         "PENDING": "Pendent",
@@ -319,7 +319,7 @@
         },
         "filters": {
           "admin": "Administrador",
-          "user": "Caps de projecte"
+          "user": "Responsables"
         },
         "actions": {
           "delete": {
