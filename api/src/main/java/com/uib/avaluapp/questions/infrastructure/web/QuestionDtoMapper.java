@@ -3,7 +3,7 @@ package com.uib.avaluapp.questions.infrastructure.web;
 import com.uib.avaluapp.questions.domain.models.Question;
 import com.uib.avaluapp.questions.infrastructure.web.responses.CompleteQuestionDto;
 import com.uib.avaluapp.questions.infrastructure.web.responses.QuestionDto;
-import com.uib.avaluapp.tags.infrastructure.web.TagDtoMapper;
+import com.uib.avaluapp.tags.infrastructure.web.mapper.TagDtoMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
