@@ -11,5 +11,4 @@ public class Option {
     private Long id;
     private String text;
     private boolean correct;
-    private Question question;
 }

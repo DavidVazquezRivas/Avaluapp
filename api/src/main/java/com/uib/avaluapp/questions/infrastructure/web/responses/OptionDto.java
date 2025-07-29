@@ -9,5 +9,4 @@ public class OptionDto {
     private Long id;
     private String text;
     private boolean correct;
-    private Long questionId;
 }

@@ -1,6 +1,7 @@
 package com.uib.avaluapp.questions.domain.models;
 
 import com.uib.avaluapp.project.domain.models.Project;
+import com.uib.avaluapp.tags.domain.models.Tag;
 import lombok.Builder;
 import lombok.Data;
 
@@ -18,4 +19,5 @@ public class Question {
     private int maxLength;
     private Project project;
     private List<Option> options;
+    private List<Tag> tags;
 }
