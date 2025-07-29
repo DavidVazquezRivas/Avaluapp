@@ -12,4 +12,7 @@ public interface ProjectRepository extends CrudRepository<ProjectEntity, Long> {
 
     @Query("SELECT p FROM ProjectEntity p JOIN p.questions q WHERE q.id = :questionId")
     Optional<ProjectEntity> findByQuestionId(Long questionId);
+
+    @Query("SELECT p FROM ProjectEntity p JOIN p.tags t WHERE t.id = :tagId")
+    Optional<ProjectEntity> findByTagId(Long tagId);
 }
