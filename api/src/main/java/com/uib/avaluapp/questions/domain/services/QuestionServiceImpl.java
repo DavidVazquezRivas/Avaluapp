@@ -12,6 +12,7 @@ import com.uib.avaluapp.questions.infrastructure.web.requests.CreateQuestionRequ
 import com.uib.avaluapp.questions.infrastructure.web.requests.UpdateQuestionRequest;
 import com.uib.avaluapp.questions.infrastructure.web.responses.CompleteQuestionDto;
 import com.uib.avaluapp.questions.infrastructure.web.responses.QuestionDto;
+import com.uib.avaluapp.tags.domain.models.Tag;
 import com.uib.avaluapp.user.domain.models.User;
 import com.uib.avaluapp.user.domain.services.UserService;
 import lombok.RequiredArgsConstructor;
@@ -74,6 +75,7 @@ public class QuestionServiceImpl implements QuestionService {
                 .required(request.isRequired())
                 .maxLength(request.getMaxLength())
                 .options(OptionDtoMapper.INSTANCE.toDomainListFromCreate(request.getOptions()))
+                .tags(request.getTags().stream().map(tag -> Tag.builder().id(tag).build()).toList())
                 .build();
 
         Question createdQuestion = questionPort.createQuestion(question);
@@ -102,6 +104,7 @@ public class QuestionServiceImpl implements QuestionService {
                 .required(request.isRequired())
                 .maxLength(request.getMaxLength())
                 .options(OptionDtoMapper.INSTANCE.toDomainListFromUpdate(request.getOptions()))
+                .tags(request.getTags().stream().map(tag -> Tag.builder().id(tag).build()).toList())
                 .build();
 
         questionPort.updateQuestion(question);

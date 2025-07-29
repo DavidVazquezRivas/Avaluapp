@@ -8,8 +8,9 @@ import com.uib.avaluapp.questions.infrastructure.data.OptionEntityMapper;
 import com.uib.avaluapp.questions.infrastructure.data.QuestionEntityMapper;
 import com.uib.avaluapp.questions.infrastructure.data.models.OptionEntity;
 import com.uib.avaluapp.questions.infrastructure.data.models.QuestionEntity;
-import com.uib.avaluapp.questions.infrastructure.data.repositories.OptionRepository;
 import com.uib.avaluapp.questions.infrastructure.data.repositories.QuestionRepository;
+import com.uib.avaluapp.tags.infrastructure.data.models.TagEntity;
+import com.uib.avaluapp.tags.infrastructure.data.repositories.TagRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,12 +24,12 @@ import java.util.stream.Collectors;
 public class QuestionAdapter implements QuestionPort {
 
     private final QuestionRepository questionRepository;
-    private final OptionRepository optionRepository;
+    private final TagRepository tagRepository;
 
     @Autowired
-    public QuestionAdapter(QuestionRepository questionRepository, OptionRepository optionRepository) {
+    public QuestionAdapter(QuestionRepository questionRepository, TagRepository tagRepository) {
         this.questionRepository = questionRepository;
-        this.optionRepository = optionRepository;
+        this.tagRepository = tagRepository;
     }
 
     @Override
@@ -66,6 +67,16 @@ public class QuestionAdapter implements QuestionPort {
             entity.setOptions(new ArrayList<>());
         }
 
+        if (question.getTags() != null && !question.getTags().isEmpty()) {
+            List<TagEntity> tagEntities = question.getTags().stream()
+                    .map(tag -> tagRepository.findById(tag.getId())
+                            .orElseThrow(() -> new BaseException(ExceptionCode.TAG_NOT_FOUND)))
+                    .toList();
+            entity.setTags(tagEntities);
+        } else {
+            entity.setTags(new ArrayList<>());
+        }
+
         QuestionEntity savedEntity = questionRepository.save(entity);
         return QuestionEntityMapper.INSTANCE.toDomain(savedEntity);
     }
@@ -85,8 +96,7 @@ public class QuestionAdapter implements QuestionPort {
         List<OptionEntity> newOptionEntities = question.getOptions() != null ?
                 question.getOptions().stream()
                         .map(OptionEntityMapper.INSTANCE::toEntity)
-                        .toList() :
-                new ArrayList<>();
+                        .toList() : new ArrayList<>();
 
         Map<Long, OptionEntity> newOptionMap = newOptionEntities.stream()
                 .filter(opt -> opt.getId() != null)
@@ -109,6 +119,16 @@ public class QuestionAdapter implements QuestionPort {
                             existingOpt.setCorrect(newOpt.isCorrect());
                         });
             }
+        }
+
+        if (question.getTags() != null && !question.getTags().isEmpty()) {
+            List<TagEntity> tagEntities = question.getTags().stream()
+                    .map(tag -> tagRepository.findById(tag.getId())
+                            .orElseThrow(() -> new BaseException(ExceptionCode.TAG_NOT_FOUND)))
+                    .collect(Collectors.toList());
+            existingEntity.setTags(tagEntities);
+        } else {
+            existingEntity.setTags(new ArrayList<>());
         }
 
         QuestionEntity savedEntity = questionRepository.save(existingEntity);
