@@ -15,4 +15,5 @@ public class UpdateQuestionRequest {
     private int maxLength;
     private Long projectId;
     private List<UpdateOptionRequest> options;
+    private List<Long> tags;
 }

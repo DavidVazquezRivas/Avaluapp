@@ -2,6 +2,7 @@ package com.uib.avaluapp.surveys.infrastructure.data.models;
 
 import com.uib.avaluapp.project.infrastructure.data.models.ProjectEntity;
 import com.uib.avaluapp.surveys.domain.models.SurveyStatus;
+import com.uib.avaluapp.tags.infrastructure.data.models.TagEntity;
 import com.uib.avaluapp.user.infrastructure.data.models.UserEntity;
 import jakarta.persistence.*;
 import lombok.*;
@@ -44,6 +45,10 @@ public class SurveyEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id", nullable = false)
     private ProjectEntity project;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "tag_id", nullable = false)
+    private TagEntity tag;
 
     @PrePersist
     protected void onCreate() {

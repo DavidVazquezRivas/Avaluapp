@@ -15,4 +15,5 @@ public class CreateQuestionRequest {
     private int maxLength;
     private Long projectId;
     private List<CreateOptionRequest> options;
+    private List<Long> tags;
 }

@@ -7,6 +7,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -51,10 +52,24 @@ public class QuestionEntity {
             joinColumns = @JoinColumn(name = "question_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
-    private List<TagEntity> tags;
+    private List<TagEntity> tags = new ArrayList<>();
 
     @PrePersist
     protected void onCreate() {
         this.createdAt = LocalDateTime.now();
+    }
+
+    public void addTag(TagEntity tag) {
+        if (tags == null) {
+            tags = new ArrayList<>();
+        }
+
+        tags.add(tag);
+    }
+
+    public void removeTag(TagEntity tag) {
+        if (tags != null) {
+            tags.remove(tag);
+        }
     }
 }
