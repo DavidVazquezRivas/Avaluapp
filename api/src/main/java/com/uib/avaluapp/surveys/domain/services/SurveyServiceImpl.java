@@ -10,6 +10,7 @@ import com.uib.avaluapp.surveys.domain.ports.SurveyPort;
 import com.uib.avaluapp.surveys.infrastructure.web.SurveyDtoMapper;
 import com.uib.avaluapp.surveys.infrastructure.web.requests.CreateSurveyRequest;
 import com.uib.avaluapp.surveys.infrastructure.web.responses.SurveyDto;
+import com.uib.avaluapp.tags.domain.ports.TagPort;
 import com.uib.avaluapp.user.domain.models.User;
 import com.uib.avaluapp.user.domain.ports.UserPort;
 import com.uib.avaluapp.user.domain.services.UserService;
@@ -26,6 +27,7 @@ public class SurveyServiceImpl implements SurveyService {
     private final SurveyPort surveyPort;
     private final ProjectPort projectPort;
     private final UserPort userPort;
+    private final TagPort tagPort;
 
     @Override
     public List<SurveyDto> getAllSurveys(String authorization, Long projectId) {
@@ -69,6 +71,7 @@ public class SurveyServiceImpl implements SurveyService {
         User lead = userPort.getSingleUser(request.getLeadId());
 
         Survey survey = Survey.builder()
+                .tag(tagPort.getTagById(request.getTag()))
                 .name(request.getName())
                 .project(project)
                 .lead(lead)
@@ -100,6 +103,7 @@ public class SurveyServiceImpl implements SurveyService {
         User lead = userPort.getSingleUser(request.getLeadId());
 
         if (!survey.getLead().getId().equals(lead.getId())) survey.setStatus(SurveyStatus.PENDING);
+        survey.setTag(tagPort.getTagById(request.getTag()));
         survey.setName(request.getName());
         survey.setLead(lead);
 

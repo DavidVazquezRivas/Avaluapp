@@ -3,13 +3,14 @@ package com.uib.avaluapp.surveys.infrastructure.data.adapters;
 import com.uib.avaluapp.project.infrastructure.data.adapters.ProjectEntityMapper;
 import com.uib.avaluapp.surveys.domain.models.Survey;
 import com.uib.avaluapp.surveys.infrastructure.data.models.SurveyEntity;
+import com.uib.avaluapp.tags.infrastructure.data.adapters.TagEntityMapper;
 import com.uib.avaluapp.user.infrastructure.data.adapters.UserEntityMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper(uses = {UserEntityMapper.class, ProjectEntityMapper.class})
+@Mapper(uses = {UserEntityMapper.class, ProjectEntityMapper.class, TagEntityMapper.class})
 public interface SurveyEntityMapper {
     SurveyEntityMapper INSTANCE = Mappers.getMapper(SurveyEntityMapper.class);
 

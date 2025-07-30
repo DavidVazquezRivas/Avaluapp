@@ -1,6 +1,7 @@
 package com.uib.avaluapp.surveys.domain.models;
 
 import com.uib.avaluapp.project.domain.models.Project;
+import com.uib.avaluapp.tags.domain.models.Tag;
 import com.uib.avaluapp.user.domain.models.User;
 import lombok.Builder;
 import lombok.Data;
@@ -17,4 +18,5 @@ public class Survey {
     private SurveyStatus status;
     private User lead;
     private Project project;
+    private Tag tag;
 }

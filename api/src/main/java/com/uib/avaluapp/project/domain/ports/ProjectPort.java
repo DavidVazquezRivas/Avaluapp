@@ -11,6 +11,8 @@ public interface ProjectPort {
 
     Project getProjectByQuestionId(Long questionId);
 
+    Project getProjectByTagId(Long tagId);
+
     List<Project> getAllProjectsByAdminId(Long adminId);
 
     void deleteProject(Long id);

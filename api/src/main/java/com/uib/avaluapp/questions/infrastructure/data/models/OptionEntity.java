@@ -20,8 +20,4 @@ public class OptionEntity {
 
     @Column(name = "correct")
     private boolean correct;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "question_id", nullable = false)
-    private QuestionEntity question;
 }

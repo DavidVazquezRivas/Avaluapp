@@ -13,4 +13,7 @@ public interface QuestionRepository extends CrudRepository<QuestionEntity, Long>
     Optional<QuestionEntity> findWithOptions(@Param("id") Long id);
 
     List<QuestionEntity> findAllByProjectId(Long projectId);
+
+    @Query("SELECT q FROM QuestionEntity q LEFT JOIN FETCH q.tags t WHERE t.id = :tagId")
+    List<QuestionEntity> findAllByTagId(Long tagId);
 }

@@ -38,4 +38,11 @@ export const apiEndpoints = {
     delete: (id: number) => `${apiBaseUrl}/questions/${id}`,
     update: (id: number) => `${apiBaseUrl}/questions/${id}`,
   },
+  tags: {
+    create: `${apiBaseUrl}/tags`,
+    delete: (tagId: number) => `${apiBaseUrl}/tags/${tagId}`,
+    getAll: (projectId: number) => `${apiBaseUrl}/tags/project/${projectId}`,
+    get: (tagId: number) => `${apiBaseUrl}/tags/${tagId}`,
+    update: (tagId: number) => `${apiBaseUrl}/tags/${tagId}`,
+  },
 }

@@ -20,7 +20,7 @@
     "formatters": {
       "role": {
         "ADMIN": "Administrator",
-        "USER": "Project Lead"
+        "USER": "Responsible"
       },
       "surveyStatus": {
         "PENDING": "Pending",
@@ -319,7 +319,7 @@
         },
         "filters": {
           "admin": "Administrators",
-          "user": "Project Leads"
+          "user": "Responsibles"
         },
         "actions": {
           "delete": {
@@ -445,7 +445,8 @@
               "lead": "Responsible",
               "urlCode": "URL Code",
               "createdAt": "Creation Date",
-              "status": "Status"
+              "status": "Status",
+              "tag": "Tag"
             },
             "actions": {
               "create": {
@@ -486,6 +487,13 @@
                 "label": "Survey responsible",
                 "placeholder": "Select a responsible person",
                 "helperText": "The responsible person is required"
+              },
+              "tags": {
+                "label": "Tags",
+                "none": "No tags in this project",
+                "loading": "Loading tags...",
+                "placeholder": "Select tags",
+                "helperText": "A tag selection is required"
               }
             },
             "error": {
@@ -498,26 +506,31 @@
           "label": "Questions",
           "grid": {
             "columns": {
-              "text": "Question Text",
-              "type": "Type",
-              "createdAt": "Creation Date",
-              "required": "Required"
+              "name": "Name",
+              "text": "Question text",
+              "type": "Question type",
+              "createdAt": "Creation date",
+              "required": "Required",
+              "tags": {
+                "name": "Tags",
+                "more": "{{count}} more"
+              }
             },
             "actions": {
               "create": {
-                "label": "Create Question",
-                "title": "Create New Question",
+                "label": "Create question",
+                "title": "Create new question",
                 "error": "Error creating the question. Please try again later."
               },
               "edit": {
                 "label": "Edit",
-                "title": "Edit Question",
+                "title": "Edit question",
                 "error": "Error updating the question. Please try again later."
               },
               "delete": {
                 "label": "Delete",
                 "confirm": {
-                  "title": "Delete Question",
+                  "title": "Delete question",
                   "text": "Are you sure you want to delete the question \"{{text}}\"?",
                   "button": {
                     "ok": "Delete",
@@ -529,25 +542,36 @@
           },
           "form": {
             "title": {
-              "create": "Create Question",
-              "edit": "Edit Question"
+              "create": "Create question",
+              "edit": "Edit question"
             },
             "fields": {
+              "name": {
+                "label": "Question name",
+                "placeholder": "Enter the question name",
+                "helperText": "Question name is required"
+              },
               "text": {
-                "label": "Question Text",
+                "label": "Question text",
                 "placeholder": "Enter the question text",
                 "helperText": "Question text is required"
               },
               "type": {
-                "label": "Question Type",
+                "label": "Question type",
                 "placeholder": "Select a question type",
                 "helperText": "Question type is required"
+              },
+              "tags": {
+                "label": "Tags",
+                "loading": "Loading tags...",
+                "placeholder": "Select tags",
+                "helperText": "Tags are optional"
               },
               "required": {
                 "label": "Required"
               },
               "createdAt": {
-                "label": "Creation Date",
+                "label": "Creation date",
                 "placeholder": "Select the creation date",
                 "helperText": "Creation date is optional"
               },
@@ -558,7 +582,7 @@
                 "correct": "Correct"
               },
               "maxLength": {
-                "label": "Maximum Length",
+                "label": "Maximum length",
                 "placeholder": "Enter the maximum answer length",
                 "helperText": "Maximum length is optional"
               }
@@ -566,6 +590,56 @@
             "error": {
               "create": "Error creating the question. A question with this text already exists.",
               "update": "Error updating the question. Another question with this text already exists."
+            }
+          }
+        },
+        "tags": {
+          "label": "Tags",
+          "grid": {
+            "columns": {
+              "name": "Name",
+              "color": "Color"
+            },
+            "actions": {
+              "create": {
+                "label": "Create tag",
+                "title": "Create new tag",
+                "error": "Error creating the tag. Please try again later."
+              },
+              "edit": {
+                "label": "Edit",
+                "title": "Edit tag",
+                "error": "Error updating the tag. Please try again later."
+              },
+              "delete": {
+                "label": "Delete",
+                "confirm": {
+                  "title": "Delete tag",
+                  "text": "Are you sure you want to delete the tag {{name}}?",
+                  "button": {
+                    "ok": "Delete",
+                    "cancel": "Cancel"
+                  }
+                }
+              }
+            }
+          },
+          "form": {
+            "name": {
+              "label": "Name",
+              "placeholder": "Enter the tag name",
+              "helperText": "Tag name is required"
+            },
+            "color": {
+              "label": "Color",
+              "placeholder": "Select a color",
+              "helperText": "Tag color is required"
+            },
+            "questions": {
+              "label": "Questions",
+              "loading": "Loading questions...",
+              "placeholder": "Select questions",
+              "helperText": "Questions are optional"
             }
           }
         }
