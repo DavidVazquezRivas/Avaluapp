@@ -97,7 +97,7 @@ export const TagSection: React.FC<TagSectionProps> = ({
             },
           }}>
           {tagsData?.map((tag: Tag) => (
-            <MenuItem key={tag.id} value={tag.id}>
+            <MenuItem key={tag.id} value={tag.id} sx={{ my: 0.5 }}>
               <Checkbox checked={selectedTagIds.indexOf(tag.id) > -1} />
               <ListItemText
                 primary={
