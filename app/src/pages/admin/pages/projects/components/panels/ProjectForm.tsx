@@ -49,6 +49,7 @@ export const ProjectForm: React.FC<ProjectFormProps> = ({ project }) => {
           name='description'
           placeholder={t('admin.projects.form.fields.description.placeholder')}
           fullWidth
+          multiline
           variant='outlined'
           defaultValue={project?.description}
         />

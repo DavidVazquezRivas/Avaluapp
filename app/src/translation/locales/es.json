@@ -449,7 +449,8 @@
               "lead": "Responsable",
               "urlCode": "Código de URL",
               "createdAt": "Fecha de creación",
-              "status": "Estado"
+              "status": "Estado",
+              "tag": "Etiqueta"
             },
             "actions": {
               "create": {
@@ -490,6 +491,13 @@
                 "label": "Responsable de la encuesta",
                 "placeholder": "Selecciona un responsable",
                 "helperText": "El responsable es obligatorio"
+              },
+              "tags": {
+                "label": "Etiquetas",
+                "none": "No hay etiquetas en este proyecto",
+                "loading": "Cargando etiquetas...",
+                "placeholder": "Selecciona etiquetas",
+                "helperText": "Las etiquetas son opcionales"
               }
             },
             "error": {
@@ -502,10 +510,15 @@
           "label": "Preguntas",
           "grid": {
             "columns": {
-              "text": "Texto de la pregunta",
+              "name": "Nombre",
+              "text": "Enunciado",
               "type": "Tipo",
               "createdAt": "Fecha de creación",
-              "required": "Obligatoria"
+              "required": "Obligatoria",
+              "tags": {
+                "name": "Etiquetas",
+                "more": "{{count}} más"
+              }
             },
             "actions": {
               "create": {
@@ -537,15 +550,26 @@
               "edit": "Editar pregunta"
             },
             "fields": {
+              "name": {
+                "label": "Nombre de la pregunta",
+                "placeholder": "Introduce el nombre de la pregunta",
+                "helperText": "El nombre de la pregunta es obligatorio"
+              },
               "text": {
-                "label": "Texto de la pregunta",
-                "placeholder": "Introduce el texto de la pregunta",
-                "helperText": "El texto de la pregunta es obligatorio"
+                "label": "Enunciado",
+                "placeholder": "Introduce el enunciado de la pregunta",
+                "helperText": "El enunciado de la pregunta es obligatorio"
               },
               "type": {
                 "label": "Tipo de pregunta",
                 "placeholder": "Selecciona un tipo de pregunta",
                 "helperText": "El tipo de pregunta es obligatorio"
+              },
+              "tags": {
+                "label": "Etiquetas",
+                "loading": "Cargando etiquetas...",
+                "placeholder": "Selecciona etiquetas",
+                "helperText": "Las etiquetas son opcionales"
               },
               "required": {
                 "label": "Obligatoria"
@@ -570,6 +594,56 @@
             "error": {
               "create": "Error al crear la pregunta. Ya existe una pregunta con este texto.",
               "update": "Error al actualizar la pregunta. Ya existe otra pregunta con este texto."
+            }
+          }
+        },
+        "tags": {
+          "label": "Etiquetas",
+          "grid": {
+            "columns": {
+              "name": "Nombre",
+              "color": "Color"
+            },
+            "actions": {
+              "create": {
+                "label": "Crear etiqueta",
+                "title": "Crear nueva etiqueta",
+                "error": "Error al crear la etiqueta. Por favor, inténtalo de nuevo más tarde."
+              },
+              "edit": {
+                "label": "Editar",
+                "title": "Editar etiqueta",
+                "error": "Error al actualizar la etiqueta. Por favor, inténtalo de nuevo más tarde."
+              },
+              "delete": {
+                "label": "Eliminar",
+                "confirm": {
+                  "title": "Eliminar etiqueta",
+                  "text": "¿Estás seguro de que deseas eliminar la etiqueta {{name}}?",
+                  "button": {
+                    "ok": "Eliminar",
+                    "cancel": "Cancelar"
+                  }
+                }
+              }
+            }
+          },
+          "form": {
+            "name": {
+              "label": "Nombre",
+              "placeholder": "Introduce el nombre de la etiqueta",
+              "helperText": "El nombre de la etiqueta es obligatorio"
+            },
+            "color": {
+              "label": "Color",
+              "placeholder": "Selecciona un color",
+              "helperText": "El color de la etiqueta es obligatorio"
+            },
+            "questions": {
+              "label": "Preguntas",
+              "loading": "Cargando preguntas...",
+              "placeholder": "Selecciona preguntas",
+              "helperText": "Las preguntas son opcionales"
             }
           }
         }

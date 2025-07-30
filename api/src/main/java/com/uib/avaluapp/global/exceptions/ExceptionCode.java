@@ -32,6 +32,9 @@ public enum ExceptionCode {
     QUESTION_NOT_FOUND("Question not found", HttpStatus.NOT_FOUND),
     QUESTION_TYPE_MISMATCH("Question type mismatch", HttpStatus.BAD_REQUEST),
     OPTION_NOT_FOUND("Option not found", HttpStatus.NOT_FOUND),
+
+    // Tag related exceptions
+    TAG_NOT_FOUND("Tag not found", HttpStatus.NOT_FOUND),
     ;
 
 

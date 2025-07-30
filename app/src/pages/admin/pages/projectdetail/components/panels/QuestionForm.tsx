@@ -17,6 +17,7 @@ import { useTranslation } from 'react-i18next'
 import LoadingSpinner from '@/components/spinner/Spinner'
 import { OptionSection } from './OptionSection'
 import { dateRenderer } from '@/utils/renderers/date.renderer'
+import TagSection from './TagSection'
 
 interface QuestionFormProps {
   questionId?: number
@@ -57,6 +58,22 @@ export const QuestionForm: React.FC<QuestionFormProps> = ({
       <input type='hidden' name='id' value={projectId} />
 
       <FormControl>
+        <FormLabel htmlFor='name'>
+          {t('admin.projectdetail.tabs.questions.form.fields.name.label')}
+        </FormLabel>
+        <TextField
+          id='name'
+          name='name'
+          placeholder={t(
+            'admin.projectdetail.tabs.questions.form.fields.name.placeholder'
+          )}
+          autoFocus
+          required
+          fullWidth
+          defaultValue={data?.name}
+        />
+      </FormControl>
+      <FormControl>
         <FormLabel htmlFor='text'>
           {t('admin.projectdetail.tabs.questions.form.fields.text.label')}
         </FormLabel>
@@ -66,9 +83,9 @@ export const QuestionForm: React.FC<QuestionFormProps> = ({
           placeholder={t(
             'admin.projectdetail.tabs.questions.form.fields.text.placeholder'
           )}
-          autoFocus
           required
           fullWidth
+          multiline
           defaultValue={data?.text}
         />
       </FormControl>
@@ -85,6 +102,9 @@ export const QuestionForm: React.FC<QuestionFormProps> = ({
           {types}
         </Select>
       </FormControl>
+
+      <TagSection projectId={projectId} selectedTags={data?.tags || []} />
+
       {questionId !== null && (
         <FormControl fullWidth>
           <FormLabel htmlFor='createdAt'>

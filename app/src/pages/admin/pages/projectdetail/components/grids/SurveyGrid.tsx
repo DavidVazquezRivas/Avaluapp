@@ -8,7 +8,7 @@ import { usePanel } from '@/contexts/PanelContext'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
 import { PanelType } from '@/models/panels.model'
-import { Survey } from '@/models/survey.model'
+import { Survey, SurveyRequest } from '@/models/survey.model'
 import { useMemo } from 'react'
 import { GridActionsCellItem, GridColDef } from '@mui/x-data-grid'
 import { User } from '@/models/user.model'
@@ -16,7 +16,9 @@ import { dateRenderer } from '@/utils/renderers/date.renderer'
 import Grid from '@/components/grid/Grid'
 import { SurveyForm } from '../panels/SurveyForm'
 import { surveyStatusRenderer } from '@/utils/renderers/surveyStatus.renderer'
-import { Box } from '@mui/material'
+import { Box, Stack } from '@mui/material'
+import { tagRenderer } from '@/utils/renderers/tag.renderer'
+import { Tag } from '@/models/tag.model'
 
 interface SurveyGridProps {
   projectId: number
@@ -38,10 +40,11 @@ export const SurveyGrid: React.FC<SurveyGridProps> = ({ projectId }) => {
   const updateMutation = useMutation(updateSurveyQueryOptions(queryClient))
 
   const handleCreate = async (formData: FormData) => {
-    const survey = {
+    const survey: SurveyRequest = {
       name: formData.get('name') as string,
       projectId: projectId,
       leadId: formData.get('leadId') as unknown as number,
+      tag: formData.get('tag') as unknown as number,
     }
 
     await createMutation.mutateAsync(survey)
@@ -51,7 +54,7 @@ export const SurveyGrid: React.FC<SurveyGridProps> = ({ projectId }) => {
     openPanel({
       type: PanelType.FormDialog,
       title: t('admin.projectdetail.tabs.surveys.grid.actions.create.title'),
-      content: <SurveyForm />,
+      content: <SurveyForm projectId={projectId} />,
       onSubmit: handleCreate,
       errorText: t(
         'admin.projectdetail.tabs.surveys.grid.actions.create.error'
@@ -80,11 +83,12 @@ export const SurveyGrid: React.FC<SurveyGridProps> = ({ projectId }) => {
   }
 
   const handleUpdate = async (formData: FormData) => {
-    const updatedSurvey = {
+    const updatedSurvey: SurveyRequest = {
       id: formData.get('id') as unknown as number,
       name: formData.get('name') as string,
       projectId: projectId,
       leadId: formData.get('leadId') as unknown as number,
+      tag: formData.get('tag') as unknown as number,
     }
 
     await updateMutation.mutateAsync(updatedSurvey)
@@ -94,10 +98,14 @@ export const SurveyGrid: React.FC<SurveyGridProps> = ({ projectId }) => {
     openPanel({
       type: PanelType.FormDialog,
       title: t('admin.projectdetail.tabs.surveys.grid.actions.edit.title'),
-      content: <SurveyForm survey={survey} />,
+      content: <SurveyForm survey={survey} projectId={projectId} />,
       onSubmit: handleUpdate,
       errorText: t('admin.projectdetail.tabs.surveys.grid.actions.edit.error'),
     })
+  }
+
+  const onItemDoubleClick = (params: { row: Survey }) => {
+    onClickUpdate(params.row)
   }
 
   const columns: GridColDef<Survey>[] = useMemo(
@@ -113,10 +121,22 @@ export const SurveyGrid: React.FC<SurveyGridProps> = ({ projectId }) => {
         valueGetter: (value: User) => value.username,
         flex: 1,
       },
+      // {
+      //   field: 'urlCode',
+      //   headerName: t('admin.projectdetail.tabs.surveys.grid.columns.urlCode'),
+      //   flex: 1,
+      // },
       {
-        field: 'urlCode',
-        headerName: t('admin.projectdetail.tabs.surveys.grid.columns.urlCode'),
+        field: 'tag',
+        headerName: t('admin.projectdetail.tabs.surveys.grid.columns.tag'),
         flex: 1,
+        minWidth: 100,
+        maxWidth: 150,
+        renderCell: (params) => (
+          <Stack direction='row' height='100%' spacing={1} alignItems='center'>
+            {tagRenderer(params.value as Tag)}
+          </Stack>
+        ),
       },
       {
         field: 'createdAt',
@@ -172,6 +192,7 @@ export const SurveyGrid: React.FC<SurveyGridProps> = ({ projectId }) => {
       isLoading={isLoading || isFetching}
       rows={data ?? []}
       columns={columns}
+      onRowDoubleClick={onItemDoubleClick}
       createButton={{
         onClick: onClickCreate,
         label: t('admin.projectdetail.tabs.surveys.grid.actions.create.label'),

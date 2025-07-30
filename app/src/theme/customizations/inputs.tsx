@@ -402,6 +402,12 @@ export const inputsCustomizations: Components<Theme> = {
           outline: `3px solid ${alpha(brand[500], 0.5)}`,
           borderColor: brand[400],
         },
+        '&.MuiInputBase-multiline': {
+          height: 'auto',
+          minHeight: '2.5rem',
+          alignItems: 'flex-start',
+          padding: '8px 12px',
+        },
         ...theme.applyStyles('dark', {
           '&:hover': {
             borderColor: gray[500],
@@ -414,6 +420,10 @@ export const inputsCustomizations: Components<Theme> = {
             },
             style: {
               height: '2.25rem',
+              '&.MuiInputBase-multiline': {
+                height: 'auto',
+                minHeight: '2.25rem',
+              },
             },
           },
           {
@@ -422,6 +432,10 @@ export const inputsCustomizations: Components<Theme> = {
             },
             style: {
               height: '2.5rem',
+              '&.MuiInputBase-multiline': {
+                height: 'auto',
+                minHeight: '2.5rem',
+              },
             },
           },
         ],

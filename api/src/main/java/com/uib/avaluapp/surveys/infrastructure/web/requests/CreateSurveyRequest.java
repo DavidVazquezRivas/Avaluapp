@@ -9,4 +9,5 @@ public class CreateSurveyRequest {
     private String name;
     private Long leadId;
     private Long projectId;
+    private Long tag;
 }

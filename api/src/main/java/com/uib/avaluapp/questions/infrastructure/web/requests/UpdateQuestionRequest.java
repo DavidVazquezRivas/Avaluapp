@@ -9,10 +9,12 @@ import java.util.List;
 @Data
 @Builder
 public class UpdateQuestionRequest {
+    private String name;
     private String text;
     private QuestionType questionType;
     private boolean required;
     private int maxLength;
     private Long projectId;
     private List<UpdateOptionRequest> options;
+    private List<Long> tags;
 }

@@ -445,7 +445,8 @@
               "lead": "Responsable",
               "urlCode": "Codi URL",
               "createdAt": "Data de creació",
-              "status": "Estat"
+              "status": "Estat",
+              "tag": "Etiqueta"
             },
             "actions": {
               "create": {
@@ -486,6 +487,13 @@
                 "label": "Responsable de l'enquesta",
                 "placeholder": "Selecciona un responsable",
                 "helperText": "El responsable és obligatori"
+              },
+              "tags": {
+                "label": "Etiquetes",
+                "none": "No hi ha etiquetes en aquest projecte",
+                "loading": "Carregant etiquetes...",
+                "placeholder": "Selecciona etiquetes",
+                "helperText": "És obligatori seleccionar una etiqueta"
               }
             },
             "error": {
@@ -498,10 +506,15 @@
           "label": "Preguntes",
           "grid": {
             "columns": {
-              "text": "Text de la pregunta",
+              "name": "Nom",
+              "text": "Enunciat",
               "type": "Tipus",
               "createdAt": "Data de creació",
-              "required": "Obligatòria"
+              "required": "Obligatòria",
+              "tags": {
+                "name": "Etiquetes",
+                "more": "{{count}} més"
+              }
             },
             "actions": {
               "create": {
@@ -533,15 +546,26 @@
               "edit": "Editar pregunta"
             },
             "fields": {
+              "name": {
+                "label": "Nom de la pregunta",
+                "placeholder": "Introdueix el nom de la pregunta",
+                "helperText": "El nom de la pregunta és obligatori"
+              },
               "text": {
-                "label": "Text de la pregunta",
-                "placeholder": "Introdueix el text de la pregunta",
-                "helperText": "El text de la pregunta és obligatori"
+                "label": "Enunciat",
+                "placeholder": "Introdueix el enunciat de la pregunta",
+                "helperText": "El enunciat de la pregunta és obligatori"
               },
               "type": {
                 "label": "Tipus de pregunta",
                 "placeholder": "Selecciona un tipus de pregunta",
                 "helperText": "El tipus de pregunta és obligatori"
+              },
+              "tags": {
+                "label": "Etiquetes",
+                "loading": "Carregant etiquetes...",
+                "placeholder": "Selecciona etiquetes",
+                "helperText": "Les etiquetes són opcionals"
               },
               "required": {
                 "label": "Obligatòria"
@@ -566,6 +590,56 @@
             "error": {
               "create": "Error en crear la pregunta. Ja existeix una pregunta amb aquest text.",
               "update": "Error en actualitzar la pregunta. Ja existeix una altra pregunta amb aquest text."
+            }
+          }
+        },
+        "tags": {
+          "label": "Etiquetes",
+          "grid": {
+            "columns": {
+              "name": "Nom",
+              "color": "Color"
+            },
+            "actions": {
+              "create": {
+                "label": "Crear etiqueta",
+                "title": "Crear nova etiqueta",
+                "error": "Error en crear l'etiqueta. Si us plau, intenta-ho més tard."
+              },
+              "edit": {
+                "label": "Editar",
+                "title": "Editar etiqueta",
+                "error": "Error en actualitzar l'etiqueta. Si us plau, intenta-ho més tard."
+              },
+              "delete": {
+                "label": "Eliminar",
+                "confirm": {
+                  "title": "Eliminar etiqueta",
+                  "text": "Estàs segur que vols eliminar l'etiqueta {{name}}?",
+                  "button": {
+                    "ok": "Eliminar",
+                    "cancel": "Cancel·lar"
+                  }
+                }
+              }
+            }
+          },
+          "form": {
+            "name": {
+              "label": "Nom",
+              "placeholder": "Introdueix el nom de l'etiqueta",
+              "helperText": "El nom de l'etiqueta és obligatori"
+            },
+            "color": {
+              "label": "Color",
+              "placeholder": "Selecciona un color",
+              "helperText": "El color de l'etiqueta és obligatori"
+            },
+            "questions": {
+              "label": "Preguntes",
+              "loading": "Carregant preguntes...",
+              "placeholder": "Selecciona preguntes",
+              "helperText": "Les preguntes són opcionals"
             }
           }
         }
