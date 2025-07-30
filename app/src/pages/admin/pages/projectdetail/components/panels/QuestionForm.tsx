@@ -84,6 +84,7 @@ export const QuestionForm: React.FC<QuestionFormProps> = ({
           )}
           required
           fullWidth
+          multiline
           defaultValue={data?.text}
         />
       </FormControl>
