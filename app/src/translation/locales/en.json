@@ -445,7 +445,8 @@
               "lead": "Responsible",
               "urlCode": "URL Code",
               "createdAt": "Creation Date",
-              "status": "Status"
+              "status": "Status",
+              "tag": "Tag"
             },
             "actions": {
               "create": {
@@ -486,6 +487,13 @@
                 "label": "Survey responsible",
                 "placeholder": "Select a responsible person",
                 "helperText": "The responsible person is required"
+              },
+              "tags": {
+                "label": "Tags",
+                "none": "No tags in this project",
+                "loading": "Loading tags...",
+                "placeholder": "Select tags",
+                "helperText": "Select a tag is required"
               }
             },
             "error": {

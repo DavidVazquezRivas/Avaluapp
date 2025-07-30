@@ -1,5 +1,6 @@
 import { User } from '@/models/user.model'
 import { Project } from '../pages/admin/pages/projects/models/project.model'
+import { Tag } from './tag.model'
 
 export enum SurveyStatus {
   PENDING = 'PENDING',
@@ -14,6 +15,7 @@ export interface Survey {
   project: Project
   lead: User
   status: SurveyStatus
+  tag: Tag
   createdAt?: string
 }
 
@@ -22,4 +24,5 @@ export interface SurveyRequest {
   name: string
   projectId: number
   leadId: number
+  tag: number
 }

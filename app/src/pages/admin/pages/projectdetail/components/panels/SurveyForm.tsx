@@ -11,12 +11,17 @@ import { User } from '@/models/user.model'
 import { useMemo, useState } from 'react'
 import store from '@/redux/store'
 import { Role } from '@/models/role.model'
+import SingleTagInput from './SingleTagInput'
 
 interface SurveyFormProps {
+  projectId: number
   survey?: Survey
 }
 
-export const SurveyForm: React.FC<SurveyFormProps> = ({ survey }) => {
+export const SurveyForm: React.FC<SurveyFormProps> = ({
+  survey,
+  projectId,
+}) => {
   const { t } = useTranslation()
 
   const [selectedLeadId, setSelectedLeadId] = useState<number>(
@@ -88,6 +93,8 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ survey }) => {
           )}
         />
       </FormControl>
+
+      <SingleTagInput projectId={projectId} selectedTag={survey?.tag} />
     </Stack>
   )
 }

@@ -445,7 +445,8 @@
               "lead": "Responsable",
               "urlCode": "Codi URL",
               "createdAt": "Data de creació",
-              "status": "Estat"
+              "status": "Estat",
+              "tag": "Etiqueta"
             },
             "actions": {
               "create": {
@@ -486,6 +487,13 @@
                 "label": "Responsable de l'enquesta",
                 "placeholder": "Selecciona un responsable",
                 "helperText": "El responsable és obligatori"
+              },
+              "tags": {
+                "label": "Etiquetes",
+                "none": "No hi ha etiquetes en aquest projecte",
+                "loading": "Carregant etiquetes...",
+                "placeholder": "Selecciona etiquetes",
+                "helperText": "És obligatori seleccionar una etiqueta"
               }
             },
             "error": {

@@ -449,7 +449,8 @@
               "lead": "Responsable",
               "urlCode": "Código de URL",
               "createdAt": "Fecha de creación",
-              "status": "Estado"
+              "status": "Estado",
+              "tag": "Etiqueta"
             },
             "actions": {
               "create": {
@@ -490,6 +491,13 @@
                 "label": "Responsable de la encuesta",
                 "placeholder": "Selecciona un responsable",
                 "helperText": "El responsable es obligatorio"
+              },
+              "tags": {
+                "label": "Etiquetas",
+                "none": "No hay etiquetas en este proyecto",
+                "loading": "Cargando etiquetas...",
+                "placeholder": "Selecciona etiquetas",
+                "helperText": "Las etiquetas son opcionales"
               }
             },
             "error": {
