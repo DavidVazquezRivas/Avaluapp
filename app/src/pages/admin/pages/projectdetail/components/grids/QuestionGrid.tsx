@@ -132,6 +132,7 @@ export const QuestionGrid: React.FC<QuestionGridProps> = ({ projectId }) => {
         headerName: t('admin.projectdetail.tabs.questions.grid.columns.type'),
         flex: 1,
         minWidth: 150,
+        maxWidth: 200,
         valueGetter: (value: QuestionType) =>
           t(`globals.formatters.questionType.${value}`),
       },
@@ -141,6 +142,8 @@ export const QuestionGrid: React.FC<QuestionGridProps> = ({ projectId }) => {
           'admin.projectdetail.tabs.questions.grid.columns.createdAt'
         ),
         flex: 1,
+        minWidth: 150,
+        maxWidth: 200,
         valueGetter: (value: string) => dateRenderer(new Date(value)),
       },
       {
