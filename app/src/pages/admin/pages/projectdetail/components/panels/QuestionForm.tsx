@@ -57,6 +57,22 @@ export const QuestionForm: React.FC<QuestionFormProps> = ({
       <input type='hidden' name='id' value={projectId} />
 
       <FormControl>
+        <FormLabel htmlFor='name'>
+          {t('admin.projectdetail.tabs.questions.form.fields.name.label')}
+        </FormLabel>
+        <TextField
+          id='name'
+          name='name'
+          placeholder={t(
+            'admin.projectdetail.tabs.questions.form.fields.name.placeholder'
+          )}
+          autoFocus
+          required
+          fullWidth
+          defaultValue={data?.name}
+        />
+      </FormControl>
+      <FormControl>
         <FormLabel htmlFor='text'>
           {t('admin.projectdetail.tabs.questions.form.fields.text.label')}
         </FormLabel>
@@ -66,7 +82,6 @@ export const QuestionForm: React.FC<QuestionFormProps> = ({
           placeholder={t(
             'admin.projectdetail.tabs.questions.form.fields.text.placeholder'
           )}
-          autoFocus
           required
           fullWidth
           defaultValue={data?.text}

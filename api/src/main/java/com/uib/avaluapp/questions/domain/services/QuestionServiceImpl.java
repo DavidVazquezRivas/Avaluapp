@@ -69,6 +69,7 @@ public class QuestionServiceImpl implements QuestionService {
         }
 
         Question question = Question.builder()
+                .name(request.getName())
                 .text(request.getText())
                 .questionType(request.getQuestionType())
                 .project(project)
@@ -98,6 +99,7 @@ public class QuestionServiceImpl implements QuestionService {
 
         Question question = Question.builder()
                 .id(questionId)
+                .name(request.getName())
                 .text(request.getText())
                 .questionType(request.getQuestionType())
                 .project(project)

@@ -9,6 +9,7 @@ import java.util.List;
 @Data
 @Builder
 public class UpdateQuestionRequest {
+    private String name;
     private String text;
     private QuestionType questionType;
     private boolean required;

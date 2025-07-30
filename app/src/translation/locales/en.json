@@ -498,26 +498,27 @@
           "label": "Questions",
           "grid": {
             "columns": {
-              "text": "Question Text",
-              "type": "Type",
-              "createdAt": "Creation Date",
+              "name": "Name",
+              "text": "Question text",
+              "type": "Question type",
+              "createdAt": "Creation date",
               "required": "Required"
             },
             "actions": {
               "create": {
-                "label": "Create Question",
-                "title": "Create New Question",
+                "label": "Create question",
+                "title": "Create new question",
                 "error": "Error creating the question. Please try again later."
               },
               "edit": {
                 "label": "Edit",
-                "title": "Edit Question",
+                "title": "Edit question",
                 "error": "Error updating the question. Please try again later."
               },
               "delete": {
                 "label": "Delete",
                 "confirm": {
-                  "title": "Delete Question",
+                  "title": "Delete question",
                   "text": "Are you sure you want to delete the question \"{{text}}\"?",
                   "button": {
                     "ok": "Delete",
@@ -529,17 +530,22 @@
           },
           "form": {
             "title": {
-              "create": "Create Question",
-              "edit": "Edit Question"
+              "create": "Create question",
+              "edit": "Edit question"
             },
             "fields": {
+              "name": {
+                "label": "Question name",
+                "placeholder": "Enter the question name",
+                "helperText": "Question name is required"
+              },
               "text": {
-                "label": "Question Text",
+                "label": "Question text",
                 "placeholder": "Enter the question text",
                 "helperText": "Question text is required"
               },
               "type": {
-                "label": "Question Type",
+                "label": "Question type",
                 "placeholder": "Select a question type",
                 "helperText": "Question type is required"
               },
@@ -547,7 +553,7 @@
                 "label": "Required"
               },
               "createdAt": {
-                "label": "Creation Date",
+                "label": "Creation date",
                 "placeholder": "Select the creation date",
                 "helperText": "Creation date is optional"
               },
@@ -558,7 +564,7 @@
                 "correct": "Correct"
               },
               "maxLength": {
-                "label": "Maximum Length",
+                "label": "Maximum length",
                 "placeholder": "Enter the maximum answer length",
                 "helperText": "Maximum length is optional"
               }

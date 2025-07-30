@@ -498,7 +498,8 @@
           "label": "Preguntes",
           "grid": {
             "columns": {
-              "text": "Text de la pregunta",
+              "name": "Nom",
+              "text": "Enunciat",
               "type": "Tipus",
               "createdAt": "Data de creació",
               "required": "Obligatòria"
@@ -533,10 +534,15 @@
               "edit": "Editar pregunta"
             },
             "fields": {
+              "name": {
+                "label": "Nom de la pregunta",
+                "placeholder": "Introdueix el nom de la pregunta",
+                "helperText": "El nom de la pregunta és obligatori"
+              },
               "text": {
-                "label": "Text de la pregunta",
-                "placeholder": "Introdueix el text de la pregunta",
-                "helperText": "El text de la pregunta és obligatori"
+                "label": "Enunciat",
+                "placeholder": "Introdueix el enunciat de la pregunta",
+                "helperText": "El enunciat de la pregunta és obligatori"
               },
               "type": {
                 "label": "Tipus de pregunta",

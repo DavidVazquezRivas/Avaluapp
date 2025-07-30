@@ -502,7 +502,8 @@
           "label": "Preguntas",
           "grid": {
             "columns": {
-              "text": "Texto de la pregunta",
+              "name": "Nombre",
+              "text": "Enunciado",
               "type": "Tipo",
               "createdAt": "Fecha de creación",
               "required": "Obligatoria"
@@ -537,10 +538,15 @@
               "edit": "Editar pregunta"
             },
             "fields": {
+              "name": {
+                "label": "Nombre de la pregunta",
+                "placeholder": "Introduce el nombre de la pregunta",
+                "helperText": "El nombre de la pregunta es obligatorio"
+              },
               "text": {
-                "label": "Texto de la pregunta",
-                "placeholder": "Introduce el texto de la pregunta",
-                "helperText": "El texto de la pregunta es obligatorio"
+                "label": "Enunciado",
+                "placeholder": "Introduce el enunciado de la pregunta",
+                "helperText": "El enunciado de la pregunta es obligatorio"
               },
               "type": {
                 "label": "Tipo de pregunta",

@@ -42,6 +42,7 @@ export const QuestionGrid: React.FC<QuestionGridProps> = ({ projectId }) => {
 
   const handleCreate = async (formData: FormData) => {
     const question: QuestionRequest = {
+      name: formData.get('name') as string,
       text: formData.get('text') as string,
       projectId: projectId,
       questionType: formData.get('questionType') as QuestionType,
@@ -72,6 +73,7 @@ export const QuestionGrid: React.FC<QuestionGridProps> = ({ projectId }) => {
   const handleEdit = async (formData: FormData, questionId: number) => {
     const question: QuestionRequest = {
       id: questionId,
+      name: formData.get('name') as string,
       text: formData.get('text') as string,
       projectId: projectId,
       questionType: formData.get('questionType') as QuestionType,
@@ -121,6 +123,12 @@ export const QuestionGrid: React.FC<QuestionGridProps> = ({ projectId }) => {
 
   const columns: GridColDef<Question>[] = useMemo(
     () => [
+      {
+        field: 'name',
+        headerName: t('admin.projectdetail.tabs.questions.grid.columns.name'),
+        flex: 1,
+        minWidth: 150,
+      },
       {
         field: 'text',
         headerName: t('admin.projectdetail.tabs.questions.grid.columns.text'),
@@ -172,7 +180,7 @@ export const QuestionGrid: React.FC<QuestionGridProps> = ({ projectId }) => {
         getActions: (params: { row: Question }) => [
           <GridActionsCellItem
             icon={<DeleteIcon />}
-            onClick={() => handleDelete(params.row.id, params.row.text)}
+            onClick={() => handleDelete(params.row.id, params.row.name)}
             label={t(
               'admin.projectdetail.tabs.questions.grid.actions.delete.label'
             )}

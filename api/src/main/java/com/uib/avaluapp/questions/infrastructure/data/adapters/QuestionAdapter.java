@@ -87,6 +87,7 @@ public class QuestionAdapter implements QuestionPort {
         QuestionEntity existingEntity = questionRepository.findById(question.getId())
                 .orElseThrow(() -> new BaseException(ExceptionCode.QUESTION_NOT_FOUND));
 
+        existingEntity.setName(question.getName());
         existingEntity.setQuestionType(question.getQuestionType());
         existingEntity.setMaxLength(question.getMaxLength());
         existingEntity.setRequired(question.isRequired());

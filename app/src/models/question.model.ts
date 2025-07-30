@@ -19,6 +19,7 @@ export interface QuestionOption {
 
 export interface Question {
   id: number
+  name: string
   text: string
   questionType: QuestionType
   required: boolean
@@ -30,6 +31,7 @@ export interface Question {
 
 export interface QuestionRequest {
   id?: number
+  name: string
   text: string
   questionType: QuestionType
   required: boolean
