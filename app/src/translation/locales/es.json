@@ -588,6 +588,56 @@
               "update": "Error al actualizar la pregunta. Ya existe otra pregunta con este texto."
             }
           }
+        },
+        "tags": {
+          "label": "Etiquetas",
+          "grid": {
+            "columns": {
+              "name": "Nombre",
+              "color": "Color"
+            },
+            "actions": {
+              "create": {
+                "label": "Crear etiqueta",
+                "title": "Crear nueva etiqueta",
+                "error": "Error al crear la etiqueta. Por favor, inténtalo de nuevo más tarde."
+              },
+              "edit": {
+                "label": "Editar",
+                "title": "Editar etiqueta",
+                "error": "Error al actualizar la etiqueta. Por favor, inténtalo de nuevo más tarde."
+              },
+              "delete": {
+                "label": "Eliminar",
+                "confirm": {
+                  "title": "Eliminar etiqueta",
+                  "text": "¿Estás seguro de que deseas eliminar la etiqueta {{name}}?",
+                  "button": {
+                    "ok": "Eliminar",
+                    "cancel": "Cancelar"
+                  }
+                }
+              }
+            }
+          },
+          "form": {
+            "name": {
+              "label": "Nombre",
+              "placeholder": "Introduce el nombre de la etiqueta",
+              "helperText": "El nombre de la etiqueta es obligatorio"
+            },
+            "color": {
+              "label": "Color",
+              "placeholder": "Selecciona un color",
+              "helperText": "El color de la etiqueta es obligatorio"
+            },
+            "questions": {
+              "label": "Preguntas",
+              "loading": "Cargando preguntas...",
+              "placeholder": "Selecciona preguntas",
+              "helperText": "Las preguntas son opcionales"
+            }
+          }
         }
       }
     }

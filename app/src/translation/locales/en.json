@@ -584,6 +584,56 @@
               "update": "Error updating the question. Another question with this text already exists."
             }
           }
+        },
+        "tags": {
+          "label": "Tags",
+          "grid": {
+            "columns": {
+              "name": "Name",
+              "color": "Color"
+            },
+            "actions": {
+              "create": {
+                "label": "Create tag",
+                "title": "Create new tag",
+                "error": "Error creating the tag. Please try again later."
+              },
+              "edit": {
+                "label": "Edit",
+                "title": "Edit tag",
+                "error": "Error updating the tag. Please try again later."
+              },
+              "delete": {
+                "label": "Delete",
+                "confirm": {
+                  "title": "Delete tag",
+                  "text": "Are you sure you want to delete the tag {{name}}?",
+                  "button": {
+                    "ok": "Delete",
+                    "cancel": "Cancel"
+                  }
+                }
+              }
+            }
+          },
+          "form": {
+            "name": {
+              "label": "Name",
+              "placeholder": "Enter the tag name",
+              "helperText": "Tag name is required"
+            },
+            "color": {
+              "label": "Color",
+              "placeholder": "Select a color",
+              "helperText": "Tag color is required"
+            },
+            "questions": {
+              "label": "Questions",
+              "loading": "Loading questions...",
+              "placeholder": "Select questions",
+              "helperText": "Questions are optional"
+            }
+          }
         }
       }
     }

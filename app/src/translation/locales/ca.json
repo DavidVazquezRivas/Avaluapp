@@ -584,6 +584,56 @@
               "update": "Error en actualitzar la pregunta. Ja existeix una altra pregunta amb aquest text."
             }
           }
+        },
+        "tags": {
+          "label": "Etiquetes",
+          "grid": {
+            "columns": {
+              "name": "Nom",
+              "color": "Color"
+            },
+            "actions": {
+              "create": {
+                "label": "Crear etiqueta",
+                "title": "Crear nova etiqueta",
+                "error": "Error en crear l'etiqueta. Si us plau, intenta-ho més tard."
+              },
+              "edit": {
+                "label": "Editar",
+                "title": "Editar etiqueta",
+                "error": "Error en actualitzar l'etiqueta. Si us plau, intenta-ho més tard."
+              },
+              "delete": {
+                "label": "Eliminar",
+                "confirm": {
+                  "title": "Eliminar etiqueta",
+                  "text": "Estàs segur que vols eliminar l'etiqueta {{name}}?",
+                  "button": {
+                    "ok": "Eliminar",
+                    "cancel": "Cancel·lar"
+                  }
+                }
+              }
+            }
+          },
+          "form": {
+            "name": {
+              "label": "Nom",
+              "placeholder": "Introdueix el nom de l'etiqueta",
+              "helperText": "El nom de l'etiqueta és obligatori"
+            },
+            "color": {
+              "label": "Color",
+              "placeholder": "Selecciona un color",
+              "helperText": "El color de l'etiqueta és obligatori"
+            },
+            "questions": {
+              "label": "Preguntes",
+              "loading": "Carregant preguntes...",
+              "placeholder": "Selecciona preguntes",
+              "helperText": "Les preguntes són opcionals"
+            }
+          }
         }
       }
     }
