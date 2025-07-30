@@ -493,7 +493,7 @@
                 "none": "No tags in this project",
                 "loading": "Loading tags...",
                 "placeholder": "Select tags",
-                "helperText": "Select a tag is required"
+                "helperText": "A tag selection is required"
               }
             },
             "error": {
