@@ -3,7 +3,6 @@ package com.uib.avaluapp.tags.infrastructure.data.adapters;
 import com.uib.avaluapp.questions.domain.models.Question;
 import com.uib.avaluapp.questions.infrastructure.data.QuestionEntityMapper;
 import com.uib.avaluapp.questions.infrastructure.data.models.QuestionEntity;
-import com.uib.avaluapp.surveys.infrastructure.data.adapters.SurveyEntityMapper;
 import com.uib.avaluapp.tags.domain.models.Tag;
 import com.uib.avaluapp.tags.infrastructure.data.models.TagEntity;
 import org.mapstruct.Mapper;
@@ -13,7 +12,7 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.List;
 
-@Mapper(uses = {SurveyEntityMapper.class})
+@Mapper
 public interface TagEntityMapper {
     TagEntityMapper INSTANCE = Mappers.getMapper(TagEntityMapper.class);
 
