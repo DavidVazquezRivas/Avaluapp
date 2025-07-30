@@ -17,6 +17,8 @@ import { useTranslation } from 'react-i18next'
 import LoadingSpinner from '@/components/spinner/Spinner'
 import { OptionSection } from './OptionSection'
 import { dateRenderer } from '@/utils/renderers/date.renderer'
+import getAllTagsQueryOptions from '../../queries/tag/getAll.tag.query'
+import TagSection from './TagSection'
 
 interface QuestionFormProps {
   questionId?: number
@@ -101,6 +103,9 @@ export const QuestionForm: React.FC<QuestionFormProps> = ({
           {types}
         </Select>
       </FormControl>
+
+      <TagSection projectId={projectId} selectedTags={data?.tags || []} />
+
       {questionId !== null && (
         <FormControl fullWidth>
           <FormLabel htmlFor='createdAt'>

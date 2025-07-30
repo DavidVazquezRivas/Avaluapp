@@ -502,7 +502,11 @@
               "text": "Enunciat",
               "type": "Tipus",
               "createdAt": "Data de creació",
-              "required": "Obligatòria"
+              "required": "Obligatòria",
+              "tags": {
+                "name": "Etiquetes",
+                "more": "{{count}} més"
+              }
             },
             "actions": {
               "create": {
@@ -548,6 +552,12 @@
                 "label": "Tipus de pregunta",
                 "placeholder": "Selecciona un tipus de pregunta",
                 "helperText": "El tipus de pregunta és obligatori"
+              },
+              "tags": {
+                "label": "Etiquetes",
+                "loading": "Carregant etiquetes...",
+                "placeholder": "Selecciona etiquetes",
+                "helperText": "Les etiquetes són opcionals"
               },
               "required": {
                 "label": "Obligatòria"

@@ -18,8 +18,10 @@ import { useMemo } from 'react'
 import Grid from '@/components/grid/Grid'
 import { dateRenderer } from '@/utils/renderers/date.renderer'
 import { booleanRenderer } from '@/utils/renderers/boolean.renderer'
-import { Box } from '@mui/material'
+import { Box, Stack } from '@mui/material'
 import QuestionForm from '../panels/QuestionForm'
+import { tagRenderer } from '@/utils/renderers/tag.renderer'
+import { Tag } from '@/models/tag.model'
 
 interface QuestionGridProps {
   projectId: number
@@ -47,6 +49,9 @@ export const QuestionGrid: React.FC<QuestionGridProps> = ({ projectId }) => {
       projectId: projectId,
       questionType: formData.get('questionType') as QuestionType,
       required: formData.get('required') === 'on',
+      tags: formData.get('tags')
+        ? JSON.parse(formData.get('tags') as string)
+        : [],
       maxLength: formData.get('maxLength')
         ? Number(formData.get('maxLength'))
         : undefined,
@@ -78,6 +83,9 @@ export const QuestionGrid: React.FC<QuestionGridProps> = ({ projectId }) => {
       projectId: projectId,
       questionType: formData.get('questionType') as QuestionType,
       required: formData.get('required') === 'on',
+      tags: formData.get('tags')
+        ? JSON.parse(formData.get('tags') as string)
+        : [],
       maxLength: formData.get('maxLength')
         ? Number(formData.get('maxLength'))
         : undefined,
@@ -130,12 +138,6 @@ export const QuestionGrid: React.FC<QuestionGridProps> = ({ projectId }) => {
         minWidth: 150,
       },
       {
-        field: 'text',
-        headerName: t('admin.projectdetail.tabs.questions.grid.columns.text'),
-        flex: 1,
-        minWidth: 200,
-      },
-      {
         field: 'questionType',
         headerName: t('admin.projectdetail.tabs.questions.grid.columns.type'),
         flex: 1,
@@ -143,6 +145,40 @@ export const QuestionGrid: React.FC<QuestionGridProps> = ({ projectId }) => {
         maxWidth: 200,
         valueGetter: (value: QuestionType) =>
           t(`globals.formatters.questionType.${value}`),
+      },
+      {
+        field: 'tags',
+        headerName: t(
+          'admin.projectdetail.tabs.questions.grid.columns.tags.name'
+        ),
+        flex: 1,
+        minWidth: 150,
+        maxWidth: 200,
+        renderCell: (params) => {
+          const tags = params.value as Tag[]
+          const shownTags =
+            tags.length > 2
+              ? tags.slice(0, 1).concat({
+                  id: -1,
+                  projectId: -1,
+                  questions: [],
+                  name: t(
+                    'admin.projectdetail.tabs.questions.grid.columns.tags.more',
+                    { count: tags.length - 1 }
+                  ),
+                  color: '#d3d3d3',
+                })
+              : tags
+          return (
+            <Stack
+              direction='row'
+              height='100%'
+              spacing={1}
+              alignItems='center'>
+              {shownTags.map((tag) => tagRenderer(tag))}
+            </Stack>
+          )
+        },
       },
       {
         field: 'createdAt',

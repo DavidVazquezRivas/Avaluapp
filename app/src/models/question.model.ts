@@ -1,4 +1,5 @@
 import { Project } from '@/pages/admin/pages/projects/models/project.model'
+import { Tag } from './tag.model'
 
 export enum QuestionType {
   SingleChoice = 'SINGLE_CHOICE',
@@ -22,6 +23,7 @@ export interface Question {
   name: string
   text: string
   questionType: QuestionType
+  tags: Tag[]
   required: boolean
   maxLength?: number
   createdAt: Date
@@ -34,6 +36,7 @@ export interface QuestionRequest {
   name: string
   text: string
   questionType: QuestionType
+  tags: number[]
   required: boolean
   maxLength?: number
   projectId: number

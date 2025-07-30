@@ -506,7 +506,11 @@
               "text": "Enunciado",
               "type": "Tipo",
               "createdAt": "Fecha de creación",
-              "required": "Obligatoria"
+              "required": "Obligatoria",
+              "tags": {
+                "name": "Etiquetas",
+                "more": "{{count}} más"
+              }
             },
             "actions": {
               "create": {
@@ -552,6 +556,12 @@
                 "label": "Tipo de pregunta",
                 "placeholder": "Selecciona un tipo de pregunta",
                 "helperText": "El tipo de pregunta es obligatorio"
+              },
+              "tags": {
+                "label": "Etiquetas",
+                "loading": "Cargando etiquetas...",
+                "placeholder": "Selecciona etiquetas",
+                "helperText": "Las etiquetas son opcionales"
               },
               "required": {
                 "label": "Obligatoria"

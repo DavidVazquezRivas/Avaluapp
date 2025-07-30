@@ -502,7 +502,11 @@
               "text": "Question text",
               "type": "Question type",
               "createdAt": "Creation date",
-              "required": "Required"
+              "required": "Required",
+              "tags": {
+                "name": "Tags",
+                "more": "{{count}} more"
+              }
             },
             "actions": {
               "create": {
@@ -548,6 +552,12 @@
                 "label": "Question type",
                 "placeholder": "Select a question type",
                 "helperText": "Question type is required"
+              },
+              "tags": {
+                "label": "Tags",
+                "loading": "Loading tags...",
+                "placeholder": "Select tags",
+                "helperText": "Tags are optional"
               },
               "required": {
                 "label": "Required"
