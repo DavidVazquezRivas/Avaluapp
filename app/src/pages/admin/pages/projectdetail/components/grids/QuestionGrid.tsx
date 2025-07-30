@@ -109,6 +109,10 @@ export const QuestionGrid: React.FC<QuestionGridProps> = ({ projectId }) => {
     })
   }
 
+  const onItemDoubleClick = (params: { row: Question }) => {
+    onClickEdit(params.row)
+  }
+
   const handleDelete = (id: number, text: string) => {
     openPanel({
       type: PanelType.ConfirmDialog,
@@ -239,6 +243,7 @@ export const QuestionGrid: React.FC<QuestionGridProps> = ({ projectId }) => {
       isLoading={isLoading || isFetching}
       rows={data ?? []}
       columns={columns}
+      onRowDoubleClick={onItemDoubleClick}
       createButton={{
         onClick: onClickCreate,
         label: t(

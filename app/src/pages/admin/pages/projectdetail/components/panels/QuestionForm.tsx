@@ -17,7 +17,6 @@ import { useTranslation } from 'react-i18next'
 import LoadingSpinner from '@/components/spinner/Spinner'
 import { OptionSection } from './OptionSection'
 import { dateRenderer } from '@/utils/renderers/date.renderer'
-import getAllTagsQueryOptions from '../../queries/tag/getAll.tag.query'
 import TagSection from './TagSection'
 
 interface QuestionFormProps {

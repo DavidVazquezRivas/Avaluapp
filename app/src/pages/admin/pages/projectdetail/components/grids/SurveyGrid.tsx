@@ -100,6 +100,10 @@ export const SurveyGrid: React.FC<SurveyGridProps> = ({ projectId }) => {
     })
   }
 
+  const onItemDoubleClick = (params: { row: Survey }) => {
+    onClickUpdate(params.row)
+  }
+
   const columns: GridColDef<Survey>[] = useMemo(
     () => [
       {
@@ -172,6 +176,7 @@ export const SurveyGrid: React.FC<SurveyGridProps> = ({ projectId }) => {
       isLoading={isLoading || isFetching}
       rows={data ?? []}
       columns={columns}
+      onRowDoubleClick={onItemDoubleClick}
       createButton={{
         onClick: onClickCreate,
         label: t('admin.projectdetail.tabs.surveys.grid.actions.create.label'),
