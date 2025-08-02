@@ -15,7 +15,7 @@ import { GridActionsCellItem } from '@mui/x-data-grid'
 import { dateRenderer } from '@/utils/renderers/date.renderer'
 import { getSurveyUrl } from '@/constants/routes'
 import { surveyStatusRenderer } from '@/utils/renderers/surveyStatus.renderer'
-import { Project } from '@/pages/admin/pages/projects/models/project.model'
+import { Project } from '@/models/project.model'
 import { getDefaultFilters } from './filters'
 
 export const SurveyGrid = () => {

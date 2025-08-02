@@ -1,4 +1,4 @@
-import { Project } from '@/pages/admin/pages/projects/models/project.model'
+import { Project } from '@/models/project.model'
 import { Tag } from './tag.model'
 
 export enum QuestionType {
