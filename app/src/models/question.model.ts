@@ -8,14 +8,12 @@ export enum QuestionType {
   Numeric = 'NUMERIC',
   Rating = 'RATING',
   Date = 'DATE',
-  YesNo = 'YES_NO',
 }
 
 export interface QuestionOption {
   id: number
   questionId: number
   text: string
-  correct: boolean
 }
 
 export interface Question {
@@ -46,5 +44,4 @@ export interface QuestionRequest {
 export interface QuestionOptionRequest {
   id?: number
   text: string
-  correct: boolean
 }

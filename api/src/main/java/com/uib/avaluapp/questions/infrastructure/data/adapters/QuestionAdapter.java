@@ -117,7 +117,6 @@ public class QuestionAdapter implements QuestionPort {
                         .findFirst()
                         .ifPresent(existingOpt -> {
                             existingOpt.setText(newOpt.getText());
-                            existingOpt.setCorrect(newOpt.isCorrect());
                         });
             }
         }
