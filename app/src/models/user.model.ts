@@ -8,7 +8,7 @@ interface UserBase {
 
 export interface User extends UserBase {
   id: number
-  verified: boolean
+  verified?: boolean
 }
 
 export interface UserWithCredentials extends UserBase {
