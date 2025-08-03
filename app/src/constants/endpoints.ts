@@ -13,6 +13,7 @@ export const apiEndpoints = {
     create: `${apiBaseUrl}/users`,
     delete: (id: number) => `${apiBaseUrl}/users/${id}`,
     update: (id: number) => `${apiBaseUrl}/users/${id}`,
+    verify: `${apiBaseUrl}/users/verify`,
   },
   projects: {
     get: (id: number) => `${apiBaseUrl}/projects/${id}`,

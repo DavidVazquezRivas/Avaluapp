@@ -308,6 +308,33 @@
     "home": "Torna a la pàgina d'inici",
     "alt": "Pàgina no trobada"
   },
+  "verify": {
+    "flag": {
+      "title": "Verifica el teu compte",
+      "description": "Per continuar, si us plau verifica el teu compte canviant la contrasenya."
+    },
+    "form": {
+      "title": "Canvia la contrasenya",
+      "newPassword": {
+        "label": "Nova contrasenya",
+        "placeholder": "••••••••",
+        "helperText": "La nova contrasenya és obligatòria"
+      },
+      "confirmPassword": {
+        "label": "Confirma la contrasenya",
+        "placeholder": "••••••••",
+        "helperText": "La confirmació de la contrasenya és obligatòria"
+      },
+      "submit": "Canvia la contrasenya",
+      "errors": {
+        "newPasswordRequired": "La nova contrasenya és obligatòria",
+        "confirmPasswordRequired": "La confirmació de la contrasenya és obligatòria",
+        "passwordsDoNotMatch": "Les contrasenyes no coincideixen",
+        "verificationFailed": "Error en verificar l'usuari"
+      },
+      "submitting": "Verificant..."
+    }
+  },
   "admin": {
     "users": {
       "grid": {

@@ -16,4 +16,6 @@ public interface UserPort {
     void deleteUser(Long id);
 
     User updateUser(Long id, User user);
+    
+    User verifyUser(User user);
 }

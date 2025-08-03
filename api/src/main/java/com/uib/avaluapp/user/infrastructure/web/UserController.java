@@ -8,6 +8,7 @@ import com.uib.avaluapp.user.domain.ports.UserPort;
 import com.uib.avaluapp.user.domain.services.UserService;
 import com.uib.avaluapp.user.infrastructure.web.requests.CreateUserRequest;
 import com.uib.avaluapp.user.infrastructure.web.requests.UpdateUserRequest;
+import com.uib.avaluapp.user.infrastructure.web.requests.VerifyUserRequest;
 import com.uib.avaluapp.user.infrastructure.web.responses.UserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -76,6 +77,20 @@ public class UserController extends BaseController {
                 .successMessage("User updated successfully")
                 .successStatus(HttpStatus.OK)
                 .adminHandler(() -> UserDtoMapper.INSTANCE.toDto(userService.updateUser(id, updateUserRequest)))
+                .build();
+        return handle(config);
+    }
+
+    @PutMapping("/verify")
+    public ResponseEntity<ApiResponse<UserDto>> verifyUser(
+            @RequestBody VerifyUserRequest verifyUserRequest,
+            @RequestHeader("Authorization") String authorizationHeader) {
+        HandleConfig<UserDto> config = HandleConfig.<UserDto>builder()
+                .authorization(authorizationHeader)
+                .successMessage("User verified successfully")
+                .successStatus(HttpStatus.OK)
+                .adminHandler(() -> UserDtoMapper.INSTANCE.toDto(userService.verifyUser(verifyUserRequest, authorizationHeader)))
+                .userHandler(() -> UserDtoMapper.INSTANCE.toDto(userService.verifyUser(verifyUserRequest, authorizationHeader)))
                 .build();
         return handle(config);
     }

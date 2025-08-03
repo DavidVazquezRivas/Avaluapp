@@ -33,6 +33,10 @@ public class UserEntity {
     @Column(nullable = false)
     private Role role;
 
+    @Builder.Default
+    @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
+    private Boolean verified = false;
+
     @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProjectEntity> projects;
 
