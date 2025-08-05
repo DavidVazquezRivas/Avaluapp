@@ -18,6 +18,8 @@ import { useQueries } from '@tanstack/react-query'
 import { PanelProvider } from '@/contexts/PanelContext'
 import { Panel } from '@/components/panel/Panel'
 import { useLoadMasters } from './hooks/useLoadMasters'
+import { VerifiedGuard } from './guards/verified.guard'
+import Verify from './pages/private/verify/Verify'
 
 const Login = lazy(() => import('@/pages/login/Login'))
 const Private = lazy(() => import('@/pages/private/Private'))
@@ -47,13 +49,19 @@ function App() {
           <Route path='/' element={<Navigate to={PrivateRoutes.Private} />} />
           <Route path={PublicRoutes.Login} element={<Login />} />
           <Route element={<PrivateGuard />}>
-            <Route path={`${PrivateRoutes.Private}/*`} element={<Private />} />
-          </Route>
-          <Route element={<RoleGuard role={Role.Admin} />}>
-            <Route path={`${AdminRoutes.Base}/*`} element={<Admin />} />
-          </Route>
-          <Route element={<RoleGuard role={Role.User} />}>
-            <Route path={`${UserRoutes.Base}/*`} element={<User />} />
+            <Route path={PrivateRoutes.Verify} element={<Verify />} />
+            <Route element={<VerifiedGuard />}>
+              <Route
+                path={`${PrivateRoutes.Private}/*`}
+                element={<Private />}
+              />
+              <Route element={<RoleGuard role={Role.Admin} />}>
+                <Route path={`${AdminRoutes.Base}/*`} element={<Admin />} />
+              </Route>
+              <Route element={<RoleGuard role={Role.User} />}>
+                <Route path={`${UserRoutes.Base}/*`} element={<User />} />
+              </Route>
+            </Route>
           </Route>
         </RoutesWithNotFound>
         <Panel />

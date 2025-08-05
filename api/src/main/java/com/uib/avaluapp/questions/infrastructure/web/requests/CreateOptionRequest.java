@@ -7,5 +7,4 @@ import lombok.Data;
 @Builder
 public class CreateOptionRequest {
     private String text;
-    private boolean correct;
 }

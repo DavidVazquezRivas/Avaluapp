@@ -6,6 +6,7 @@ export const PublicRoutes = {
 
 export const PrivateRoutes = {
   Private: '/private',
+  Verify: '/verify',
 }
 
 export const UserRoutes = {

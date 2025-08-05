@@ -308,6 +308,33 @@
     "home": "Back to homepage",
     "alt": "Page Not Found"
   },
+  "verify": {
+    "flag": {
+      "title": "Verify your account",
+      "description": "To continue, please verify your account by changing your password."
+    },
+    "form": {
+      "title": "Change Password",
+      "newPassword": {
+        "label": "New Password",
+        "placeholder": "••••••••",
+        "helperText": "New password is required"
+      },
+      "confirmPassword": {
+        "label": "Confirm Password",
+        "placeholder": "••••••••",
+        "helperText": "Password confirmation is required"
+      },
+      "submit": "Change Password",
+      "errors": {
+        "newPasswordRequired": "New password is required",
+        "confirmPasswordRequired": "Password confirmation is required",
+        "passwordsDoNotMatch": "Passwords do not match",
+        "verificationFailed": "User verification failed"
+      },
+      "submitting": "Verifying..."
+    }
+  },
   "admin": {
     "users": {
       "grid": {

@@ -1,5 +1,7 @@
 import store from '@/redux/store'
 import { Credential } from '@/models/credential.model'
+import { User } from '@/models/user.model'
+
 import {
   AuthEmptyState,
   AuthState,
@@ -39,4 +41,10 @@ export const getSession = (): AuthState => {
 export const haveSession = (): boolean => {
   const auth = store.getState().auth
   return auth !== AuthEmptyState
+}
+
+export const isSessionVerified = (): boolean => {
+  const auth = store.getState().auth
+  const user = auth.user as User | null
+  return user?.verified === true
 }

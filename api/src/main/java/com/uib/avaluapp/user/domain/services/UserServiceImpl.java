@@ -5,6 +5,7 @@ import com.uib.avaluapp.user.domain.models.User;
 import com.uib.avaluapp.user.domain.ports.UserPort;
 import com.uib.avaluapp.user.infrastructure.web.requests.CreateUserRequest;
 import com.uib.avaluapp.user.infrastructure.web.requests.UpdateUserRequest;
+import com.uib.avaluapp.user.infrastructure.web.requests.VerifyUserRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -59,5 +60,14 @@ public class UserServiceImpl implements UserService {
                 .build();
 
         return userPort.updateUser(id, user);
+    }
+
+    @Override
+    public User verifyUser(VerifyUserRequest request, String authorizationHeader) {
+        User user = this.getSingleUser(authorizationHeader);
+        user.setVerified(true);
+        user.setPassword(encoder.encode(request.getPassword()));
+
+        return userPort.verifyUser(user);
     }
 }

@@ -308,6 +308,33 @@
     "back": "Volver a la página anterior",
     "alt": "Página no encontrada"
   },
+  "verify": {
+    "flag": {
+      "title": "Verifica tu cuenta",
+      "description": "Para continuar, por favor, verifica tu cuenta cambiando tu contraseña."
+    },
+    "form": {
+      "title": "Cambiar contraseña",
+      "newPassword": {
+        "label": "Nueva contraseña",
+        "placeholder": "••••••••",
+        "helperText": "La nueva contraseña es obligatoria"
+      },
+      "confirmPassword": {
+        "label": "Confirmar contraseña",
+        "placeholder": "••••••••",
+        "helperText": "La confirmación de la contraseña es obligatoria"
+      },
+      "submit": "Cambiar contraseña",
+      "errors": {
+        "newPasswordRequired": "La nueva contraseña es requerida",
+        "confirmPasswordRequired": "La confirmación de contraseña es requerida",
+        "passwordsDoNotMatch": "Las contraseñas no coinciden",
+        "verificationFailed": "Error al verificar usuario"
+      },
+      "submitting": "Verificando..."
+    }
+  },
   "admin": {
     "users": {
       "grid": {

@@ -3,6 +3,7 @@ package com.uib.avaluapp.user.domain.services;
 import com.uib.avaluapp.user.domain.models.User;
 import com.uib.avaluapp.user.infrastructure.web.requests.CreateUserRequest;
 import com.uib.avaluapp.user.infrastructure.web.requests.UpdateUserRequest;
+import com.uib.avaluapp.user.infrastructure.web.requests.VerifyUserRequest;
 
 import java.util.List;
 
@@ -16,4 +17,6 @@ public interface UserService {
     void deleteUser(Long id);
 
     User updateUser(Long id, UpdateUserRequest updateUserRequest);
+
+    User verifyUser(VerifyUserRequest request, String authorizationHeader);
 }
