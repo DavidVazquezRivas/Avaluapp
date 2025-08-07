@@ -1,5 +1,4 @@
 import { alpha, Theme, Components } from '@mui/material/styles'
-import { outlinedInputClasses } from '@mui/material/OutlinedInput'
 import { svgIconClasses } from '@mui/material/SvgIcon'
 import { toggleButtonGroupClasses } from '@mui/material/ToggleButtonGroup'
 import { toggleButtonClasses } from '@mui/material/ToggleButton'
@@ -410,6 +409,8 @@ export const inputsCustomizations: Components<Theme> = {
   //         padding: '8px 12px',
   //       },
   //       ...theme.applyStyles('dark', {
+  //         backgroundColor: gray[800],
+  //         borderColor: gray[700],
   //         '&:hover': {
   //           borderColor: gray[500],
   //         },
