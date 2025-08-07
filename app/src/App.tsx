@@ -1,6 +1,6 @@
 import RoutesWithNotFound from '@/components/routing/RoutesWithNotFound'
-import refreshSessionQueryOptions from './queries/refresh.query'
-import LoadingSpinner from './components/spinner/Spinner'
+// import refreshSessionQueryOptions from './queries/refresh.query'
+// import LoadingSpinner from './components/spinner/Spinner'
 import { BrowserRouter, Navigate, Route } from 'react-router-dom'
 import {
   AdminRoutes,
@@ -14,33 +14,30 @@ import { ErrorInterceptor } from '@/interceptors/error.interceptor'
 import { PrivateGuard } from '@/guards/private.guard'
 import { RoleGuard } from '@/guards/role.guard'
 import { Role } from '@/models/role.model'
-import { useQueries } from '@tanstack/react-query'
 import { PanelProvider } from '@/contexts/PanelContext'
 import { Panel } from '@/components/panel/Panel'
-import { useLoadMasters } from './hooks/useLoadMasters'
 import { VerifiedGuard } from './guards/verified.guard'
 import Verify from './pages/private/verify/Verify'
 
 const Login = lazy(() => import('@/pages/login/Login'))
+const SurveyPage = lazy(() => import('@/pages/public/survey/SurveyPage'))
 const Private = lazy(() => import('@/pages/private/Private'))
 const Admin = lazy(() => import('@/pages/admin/Admin'))
 const User = lazy(() => import('@/pages/user/User'))
 
 function App() {
-  const [{ isPending }] = useQueries({
-    queries: [refreshSessionQueryOptions()],
-  })
-
-  useLoadMasters()
+  // const [{ isPending }] = useQueries({
+  //   queries: [refreshSessionQueryOptions()],
+  // })
 
   useEffect(() => {
     PublicPrivateInterceptor()
     ErrorInterceptor()
   }, [])
 
-  if (isPending) {
-    return <LoadingSpinner />
-  }
+  // if (isPending) {
+  //   return <LoadingSpinner />
+  // }
 
   return (
     <PanelProvider>
@@ -48,6 +45,7 @@ function App() {
         <RoutesWithNotFound>
           <Route path='/' element={<Navigate to={PrivateRoutes.Private} />} />
           <Route path={PublicRoutes.Login} element={<Login />} />
+          <Route path={PublicRoutes.Survey} element={<SurveyPage />} />
           <Route element={<PrivateGuard />}>
             <Route path={PrivateRoutes.Verify} element={<Verify />} />
             <Route element={<VerifiedGuard />}>

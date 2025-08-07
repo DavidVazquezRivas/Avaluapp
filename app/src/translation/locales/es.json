@@ -17,6 +17,7 @@
         "surveys": "Encuestas"
       }
     },
+    "loading": "Cargando...",
     "formatters": {
       "role": {
         "ADMIN": "Administrador",
