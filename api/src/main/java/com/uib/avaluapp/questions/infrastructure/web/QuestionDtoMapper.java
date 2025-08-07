@@ -18,4 +18,6 @@ public interface QuestionDtoMapper {
     CompleteQuestionDto toCompleteDto(Question question);
 
     List<QuestionDto> toDtoList(List<Question> question);
+
+    List<CompleteQuestionDto> toCompleteDtoList(List<Question> question);
 }

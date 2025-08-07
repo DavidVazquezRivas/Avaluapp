@@ -18,5 +18,5 @@ public interface QuestionService {
 
     void deleteQuestion(String authorization, Long questionId);
 
-    List<QuestionDto> getQuestionsBySurveyCode(String code);
+    List<CompleteQuestionDto> getQuestionsBySurveyCode(String code);
 }

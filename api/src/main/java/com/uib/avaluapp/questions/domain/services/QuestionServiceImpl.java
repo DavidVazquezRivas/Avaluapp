@@ -130,9 +130,12 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public List<QuestionDto> getQuestionsBySurveyCode(String code) {
+    public List<CompleteQuestionDto> getQuestionsBySurveyCode(String code) {
         Survey survey = surveyPort.getSurveyByUrlCode(code);
+        List<Question> questions = questionPort.getAllByTagId(survey.getTag().getId()).stream()
+                .map(questionPort::fetchOptions)
+                .toList();
 
-        return QuestionDtoMapper.INSTANCE.toDtoList(questionPort.getAllByTagId(survey.getTag().getId()));
+        return QuestionDtoMapper.INSTANCE.toCompleteDtoList(questions);
     }
 }

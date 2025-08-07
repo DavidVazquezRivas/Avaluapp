@@ -5,7 +5,7 @@ import com.uib.avaluapp.global.exceptions.BaseException;
 import com.uib.avaluapp.global.insfrastructure.web.BaseController;
 import com.uib.avaluapp.global.insfrastructure.web.response.ApiResponse;
 import com.uib.avaluapp.questions.domain.services.QuestionService;
-import com.uib.avaluapp.questions.infrastructure.web.responses.QuestionDto;
+import com.uib.avaluapp.questions.infrastructure.web.responses.CompleteQuestionDto;
 import com.uib.avaluapp.user.domain.ports.UserPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,11 +30,11 @@ public class PublicAnswerController extends BaseController {
     }
 
     @GetMapping("{code}")
-    public ResponseEntity<ApiResponse<List<QuestionDto>>> getQuestionsBySurveyCode(@PathVariable String code) {
+    public ResponseEntity<ApiResponse<List<CompleteQuestionDto>>> getQuestionsBySurveyCode(@PathVariable String code) {
         try {
-            List<QuestionDto> questions = questionService.getQuestionsBySurveyCode(code);
-            
-            return ResponseEntity.ok(ApiResponse.<List<QuestionDto>>builder()
+            List<CompleteQuestionDto> questions = questionService.getQuestionsBySurveyCode(code);
+
+            return ResponseEntity.ok(ApiResponse.<List<CompleteQuestionDto>>builder()
                     .success(true)
                     .message("Questions retrieved successfully")
                     .data(questions)
@@ -42,7 +42,7 @@ public class PublicAnswerController extends BaseController {
         } catch (BaseException e) {
             return ResponseEntity
                     .status(e.getCode())
-                    .body(ApiResponse.<List<QuestionDto>>builder()
+                    .body(ApiResponse.<List<CompleteQuestionDto>>builder()
                             .success(false)
                             .message(e.getMessage())
                             .build());
@@ -50,7 +50,7 @@ public class PublicAnswerController extends BaseController {
         } catch (Exception e) {
             return ResponseEntity
                     .status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(ApiResponse.<List<QuestionDto>>builder()
+                    .body(ApiResponse.<List<CompleteQuestionDto>>builder()
                             .success(false)
                             .message("Unexpected error: " + e.getMessage())
                             .build());
