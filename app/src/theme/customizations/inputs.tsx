@@ -130,6 +130,7 @@ export const inputsCustomizations: Components<Theme> = {
                 backgroundColor: gray[200],
               },
               ...theme.applyStyles('dark', {
+                color: 'white',
                 backgroundColor: gray[800],
                 borderColor: gray[700],
 
@@ -383,68 +384,68 @@ export const inputsCustomizations: Components<Theme> = {
       },
     },
   },
-  MuiOutlinedInput: {
-    styleOverrides: {
-      input: {
-        padding: 0,
-      },
-      root: ({ theme }) => ({
-        padding: '8px 12px',
-        color: theme.palette.text.primary,
-        borderRadius: theme.shape.borderRadius,
-        border: `1px solid ${theme.palette.divider}`,
-        backgroundColor: theme.palette.background.default,
-        transition: 'border 120ms ease-in',
-        '&:hover': {
-          borderColor: gray[400],
-        },
-        [`&.${outlinedInputClasses.focused}`]: {
-          outline: `3px solid ${alpha(brand[500], 0.5)}`,
-          borderColor: brand[400],
-        },
-        '&.MuiInputBase-multiline': {
-          height: 'auto',
-          minHeight: '2.5rem',
-          alignItems: 'flex-start',
-          padding: '8px 12px',
-        },
-        ...theme.applyStyles('dark', {
-          '&:hover': {
-            borderColor: gray[500],
-          },
-        }),
-        variants: [
-          {
-            props: {
-              size: 'small',
-            },
-            style: {
-              height: '2.25rem',
-              '&.MuiInputBase-multiline': {
-                height: 'auto',
-                minHeight: '2.25rem',
-              },
-            },
-          },
-          {
-            props: {
-              size: 'medium',
-            },
-            style: {
-              height: '3rem',
-              '&.MuiInputBase-multiline': {
-                height: 'auto',
-                minHeight: '2.5rem',
-              },
-            },
-          },
-        ],
-      }),
-      notchedOutline: {
-        border: 'none',
-      },
-    },
-  },
+  // MuiOutlinedInput: {
+  //   styleOverrides: {
+  //     input: {
+  //       padding: 0,
+  //     },
+  //     root: ({ theme }) => ({
+  //       padding: '8px 12px',
+  //       color: theme.palette.text.primary,
+  //       borderRadius: theme.shape.borderRadius,
+  //       border: `1px solid ${theme.palette.divider}`,
+  //       backgroundColor: theme.palette.background.default,
+  //       transition: 'border 120ms ease-in',
+  //       '&:hover': {
+  //         borderColor: gray[400],
+  //       },
+  //       [`&.${outlinedInputClasses.focused}`]: {
+  //         outline: `3px solid ${alpha(brand[500], 0.5)}`,
+  //         borderColor: brand[400],
+  //       },
+  //       '&.MuiInputBase-multiline': {
+  //         height: 'auto',
+  //         minHeight: '2.5rem',
+  //         alignItems: 'flex-start',
+  //         padding: '8px 12px',
+  //       },
+  //       ...theme.applyStyles('dark', {
+  //         '&:hover': {
+  //           borderColor: gray[500],
+  //         },
+  //       }),
+  //       variants: [
+  //         {
+  //           props: {
+  //             size: 'small',
+  //           },
+  //           style: {
+  //             height: '2.25rem',
+  //             '&.MuiInputBase-multiline': {
+  //               height: 'auto',
+  //               minHeight: '2.25rem',
+  //             },
+  //           },
+  //         },
+  //         {
+  //           props: {
+  //             size: 'medium',
+  //           },
+  //           style: {
+  //             height: '3rem',
+  //             '&.MuiInputBase-multiline': {
+  //               height: 'auto',
+  //               minHeight: '2.5rem',
+  //             },
+  //           },
+  //         },
+  //       ],
+  //     }),
+  //     notchedOutline: {
+  //       border: 'none',
+  //     },
+  //   },
+  // },
   MuiInputAdornment: {
     styleOverrides: {
       root: ({ theme }) => ({
