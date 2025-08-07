@@ -13,11 +13,17 @@ interface UseNavItemsReturn {
 
 export const useNavItems = (): UseNavItemsReturn => {
   const session = getSession()
+
+  const shouldFetchProjects = session?.user?.role === Role.Admin
+
   const {
     data: projects = [],
     isLoading: isLoadingProjects,
     isFetching,
-  } = useQuery(getAllProjectsQueryOptions())
+  } = useQuery({
+    ...getAllProjectsQueryOptions(),
+    enabled: shouldFetchProjects,
+  })
 
   if (!session?.user?.role) {
     return { navItems: [], isLoadingProjects: false }
