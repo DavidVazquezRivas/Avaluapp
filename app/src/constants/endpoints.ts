@@ -46,4 +46,9 @@ export const apiEndpoints = {
     get: (tagId: number) => `${apiBaseUrl}/tags/${tagId}`,
     update: (tagId: number) => `${apiBaseUrl}/tags/${tagId}`,
   },
+  public: {
+    getQuestions: (surveyCode: string) =>
+      `${apiBaseUrl}/public/answers/${surveyCode}`,
+    submitAnswers: `${apiBaseUrl}/public/answers`,
+  },
 }
