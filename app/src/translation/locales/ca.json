@@ -64,6 +64,19 @@
         }
       }
     },
+    "questions": {
+      "validations": {
+        "required": "Aquest camp és obligatori",
+        "invalidNumber": "Ha de ser un número vàlid",
+        "minValue": "El valor mínim és {{min}}",
+        "maxValue": "El valor màxim és {{max}}",
+        "maxLength": "Màxim {{max}} caràcters",
+        "multipleChoiceRequired": "Has de seleccionar almenys una opció",
+        "ratingRequired": "Has de seleccionar almenys una estrella",
+        "charactersCount": "{{current}}/{{max}} caràcters",
+        "range": "Rang: {{min}} - {{max}}"
+      }
+    },
     "grid": {
       "noRowsLabel": "Sense files",
       "noResultsOverlayLabel": "Resultats no trobats",
@@ -288,6 +301,21 @@
       "promptChangePivotRowsLabel": "Files ({{count}})",
       "promptChangePivotValuesLabel": "Valors ({{count}})",
       "promptChangePivotValuesDescription": "{{column}} ({{aggregation}})"
+    }
+  },
+  "public": {
+    "survey": {
+      "form": {
+        "title": "Enquesta",
+        "description": "La teva opinió és important per a nosaltres. Si us plau, respon les següents preguntes.",
+        "progress": "Progrés",
+        "questionCounter": "Pregunta {{current}} de {{total}}",
+        "navigation": {
+          "previous": "Anterior",
+          "next": "Següent",
+          "submit": "Enviar respostes"
+        }
+      }
     }
   },
   "login": {
