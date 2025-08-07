@@ -12,6 +12,8 @@ import com.uib.avaluapp.questions.infrastructure.web.requests.CreateQuestionRequ
 import com.uib.avaluapp.questions.infrastructure.web.requests.UpdateQuestionRequest;
 import com.uib.avaluapp.questions.infrastructure.web.responses.CompleteQuestionDto;
 import com.uib.avaluapp.questions.infrastructure.web.responses.QuestionDto;
+import com.uib.avaluapp.surveys.domain.models.Survey;
+import com.uib.avaluapp.surveys.domain.ports.SurveyPort;
 import com.uib.avaluapp.tags.domain.models.Tag;
 import com.uib.avaluapp.user.domain.models.User;
 import com.uib.avaluapp.user.domain.services.UserService;
@@ -29,6 +31,7 @@ public class QuestionServiceImpl implements QuestionService {
     private final QuestionPort questionPort;
     private final ProjectPort projectPort;
     private final UserService userService;
+    private final SurveyPort surveyPort;
 
     @Override
     public List<QuestionDto> getAllQuestions(String authorization, Long projectId) {
@@ -124,5 +127,12 @@ public class QuestionServiceImpl implements QuestionService {
         }
 
         questionPort.deleteQuestion(questionId);
+    }
+
+    @Override
+    public List<QuestionDto> getQuestionsBySurveyCode(String code) {
+        Survey survey = surveyPort.getSurveyByUrlCode(code);
+
+        return QuestionDtoMapper.INSTANCE.toDtoList(questionPort.getAllByTagId(survey.getTag().getId()));
     }
 }

@@ -17,4 +17,6 @@ public interface QuestionService {
     CompleteQuestionDto updateQuestion(String authorization, Long questionId, UpdateQuestionRequest request);
 
     void deleteQuestion(String authorization, Long questionId);
+
+    List<QuestionDto> getQuestionsBySurveyCode(String code);
 }
