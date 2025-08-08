@@ -22,6 +22,7 @@ import Verify from './pages/private/verify/Verify'
 
 const Login = lazy(() => import('@/pages/login/Login'))
 const SurveyPage = lazy(() => import('@/pages/public/survey/SurveyPage'))
+const SentPage = lazy(() => import('@/pages/public/sent/SentPage'))
 const Private = lazy(() => import('@/pages/private/Private'))
 const Admin = lazy(() => import('@/pages/admin/Admin'))
 const User = lazy(() => import('@/pages/user/User'))
@@ -52,6 +53,7 @@ function AppContent() {
       <Route path='/' element={<Navigate to={PrivateRoutes.Private} />} />
       <Route path={PublicRoutes.Login} element={<Login />} />
       <Route path={PublicRoutes.Survey} element={<SurveyPage />} />
+      <Route path={PublicRoutes.Sent} element={<SentPage />} />
       <Route element={<PrivateGuard />}>
         <Route path={PrivateRoutes.Verify} element={<Verify />} />
         <Route element={<VerifiedGuard />}>
