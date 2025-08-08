@@ -1,4 +1,9 @@
-import { TextField } from '@mui/material'
+import {
+  TextField,
+  FormControl,
+  FormLabel,
+  FormHelperText,
+} from '@mui/material'
 import { Controller, useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { NumericQuestionProps } from './types'
@@ -43,32 +48,45 @@ export default function NumericQuestion({
         },
       }}
       render={({ field, fieldState }) => (
-        <TextField
-          {...field}
-          label={text}
-          type='number'
-          required={required}
+        <FormControl
+          component='fieldset'
           error={!!fieldState.error || !!error}
-          helperText={
-            fieldState.error?.message ||
+          fullWidth
+          sx={{ mb: 2 }}>
+          <FormLabel component='legend' required={required}>
+            {text}
+          </FormLabel>
+          <TextField
+            {...field}
+            type='number'
+            required={required}
+            error={!!fieldState.error || !!error}
+            fullWidth
+            inputProps={{
+              min: min,
+              max: max,
+              step: 'any',
+            }}
+            sx={{ mt: 1 }}
+            onChange={(e) => {
+              const value = e.target.value
+              field.onChange(value === '' ? '' : Number(value))
+            }}
+          />
+          {(fieldState.error ||
             error ||
             helperText ||
-            (min !== undefined && max !== undefined
-              ? t('globals.questions.validations.range', { min, max })
-              : '')
-          }
-          fullWidth
-          inputProps={{
-            min: min,
-            max: max,
-            step: 'any',
-          }}
-          sx={{ mb: 2 }}
-          onChange={(e) => {
-            const value = e.target.value
-            field.onChange(value === '' ? '' : Number(value))
-          }}
-        />
+            (min !== undefined && max !== undefined)) && (
+            <FormHelperText>
+              {fieldState.error?.message ||
+                error ||
+                helperText ||
+                (min !== undefined && max !== undefined
+                  ? t('globals.questions.validations.range', { min, max })
+                  : '')}
+            </FormHelperText>
+          )}
+        </FormControl>
       )}
     />
   )

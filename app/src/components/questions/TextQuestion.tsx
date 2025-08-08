@@ -1,4 +1,9 @@
-import { TextField } from '@mui/material'
+import {
+  TextField,
+  FormControl,
+  FormLabel,
+  FormHelperText,
+} from '@mui/material'
 import { Controller, useFormContext } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { TextQuestionProps } from './types'
@@ -46,20 +51,30 @@ export default function TextQuestion({
           : helperText || characterCount
 
         return (
-          <TextField
-            {...field}
-            label={text}
-            required={required}
+          <FormControl
+            component='fieldset'
             error={hasError}
-            helperText={displayHelperText}
             fullWidth
-            multiline={multiline}
-            rows={multiline ? 4 : 1}
-            inputProps={{
-              maxLength: maxLength,
-            }}
-            sx={{ mb: 2 }}
-          />
+            sx={{ mb: 2 }}>
+            <FormLabel component='legend' required={required}>
+              {text}
+            </FormLabel>
+            <TextField
+              {...field}
+              required={required}
+              error={hasError}
+              fullWidth
+              multiline={multiline}
+              rows={multiline ? 4 : 1}
+              inputProps={{
+                maxLength: maxLength,
+              }}
+              sx={{ mt: 1 }}
+            />
+            {displayHelperText && (
+              <FormHelperText>{displayHelperText}</FormHelperText>
+            )}
+          </FormControl>
         )
       }}
     />
