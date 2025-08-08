@@ -1,5 +1,6 @@
 package com.uib.avaluapp.questions.infrastructure.data.models;
 
+import com.uib.avaluapp.answer.infrastructure.data.models.AnswerEntity;
 import com.uib.avaluapp.project.infrastructure.data.models.ProjectEntity;
 import com.uib.avaluapp.questions.domain.models.QuestionType;
 import com.uib.avaluapp.tags.infrastructure.data.models.TagEntity;
@@ -56,6 +57,9 @@ public class QuestionEntity {
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
     private List<TagEntity> tags = new ArrayList<>();
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "question")
+    private List<AnswerEntity> answers;
 
     @PrePersist
     protected void onCreate() {
