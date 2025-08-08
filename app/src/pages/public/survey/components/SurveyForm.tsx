@@ -1,4 +1,4 @@
-import { useSuspenseQuery } from '@tanstack/react-query'
+import { useMutation, useSuspenseQuery } from '@tanstack/react-query'
 import getSurveyQuestionsQueryOptions from '../queries/get.survey.questions.query'
 import { Box, Paper, Divider } from '@mui/material'
 import { FormProvider, useForm } from 'react-hook-form'
@@ -8,6 +8,8 @@ import { SurveyHeader } from './SurveyHeader'
 import { SurveyProgress } from './SurveyProgress'
 import { SurveyNavigation } from './SurveyNavigation'
 import { QuestionStatus } from './StepIndicator'
+import submitSurveyQuestionsQueryOptions from '../queries/submit.survey.questions.query'
+import { useNavigate } from 'react-router-dom'
 
 interface SurveyFormProps {
   surveyCode: string
@@ -15,16 +17,26 @@ interface SurveyFormProps {
 
 export const SurveyForm: React.FC<SurveyFormProps> = ({ surveyCode }) => {
   const methods = useForm()
-  const { data: questions } = useSuspenseQuery(
-    getSurveyQuestionsQueryOptions(surveyCode)
-  )
   const [currentStep, setCurrentStep] = useState(0)
   const [hasAttemptedSubmit, setHasAttemptedSubmit] = useState(false)
 
+  const navigate = useNavigate()
+
+  const { data: questions } = useSuspenseQuery(
+    getSurveyQuestionsQueryOptions(surveyCode)
+  )
+
+  const submitMutation = useMutation(
+    submitSurveyQuestionsQueryOptions(surveyCode, navigate)
+  )
+
   const handleSubmit = (data: any) => {
-    console.log('Survey responses:', data)
-    console.log('Survey code:', surveyCode)
-    // TODO: Implementar envío de respuestas
+    const transformed = Object.entries(data).map(([questionId, answer]) => ({
+      questionId,
+      answer: answer instanceof Date ? answer.toISOString() : String(answer),
+    }))
+
+    submitMutation.mutate(transformed)
   }
 
   const progress =
