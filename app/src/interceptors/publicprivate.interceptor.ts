@@ -25,7 +25,7 @@ export const PublicPrivateInterceptor = () => {
     return request
   }
 
-  const updateHeadersAuth = async (request: InternalAxiosRequestConfig) => {
+  const updatePublicHeaders = async (request: InternalAxiosRequestConfig) => {
     request.headers.set('Content-Type', 'application/json')
     if (typeof request.withCredentials === 'undefined') {
       request.withCredentials = true
@@ -38,8 +38,10 @@ export const PublicPrivateInterceptor = () => {
     (request) => {
       if (!request.url?.includes(apiBaseUrl)) return request // External API call
       const isAuth = request.url?.includes('/auth')
+      const isPublic = request.url?.includes('/public')
+      const needsToken = !isAuth && !isPublic
 
-      return isAuth ? updateHeadersAuth(request) : updateHeaders(request)
+      return !needsToken ? updatePublicHeaders(request) : updateHeaders(request)
     },
     (error) => Promise.reject(error)
   )
