@@ -1,5 +1,7 @@
 package com.uib.avaluapp.answer.infrastructure.web.controllers;
 
+import com.uib.avaluapp.answer.domain.services.AnswerService;
+import com.uib.avaluapp.answer.infrastructure.web.models.SubmitAnswerRequest;
 import com.uib.avaluapp.auth.domain.services.JwtService;
 import com.uib.avaluapp.global.exceptions.BaseException;
 import com.uib.avaluapp.global.insfrastructure.web.BaseController;
@@ -10,10 +12,7 @@ import com.uib.avaluapp.user.domain.ports.UserPort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,11 +21,13 @@ import java.util.List;
 public class PublicAnswerController extends BaseController {
 
     private final QuestionService questionService;
+    private final AnswerService answerService;
 
     @Autowired
-    public PublicAnswerController(QuestionService questionService, JwtService jwtService, UserPort userPort) {
+    public PublicAnswerController(QuestionService questionService, JwtService jwtService, UserPort userPort, AnswerService answerService) {
         super(jwtService, userPort);
         this.questionService = questionService;
+        this.answerService = answerService;
     }
 
     @GetMapping("{code}")
@@ -51,6 +52,34 @@ public class PublicAnswerController extends BaseController {
             return ResponseEntity
                     .status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(ApiResponse.<List<CompleteQuestionDto>>builder()
+                            .success(false)
+                            .message("Unexpected error: " + e.getMessage())
+                            .build());
+        }
+    }
+
+    @PostMapping("{code}")
+    public ResponseEntity<ApiResponse<Void>> submitAnswers(@PathVariable String code,
+                                                           @RequestBody List<SubmitAnswerRequest> answers) {
+        try {
+            answerService.submitAnswers(answers, code);
+
+            return ResponseEntity.ok(ApiResponse.<Void>builder()
+                    .success(true)
+                    .message("Answers submitted successfully")
+                    .build());
+        } catch (BaseException e) {
+            return ResponseEntity
+                    .status(e.getCode())
+                    .body(ApiResponse.<Void>builder()
+                            .success(false)
+                            .message(e.getMessage())
+                            .build());
+
+        } catch (Exception e) {
+            return ResponseEntity
+                    .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(ApiResponse.<Void>builder()
                             .success(false)
                             .message("Unexpected error: " + e.getMessage())
                             .build());
