@@ -316,6 +316,14 @@
           "submit": "Submit responses"
         }
       }
+    },
+    "sent": {
+      "title": "Responses submitted successfully!",
+      "message": "Thank you for your participation. Your responses have been recorded correctly.",
+      "actions": {
+        "home": "Back to home",
+        "close": "Close"
+      }
     }
   },
   "login": {

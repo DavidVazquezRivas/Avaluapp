@@ -316,6 +316,14 @@
           "submit": "Enviar respostes"
         }
       }
+    },
+    "sent": {
+      "title": "Respostes enviades amb èxit!",
+      "message": "Gràcies per la teva participació. Les teves respostes han estat registrades correctament.",
+      "actions": {
+        "home": "Tornar a l'inici",
+        "close": "Tancar"
+      }
     }
   },
   "login": {
