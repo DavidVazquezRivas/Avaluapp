@@ -49,6 +49,7 @@ export const apiEndpoints = {
   public: {
     getQuestions: (surveyCode: string) =>
       `${apiBaseUrl}/public/answers/${surveyCode}`,
-    submitAnswers: `${apiBaseUrl}/public/answers`,
+    submitAnswers: (surveyCode: string) =>
+      `${apiBaseUrl}/public/answers/${surveyCode}`,
   },
 }
