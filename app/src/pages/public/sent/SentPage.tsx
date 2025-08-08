@@ -1,5 +1,5 @@
 import { Box, Button, Container, Paper, Typography, Stack } from '@mui/material'
-import { CheckCircle, Home, Close } from '@mui/icons-material'
+import { CheckCircle, Home } from '@mui/icons-material'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import Layout from '@/components/layout/Layout'
