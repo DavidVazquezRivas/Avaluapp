@@ -120,7 +120,6 @@ export const SurveyForm: React.FC<SurveyFormProps> = ({ surveyCode }) => {
     })
   }, [questions, methods.formState, methods.getValues(), hasAttemptedSubmit])
 
-  console.log(questions)
 
   return (
     <Box sx={{ py: { xs: 2, sm: 4 }, px: { xs: 1, sm: 2 } }}>
