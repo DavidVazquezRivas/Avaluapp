@@ -8,5 +8,4 @@ import lombok.Data;
 public class UpdateOptionRequest {
     private Long id;
     private String text;
-    private boolean correct;
 }

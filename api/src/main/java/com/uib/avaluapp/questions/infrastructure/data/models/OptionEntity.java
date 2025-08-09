@@ -17,7 +17,4 @@ public class OptionEntity {
 
     @Column(nullable = false)
     private String text;
-
-    @Column(name = "correct")
-    private boolean correct;
 }

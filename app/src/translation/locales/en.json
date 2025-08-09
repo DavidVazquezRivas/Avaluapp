@@ -17,6 +17,7 @@
         "surveys": "Surveys"
       }
     },
+    "loading": "Loading...",
     "formatters": {
       "role": {
         "ADMIN": "Administrator",
@@ -61,6 +62,19 @@
         "error": {
           "default": "Error processing the request. Please try again later."
         }
+      }
+    },
+    "questions": {
+      "validations": {
+        "required": "This field is required",
+        "invalidNumber": "Must be a valid number",
+        "minValue": "Minimum value is {{min}}",
+        "maxValue": "Maximum value is {{max}}",
+        "maxLength": "Maximum {{max}} characters",
+        "multipleChoiceRequired": "You must select at least one option",
+        "ratingRequired": "You must select at least one star",
+        "charactersCount": "{{current}}/{{max}} characters",
+        "range": "Range: {{min}} - {{max}}"
       }
     },
     "grid": {
@@ -289,6 +303,29 @@
       "promptChangePivotValuesDescription": "{{column}} ({{aggregation}})"
     }
   },
+  "public": {
+    "survey": {
+      "form": {
+        "title": "Survey",
+        "description": "Your opinion is important to us. Please answer the following questions.",
+        "progress": "Progress",
+        "questionCounter": "Question {{current}} of {{total}}",
+        "navigation": {
+          "previous": "Previous",
+          "next": "Next",
+          "submit": "Submit responses"
+        }
+      }
+    },
+    "sent": {
+      "title": "Responses submitted successfully!",
+      "message": "Thank you for your participation. Your responses have been recorded correctly.",
+      "actions": {
+        "home": "Back to home",
+        "close": "Close"
+      }
+    }
+  },
   "login": {
     "quotes": {},
     "title": "Login",
@@ -307,6 +344,33 @@
     "back": "Back to previous page",
     "home": "Back to homepage",
     "alt": "Page Not Found"
+  },
+  "verify": {
+    "flag": {
+      "title": "Verify your account",
+      "description": "To continue, please verify your account by changing your password."
+    },
+    "form": {
+      "title": "Change Password",
+      "newPassword": {
+        "label": "New Password",
+        "placeholder": "••••••••",
+        "helperText": "New password is required"
+      },
+      "confirmPassword": {
+        "label": "Confirm Password",
+        "placeholder": "••••••••",
+        "helperText": "Password confirmation is required"
+      },
+      "submit": "Change Password",
+      "errors": {
+        "newPasswordRequired": "New password is required",
+        "confirmPasswordRequired": "Password confirmation is required",
+        "passwordsDoNotMatch": "Passwords do not match",
+        "verificationFailed": "User verification failed"
+      },
+      "submitting": "Verifying..."
+    }
   },
   "admin": {
     "users": {

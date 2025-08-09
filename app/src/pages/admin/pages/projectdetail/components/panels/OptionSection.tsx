@@ -1,17 +1,8 @@
 import { QuestionOptionRequest, QuestionType } from '@/models/question.model'
 import DeleteIcon from '@mui/icons-material/Delete'
 import AddIcon from '@mui/icons-material/Add'
-import {
-  Button,
-  Checkbox,
-  FormControlLabel,
-  IconButton,
-  Radio,
-  Stack,
-  TextField,
-  Typography,
-} from '@mui/material'
-import { ChangeEvent, useEffect, useState } from 'react'
+import { Button, IconButton, Stack, TextField, Typography } from '@mui/material'
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
 interface OptionSectionProps {
@@ -19,7 +10,7 @@ interface OptionSectionProps {
   data?: QuestionOptionRequest[]
 }
 
-const initialState: QuestionOptionRequest[] = [{ text: '', correct: true }]
+const initialState: QuestionOptionRequest[] = [{ text: '' }]
 
 export const OptionSection: React.FC<OptionSectionProps> = ({
   questionType,
@@ -33,24 +24,7 @@ export const OptionSection: React.FC<OptionSectionProps> = ({
   }, [questionType])
 
   const handleAddOption = () => {
-    setOptions([...options, { text: '', correct: false }])
-  }
-
-  const handleChangeCorrect = (
-    e: ChangeEvent<HTMLInputElement>,
-    index: number
-  ) => {
-    if (questionType === QuestionType.SingleChoice) {
-      const newOptions = options.map((option, i) => ({
-        ...option,
-        correct: i === index ? e.target.checked : false,
-      }))
-      setOptions(newOptions)
-    } else {
-      const newOptions = [...options]
-      newOptions[index].correct = e.target.checked
-      setOptions(newOptions)
-    }
+    setOptions([...options, { text: '' }])
   }
 
   if (
@@ -87,24 +61,6 @@ export const OptionSection: React.FC<OptionSectionProps> = ({
         }}>
         <DeleteIcon />
       </IconButton>
-      <FormControlLabel
-        control={
-          questionType === QuestionType.SingleChoice ? (
-            <Radio
-              checked={option.correct}
-              onChange={(e) => handleChangeCorrect(e, index)}
-            />
-          ) : (
-            <Checkbox
-              checked={option.correct}
-              onChange={(e) => handleChangeCorrect(e, index)}
-            />
-          )
-        }
-        label={t(
-          'admin.projectdetail.tabs.questions.form.fields.options.correct'
-        )}
-      />
     </Stack>
   ))
 

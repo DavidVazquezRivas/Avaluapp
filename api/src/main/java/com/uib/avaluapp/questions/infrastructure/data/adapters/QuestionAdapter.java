@@ -46,6 +46,12 @@ public class QuestionAdapter implements QuestionPort {
     }
 
     @Override
+    public List<Question> getAllByTagId(Long tagId) {
+        List<QuestionEntity> entities = questionRepository.findAllByTagId(tagId);
+        return QuestionEntityMapper.INSTANCE.toDomainList(entities);
+    }
+
+    @Override
     public Question getQuestionById(Long questionId) {
         return questionRepository.findById(questionId)
                 .map(QuestionEntityMapper.INSTANCE::toDomain)
@@ -117,7 +123,6 @@ public class QuestionAdapter implements QuestionPort {
                         .findFirst()
                         .ifPresent(existingOpt -> {
                             existingOpt.setText(newOpt.getText());
-                            existingOpt.setCorrect(newOpt.isCorrect());
                         });
             }
         }

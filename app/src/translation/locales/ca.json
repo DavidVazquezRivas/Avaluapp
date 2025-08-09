@@ -17,6 +17,7 @@
         "surveys": "Enquestes"
       }
     },
+    "loading": "Carregant...",
     "formatters": {
       "role": {
         "ADMIN": "Administrador",
@@ -61,6 +62,19 @@
         "error": {
           "default": "Error en processar la sol·licitud. Si us plau, torna-ho a intentar més tard."
         }
+      }
+    },
+    "questions": {
+      "validations": {
+        "required": "Aquest camp és obligatori",
+        "invalidNumber": "Ha de ser un número vàlid",
+        "minValue": "El valor mínim és {{min}}",
+        "maxValue": "El valor màxim és {{max}}",
+        "maxLength": "Màxim {{max}} caràcters",
+        "multipleChoiceRequired": "Has de seleccionar almenys una opció",
+        "ratingRequired": "Has de seleccionar almenys una estrella",
+        "charactersCount": "{{current}}/{{max}} caràcters",
+        "range": "Rang: {{min}} - {{max}}"
       }
     },
     "grid": {
@@ -289,6 +303,29 @@
       "promptChangePivotValuesDescription": "{{column}} ({{aggregation}})"
     }
   },
+  "public": {
+    "survey": {
+      "form": {
+        "title": "Enquesta",
+        "description": "La teva opinió és important per a nosaltres. Si us plau, respon les següents preguntes.",
+        "progress": "Progrés",
+        "questionCounter": "Pregunta {{current}} de {{total}}",
+        "navigation": {
+          "previous": "Anterior",
+          "next": "Següent",
+          "submit": "Enviar respostes"
+        }
+      }
+    },
+    "sent": {
+      "title": "Respostes enviades amb èxit!",
+      "message": "Gràcies per la teva participació. Les teves respostes han estat registrades correctament.",
+      "actions": {
+        "home": "Tornar a l'inici",
+        "close": "Tancar"
+      }
+    }
+  },
   "login": {
     "quotes": {},
     "title": "Iniciar sessió",
@@ -307,6 +344,33 @@
     "back": "Torna a la pàgina anterior",
     "home": "Torna a la pàgina d'inici",
     "alt": "Pàgina no trobada"
+  },
+  "verify": {
+    "flag": {
+      "title": "Verifica el teu compte",
+      "description": "Per continuar, si us plau verifica el teu compte canviant la contrasenya."
+    },
+    "form": {
+      "title": "Canvia la contrasenya",
+      "newPassword": {
+        "label": "Nova contrasenya",
+        "placeholder": "••••••••",
+        "helperText": "La nova contrasenya és obligatòria"
+      },
+      "confirmPassword": {
+        "label": "Confirma la contrasenya",
+        "placeholder": "••••••••",
+        "helperText": "La confirmació de la contrasenya és obligatòria"
+      },
+      "submit": "Canvia la contrasenya",
+      "errors": {
+        "newPasswordRequired": "La nova contrasenya és obligatòria",
+        "confirmPasswordRequired": "La confirmació de la contrasenya és obligatòria",
+        "passwordsDoNotMatch": "Les contrasenyes no coincideixen",
+        "verificationFailed": "Error en verificar l'usuari"
+      },
+      "submitting": "Verificant..."
+    }
   },
   "admin": {
     "users": {

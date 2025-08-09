@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next'
-import { Project } from '../../models/project.model'
+import { Project } from '@/models/project.model'
 import { FormControl, FormLabel, Stack, TextField } from '@mui/material'
 
 interface ProjectFormProps {

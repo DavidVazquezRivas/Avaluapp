@@ -13,6 +13,7 @@ export const apiEndpoints = {
     create: `${apiBaseUrl}/users`,
     delete: (id: number) => `${apiBaseUrl}/users/${id}`,
     update: (id: number) => `${apiBaseUrl}/users/${id}`,
+    verify: `${apiBaseUrl}/users/verify`,
   },
   projects: {
     get: (id: number) => `${apiBaseUrl}/projects/${id}`,
@@ -44,5 +45,11 @@ export const apiEndpoints = {
     getAll: (projectId: number) => `${apiBaseUrl}/tags/project/${projectId}`,
     get: (tagId: number) => `${apiBaseUrl}/tags/${tagId}`,
     update: (tagId: number) => `${apiBaseUrl}/tags/${tagId}`,
+  },
+  public: {
+    getQuestions: (surveyCode: string) =>
+      `${apiBaseUrl}/public/answers/${surveyCode}`,
+    submitAnswers: (surveyCode: string) =>
+      `${apiBaseUrl}/public/answers/${surveyCode}`,
   },
 }

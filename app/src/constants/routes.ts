@@ -2,10 +2,13 @@ export const AppRoute = 'https://avaluapp.vercel.app'
 
 export const PublicRoutes = {
   Login: '/login',
+  Survey: '/survey/:code',
+  Sent: '/sent',
 }
 
 export const PrivateRoutes = {
   Private: '/private',
+  Verify: '/verify',
 }
 
 export const UserRoutes = {

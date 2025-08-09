@@ -17,6 +17,7 @@
         "surveys": "Encuestas"
       }
     },
+    "loading": "Cargando...",
     "formatters": {
       "role": {
         "ADMIN": "Administrador",
@@ -60,6 +61,19 @@
         },
         "error": {
           "default": "Error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde."
+        }
+      },
+      "questions": {
+        "validations": {
+          "required": "Este campo es obligatorio",
+          "invalidNumber": "Debe ser un número válido",
+          "minValue": "El valor mínimo es {{min}}",
+          "maxValue": "El valor máximo es {{max}}",
+          "maxLength": "Máximo {{max}} caracteres",
+          "multipleChoiceRequired": "Debes seleccionar al menos una opción",
+          "ratingRequired": "Debes seleccionar al menos una estrella",
+          "charactersCount": "{{current}}/{{max}} caracteres",
+          "range": "Rango: {{min}} - {{max}}"
         }
       }
     },
@@ -289,6 +303,29 @@
       "promptChangePivotValuesDescription": "{{column}} ({{aggregation}})"
     }
   },
+  "public": {
+    "survey": {
+      "form": {
+        "title": "Encuesta",
+        "description": "Tu opinión es importante para nosotros. Por favor, responde las siguientes preguntas.",
+        "progress": "Progreso",
+        "questionCounter": "Pregunta {{current}} de {{total}}",
+        "navigation": {
+          "previous": "Anterior",
+          "next": "Siguiente",
+          "submit": "Enviar respuestas"
+        }
+      }
+    },
+    "sent": {
+      "title": "¡Respuestas enviadas con éxito!",
+      "message": "Gracias por tu participación. Tus respuestas han sido registradas correctamente.",
+      "actions": {
+        "home": "Volver al inicio",
+        "close": "Cerrar"
+      }
+    }
+  },
   "login": {
     "quotes": {},
     "title": "Iniciar sesión",
@@ -307,6 +344,33 @@
     "home": "Volver a la página de inicio",
     "back": "Volver a la página anterior",
     "alt": "Página no encontrada"
+  },
+  "verify": {
+    "flag": {
+      "title": "Verifica tu cuenta",
+      "description": "Para continuar, por favor, verifica tu cuenta cambiando tu contraseña."
+    },
+    "form": {
+      "title": "Cambiar contraseña",
+      "newPassword": {
+        "label": "Nueva contraseña",
+        "placeholder": "••••••••",
+        "helperText": "La nueva contraseña es obligatoria"
+      },
+      "confirmPassword": {
+        "label": "Confirmar contraseña",
+        "placeholder": "••••••••",
+        "helperText": "La confirmación de la contraseña es obligatoria"
+      },
+      "submit": "Cambiar contraseña",
+      "errors": {
+        "newPasswordRequired": "La nueva contraseña es requerida",
+        "confirmPasswordRequired": "La confirmación de contraseña es requerida",
+        "passwordsDoNotMatch": "Las contraseñas no coinciden",
+        "verificationFailed": "Error al verificar usuario"
+      },
+      "submitting": "Verificando..."
+    }
   },
   "admin": {
     "users": {

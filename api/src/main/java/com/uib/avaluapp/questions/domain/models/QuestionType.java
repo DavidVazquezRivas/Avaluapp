@@ -6,9 +6,7 @@ public enum QuestionType {
     TEXT,
     NUMERIC,
     RATING,
-    SCALE,
-    DATE,
-    YES_NO;
+    DATE;
 
     public boolean hasOptions() {
         return this == SINGLE_CHOICE ||

@@ -18,4 +18,6 @@ public interface SurveyRepository extends CrudRepository<SurveyEntity, Long> {
     List<SurveyEntity> findAllByProjectId(Long projectId);
 
     List<SurveyEntity> findAllByLeadId(Long leadId);
+
+    Optional<SurveyEntity> findByUrlCode(String urlCode);
 }
