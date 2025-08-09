@@ -13,6 +13,8 @@ public interface SurveyPort {
 
     List<Survey> getAllSurveysByLeadId(Long leadId);
 
+    Survey getSurveyByUrlCode(String urlCode);
+
     Survey getSurvey(Long surveyId);
 
     Survey createSurvey(Survey survey);

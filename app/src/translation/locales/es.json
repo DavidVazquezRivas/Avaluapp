@@ -62,6 +62,19 @@
         "error": {
           "default": "Error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde."
         }
+      },
+      "questions": {
+        "validations": {
+          "required": "Este campo es obligatorio",
+          "invalidNumber": "Debe ser un número válido",
+          "minValue": "El valor mínimo es {{min}}",
+          "maxValue": "El valor máximo es {{max}}",
+          "maxLength": "Máximo {{max}} caracteres",
+          "multipleChoiceRequired": "Debes seleccionar al menos una opción",
+          "ratingRequired": "Debes seleccionar al menos una estrella",
+          "charactersCount": "{{current}}/{{max}} caracteres",
+          "range": "Rango: {{min}} - {{max}}"
+        }
       }
     },
     "grid": {
@@ -288,6 +301,29 @@
       "promptChangePivotRowsLabel": "Filas ({{count}})",
       "promptChangePivotValuesLabel": "Valores ({{count}})",
       "promptChangePivotValuesDescription": "{{column}} ({{aggregation}})"
+    }
+  },
+  "public": {
+    "survey": {
+      "form": {
+        "title": "Encuesta",
+        "description": "Tu opinión es importante para nosotros. Por favor, responde las siguientes preguntas.",
+        "progress": "Progreso",
+        "questionCounter": "Pregunta {{current}} de {{total}}",
+        "navigation": {
+          "previous": "Anterior",
+          "next": "Siguiente",
+          "submit": "Enviar respuestas"
+        }
+      }
+    },
+    "sent": {
+      "title": "¡Respuestas enviadas con éxito!",
+      "message": "Gracias por tu participación. Tus respuestas han sido registradas correctamente.",
+      "actions": {
+        "home": "Volver al inicio",
+        "close": "Cerrar"
+      }
     }
   },
   "login": {

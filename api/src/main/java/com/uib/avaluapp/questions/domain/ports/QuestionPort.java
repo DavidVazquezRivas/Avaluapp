@@ -9,6 +9,8 @@ public interface QuestionPort {
 
     List<Question> getAllByProjectId(Long projectId);
 
+    List<Question> getAllByTagId(Long tagId);
+
     Question getQuestionById(Long questionId);
 
     Question createQuestion(Question question);

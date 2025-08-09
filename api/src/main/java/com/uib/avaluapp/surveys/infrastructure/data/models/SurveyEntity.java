@@ -1,5 +1,6 @@
 package com.uib.avaluapp.surveys.infrastructure.data.models;
 
+import com.uib.avaluapp.answer.infrastructure.data.models.AnswerEntity;
 import com.uib.avaluapp.project.infrastructure.data.models.ProjectEntity;
 import com.uib.avaluapp.surveys.domain.models.SurveyStatus;
 import com.uib.avaluapp.tags.infrastructure.data.models.TagEntity;
@@ -10,6 +11,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -49,6 +51,9 @@ public class SurveyEntity {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "tag_id", nullable = false)
     private TagEntity tag;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "survey", orphanRemoval = true)
+    private List<AnswerEntity> answers;
 
     @PrePersist
     protected void onCreate() {

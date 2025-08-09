@@ -2,6 +2,8 @@ export const AppRoute = 'http://localhost:5173'
 
 export const PublicRoutes = {
   Login: '/login',
+  Survey: '/survey/:code',
+  Sent: '/sent',
 }
 
 export const PrivateRoutes = {

@@ -9,6 +9,7 @@ export const Queries = {
   getQuestion: 'getquestion',
   getTags: 'gettags',
   getTag: 'gettag',
+  getSurveyQuestions: 'getsurveyquestions',
 }
 
 export default Queries

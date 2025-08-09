@@ -64,6 +64,19 @@
         }
       }
     },
+    "questions": {
+      "validations": {
+        "required": "This field is required",
+        "invalidNumber": "Must be a valid number",
+        "minValue": "Minimum value is {{min}}",
+        "maxValue": "Maximum value is {{max}}",
+        "maxLength": "Maximum {{max}} characters",
+        "multipleChoiceRequired": "You must select at least one option",
+        "ratingRequired": "You must select at least one star",
+        "charactersCount": "{{current}}/{{max}} characters",
+        "range": "Range: {{min}} - {{max}}"
+      }
+    },
     "grid": {
       "noRowsLabel": "No rows",
       "noResultsOverlayLabel": "No results found",
@@ -288,6 +301,29 @@
       "promptChangePivotRowsLabel": "Rows ({{count}})",
       "promptChangePivotValuesLabel": "Values ({{count}})",
       "promptChangePivotValuesDescription": "{{column}} ({{aggregation}})"
+    }
+  },
+  "public": {
+    "survey": {
+      "form": {
+        "title": "Survey",
+        "description": "Your opinion is important to us. Please answer the following questions.",
+        "progress": "Progress",
+        "questionCounter": "Question {{current}} of {{total}}",
+        "navigation": {
+          "previous": "Previous",
+          "next": "Next",
+          "submit": "Submit responses"
+        }
+      }
+    },
+    "sent": {
+      "title": "Responses submitted successfully!",
+      "message": "Thank you for your participation. Your responses have been recorded correctly.",
+      "actions": {
+        "home": "Back to home",
+        "close": "Close"
+      }
     }
   },
   "login": {
