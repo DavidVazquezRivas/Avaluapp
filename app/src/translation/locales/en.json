@@ -77,6 +77,22 @@
         "range": "Range: {{min}} - {{max}}"
       }
     },
+    "graphics": {
+      "noData": "No data to display",
+      "noNumericData": "No numeric data to display",
+      "timeline": {
+        "title": "Responses over time"
+      },
+      "pieChart": {
+        "title": "Response distribution"
+      },
+      "barChart": {
+        "title": "Response frequency"
+      },
+      "boxPlot": {
+        "title": "Value distribution"
+      }
+    },
     "grid": {
       "noRowsLabel": "No rows",
       "noResultsOverlayLabel": "No results found",

@@ -77,6 +77,22 @@
         }
       }
     },
+    "graphics": {
+      "noData": "No hay datos para mostrar",
+      "noNumericData": "No hay datos numéricos para mostrar",
+      "timeline": {
+        "title": "Respuestas por tiempo"
+      },
+      "pieChart": {
+        "title": "Distribución de respuestas"
+      },
+      "barChart": {
+        "title": "Frecuencia de respuestas"
+      },
+      "boxPlot": {
+        "title": "Distribución de valores"
+      }
+    },
     "grid": {
       "noRowsLabel": "Sin filas",
       "noResultsOverlayLabel": "Resultados no encontrados",

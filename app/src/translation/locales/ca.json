@@ -77,6 +77,22 @@
         "range": "Rang: {{min}} - {{max}}"
       }
     },
+    "graphics": {
+      "noData": "No hi ha dades per mostrar",
+      "noNumericData": "No hi ha dades numèriques per mostrar",
+      "timeline": {
+        "title": "Respostes al llarg del temps"
+      },
+      "pieChart": {
+        "title": "Distribució de respostes"
+      },
+      "barChart": {
+        "title": "Freqüència de respostes"
+      },
+      "boxPlot": {
+        "title": "Distribució de valors"
+      }
+    },
     "grid": {
       "noRowsLabel": "Sense files",
       "noResultsOverlayLabel": "Resultats no trobats",
