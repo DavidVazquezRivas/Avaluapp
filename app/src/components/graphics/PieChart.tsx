@@ -11,19 +11,22 @@ import {
   brown,
   grey,
 } from '@mui/material/colors'
+import { Box, Tooltip } from '@mui/material'
 import { BaseGraphicCard } from './BaseGraphicCard'
 import { BaseAnswer } from '@/models/answer.model'
+import { truncateText } from '@/utils/text.utils'
 
 interface PieChartProps {
   data: BaseAnswer[]
-  maxSlices?: number
   title?: string
+  maxLabelLength?: number // Nuevo prop para limitar longitud de labels
+  maxLegendHeight?: number // Nuevo prop para altura máxima de la leyenda
 }
 
 export const PieChart: React.FC<PieChartProps> = ({
   data,
-  maxSlices = 8,
   title,
+  maxLabelLength = 15,
 }) => {
   const { t } = useTranslation()
 
@@ -32,38 +35,24 @@ export const PieChart: React.FC<PieChartProps> = ({
     const valueCount = new Map<string, number>()
 
     data.forEach((answer) => {
-      const value = String(answer.value)
-      valueCount.set(value, (valueCount.get(value) || 0) + 1)
+      const values = Array.isArray(answer.value) ? answer.value : [answer.value]
+      values.forEach((value) => {
+        valueCount.set(String(value), (valueCount.get(String(value)) || 0) + 1)
+      })
     })
 
     // Convert to array and sort by frequency
-    let sortedData = Array.from(valueCount.entries())
+    const sortedData = Array.from(valueCount.entries())
       .map(([label, count]) => ({
         id: label,
         label,
         value: count,
+        originalLabel: label, // Guardamos la label original para tooltips
       }))
       .sort((a, b) => b.value - a.value)
 
-    // If there are more items than maxSlices, group the smaller ones into "Others"
-    if (sortedData.length > maxSlices) {
-      const topSlices = sortedData.slice(0, maxSlices - 1)
-      const othersValue = sortedData
-        .slice(maxSlices - 1)
-        .reduce((sum, item) => sum + item.value, 0)
-
-      sortedData = [
-        ...topSlices,
-        {
-          id: 'others',
-          label: 'Otros',
-          value: othersValue,
-        },
-      ]
-    }
-
     return sortedData
-  }, [data, maxSlices])
+  }, [data])
 
   // MUI colors
   const colors = [
@@ -79,6 +68,66 @@ export const PieChart: React.FC<PieChartProps> = ({
     red[300],
   ]
 
+  // Legend component
+  const CustomLegend = ({ data }: { data: typeof chartData }) => (
+    <Box
+      sx={{
+        maxHeight: 150,
+        overflowY: 'auto',
+        paddingRight: 1,
+        marginLeft: 2,
+        '&::-webkit-scrollbar': {
+          width: '4px',
+        },
+        '&::-webkit-scrollbar-track': {
+          backgroundColor: 'transparent',
+          borderRadius: '2px',
+        },
+        '&::-webkit-scrollbar-thumb': {
+          backgroundColor: '#888',
+          borderRadius: '2px',
+        },
+        '&::-webkit-scrollbar-thumb:hover': {
+          backgroundColor: '#555',
+        },
+      }}>
+      {data.map((item, index) => (
+        <Tooltip
+          key={item.id}
+          title={item.originalLabel !== item.label ? item.originalLabel : ''}
+          placement='top'>
+          <Box
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              marginBottom: 1,
+              cursor: item.originalLabel !== item.label ? 'help' : 'default',
+            }}>
+            <Box
+              sx={{
+                width: 12,
+                height: 12,
+                backgroundColor: colors[index % colors.length],
+                marginRight: 1,
+                borderRadius: '50%',
+                flexShrink: 0,
+              }}
+            />
+            <Box
+              sx={{
+                fontSize: '0.875rem',
+                color: 'text.secondary',
+                lineHeight: 1.2,
+                wordBreak: 'break-word',
+              }}>
+              {truncateText(item.label, maxLabelLength)} ({item.value})
+            </Box>
+          </Box>
+        </Tooltip>
+      ))}
+    </Box>
+  )
+
   if (chartData.length === 0) {
     return (
       <BaseGraphicCard title={title || t('globals.graphics.pieChart.title')}>
@@ -89,25 +138,37 @@ export const PieChart: React.FC<PieChartProps> = ({
 
   return (
     <BaseGraphicCard title={title || t('globals.graphics.pieChart.title')}>
-      <MuiPieChart
-        series={[
-          {
-            data: chartData.map((item, index) => ({
-              ...item,
-              color: colors[index % colors.length],
-            })),
-            innerRadius: 15,
-            outerRadius: 70,
-            paddingAngle: 2,
-            cornerRadius: 4,
-            cx: 140,
-            highlightScope: { fade: 'global', highlight: 'item' },
-          },
-        ]}
-        margin={{ left: -60 }}
-        width={200}
-        height={210}
-      />
+      <Box sx={{ display: 'flex', alignItems: 'flex-start' }}>
+        {/* Pie chart */}
+        <Box sx={{ flexShrink: 0 }}>
+          <MuiPieChart
+            series={[
+              {
+                data: chartData.map((item, index) => ({
+                  id: item.id,
+                  value: item.value,
+                  label: '', // Removemos labels del gráfico
+                  color: colors[index % colors.length],
+                })),
+                innerRadius: 15,
+                outerRadius: 70,
+                paddingAngle: 2,
+                cornerRadius: 4,
+                cx: 90,
+                cy: 90,
+                highlightScope: { fade: 'global', highlight: 'item' },
+              },
+            ]}
+            width={180}
+            height={210}
+            hideLegend
+          />
+        </Box>
+
+        <Box sx={{ flex: 1, minWidth: 0 }}>
+          <CustomLegend data={chartData} />
+        </Box>
+      </Box>
     </BaseGraphicCard>
   )
 }
