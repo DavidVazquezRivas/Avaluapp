@@ -93,6 +93,13 @@
         "title": "Distribución de valores"
       }
     },
+    "results": {
+      "nAnswers": "Número de respuestas",
+      "answers": "Respuestas",
+      "selectedOptions": "Nº opciones seleccionadas",
+      "avgResponsesPerAnswer": "Media opciones /respuesta",
+      "avgLength": "Longitud media"
+    },
     "grid": {
       "noRowsLabel": "Sin filas",
       "noResultsOverlayLabel": "Resultados no encontrados",

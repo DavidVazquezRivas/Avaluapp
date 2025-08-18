@@ -93,6 +93,13 @@
         "title": "Distribució de valors"
       }
     },
+    "results": {
+      "nAnswers": "Nombre de respostes",
+      "answers": "Respostes",
+      "selectedOptions": "Nº opcions seleccionades",
+      "avgResponsesPerAnswer": "Mitjana opcions /resposta",
+      "avgLength": "Longitud mitjana"
+    },
     "grid": {
       "noRowsLabel": "Sense files",
       "noResultsOverlayLabel": "Resultats no trobats",

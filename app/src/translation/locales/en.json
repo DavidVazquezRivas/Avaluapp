@@ -93,6 +93,13 @@
         "title": "Value distribution"
       }
     },
+    "results": {
+      "nAnswers": "Number of answers",
+      "answers": "Answers",
+      "selectedOptions": "Number selected options",
+      "avgResponsesPerAnswer": "Avg options /answer",
+      "avgLength": "Average length"
+    },
     "grid": {
       "noRowsLabel": "No rows",
       "noResultsOverlayLabel": "No results found",
