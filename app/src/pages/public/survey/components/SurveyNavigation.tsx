@@ -45,6 +45,7 @@ export const SurveyNavigation: React.FC<SurveyNavigationProps> = ({
         alignItems='center'
         sx={{ width: { xs: '100%', sm: 'auto' }, minWidth: { sm: 160 } }}>
         <Button
+          type='button'
           variant='outlined'
           onClick={onPreviousStep}
           disabled={isFirstStep}
@@ -72,7 +73,7 @@ export const SurveyNavigation: React.FC<SurveyNavigationProps> = ({
         sx={{ width: { xs: '100%', sm: 'auto' }, minWidth: { sm: 160 } }}>
         {isLastStep ? (
           <Button
-            type='submit'
+            type='button'
             variant='contained'
             size='large'
             onClick={onSubmit}
@@ -89,6 +90,7 @@ export const SurveyNavigation: React.FC<SurveyNavigationProps> = ({
           </Button>
         ) : (
           <Button
+            type='button'
             variant='contained'
             onClick={onNextStep}
             sx={{
