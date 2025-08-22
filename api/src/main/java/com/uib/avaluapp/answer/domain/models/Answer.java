@@ -5,6 +5,8 @@ import com.uib.avaluapp.surveys.domain.models.Survey;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 @Data
 @Builder
 public class Answer {
@@ -12,4 +14,5 @@ public class Answer {
     private Question question;
     private String answer;
     private Survey survey;
+    private LocalDateTime answeredAt;
 }

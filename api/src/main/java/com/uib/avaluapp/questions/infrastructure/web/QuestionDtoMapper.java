@@ -3,6 +3,7 @@ package com.uib.avaluapp.questions.infrastructure.web;
 import com.uib.avaluapp.questions.domain.models.Question;
 import com.uib.avaluapp.questions.infrastructure.web.responses.CompleteQuestionDto;
 import com.uib.avaluapp.questions.infrastructure.web.responses.QuestionDto;
+import com.uib.avaluapp.questions.infrastructure.web.responses.SimplifiedQuestionDto;
 import com.uib.avaluapp.tags.infrastructure.web.mapper.TagDtoMapper;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -20,4 +21,8 @@ public interface QuestionDtoMapper {
     List<QuestionDto> toDtoList(List<Question> question);
 
     List<CompleteQuestionDto> toCompleteDtoList(List<Question> question);
+
+    SimplifiedQuestionDto toSimplifiedDto(Question question);
+
+    List<SimplifiedQuestionDto> toSimplifiedDtoList(List<Question> questions);
 }
