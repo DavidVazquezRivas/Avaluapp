@@ -17,7 +17,7 @@ export const BoxPlot: React.FC<BoxPlotProps> = ({ data, title }) => {
   const boxPlotData = useMemo(() => {
     if (data.length === 0) return null
 
-    const values = data.map((d) => Number(d.value)).sort((a, b) => a - b)
+    const values = data.map((d) => Number(d.answer)).sort((a, b) => a - b)
     const n = values.length
 
     const q1Index = Math.floor(n * 0.25)

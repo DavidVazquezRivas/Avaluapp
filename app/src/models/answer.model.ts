@@ -6,7 +6,7 @@ export interface SubmitAnswer {
 }
 
 export interface BaseAnswer {
-  value: string | number | Array<string | number>
+  answer: string | number | Array<string | number>
   answeredAt: Date | string
 }
 

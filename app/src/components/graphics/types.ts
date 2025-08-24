@@ -1,7 +1,7 @@
 import { BaseAnswer } from '@/models/answer.model'
 
 export interface NumericAnswer extends Omit<BaseAnswer, 'value'> {
-  value: number
+  answer: number
 }
 
 export interface TimelineData {

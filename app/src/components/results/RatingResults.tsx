@@ -11,6 +11,9 @@ interface RatingResultsProps {
 export const RatingResults: React.FC<RatingResultsProps> = ({ result }) => {
   const { t } = useTranslation()
   const { answers, question } = result
+  const cleanedAnswers = answers.filter(
+    (answer) => !isNaN(Number(answer.answer))
+  )
 
   return (
     <Stack direction='column' spacing={2} width='100%' alignItems='center'>
@@ -24,12 +27,12 @@ export const RatingResults: React.FC<RatingResultsProps> = ({ result }) => {
         p={2}
         spacing={2}>
         <NumberDisplay
-          value={answers.length}
+          value={cleanedAnswers.length}
           title={t('globals.results.nAnswers')}
         />
 
         <BarChart
-          data={answers}
+          data={cleanedAnswers}
           title={t('globals.results.answers')}
           sortOrder='natural'
         />

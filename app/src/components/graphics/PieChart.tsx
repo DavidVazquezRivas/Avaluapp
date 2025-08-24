@@ -26,7 +26,7 @@ interface PieChartProps {
 export const PieChart: React.FC<PieChartProps> = ({
   data,
   title,
-  maxLabelLength = 15,
+  maxLabelLength = 14,
 }) => {
   const { t } = useTranslation()
 
@@ -35,7 +35,9 @@ export const PieChart: React.FC<PieChartProps> = ({
     const valueCount = new Map<string, number>()
 
     data.forEach((answer) => {
-      const values = Array.isArray(answer.value) ? answer.value : [answer.value]
+      const values = Array.isArray(answer.answer)
+        ? answer.answer
+        : [answer.answer]
       values.forEach((value) => {
         valueCount.set(String(value), (valueCount.get(String(value)) || 0) + 1)
       })
@@ -73,23 +75,12 @@ export const PieChart: React.FC<PieChartProps> = ({
     <Box
       sx={{
         maxHeight: 150,
+        width: 150,
         overflowY: 'auto',
         paddingRight: 1,
         marginLeft: 2,
-        '&::-webkit-scrollbar': {
-          width: '4px',
-        },
-        '&::-webkit-scrollbar-track': {
-          backgroundColor: 'transparent',
-          borderRadius: '2px',
-        },
-        '&::-webkit-scrollbar-thumb': {
-          backgroundColor: '#888',
-          borderRadius: '2px',
-        },
-        '&::-webkit-scrollbar-thumb:hover': {
-          backgroundColor: '#555',
-        },
+        mt: 2,
+        className: 'only-scrollbar',
       }}>
       {data.map((item, index) => (
         <Tooltip

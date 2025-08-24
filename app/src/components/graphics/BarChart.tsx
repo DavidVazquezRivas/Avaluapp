@@ -8,7 +8,7 @@ import { BaseAnswer } from '@/models/answer.model'
 interface BarChartProps {
   data: BaseAnswer[]
   maxBars?: number
-  sortOrder?: 'asc' | 'desc' | 'natural'
+  sortOrder?: 'asc' | 'desc' | 'natural' | 'none'
   title?: string
 }
 
@@ -25,7 +25,7 @@ export const BarChart: React.FC<BarChartProps> = ({
     const valueCount = new Map<string, number>()
 
     data.forEach((answer) => {
-      const value = String(answer.value)
+      const value = String(answer.answer)
       valueCount.set(value, (valueCount.get(value) || 0) + 1)
     })
 
@@ -37,6 +37,9 @@ export const BarChart: React.FC<BarChartProps> = ({
 
     // Apply sorting
     switch (sortOrder) {
+      case 'none':
+        // No sorting applied
+        break
       case 'asc':
         sortedData = sortedData.sort((a, b) => a.count - b.count)
         break

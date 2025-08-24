@@ -13,7 +13,7 @@ export const NumericResults: React.FC<NumericResultsProps> = ({ result }) => {
   const { answers, question } = result
 
   const numericAnswers = answers.map((answer) => ({
-    value: Number(answer.value),
+    answer: Number(answer.answer),
     answeredAt: answer.answeredAt,
   }))
 

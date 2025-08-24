@@ -17,7 +17,7 @@ export const TextResults: React.FC<TextResultsProps> = ({ result }) => {
     if (answers.length === 0) return 0
 
     const totalLength = answers.reduce((total, answer) => {
-      return total + String(answer.value).length
+      return total + String(answer.answer).length
     }, 0)
 
     return totalLength / answers.length
@@ -44,7 +44,7 @@ export const TextResults: React.FC<TextResultsProps> = ({ result }) => {
           title={t('globals.results.avgLength')}
         />
 
-        <Timeline data={answers} title={t('globals.results.answers')} />
+        <Timeline data={answers} title={t('globals.results.nAnswersInTime')} />
       </Stack>
     </Stack>
   )

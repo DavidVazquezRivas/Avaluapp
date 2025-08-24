@@ -18,9 +18,9 @@ export const MultipleChoiceResults: React.FC<MultipleChoiceResultsProps> = ({
     if (answers.length === 0) return 0
 
     const totalSelections = answers.reduce((total, answer) => {
-      const selections = Array.isArray(answer.value)
-        ? answer.value
-        : [answer.value]
+      const selections = Array.isArray(answer.answer)
+        ? answer.answer
+        : [answer.answer]
       return total + selections.length
     }, 0)
 
