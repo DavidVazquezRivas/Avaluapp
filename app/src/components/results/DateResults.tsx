@@ -20,7 +20,9 @@ export const DateResults: React.FC<DateResultsProps> = ({ result }) => {
     const dates = answers
       .map((answer) => {
         const dateValue =
-          typeof answer.value === 'string' ? answer.value : String(answer.value)
+          typeof answer.answer === 'string'
+            ? answer.answer
+            : String(answer.answer)
         return new Date(dateValue)
       })
       .filter((date) => !isNaN(date.getTime())) // Filter invalid dates
@@ -81,11 +83,11 @@ export const DateResults: React.FC<DateResultsProps> = ({ result }) => {
     // Format to chart
     return groups
       .map((group) => ({
-        value: group.label,
+        answer: group.label,
         answeredAt: new Date().toISOString(),
       }))
       .flatMap((group) =>
-        Array(groups.find((g) => g.label === group.value)?.count || 0).fill(
+        Array(groups.find((g) => g.label === group.answer)?.count || 0).fill(
           group
         )
       )
@@ -110,7 +112,7 @@ export const DateResults: React.FC<DateResultsProps> = ({ result }) => {
         <BarChart
           data={processedData}
           title={t('globals.results.answers')}
-          sortOrder='natural'
+          sortOrder='none'
         />
       </Stack>
     </Stack>
