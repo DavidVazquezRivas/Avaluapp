@@ -52,4 +52,14 @@ export const apiEndpoints = {
     submitAnswers: (surveyCode: string) =>
       `${apiBaseUrl}/public/answers/${surveyCode}`,
   },
+  answers: {
+    getProjectAnswers: (projectId: number) =>
+      `${apiBaseUrl}/answers/${projectId}`,
+    getProjectAnswersByTags: (projectId: number, tagIds: number[]) =>
+      `${apiBaseUrl}/answers/${projectId}/tags?tagIds=${tagIds.join(',')}`,
+    getProjectAnswersBySurveys: (projectId: number, surveyIds: number[]) =>
+      `${apiBaseUrl}/answers/${projectId}/surveys?surveyIds=${surveyIds.join(
+        ','
+      )}`,
+  },
 }
