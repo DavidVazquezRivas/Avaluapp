@@ -2,12 +2,14 @@ package com.uib.avaluapp.questions.infrastructure.data.adapters;
 
 import com.uib.avaluapp.global.exceptions.BaseException;
 import com.uib.avaluapp.global.exceptions.ExceptionCode;
+import com.uib.avaluapp.questions.domain.models.Option;
 import com.uib.avaluapp.questions.domain.models.Question;
 import com.uib.avaluapp.questions.domain.ports.QuestionPort;
 import com.uib.avaluapp.questions.infrastructure.data.OptionEntityMapper;
 import com.uib.avaluapp.questions.infrastructure.data.QuestionEntityMapper;
 import com.uib.avaluapp.questions.infrastructure.data.models.OptionEntity;
 import com.uib.avaluapp.questions.infrastructure.data.models.QuestionEntity;
+import com.uib.avaluapp.questions.infrastructure.data.repositories.OptionRepository;
 import com.uib.avaluapp.questions.infrastructure.data.repositories.QuestionRepository;
 import com.uib.avaluapp.tags.infrastructure.data.models.TagEntity;
 import com.uib.avaluapp.tags.infrastructure.data.repositories.TagRepository;
@@ -25,11 +27,13 @@ public class QuestionAdapter implements QuestionPort {
 
     private final QuestionRepository questionRepository;
     private final TagRepository tagRepository;
+    private final OptionRepository optionRepository;
 
     @Autowired
-    public QuestionAdapter(QuestionRepository questionRepository, TagRepository tagRepository) {
+    public QuestionAdapter(QuestionRepository questionRepository, TagRepository tagRepository, OptionRepository optionRepository) {
         this.questionRepository = questionRepository;
         this.tagRepository = tagRepository;
+        this.optionRepository = optionRepository;
     }
 
     @Override
@@ -56,6 +60,13 @@ public class QuestionAdapter implements QuestionPort {
         return questionRepository.findById(questionId)
                 .map(QuestionEntityMapper.INSTANCE::toDomain)
                 .orElseThrow(() -> new BaseException(ExceptionCode.QUESTION_NOT_FOUND));
+    }
+
+    @Override
+    public Option getOptionById(Long optionId) {
+        return optionRepository.findById(optionId)
+                .map(OptionEntityMapper.INSTANCE::toDomain)
+                .orElseThrow(() -> new BaseException(ExceptionCode.OPTION_NOT_FOUND));
     }
 
     @Override

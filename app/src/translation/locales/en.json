@@ -77,6 +77,30 @@
         "range": "Range: {{min}} - {{max}}"
       }
     },
+    "graphics": {
+      "noData": "No data to display",
+      "noNumericData": "No numeric data to display",
+      "timeline": {
+        "title": "Responses over time"
+      },
+      "pieChart": {
+        "title": "Response distribution"
+      },
+      "barChart": {
+        "title": "Response frequency"
+      },
+      "boxPlot": {
+        "title": "Value distribution"
+      }
+    },
+    "results": {
+      "nAnswers": "Number of answers",
+      "answers": "Answers",
+      "selectedOptions": "Number selected options",
+      "avgResponsesPerAnswer": "Avg options /answer",
+      "avgLength": "Average length",
+      "nAnswersInTime": "Number of answers over time"
+    },
     "grid": {
       "noRowsLabel": "No rows",
       "noResultsOverlayLabel": "No results found",
@@ -705,6 +729,28 @@
               "placeholder": "Select questions",
               "helperText": "Questions are optional"
             }
+          }
+        },
+        "results": {
+          "label": "Results",
+          "filters": {
+            "type": {
+              "label": "Filter type",
+              "none": "No filters",
+              "tags": "Filter by tags",
+              "surveys": "Filter by surveys"
+            },
+            "tags": {
+              "label": "Select Tags"
+            },
+            "surveys": {
+              "label": "Select Surveys"
+            },
+            "search": "Search"
+          },
+          "list": {
+            "empty": "No results found, please adjust your filters and try again.",
+            "responsible": "Responsible:"
           }
         }
       }

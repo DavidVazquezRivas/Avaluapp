@@ -77,6 +77,30 @@
         "range": "Rang: {{min}} - {{max}}"
       }
     },
+    "graphics": {
+      "noData": "No hi ha dades per mostrar",
+      "noNumericData": "No hi ha dades numèriques per mostrar",
+      "timeline": {
+        "title": "Respostes al llarg del temps"
+      },
+      "pieChart": {
+        "title": "Distribució de respostes"
+      },
+      "barChart": {
+        "title": "Freqüència de respostes"
+      },
+      "boxPlot": {
+        "title": "Distribució de valors"
+      }
+    },
+    "results": {
+      "nAnswers": "Nombre de respostes",
+      "answers": "Respostes",
+      "selectedOptions": "Nº opcions seleccionades",
+      "avgResponsesPerAnswer": "Mitjana opcions /resposta",
+      "avgLength": "Longitud mitjana",
+      "nAnswersInTime": "Nombre de respostes al llarg del temps"
+    },
     "grid": {
       "noRowsLabel": "Sense files",
       "noResultsOverlayLabel": "Resultats no trobats",
@@ -705,6 +729,28 @@
               "placeholder": "Selecciona preguntes",
               "helperText": "Les preguntes són opcionals"
             }
+          }
+        },
+        "results": {
+          "label": "Resultats",
+          "filters": {
+            "type": {
+              "label": "Tipus de filtre",
+              "none": "Sense filtres",
+              "tags": "Filtrar per etiquetes",
+              "surveys": "Filtrar per enquestes"
+            },
+            "tags": {
+              "label": "Seleccionar Etiquetes"
+            },
+            "surveys": {
+              "label": "Seleccionar Enquestes"
+            },
+            "search": "Cercar"
+          },
+          "list": {
+            "empty": "No hi ha resultats, ajusta els teus filtres i torna a provar.",
+            "responsible": "Responsable:"
           }
         }
       }
