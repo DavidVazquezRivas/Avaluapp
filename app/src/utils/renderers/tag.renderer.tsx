@@ -16,6 +16,7 @@ export const tagRenderer = (tag: Tag) => {
       sx={{
         backgroundColor: tag.color,
         color: textColor,
+        whiteSpace: 'nowrap',
       }}>
       {tag.name}
     </Box>
