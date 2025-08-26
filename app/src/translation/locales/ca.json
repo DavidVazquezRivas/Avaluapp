@@ -98,7 +98,8 @@
       "answers": "Respostes",
       "selectedOptions": "Nº opcions seleccionades",
       "avgResponsesPerAnswer": "Mitjana opcions /resposta",
-      "avgLength": "Longitud mitjana"
+      "avgLength": "Longitud mitjana",
+      "nAnswersInTime": "Nombre de respostes al llarg del temps"
     },
     "grid": {
       "noRowsLabel": "Sense files",
@@ -728,6 +729,28 @@
               "placeholder": "Selecciona preguntes",
               "helperText": "Les preguntes són opcionals"
             }
+          }
+        },
+        "results": {
+          "label": "Resultats",
+          "filters": {
+            "type": {
+              "label": "Tipus de filtre",
+              "none": "Sense filtres",
+              "tags": "Filtrar per etiquetes",
+              "surveys": "Filtrar per enquestes"
+            },
+            "tags": {
+              "label": "Seleccionar Etiquetes"
+            },
+            "surveys": {
+              "label": "Seleccionar Enquestes"
+            },
+            "search": "Cercar"
+          },
+          "list": {
+            "empty": "No hi ha resultats, ajusta els teus filtres i torna a provar.",
+            "responsible": "Responsable:"
           }
         }
       }

@@ -98,7 +98,8 @@
       "answers": "Respuestas",
       "selectedOptions": "Nº opciones seleccionadas",
       "avgResponsesPerAnswer": "Media opciones /respuesta",
-      "avgLength": "Longitud media"
+      "avgLength": "Longitud media",
+      "nAnswersInTime": "Número de respuestas en el tiempo"
     },
     "grid": {
       "noRowsLabel": "Sin filas",
@@ -732,6 +733,28 @@
               "placeholder": "Selecciona preguntas",
               "helperText": "Las preguntas son opcionales"
             }
+          }
+        },
+        "results": {
+          "label": "Resultados",
+          "filters": {
+            "type": {
+              "label": "Tipo de filtro",
+              "none": "Sin filtros",
+              "tags": "Filtrar por tags",
+              "surveys": "Filtrar por surveys"
+            },
+            "tags": {
+              "label": "Seleccionar Tags"
+            },
+            "surveys": {
+              "label": "Seleccionar Surveys"
+            },
+            "search": "Buscar"
+          },
+          "list": {
+            "empty": "No hay resultados, ajusta los filtros y vuelve a buscar.",
+            "responsible": "Responsable:"
           }
         }
       }

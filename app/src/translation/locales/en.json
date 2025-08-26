@@ -98,7 +98,8 @@
       "answers": "Answers",
       "selectedOptions": "Number selected options",
       "avgResponsesPerAnswer": "Avg options /answer",
-      "avgLength": "Average length"
+      "avgLength": "Average length",
+      "nAnswersInTime": "Number of answers over time"
     },
     "grid": {
       "noRowsLabel": "No rows",
@@ -728,6 +729,28 @@
               "placeholder": "Select questions",
               "helperText": "Questions are optional"
             }
+          }
+        },
+        "results": {
+          "label": "Results",
+          "filters": {
+            "type": {
+              "label": "Filter type",
+              "none": "No filters",
+              "tags": "Filter by tags",
+              "surveys": "Filter by surveys"
+            },
+            "tags": {
+              "label": "Select Tags"
+            },
+            "surveys": {
+              "label": "Select Surveys"
+            },
+            "search": "Search"
+          },
+          "list": {
+            "empty": "No results found, please adjust your filters and try again.",
+            "responsible": "Responsible:"
           }
         }
       }
