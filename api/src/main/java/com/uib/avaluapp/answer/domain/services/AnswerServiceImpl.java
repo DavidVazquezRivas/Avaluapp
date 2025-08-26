@@ -32,8 +32,9 @@ public class AnswerServiceImpl implements AnswerService {
 
     private final SurveyPort surveyPort;
     private final AnswerPort answerPort;
-    private final UserService userService;
     private final ProjectPort projectPort;
+    private final UserService userService;
+    private final AnswerParserService answerParserService;
 
     @Override
     public void submitAnswers(List<SubmitAnswerRequest> answers, String surveyUrlCode) {
@@ -63,7 +64,9 @@ public class AnswerServiceImpl implements AnswerService {
                         .toList()
         );
 
-        return AnswerDtoMapper.INSTANCE.toQuestionDtoList(answers);
+        List<Answer> parsedAnswers = answerParserService.parseAnswersOptions(answers);
+
+        return AnswerDtoMapper.INSTANCE.toQuestionDtoList(parsedAnswers);
     }
 
     @Override
@@ -76,7 +79,9 @@ public class AnswerServiceImpl implements AnswerService {
 
         List<Answer> answers = answerPort.getAllByProjectId(projectId);
 
-        return AnswerDtoMapper.INSTANCE.toQuestionDtoList(answers);
+        List<Answer> parsedAnswers = answerParserService.parseAnswersOptions(answers);
+
+        return AnswerDtoMapper.INSTANCE.toQuestionDtoList(parsedAnswers);
     }
 
     @Override
@@ -89,7 +94,9 @@ public class AnswerServiceImpl implements AnswerService {
 
         List<Answer> answers = answerPort.getAllByProjectIdAndTagIds(tagIds);
 
-        Map<Tag, List<Answer>> answersByTag = answers.stream()
+        List<Answer> parsedAnswers = answerParserService.parseAnswersOptions(answers);
+
+        Map<Tag, List<Answer>> answersByTag = parsedAnswers.stream()
                 .collect(Collectors.groupingBy(answer -> answer.getSurvey().getTag()));
 
         return AnswerByTagMapper.INSTANCE.toResponseList(answersByTag);
@@ -105,7 +112,9 @@ public class AnswerServiceImpl implements AnswerService {
 
         List<Answer> answers = answerPort.getAllBySurveysIds(surveysIds);
 
-        Map<Survey, List<Answer>> answersBySurvey = answers.stream()
+        List<Answer> parsedAnswers = answerParserService.parseAnswersOptions(answers);
+
+        Map<Survey, List<Answer>> answersBySurvey = parsedAnswers.stream()
                 .collect(Collectors.groupingBy(Answer::getSurvey));
 
         return AnswerBySurveyMapper.INSTANCE.toResponseList(answersBySurvey);

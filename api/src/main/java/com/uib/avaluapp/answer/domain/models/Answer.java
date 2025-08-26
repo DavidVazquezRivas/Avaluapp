@@ -15,4 +15,14 @@ public class Answer {
     private String answer;
     private Survey survey;
     private LocalDateTime answeredAt;
+
+    public Answer withAnswer(String newAnswer) {
+        return Answer.builder()
+                .id(this.id)
+                .question(this.question)
+                .answer(newAnswer)
+                .survey(this.survey)
+                .answeredAt(this.answeredAt)
+                .build();
+    }
 }
