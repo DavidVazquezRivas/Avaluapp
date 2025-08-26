@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import { Stack, Typography } from '@mui/material'
-import { Result } from '@/models/answer.model'
+import { BaseAnswer, Result } from '@/models/answer.model'
 import { PieChart, NumberDisplay } from '@/components/graphics'
 import { useTranslation } from 'react-i18next'
 
@@ -14,18 +14,25 @@ export const MultipleChoiceResults: React.FC<MultipleChoiceResultsProps> = ({
   const { t } = useTranslation()
   const { answers, question } = result
 
-  const averageResponsesPerAnswer = useMemo(() => {
-    if (answers.length === 0) return 0
+  const parsedAnswers: BaseAnswer[] = answers.map((a) => {
+    return {
+      answeredAt: a.answeredAt,
+      answer: JSON.parse(a.answer as string) as string[],
+    }
+  })
 
-    const totalSelections = answers.reduce((total, answer) => {
+  const averageResponsesPerAnswer = useMemo(() => {
+    if (parsedAnswers.length === 0) return 0
+
+    const totalSelections = parsedAnswers.reduce((total, answer) => {
       const selections = Array.isArray(answer.answer)
         ? answer.answer
         : [answer.answer]
       return total + selections.length
     }, 0)
 
-    return totalSelections / answers.length
-  }, [answers])
+    return totalSelections / parsedAnswers.length
+  }, [parsedAnswers])
 
   return (
     <Stack direction='column' spacing={2} width='100%' alignItems='center'>
@@ -39,7 +46,7 @@ export const MultipleChoiceResults: React.FC<MultipleChoiceResultsProps> = ({
         p={2}
         spacing={2}>
         <NumberDisplay
-          value={answers.length}
+          value={parsedAnswers.length}
           title={t('globals.results.nAnswers')}
         />
 
@@ -48,7 +55,7 @@ export const MultipleChoiceResults: React.FC<MultipleChoiceResultsProps> = ({
           title={t('globals.results.avgResponsesPerAnswer')}
         />
 
-        <PieChart data={answers} title={t('globals.results.answers')} />
+        <PieChart data={parsedAnswers} title={t('globals.results.answers')} />
       </Stack>
     </Stack>
   )
