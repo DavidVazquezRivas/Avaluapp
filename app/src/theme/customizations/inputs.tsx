@@ -56,13 +56,17 @@ export const inputsCustomizations: Components<Theme> = {
             },
             style: {
               color: 'white',
-              backgroundColor: gray[900],
-              backgroundImage: `linear-gradient(to bottom, ${gray[700]}, ${gray[800]})`,
-              boxShadow: `inset 0 1px 0 ${gray[600]}, inset 0 -1px 0 1px hsl(220, 0%, 0%)`,
-              border: `1px solid ${gray[700]}`,
+              backgroundColor: theme.palette.primary.main,
+              backgroundImage: `linear-gradient(to bottom, ${theme.palette.primary.main}, ${theme.palette.primary.dark})`,
+              border: `1px solid ${theme.palette.primary.dark}`,
+              boxShadow: `inset 0 2px 0 ${alpha(
+                theme.palette.primary.light,
+                0.2
+              )}, inset 0 -2px 0 ${alpha(theme.palette.primary.dark, 0.4)}`,
+              transition: 'all 150ms ease-in',
               '&:hover': {
                 backgroundImage: 'none',
-                backgroundColor: gray[700],
+                backgroundColor: theme.palette.primary.dark,
                 boxShadow: 'none',
               },
               '&:active': {
