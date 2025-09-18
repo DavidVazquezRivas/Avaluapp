@@ -49,7 +49,7 @@ public class UserController extends BaseController {
                 .authorization(authorizationHeader)
                 .successMessage("User created successfully")
                 .successStatus(HttpStatus.CREATED)
-                .adminHandler(() -> UserDtoMapper.INSTANCE.toDto(userService.createUser(createUserRequest)))
+                .adminHandler(() -> UserDtoMapper.INSTANCE.toDto(userService.createUser(createUserRequest, authorizationHeader)))
                 .build();
         return handle(config);
     }
@@ -62,7 +62,7 @@ public class UserController extends BaseController {
                 .authorization(authorizationHeader)
                 .successMessage("User deleted successfully")
                 .successStatus(HttpStatus.NO_CONTENT)
-                .adminHandler(HandleConfig.from(() -> userService.deleteUser(id)))
+                .adminHandler(HandleConfig.from(() -> userService.deleteUser(id, authorizationHeader)))
                 .build();
         return handle(config);
     }
@@ -76,7 +76,7 @@ public class UserController extends BaseController {
                 .authorization(authorizationHeader)
                 .successMessage("User updated successfully")
                 .successStatus(HttpStatus.OK)
-                .adminHandler(() -> UserDtoMapper.INSTANCE.toDto(userService.updateUser(id, updateUserRequest)))
+                .adminHandler(() -> UserDtoMapper.INSTANCE.toDto(userService.updateUser(id, updateUserRequest, authorizationHeader)))
                 .build();
         return handle(config);
     }

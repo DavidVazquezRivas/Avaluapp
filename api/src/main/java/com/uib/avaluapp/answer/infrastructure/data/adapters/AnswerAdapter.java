@@ -111,4 +111,9 @@ public class AnswerAdapter implements AnswerPort {
 
         return AnswerEntityMapper.INSTANCE.toDomainList(entities);
     }
+
+    @Override
+    public int getCountByProjectId(Long projectId) {
+        return answerRepository.countByProjectId(projectId).intValue();
+    }
 }

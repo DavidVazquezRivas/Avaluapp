@@ -90,4 +90,9 @@ public class UserAdapter implements UserPort {
         UserEntity updatedUserEntity = userRepository.save(existingUserEntity);
         return UserEntityMapper.INSTANCE.toDomain(updatedUserEntity);
     }
+
+    @Override
+    public int getCreatedCount(Long creatorId) {
+        return userRepository.countByCreatedBy(creatorId);
+    }
 }

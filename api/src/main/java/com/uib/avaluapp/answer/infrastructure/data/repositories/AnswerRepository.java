@@ -21,4 +21,6 @@ public interface AnswerRepository extends CrudRepository<AnswerEntity, Long> {
             """)
     List<AnswerEntity> findAllByTagIds(List<Long> tagIds);
 
+    @Query("SELECT COUNT(a) FROM AnswerEntity a LEFT JOIN a.survey s LEFT JOIN a.question q WHERE s.project.id =:projectId")
+    Long countByProjectId(Long projectId);
 }

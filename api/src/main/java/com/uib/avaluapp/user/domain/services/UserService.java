@@ -12,11 +12,11 @@ public interface UserService {
 
     List<User> getAllUsers();
 
-    User createUser(CreateUserRequest createUserRequest);
+    User createUser(CreateUserRequest createUserRequest, String authorization);
 
-    void deleteUser(Long id);
+    void deleteUser(Long id, String authorization);
 
-    User updateUser(Long id, UpdateUserRequest updateUserRequest);
+    User updateUser(Long id, UpdateUserRequest updateUserRequest, String authorization);
 
     User verifyUser(VerifyUserRequest request, String authorizationHeader);
 }

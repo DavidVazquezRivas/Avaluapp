@@ -28,7 +28,7 @@ public class DataInitializer implements CommandLineRunner {
                     .password("admin")
                     .role(Role.ADMIN)
                     .build();
-            userService.createUser(request);
+            userService.createUser(request, null);
         } catch (BaseException e) {
             // Managed exception, user already exists, do nothing
         }
@@ -44,7 +44,7 @@ public class DataInitializer implements CommandLineRunner {
                     .password("user")
                     .role(Role.USER)
                     .build();
-            userService.createUser(request);
+            userService.createUser(request, null);
         } catch (BaseException e) {
             // Managed exception, user already exists, do nothing
         }

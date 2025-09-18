@@ -1,5 +1,9 @@
 package com.uib.avaluapp.user.domain.services;
 
+import com.uib.avaluapp.action.domain.models.Action;
+import com.uib.avaluapp.action.domain.models.Activity;
+import com.uib.avaluapp.action.domain.models.EntityType;
+import com.uib.avaluapp.action.domain.ports.ActionPort;
 import com.uib.avaluapp.auth.domain.services.JwtService;
 import com.uib.avaluapp.user.domain.models.User;
 import com.uib.avaluapp.user.domain.ports.UserPort;
@@ -19,6 +23,7 @@ public class UserServiceImpl implements UserService {
     private final UserPort userPort;
     private final BCryptPasswordEncoder encoder;
     private final JwtService jwtService;
+    private final ActionPort actionPort;
 
     @Override
     public User getSingleUser(String authorization) {
@@ -35,7 +40,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User createUser(CreateUserRequest createUserRequest) {
+    public User createUser(CreateUserRequest createUserRequest, String authorization) {
         User user = User.builder()
                 .username(createUserRequest.getUsername())
                 .email(createUserRequest.getEmail())
@@ -43,21 +48,50 @@ public class UserServiceImpl implements UserService {
                 .password(encoder.encode(createUserRequest.getPassword()))
                 .build();
 
+        if (authorization != null) {
+            User requester = this.getSingleUser(authorization);
+
+            Action action = Action.builder()
+                    .entityType(EntityType.USER)
+                    .action(Activity.CREATED)
+                    .entity(user.getUsername())
+                    .build();
+            actionPort.logAction(requester.getId(), action);
+        }
+
         return userPort.createUser(user);
     }
 
     @Override
-    public void deleteUser(Long id) {
+    public void deleteUser(Long id, String authorization) {
+        User requester = this.getSingleUser(authorization);
+        User user = userPort.getSingleUser(id);
+
         userPort.deleteUser(id);
+
+        Action action = Action.builder()
+                .entityType(EntityType.USER)
+                .action(Activity.DELETED)
+                .entity(user.getUsername())
+                .build();
+        actionPort.logAction(requester.getId(), action);
     }
 
     @Override
-    public User updateUser(Long id, UpdateUserRequest updateUserRequest) {
+    public User updateUser(Long id, UpdateUserRequest updateUserRequest, String authorization) {
+        User requester = this.getSingleUser(authorization);
         User user = User.builder()
                 .username(updateUserRequest.getUsername())
                 .email(updateUserRequest.getEmail())
                 .role(updateUserRequest.getRole())
                 .build();
+
+        Action action = Action.builder()
+                .entityType(EntityType.USER)
+                .action(Activity.UPDATED)
+                .entity(user.getUsername())
+                .build();
+        actionPort.logAction(requester.getId(), action);
 
         return userPort.updateUser(id, user);
     }

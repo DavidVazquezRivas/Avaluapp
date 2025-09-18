@@ -1,5 +1,9 @@
 package com.uib.avaluapp.surveys.domain.services;
 
+import com.uib.avaluapp.action.domain.models.Action;
+import com.uib.avaluapp.action.domain.models.Activity;
+import com.uib.avaluapp.action.domain.models.EntityType;
+import com.uib.avaluapp.action.domain.ports.ActionPort;
 import com.uib.avaluapp.global.exceptions.BaseException;
 import com.uib.avaluapp.global.exceptions.ExceptionCode;
 import com.uib.avaluapp.project.domain.models.Project;
@@ -28,6 +32,7 @@ public class SurveyServiceImpl implements SurveyService {
     private final ProjectPort projectPort;
     private final UserPort userPort;
     private final TagPort tagPort;
+    private final ActionPort actionPort;
 
     @Override
     public List<SurveyDto> getAllSurveys(String authorization, Long projectId) {
@@ -77,6 +82,13 @@ public class SurveyServiceImpl implements SurveyService {
                 .lead(lead)
                 .build();
 
+        Action action = Action.builder()
+                .entityType(EntityType.SURVEY)
+                .action(Activity.CREATED)
+                .entity(survey.getName())
+                .build();
+        actionPort.logAction(admin.getId(), action);
+
         return SurveyDtoMapper.INSTANCE.toDto(surveyPort.createSurvey(survey));
     }
 
@@ -88,6 +100,13 @@ public class SurveyServiceImpl implements SurveyService {
         if (!survey.getProject().getAdmin().getId().equals(admin.getId())) {
             throw new BaseException(ExceptionCode.PROJECT_UNAUTHORIZED);
         }
+
+        Action action = Action.builder()
+                .entityType(EntityType.SURVEY)
+                .action(Activity.DELETED)
+                .entity(survey.getName())
+                .build();
+        actionPort.logAction(admin.getId(), action);
 
         surveyPort.deleteSurvey(surveyId);
     }
@@ -106,6 +125,13 @@ public class SurveyServiceImpl implements SurveyService {
         survey.setTag(tagPort.getTagById(request.getTag()));
         survey.setName(request.getName());
         survey.setLead(lead);
+
+        Action action = Action.builder()
+                .entityType(EntityType.SURVEY)
+                .action(Activity.UPDATED)
+                .entity(survey.getName())
+                .build();
+        actionPort.logAction(admin.getId(), action);
 
         return SurveyDtoMapper.INSTANCE.toDto(surveyPort.updateSurvey(survey));
     }

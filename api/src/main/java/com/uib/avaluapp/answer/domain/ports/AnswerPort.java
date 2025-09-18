@@ -14,4 +14,6 @@ public interface AnswerPort {
     List<Answer> getAllByProjectIdAndTagIds(List<Long> tagIds);
 
     List<Answer> getAllBySurveysIds(List<Long> surveysIds);
+
+    int getCountByProjectId(Long projectId);
 }
