@@ -757,6 +757,13 @@
     }
   },
   "user": {
+    "answers": {
+      "title": "Results of your surveys",
+      "empty": "Your assigned surveys have no responses.",
+      "searchPrompt": "Click the 'Search' button to load your responses.",
+      "project": "Project",
+      "error": "Error loading answers. Please try again."
+    },
     "survey": {
       "grid": {
         "filters": {

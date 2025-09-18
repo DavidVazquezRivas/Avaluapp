@@ -757,6 +757,13 @@
     }
   },
   "user": {
+    "answers": {
+      "title": "Resultats de les Meves Enquestes",
+      "empty": "No hi ha respostes a les teves enquestes assignades.",
+      "searchPrompt": "Fes clic al botó 'Cercar' per carregar les teves respostes.",
+      "project": "Projecte:",
+      "error": "Error al carregar les respostes. Si us plau, torna-ho a intentar."
+    },
     "survey": {
       "grid": {
         "filters": {

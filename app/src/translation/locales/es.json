@@ -761,6 +761,13 @@
     }
   },
   "user": {
+    "answers": {
+      "title": "Resultados de mis encuestas",
+      "empty": "No hay respuestas a tus encuestas asignadas.",
+      "searchPrompt": "Haz clic en el botón 'Buscar' para cargar tus respuestas.",
+      "project": "Proyecto:",
+      "error": "Error al cargar las respuestas. Por favor, intenta de nuevo."
+    },
     "survey": {
       "grid": {
         "filters": {
