@@ -11,7 +11,7 @@ const LoadingSpinner = () => {
         left: 0,
         width: '100vw',
         height: '100vh',
-        bgcolor: theme.palette.action.disabledBackground,
+        bgcolor: 'transparent',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
