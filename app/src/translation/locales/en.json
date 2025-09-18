@@ -37,6 +37,18 @@
         "SCALE": "Scale",
         "DATE": "Date",
         "YES_NO": "Yes/No"
+      },
+      "date": {
+        "ago": {
+          "seconds": "{{count}} seconds ago",
+          "seconds_one": "{{count}} second ago",
+          "minutes": "{{count}} minutes ago",
+          "minutes_one": "{{count}} minute ago",
+          "hours": "{{count}} hours ago",
+          "hours_one": "{{count}} hour ago",
+          "days": "{{count}} days ago",
+          "days_one": "{{count}} day ago"
+        }
       }
     },
     "panel": {

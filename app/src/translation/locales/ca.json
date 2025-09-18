@@ -37,6 +37,18 @@
         "SCALE": "Escala",
         "DATE": "Data",
         "YES_NO": "Sí/No"
+      },
+      "date": {
+        "ago": {
+          "seconds": "Fa {{count}} segons",
+          "seconds_one": "Fa {{count}} segon",
+          "minutes": "Fa {{count}} minuts",
+          "minutes_one": "Fa {{count}} minut",
+          "hours": "Fa {{count}} hores",
+          "hours_one": "Fa {{count}} hora",
+          "days": "Fa {{count}} dies",
+          "days_one": "Fa {{count}} dia"
+        }
       }
     },
     "panel": {

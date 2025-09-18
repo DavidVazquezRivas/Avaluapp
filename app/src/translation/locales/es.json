@@ -37,6 +37,18 @@
         "SCALE": "Escala",
         "DATE": "Fecha",
         "YES_NO": "Sí/No"
+      },
+      "date": {
+        "ago": {
+          "seconds": "Hace {{count}} segundos",
+          "seconds_one": "Hace {{count}} segundo",
+          "minutes": "Hace {{count}} minutos",
+          "minutes_one": "Hace {{count}} minuto",
+          "hours": "Hace {{count}} horas",
+          "hours_one": "Hace {{count}} hora",
+          "days": "Hace {{count}} días",
+          "days_one": "Hace {{count}} día"
+        }
       }
     },
     "panel": {
