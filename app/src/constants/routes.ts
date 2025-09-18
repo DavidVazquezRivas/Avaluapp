@@ -15,6 +15,7 @@ export const UserRoutes = {
   Base: '/user',
   Dashboard: 'dashboard',
   Survey: 'surveys',
+  Answers: 'answers',
 }
 
 export const AdminRoutes = {

@@ -61,5 +61,10 @@ export const apiEndpoints = {
       `${apiBaseUrl}/answers/${projectId}/surveys?surveyIds=${surveyIds.join(
         ','
       )}`,
+    getUserAnswers: `${apiBaseUrl}/answers`,
+  },
+  dashboards: {
+    admin: `${apiBaseUrl}/dashboard`,
+    user: `${apiBaseUrl}/dashboard`,
   },
 }
