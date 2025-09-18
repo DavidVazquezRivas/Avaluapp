@@ -11,6 +11,6 @@ public class Action {
     private long id;
     private Activity action;
     private EntityType entityType;
-    private String entity;
+    private String entityName;
     private LocalDateTime timestamp;
 }

@@ -54,12 +54,14 @@ public class UserServiceImpl implements UserService {
             Action action = Action.builder()
                     .entityType(EntityType.USER)
                     .action(Activity.CREATED)
-                    .entity(user.getUsername())
+                    .entityName(user.getUsername())
                     .build();
             actionPort.logAction(requester.getId(), action);
+            return userPort.createUser(user, requester.getId());
+        } else {
+            // For data initialization, set createdBy to null
+            return userPort.createUser(user, null);
         }
-
-        return userPort.createUser(user);
     }
 
     @Override
@@ -72,7 +74,7 @@ public class UserServiceImpl implements UserService {
         Action action = Action.builder()
                 .entityType(EntityType.USER)
                 .action(Activity.DELETED)
-                .entity(user.getUsername())
+                .entityName(user.getUsername())
                 .build();
         actionPort.logAction(requester.getId(), action);
     }
@@ -89,7 +91,7 @@ public class UserServiceImpl implements UserService {
         Action action = Action.builder()
                 .entityType(EntityType.USER)
                 .action(Activity.UPDATED)
-                .entity(user.getUsername())
+                .entityName(user.getUsername())
                 .build();
         actionPort.logAction(requester.getId(), action);
 

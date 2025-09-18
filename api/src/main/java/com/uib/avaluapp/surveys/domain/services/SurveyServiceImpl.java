@@ -85,7 +85,7 @@ public class SurveyServiceImpl implements SurveyService {
         Action action = Action.builder()
                 .entityType(EntityType.SURVEY)
                 .action(Activity.CREATED)
-                .entity(survey.getName())
+                .entityName(survey.getName())
                 .build();
         actionPort.logAction(admin.getId(), action);
 
@@ -104,7 +104,7 @@ public class SurveyServiceImpl implements SurveyService {
         Action action = Action.builder()
                 .entityType(EntityType.SURVEY)
                 .action(Activity.DELETED)
-                .entity(survey.getName())
+                .entityName(survey.getName())
                 .build();
         actionPort.logAction(admin.getId(), action);
 
@@ -129,7 +129,7 @@ public class SurveyServiceImpl implements SurveyService {
         Action action = Action.builder()
                 .entityType(EntityType.SURVEY)
                 .action(Activity.UPDATED)
-                .entity(survey.getName())
+                .entityName(survey.getName())
                 .build();
         actionPort.logAction(admin.getId(), action);
 

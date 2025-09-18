@@ -11,7 +11,7 @@ public interface UserPort {
 
     List<User> getAllUsers();
 
-    User createUser(User user);
+    User createUser(User user, Long creatorId);
 
     void deleteUser(Long id);
 

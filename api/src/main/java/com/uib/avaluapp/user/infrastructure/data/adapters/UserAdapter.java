@@ -47,10 +47,11 @@ public class UserAdapter implements UserPort {
 
     @Transactional
     @Override
-    public User createUser(User user) {
+    public User createUser(User user, Long creatorId) {
         try {
             user.setVerified(false);
             UserEntity entity = userRepository.save(UserEntityMapper.INSTANCE.toEntity(user));
+            entity.setCreatedBy(creatorId);
             return UserEntityMapper.INSTANCE.toDomain(entity);
         } catch (Exception e) {
             throw new BaseException(ExceptionCode.USER_ALREADY_EXISTS);

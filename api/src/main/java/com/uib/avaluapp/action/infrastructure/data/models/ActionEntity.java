@@ -28,8 +28,8 @@ public class ActionEntity {
     @Column(name = "entity_type", nullable = false)
     private EntityType entityType;
 
-    @Column(nullable = false)
-    private String entity;
+    @Column(name = "entity", nullable = false)
+    private String entityName;
 
     @Column(nullable = false)
     private LocalDateTime timestamp;

@@ -38,7 +38,7 @@ public class ProjectServiceImpl implements ProjectService {
         Action action = Action.builder()
                 .entityType(EntityType.PROJECT)
                 .action(Activity.CREATED)
-                .entity(project.getName())
+                .entityName(project.getName())
                 .build();
         actionPort.logAction(admin.getId(), action);
 
@@ -68,7 +68,7 @@ public class ProjectServiceImpl implements ProjectService {
         Action action = Action.builder()
                 .entityType(EntityType.PROJECT)
                 .action(Activity.UPDATED)
-                .entity(project.getName())
+                .entityName(project.getName())
                 .build();
         actionPort.logAction(admin.getId(), action);
 
@@ -85,7 +85,7 @@ public class ProjectServiceImpl implements ProjectService {
         Action action = Action.builder()
                 .entityType(EntityType.PROJECT)
                 .action(Activity.DELETED)
-                .entity(project.getName())
+                .entityName(project.getName())
                 .build();
 
         projectPort.deleteProject(id);
