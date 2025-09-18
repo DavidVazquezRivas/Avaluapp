@@ -30,9 +30,9 @@ public class AnswerController extends BaseController {
     }
 
     @GetMapping
-    public ResponseEntity<ApiResponse<List<QuestionAnswersDto>>> getAllAnswers(
+    public ResponseEntity<ApiResponse<List<AnswerBySurveyResponse>>> getAllAnswers(
             @RequestHeader("Authorization") String authorization) {
-        HandleConfig<List<QuestionAnswersDto>> config = HandleConfig.<List<QuestionAnswersDto>>builder()
+        HandleConfig<List<AnswerBySurveyResponse>> config = HandleConfig.<List<AnswerBySurveyResponse>>builder()
                 .authorization(authorization)
                 .successMessage("Answers retrieved successfully")
                 .successStatus(HttpStatus.OK)

@@ -54,7 +54,7 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
     @Override
-    public List<QuestionAnswersDto> getAllUserAnswers(String authorization) {
+    public List<AnswerBySurveyResponse> getAllUserAnswers(String authorization) {
         User user = userService.getSingleUser(authorization);
         List<Survey> surveys = surveyPort.getAllSurveysByLeadId(user.getId());
 
@@ -66,7 +66,10 @@ public class AnswerServiceImpl implements AnswerService {
 
         List<Answer> parsedAnswers = answerParserService.parseAnswersOptions(answers);
 
-        return AnswerDtoMapper.INSTANCE.toQuestionDtoList(parsedAnswers);
+        Map<Survey, List<Answer>> answersBySurvey = parsedAnswers.stream()
+                .collect(Collectors.groupingBy(Answer::getSurvey));
+
+        return AnswerBySurveyMapper.INSTANCE.toResponseList(answersBySurvey);
     }
 
     @Override

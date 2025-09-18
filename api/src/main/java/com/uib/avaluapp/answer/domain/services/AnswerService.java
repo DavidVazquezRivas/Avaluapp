@@ -10,7 +10,7 @@ import java.util.List;
 public interface AnswerService {
     void submitAnswers(List<SubmitAnswerRequest> answers, String surveyUrlCode);
 
-    List<QuestionAnswersDto> getAllUserAnswers(String authorization);
+    List<AnswerBySurveyResponse> getAllUserAnswers(String authorization);
 
     List<QuestionAnswersDto> getProjectAnswers(String authorization, Long projectId);
 
