@@ -70,8 +70,7 @@ export const UserAnswersPage = () => {
               fontSize='1.25rem'
               display='flex'
               justifyContent='center'
-              textAlign='center'
-              mt={4}>
+              textAlign='center'>
               {t('user.answers.searchPrompt')}
             </Typography>
           </CardContent>
