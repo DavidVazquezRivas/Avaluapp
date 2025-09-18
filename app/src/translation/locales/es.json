@@ -14,7 +14,8 @@
           "title": "Proyectos",
           "list": "Gestionar proyectos"
         },
-        "surveys": "Encuestas"
+        "surveys": "Encuestas",
+        "answers": "Resultados"
       }
     },
     "loading": "Cargando...",
@@ -37,6 +38,33 @@
         "SCALE": "Escala",
         "DATE": "Fecha",
         "YES_NO": "Sí/No"
+      },
+      "activityAction": {
+        "CREATED": "creado",
+        "UPDATED": "actualizado",
+        "DELETED": "eliminado"
+      },
+      "activityCombined": {
+        "PROJECT": {
+          "CREATED": "Proyecto creado",
+          "UPDATED": "Proyecto actualizado",
+          "DELETED": "Proyecto eliminado"
+        },
+        "SURVEY": {
+          "CREATED": "Encuesta creada",
+          "UPDATED": "Encuesta actualizada",
+          "DELETED": "Encuesta eliminada"
+        },
+        "USER": {
+          "CREATED": "Usuario creado",
+          "UPDATED": "Usuario actualizado",
+          "DELETED": "Usuario eliminado"
+        }
+      },
+      "entityType": {
+        "PROJECT": "Proyecto",
+        "SURVEY": "Encuesta",
+        "USER": "Usuario"
       },
       "date": {
         "ago": {
@@ -409,6 +437,43 @@
     }
   },
   "admin": {
+    "dashboard": {
+      "title": "Panel de control",
+      "subtitle": "Gestiona proyectos, encuestas y usuarios desde un solo lugar",
+      "loading": "Cargando...",
+      "error": "Error al cargar los datos del panel de control",
+      "unknownError": "Error desconocido",
+      "stats": {
+        "totalProjects": "Proyectos Totales",
+        "totalSurveys": "Encuestas Creadas",
+        "totalUsers": "Usuarios Registrados",
+        "totalResponses": "Respuestas Recibidas"
+      },
+      "recentActivity": {
+        "title": "Actividad Reciente",
+        "noActivity": "No hay actividad reciente",
+        "noActivityDescription": "Los datos aparecerán aquí cuando haya actividad"
+      },
+      "quickActions": {
+        "title": "Acciones Rápidas",
+        "createProject": {
+          "title": "Crear Proyecto",
+          "description": "Inicia un nuevo proyecto de encuestas"
+        },
+        "manageUsers": {
+          "title": "Gestionar Usuarios",
+          "description": "Administra usuarios y permisos"
+        },
+        "viewProjects": {
+          "title": "Ver Proyectos",
+          "description": "Explora todos los proyectos"
+        },
+        "createUser": {
+          "title": "Crear Usuario",
+          "description": "Agrega un nuevo usuario al sistema"
+        }
+      }
+    },
     "users": {
       "grid": {
         "columns": {
@@ -773,6 +838,61 @@
     }
   },
   "user": {
+    "dashboard": {
+      "title": "Panel de control",
+      "subtitle": "Gestiona tus encuestas y resultados",
+      "loading": "Cargando...",
+      "error": "Error al cargar los datos del panel de control",
+      "unknownError": "Error desconocido",
+      "stats": {
+        "pendingSurveys": "Encuestas Pendientes",
+        "acceptedSurveys": "Encuestas Aceptadas",
+        "totalResponses": "Respuestas Recibidas",
+        "totalProjects": "Proyectos"
+      },
+      "quickActions": {
+        "title": "Acciones Rápidas",
+        "viewSurveys": {
+          "title": "Ver mis encuestas",
+          "description": "Gestiona y revisa tus encuestas asignadas"
+        },
+        "viewResults": {
+          "title": "Ver mis resultados",
+          "description": "Consulta las respuestas de tus encuestas"
+        }
+      },
+      "tips": {
+        "title": "Consejo del día",
+        "items": [
+          "Revisa regularmente tus encuestas pendientes para no perder oportunidades",
+          "Las respuestas rápidas mejoran la participación de los encuestados",
+          "Puedes copiar el enlace de tus encuestas directamente desde la lista",
+          "Acepta las encuestas tan pronto como las recibas para empezar a recopilar datos",
+          "Revisa los resultados frecuentemente para obtener insights valiosos"
+        ]
+      },
+      "status": {
+        "title": "Estado rápido",
+        "allGood": {
+          "title": "Todo al día",
+          "description": "No tienes encuestas pendientes"
+        },
+        "someAttention": {
+          "title": "Algunas pendientes",
+          "description": "Tienes {{count}} encuestas esperando tu atención"
+        },
+        "needsAttention": {
+          "title": "Atención requerida",
+          "description": "Tienes {{count}} encuestas pendientes - revísalas pronto"
+        },
+        "actions": {
+          "suggested": "Acciones sugeridas",
+          "reviewPending": "Revisar encuestas pendientes",
+          "checkResponses": "Ver respuestas recientes",
+          "manageProjects": "Gestionar proyectos"
+        }
+      }
+    },
     "answers": {
       "title": "Resultados de mis encuestas",
       "empty": "No hay respuestas a tus encuestas asignadas.",

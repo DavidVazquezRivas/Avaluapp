@@ -8,13 +8,14 @@
       },
       "logout": "Tancar sessió",
       "navs": {
-        "dashboard": "Tauler de control",
+        "dashboard": "Taulell de control",
         "users": "Usuaris",
         "projects": {
           "title": "Projectes",
           "list": "Gestionar projectes"
         },
-        "surveys": "Enquestes"
+        "surveys": "Enquestes",
+        "answers": "Resultats"
       }
     },
     "loading": "Carregant...",
@@ -37,6 +38,33 @@
         "SCALE": "Escala",
         "DATE": "Data",
         "YES_NO": "Sí/No"
+      },
+      "activityAction": {
+        "CREATED": "creat",
+        "UPDATED": "actualitzat",
+        "DELETED": "eliminat"
+      },
+      "activityCombined": {
+        "PROJECT": {
+          "CREATED": "Projecte creat",
+          "UPDATED": "Projecte actualitzat",
+          "DELETED": "Projecte eliminat"
+        },
+        "SURVEY": {
+          "CREATED": "Enquesta creada",
+          "UPDATED": "Enquesta actualitzada",
+          "DELETED": "Enquesta eliminada"
+        },
+        "USER": {
+          "CREATED": "Usuari creat",
+          "UPDATED": "Usuari actualitzat",
+          "DELETED": "Usuari eliminat"
+        }
+      },
+      "entityType": {
+        "PROJECT": "Projecte",
+        "SURVEY": "Enquesta",
+        "USER": "Usuari"
       },
       "date": {
         "ago": {
@@ -409,6 +437,43 @@
     }
   },
   "admin": {
+    "dashboard": {
+      "title": "Taulell de control",
+      "subtitle": "Gestiona projectes, enquestes i usuaris des d'un sol lloc",
+      "loading": "Carregant...",
+      "error": "Error al carregar les dades del tauler",
+      "unknownError": "Error desconegut",
+      "stats": {
+        "totalProjects": "Projectes Totals",
+        "totalSurveys": "Enquestes Creades",
+        "totalUsers": "Usuaris Registrats",
+        "totalResponses": "Respostes Rebudes"
+      },
+      "recentActivity": {
+        "title": "Activitat Recent",
+        "noActivity": "No hi ha activitat recent",
+        "noActivityDescription": "Les dades apareixeran aquí quan hi hagi activitat"
+      },
+      "quickActions": {
+        "title": "Accions Ràpides",
+        "createProject": {
+          "title": "Crear Projecte",
+          "description": "Inicia un nou projecte d'enquestes"
+        },
+        "manageUsers": {
+          "title": "Gestionar Usuaris",
+          "description": "Administra usuaris i permisos"
+        },
+        "viewProjects": {
+          "title": "Veure Projectes",
+          "description": "Explora tots els projectes"
+        },
+        "createUser": {
+          "title": "Crear Usuari",
+          "description": "Afegeix un nou usuari al sistema"
+        }
+      }
+    },
     "users": {
       "grid": {
         "columns": {
@@ -769,6 +834,61 @@
     }
   },
   "user": {
+    "dashboard": {
+      "title": "Taulell de control",
+      "subtitle": "Gestiona les teves enquestes i resultats",
+      "loading": "Carregant...",
+      "error": "Error en carregar les dades del taulell de control",
+      "unknownError": "Error desconegut",
+      "stats": {
+        "pendingSurveys": "Enquestes pendents",
+        "acceptedSurveys": "Enquestes acceptades",
+        "totalResponses": "Respostes rebudes",
+        "totalProjects": "Projectes"
+      },
+      "quickActions": {
+        "title": "Accions ràpides",
+        "viewSurveys": {
+          "title": "Veure les meves enquestes",
+          "description": "Gestiona i revisa les enquestes assignades"
+        },
+        "viewResults": {
+          "title": "Veure els meus resultats",
+          "description": "Consulta les respostes de les teves enquestes"
+        }
+      },
+      "tips": {
+        "title": "Consell del dia",
+        "items": [
+          "Revisa regularment les teves enquestes pendents per no perdre oportunitats",
+          "Les respostes ràpides milloren la participació dels enquestats",
+          "Pots copiar l'enllaç de les teves enquestes directament des de la llista",
+          "Accepta les enquestes tan aviat com les rebis per començar a recopilar dades",
+          "Revisa els resultats freqüentment per obtenir insights valuosos"
+        ]
+      },
+      "status": {
+        "title": "Estat ràpid",
+        "allGood": {
+          "title": "Tot al dia",
+          "description": "No tens enquestes pendents"
+        },
+        "someAttention": {
+          "title": "Algunes pendents",
+          "description": "Tens {{count}} enquestes esperant la teva atenció"
+        },
+        "needsAttention": {
+          "title": "Requereix atenció",
+          "description": "Tens {{count}} enquestes pendents - revisa-les aviat"
+        },
+        "actions": {
+          "suggested": "Accions suggerides",
+          "reviewPending": "Revisar enquestes pendents",
+          "checkResponses": "Veure respostes recents",
+          "manageProjects": "Gestionar projectes"
+        }
+      }
+    },
     "answers": {
       "title": "Resultats de les Meves Enquestes",
       "empty": "No hi ha respostes a les teves enquestes assignades.",
