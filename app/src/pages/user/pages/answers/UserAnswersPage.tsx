@@ -8,13 +8,10 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
-  Button,
 } from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
-import SearchIcon from '@mui/icons-material/Search'
 import { useQuery } from '@tanstack/react-query'
 import { useTranslation } from 'react-i18next'
-import { useState } from 'react'
 import LoadingSpinner from '@/components/spinner/Spinner'
 import getUserAnswersQueryOptions from './queries/get.user.answers.query'
 import { DynamicResults } from '@/components/results'
@@ -23,17 +20,9 @@ import { tagRenderer } from '@/utils/renderers/tag.renderer'
 
 export const UserAnswersPage = () => {
   const { t } = useTranslation()
-  const [hasSearched, setHasSearched] = useState(false)
-  const { data, isLoading, isError, refetch } = useQuery(
-    getUserAnswersQueryOptions(hasSearched)
+  const { data, isLoading, isError } = useQuery(
+    getUserAnswersQueryOptions(true)
   )
-
-  const handleSearch = () => {
-    setHasSearched(true)
-    if (hasSearched) {
-      refetch()
-    }
-  }
 
   if (isLoading) return <LoadingSpinner />
 
@@ -53,29 +42,9 @@ export const UserAnswersPage = () => {
         <Typography variant='h4' component='h1' gutterBottom>
           {t('user.answers.title')}
         </Typography>
-
-        <Button
-          variant='contained'
-          startIcon={<SearchIcon />}
-          onClick={handleSearch}
-          sx={{ mb: 2 }}>
-          {t('admin.projectdetail.tabs.results.filters.search')}
-        </Button>
       </Box>
 
-      {!hasSearched ? (
-        <Card>
-          <CardContent>
-            <Typography
-              fontSize='1.25rem'
-              display='flex'
-              justifyContent='center'
-              textAlign='center'>
-              {t('user.answers.searchPrompt')}
-            </Typography>
-          </CardContent>
-        </Card>
-      ) : !data || (Array.isArray(data) && data.length === 0) ? (
+      {!data || (Array.isArray(data) && data.length === 0) ? (
         <Card>
           <CardContent>
             <Typography

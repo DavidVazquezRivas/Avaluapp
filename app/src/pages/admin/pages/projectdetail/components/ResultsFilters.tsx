@@ -35,7 +35,7 @@ export const ResultsFilters: React.FC<ResultsFiltersProps> = ({
   const { t } = useTranslation()
 
   // Local state for managing current selections and filter type
-  const [filterType, setFilterType] = useState<string>(filters.filterType || '')
+  const [filterType, setFilterType] = useState<string>(filters.filterType || 'none')
   const [selectedTagIds, setSelectedTagIds] = useState<number[]>(
     filters.tagIds || []
   )
@@ -54,7 +54,7 @@ export const ResultsFilters: React.FC<ResultsFiltersProps> = ({
 
   // Sync local state when filters change from parent
   useEffect(() => {
-    setFilterType(filters.filterType || '')
+    setFilterType(filters.filterType || 'none')
     setSelectedTagIds(filters.tagIds || [])
     setSelectedSurveyIds(filters.surveyIds || [])
   }, [filters])
