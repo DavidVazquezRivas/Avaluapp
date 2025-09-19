@@ -10,7 +10,7 @@ export const useUserDashboardData = () => {
     queryKey: ['user-dashboard-stats'],
     queryFn: getUserDashboardStats,
     select: (data) => data.data.data as UserDashboardStats,
-    staleTime: 5 * 60 * 1000, // 5 minutes
+    staleTime: 60 * 1000, // 1 minute
   })
 
   const dashboardData = dashboardQuery.data

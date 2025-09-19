@@ -118,7 +118,7 @@ export const SurveyGrid: React.FC<SurveyGridProps> = ({ projectId }) => {
       {
         field: 'lead',
         headerName: t('admin.projectdetail.tabs.surveys.grid.columns.lead'),
-        valueGetter: (value: User) => value.username,
+        valueGetter: (value: User) => value?.username,
         flex: 1,
       },
       // {

@@ -66,11 +66,14 @@ public class ProjectAdapter implements ProjectPort {
 
     @Override
     public Project updateProject(Project project) {
-        if (!projectRepository.existsById(project.getId())) {
-            throw new BaseException(ExceptionCode.PROJECT_NOT_FOUND);
-        }
+        ProjectEntity existing = projectRepository.findById(project.getId())
+                .orElseThrow(() -> new BaseException(ExceptionCode.PROJECT_NOT_FOUND));
 
-        ProjectEntity entity = projectRepository.save(ProjectEntityMapper.INSTANCE.toEntity(project));
-        return ProjectEntityMapper.INSTANCE.toDomain(entity);
+        existing.setName(project.getName());
+        existing.setDescription(project.getDescription());
+
+        ProjectEntity saved = projectRepository.save(existing);
+        return ProjectEntityMapper.INSTANCE.toDomain(saved);
     }
+
 }

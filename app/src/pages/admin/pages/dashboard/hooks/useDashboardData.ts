@@ -11,7 +11,7 @@ export const useDashboardData = () => {
     queryKey: ['admin-dashboard-stats'],
     queryFn: getDashboardStats,
     select: (data) => data.data.data as DashboardStats,
-    staleTime: 5 * 60 * 1000, // 5 minutes
+    staleTime: 60 * 1000, // 1 minute
   })
 
   const dashboardData = dashboardQuery.data

@@ -121,7 +121,8 @@ public class SurveyServiceImpl implements SurveyService {
 
         User lead = userPort.getSingleUser(request.getLeadId());
 
-        if (!survey.getLead().getId().equals(lead.getId())) survey.setStatus(SurveyStatus.PENDING);
+        if (survey.getLead() == null || !survey.getLead().getId().equals(lead.getId()))
+            survey.setStatus(SurveyStatus.PENDING);
         survey.setTag(tagPort.getTagById(request.getTag()));
         survey.setName(request.getName());
         survey.setLead(lead);
