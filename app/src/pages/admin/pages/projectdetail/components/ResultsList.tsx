@@ -49,7 +49,10 @@ export const ResultsList: React.FC<ResultsListProps> = ({ filters, query }) => {
     <Stack spacing={4}>
       {/* Results count display */}
       <Typography variant='body1' color='text.secondary' sx={{ mb: 2 }}>
-        {t(`admin.projectdetail.tabs.results.list.resultsCount.${filters.filterType}`, { count: resultsCount })}
+        {t(
+          `admin.projectdetail.tabs.results.list.resultsCount.${filters.filterType}`,
+          { count: resultsCount }
+        )}
       </Typography>
 
       {filters.filterType === 'none' && Array.isArray(data) && (
