@@ -228,22 +228,6 @@ export const AdminDashboard = () => {
                 gap: 2,
               }}>
               <QuickActionCard
-                title={t('admin.dashboard.quickActions.createProject.title')}
-                description={t(
-                  'admin.dashboard.quickActions.createProject.description'
-                )}
-                icon={<AddIcon sx={{ fontSize: 40 }} />}
-                onClick={() =>
-                  navigate(
-                    `${AdminRoutes.Base}/${AdminRoutes.Projects}?action=create`,
-                    {
-                      replace: true,
-                    }
-                  )
-                }
-                color='primary'
-              />
-              <QuickActionCard
                 title={t('admin.dashboard.quickActions.manageUsers.title')}
                 description={t(
                   'admin.dashboard.quickActions.manageUsers.description'
@@ -255,19 +239,6 @@ export const AdminDashboard = () => {
                   })
                 }
                 color='success'
-              />
-              <QuickActionCard
-                title={t('admin.dashboard.quickActions.viewProjects.title')}
-                description={t(
-                  'admin.dashboard.quickActions.viewProjects.description'
-                )}
-                icon={<ProjectIcon sx={{ fontSize: 40 }} />}
-                onClick={() =>
-                  navigate(`${AdminRoutes.Base}/${AdminRoutes.Projects}`, {
-                    replace: true,
-                  })
-                }
-                color='warning'
               />
               <QuickActionCard
                 title={t('admin.dashboard.quickActions.createUser.title')}
@@ -284,6 +255,35 @@ export const AdminDashboard = () => {
                   )
                 }
                 color='secondary'
+              />
+              <QuickActionCard
+                title={t('admin.dashboard.quickActions.viewProjects.title')}
+                description={t(
+                  'admin.dashboard.quickActions.viewProjects.description'
+                )}
+                icon={<ProjectIcon sx={{ fontSize: 40 }} />}
+                onClick={() =>
+                  navigate(`${AdminRoutes.Base}/${AdminRoutes.Projects}`, {
+                    replace: true,
+                  })
+                }
+                color='warning'
+              />
+              <QuickActionCard
+                title={t('admin.dashboard.quickActions.createProject.title')}
+                description={t(
+                  'admin.dashboard.quickActions.createProject.description'
+                )}
+                icon={<AddIcon sx={{ fontSize: 40 }} />}
+                onClick={() =>
+                  navigate(
+                    `${AdminRoutes.Base}/${AdminRoutes.Projects}?action=create`,
+                    {
+                      replace: true,
+                    }
+                  )
+                }
+                color='primary'
               />
             </Box>
           </CardContent>
