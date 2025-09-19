@@ -1,5 +1,9 @@
 package com.uib.avaluapp.project.domain.services;
 
+import com.uib.avaluapp.action.domain.models.Action;
+import com.uib.avaluapp.action.domain.models.Activity;
+import com.uib.avaluapp.action.domain.models.EntityType;
+import com.uib.avaluapp.action.domain.ports.ActionPort;
 import com.uib.avaluapp.global.exceptions.BaseException;
 import com.uib.avaluapp.global.exceptions.ExceptionCode;
 import com.uib.avaluapp.project.domain.models.Project;
@@ -20,6 +24,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     private final UserService userService;
     private final ProjectPort projectPort;
+    private final ActionPort actionPort;
 
     @Override
     public ProjectDto createProject(String authorization, CreateProjectRequest request) {
@@ -29,6 +34,13 @@ public class ProjectServiceImpl implements ProjectService {
                 .description(request.getDescription())
                 .admin(admin)
                 .build();
+
+        Action action = Action.builder()
+                .entityType(EntityType.PROJECT)
+                .action(Activity.CREATED)
+                .entityName(project.getName())
+                .build();
+        actionPort.logAction(admin.getId(), action);
 
         return ProjectDtoMapper.INSTANCE.toDto(projectPort.createProject(project));
     }
@@ -53,6 +65,13 @@ public class ProjectServiceImpl implements ProjectService {
         project.setName(request.getName());
         project.setDescription(request.getDescription());
 
+        Action action = Action.builder()
+                .entityType(EntityType.PROJECT)
+                .action(Activity.UPDATED)
+                .entityName(project.getName())
+                .build();
+        actionPort.logAction(admin.getId(), action);
+
         return ProjectDtoMapper.INSTANCE.toDto(projectPort.updateProject(project));
     }
 
@@ -62,6 +81,12 @@ public class ProjectServiceImpl implements ProjectService {
         User admin = userService.getSingleUser(authorization);
         if (!project.getAdmin().getId().equals(admin.getId()))
             throw new BaseException(ExceptionCode.PROJECT_UNAUTHORIZED);
+
+        Action action = Action.builder()
+                .entityType(EntityType.PROJECT)
+                .action(Activity.DELETED)
+                .entityName(project.getName())
+                .build();
 
         projectPort.deleteProject(id);
     }

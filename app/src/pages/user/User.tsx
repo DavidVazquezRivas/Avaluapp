@@ -5,6 +5,7 @@ import { lazy } from 'react'
 
 const UserDashboard = lazy(() => import('./pages/dashboard/UserDashboard'))
 const SurveyPage = lazy(() => import('./pages/survey/SurveyPage'))
+const UserAnswersPage = lazy(() => import('./pages/answers/UserAnswersPage'))
 
 export const User = () => {
   return (
@@ -12,6 +13,7 @@ export const User = () => {
       <Route path='/' element={<Navigate to={UserRoutes.Dashboard} />} />
       <Route path={UserRoutes.Dashboard} element={<UserDashboard />} />
       <Route path={UserRoutes.Survey} element={<SurveyPage />} />
+      <Route path={UserRoutes.Answers} element={<UserAnswersPage />} />
     </RoutesWithNotFound>
   )
 }

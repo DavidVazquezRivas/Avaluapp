@@ -1,5 +1,6 @@
 package com.uib.avaluapp.user.infrastructure.data.models;
 
+import com.uib.avaluapp.action.infrastructure.data.models.ActionEntity;
 import com.uib.avaluapp.project.infrastructure.data.models.ProjectEntity;
 import com.uib.avaluapp.surveys.infrastructure.data.models.SurveyEntity;
 import com.uib.avaluapp.user.domain.models.Role;
@@ -37,9 +38,15 @@ public class UserEntity {
     @Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean verified = false;
 
+    @Column
+    private Long createdBy;
+
     @OneToMany(mappedBy = "admin", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ProjectEntity> projects;
 
     @OneToMany(mappedBy = "lead", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     private List<SurveyEntity> surveys;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<ActionEntity> actions;
 }

@@ -2,7 +2,7 @@ import Grid from '@/components/grid/Grid'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
 import { GridActionsCellItem, GridColDef } from '@mui/x-data-grid'
-import { useMemo } from 'react'
+import { useMemo, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { User, UserWithCredentials } from '@/models/user.model'
 import { Role } from '@/models/role.model'
@@ -17,10 +17,15 @@ import deleteUsersQueryOptions from '../../queries/delete.users.query'
 import createUsersQueryOptions from '../../queries/create.users.query'
 import updateUsersQueryOptions from '../../queries/update.users.query'
 
-export const UsersGrid = () => {
+interface UsersGridProps {
+  initialAction?: string | null | undefined
+}
+
+export const UsersGrid = ({ initialAction }: UsersGridProps) => {
   const { t } = useTranslation()
   const { openPanel } = usePanel()
   const queryClient = useQueryClient()
+  const hasProcessedAction = useRef(false)
 
   const {
     data: usersData,
@@ -65,6 +70,14 @@ export const UsersGrid = () => {
       errorText: t('admin.users.form.error.create'),
     })
   }
+
+  // Procesar acción inicial cuando sea válida
+  useEffect(() => {
+    if (initialAction === 'create' && !hasProcessedAction.current) {
+      hasProcessedAction.current = true
+      onClickCreate()
+    }
+  }, [initialAction])
 
   const handleEdit = async (formData: FormData) => {
     const updatedUser: User = {

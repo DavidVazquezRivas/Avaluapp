@@ -7,7 +7,7 @@ import getAllProjectsQueryOptions from '../../queries/getAll.project.query'
 import createProjectQueryOptions from '../../queries/create.project.query'
 import { GridActionsCellItem, GridColDef } from '@mui/x-data-grid'
 import { Project, ProjectBase } from '@/models/project.model'
-import { useMemo } from 'react'
+import { useEffect, useMemo, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { Box, Tooltip, Typography } from '@mui/material'
@@ -18,11 +18,16 @@ import deleteProjectQueryOptions from '../../queries/delete.project.query'
 import updateProjectQueryOptions from '../../queries/update.project.query'
 import { useNavigate } from 'react-router-dom'
 
-export const ProjectsGrid = () => {
+interface ProjectsGridProps {
+  initialAction?: string | null | undefined
+}
+
+export const ProjectsGrid = ({ initialAction }: ProjectsGridProps) => {
   const { t } = useTranslation()
   const { openPanel } = usePanel()
   const queryClient = useQueryClient()
   const navigate = useNavigate()
+  const hasProcessedAction = useRef(false)
 
   const { data, isLoading, isFetching } = useQuery(getAllProjectsQueryOptions())
 
@@ -50,6 +55,14 @@ export const ProjectsGrid = () => {
       errorText: t('admin.projects.grid.actions.create.error'),
     })
   }
+
+  // Procesar acción inicial cuando sea válida
+  useEffect(() => {
+    if (initialAction === 'create' && !hasProcessedAction.current) {
+      hasProcessedAction.current = true
+      onClickCreate()
+    }
+  }, [initialAction])
 
   const handleDelete = (id: number, name: string) => {
     openPanel({

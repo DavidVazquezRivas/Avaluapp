@@ -10,7 +10,7 @@ import { ResultsFilters } from '@/models/results.model'
 export function useProjectAnswers(id: number, filters: ResultsFilters) {
   return useQuery({
     queryKey: [Queries.getProjectAnswers, id, filters],
-    enabled: filters.filterType !== '',
+    enabled: true,
     queryFn: () => {
       switch (filters.filterType) {
         case 'surveys':

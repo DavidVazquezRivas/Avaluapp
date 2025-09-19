@@ -6,6 +6,8 @@ import com.uib.avaluapp.surveys.domain.models.Survey;
 import com.uib.avaluapp.surveys.domain.ports.SurveyPort;
 import com.uib.avaluapp.surveys.infrastructure.data.models.SurveyEntity;
 import com.uib.avaluapp.surveys.infrastructure.data.repository.SurveyRepository;
+import com.uib.avaluapp.tags.infrastructure.data.adapters.TagEntityMapper;
+import com.uib.avaluapp.user.infrastructure.data.repositories.UserRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -13,9 +15,11 @@ import java.util.List;
 @Component
 public class SurveyAdapter implements SurveyPort {
     private final SurveyRepository surveyRepository;
+    private final UserRepository userRepository;
 
-    public SurveyAdapter(SurveyRepository surveyRepository) {
+    public SurveyAdapter(SurveyRepository surveyRepository, UserRepository userRepository) {
         this.surveyRepository = surveyRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -81,11 +85,17 @@ public class SurveyAdapter implements SurveyPort {
 
     @Override
     public Survey updateSurvey(Survey survey) {
-        if (!surveyRepository.existsById(survey.getId())) {
-            throw new BaseException(ExceptionCode.SURVEY_NOT_FOUND);
-        }
+        SurveyEntity existing = surveyRepository.findById(survey.getId())
+                .orElseThrow(() -> new BaseException(ExceptionCode.SURVEY_NOT_FOUND));
 
-        SurveyEntity entity = surveyRepository.save(SurveyEntityMapper.INSTANCE.toEntity(survey));
-        return SurveyEntityMapper.INSTANCE.toDomain(entity);
+        existing.setName(survey.getName());
+        existing.setTag(TagEntityMapper.INSTANCE.toEntity(survey.getTag()));
+        existing.setLead(userRepository.findById(survey.getLead().getId())
+                .orElseThrow(() -> new BaseException(ExceptionCode.USER_NOT_FOUND)));
+        existing.setStatus(survey.getStatus());
+
+        SurveyEntity saved = surveyRepository.save(existing);
+        return SurveyEntityMapper.INSTANCE.toDomain(saved);
     }
+
 }

@@ -14,7 +14,8 @@
           "title": "Projects",
           "list": "Manage Projects"
         },
-        "surveys": "Surveys"
+        "surveys": "Surveys",
+        "answers": "Results"
       }
     },
     "loading": "Loading...",
@@ -37,6 +38,45 @@
         "SCALE": "Scale",
         "DATE": "Date",
         "YES_NO": "Yes/No"
+      },
+      "activityAction": {
+        "CREATED": "created",
+        "UPDATED": "updated",
+        "DELETED": "deleted"
+      },
+      "activityCombined": {
+        "PROJECT": {
+          "CREATED": "Project created",
+          "UPDATED": "Project updated",
+          "DELETED": "Project deleted"
+        },
+        "SURVEY": {
+          "CREATED": "Survey created",
+          "UPDATED": "Survey updated",
+          "DELETED": "Survey deleted"
+        },
+        "USER": {
+          "CREATED": "User created",
+          "UPDATED": "User updated",
+          "DELETED": "User deleted"
+        }
+      },
+      "entityType": {
+        "PROJECT": "Project",
+        "SURVEY": "Survey",
+        "USER": "User"
+      },
+      "date": {
+        "ago": {
+          "seconds": "{{count}} seconds ago",
+          "seconds_one": "{{count}} second ago",
+          "minutes": "{{count}} minutes ago",
+          "minutes_one": "{{count}} minute ago",
+          "hours": "{{count}} hours ago",
+          "hours_one": "{{count}} hour ago",
+          "days": "{{count}} days ago",
+          "days_one": "{{count}} day ago"
+        }
       }
     },
     "panel": {
@@ -397,6 +437,43 @@
     }
   },
   "admin": {
+    "dashboard": {
+      "title": "Dashboard",
+      "subtitle": "Manage projects, surveys and users from one place",
+      "loading": "Loading...",
+      "error": "Error loading dashboard data",
+      "unknownError": "Unknown error",
+      "stats": {
+        "totalProjects": "Total Projects",
+        "totalSurveys": "Surveys Created",
+        "totalUsers": "Registered Users",
+        "totalResponses": "Responses Received"
+      },
+      "recentActivity": {
+        "title": "Recent Activity",
+        "noActivity": "No recent activity",
+        "noActivityDescription": "Data will appear here when there is activity"
+      },
+      "quickActions": {
+        "title": "Quick Actions",
+        "createProject": {
+          "title": "Create Project",
+          "description": "Start a new survey project"
+        },
+        "manageUsers": {
+          "title": "Manage Users",
+          "description": "Administer users and permissions"
+        },
+        "viewProjects": {
+          "title": "View Projects",
+          "description": "Explore all projects"
+        },
+        "createUser": {
+          "title": "Create User",
+          "description": "Add a new user to the system"
+        }
+      }
+    },
     "users": {
       "grid": {
         "columns": {
@@ -750,13 +827,85 @@
           },
           "list": {
             "empty": "No results found, please adjust your filters and try again.",
-            "responsible": "Responsible:"
+            "responsible": "Responsible:",
+            "resultsCount": {
+              "none": "{{count}} results found",
+              "none_one": "{{count}} result found",
+              "tags": "{{count}} tags with results",
+              "tags_one": "{{count}} tag with results",
+              "surveys": "{{count}} surveys with results",
+              "surveys_one": "{{count}} survey with results"
+            }
           }
         }
       }
     }
   },
   "user": {
+    "dashboard": {
+      "title": "Dashboard",
+      "subtitle": "Manage your surveys and results",
+      "loading": "Loading...",
+      "error": "Error loading dashboard data",
+      "unknownError": "Unknown error",
+      "stats": {
+        "pendingSurveys": "Pending Surveys",
+        "acceptedSurveys": "Accepted Surveys",
+        "totalResponses": "Responses Received",
+        "totalProjects": "Projects"
+      },
+      "quickActions": {
+        "title": "Quick Actions",
+        "viewSurveys": {
+          "title": "View my surveys",
+          "description": "Manage and review your assigned surveys"
+        },
+        "viewResults": {
+          "title": "View my results",
+          "description": "Check responses from your surveys"
+        }
+      },
+      "tips": {
+        "title": "Tip of the day",
+        "items": [
+          "Check your pending surveys regularly to not miss opportunities",
+          "Quick responses improve participant engagement",
+          "You can copy survey links directly from the survey list",
+          "Accept surveys as soon as you receive them to start collecting data",
+          "Review results frequently to gain valuable insights"
+        ]
+      },
+      "status": {
+        "title": "Quick status",
+        "allGood": {
+          "title": "All caught up",
+          "description": "You have no pending surveys"
+        },
+        "someAttention": {
+          "title": "Some pending",
+          "description": "You have {{count}} surveys waiting for your attention"
+        },
+        "needsAttention": {
+          "title": "Attention needed",
+          "description": "You have {{count}} pending surveys - review them soon"
+        },
+        "actions": {
+          "suggested": "Suggested actions",
+          "reviewPending": "Review pending surveys",
+          "checkResponses": "Check recent responses",
+          "manageProjects": "Manage projects"
+        }
+      }
+    },
+    "answers": {
+      "title": "Results of your surveys",
+      "empty": "Your assigned surveys have no responses.",
+      "searchPrompt": "Click the 'Search' button to load your responses.",
+      "project": "Project",
+      "error": "Error loading answers. Please try again.",
+      "resultsCount": "{{count}} surveys with results found",
+      "resultsCount_one": "{{count}} survey with results found"
+    },
     "survey": {
       "grid": {
         "filters": {

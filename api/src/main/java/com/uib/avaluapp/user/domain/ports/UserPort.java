@@ -11,11 +11,13 @@ public interface UserPort {
 
     List<User> getAllUsers();
 
-    User createUser(User user);
+    User createUser(User user, Long creatorId);
 
     void deleteUser(Long id);
 
     User updateUser(Long id, User user);
-    
+
     User verifyUser(User user);
+
+    int getCreatedCount(Long creatorId);
 }

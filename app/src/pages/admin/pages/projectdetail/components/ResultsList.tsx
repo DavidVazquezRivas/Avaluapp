@@ -25,6 +25,15 @@ export const ResultsList: React.FC<ResultsListProps> = ({ filters, query }) => {
   const { data, isLoading } = query
 
   if (isLoading) return <LoadingSpinner />
+
+  // Calculate results count based on filter type
+  const getResultsCount = () => {
+    if (!data || !Array.isArray(data)) return 0
+    return data.length
+  }
+
+  const resultsCount = getResultsCount()
+
   if (!data || (Array.isArray(data) && data.length === 0))
     return (
       <Typography
@@ -38,6 +47,14 @@ export const ResultsList: React.FC<ResultsListProps> = ({ filters, query }) => {
 
   return (
     <Stack spacing={4}>
+      {/* Results count display */}
+      <Typography variant='body1' color='text.secondary' sx={{ mb: 2 }}>
+        {t(
+          `admin.projectdetail.tabs.results.list.resultsCount.${filters.filterType}`,
+          { count: resultsCount }
+        )}
+      </Typography>
+
       {filters.filterType === 'none' && Array.isArray(data) && (
         <SimpleResultList data={data} />
       )}
@@ -72,8 +89,8 @@ interface TagResultsListProps {
 const TagResultsList: React.FC<TagResultsListProps> = ({ data }) => {
   return (
     <Stack spacing={2}>
-      {data.map((tagItem) => (
-        <Accordion key={tagItem.tag?.id}>
+      {data.map((tagItem, index) => (
+        <Accordion key={tagItem.tag?.id} defaultExpanded={index === 0}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls={`panel-${tagItem.tag?.id}-content`}
@@ -100,8 +117,8 @@ const SurveyResultsList: React.FC<SurveyResultsListProps> = ({ data }) => {
   const { t } = useTranslation()
   return (
     <Stack spacing={3}>
-      {data.map((surveyItem) => (
-        <Accordion key={surveyItem.survey?.id}>
+      {data.map((surveyItem, index) => (
+        <Accordion key={surveyItem.survey?.id} defaultExpanded={index === 0}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls={`panel-${surveyItem.survey?.id}-content`}

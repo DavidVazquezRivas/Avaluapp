@@ -5,7 +5,7 @@ export type ResultsFilters = {
 }
 
 export const DefaultResultsFilters: ResultsFilters = {
-  filterType: '',
+  filterType: 'none',
   surveyIds: [],
   tagIds: [],
 }
