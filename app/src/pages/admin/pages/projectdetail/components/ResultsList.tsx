@@ -25,6 +25,15 @@ export const ResultsList: React.FC<ResultsListProps> = ({ filters, query }) => {
   const { data, isLoading } = query
 
   if (isLoading) return <LoadingSpinner />
+
+  // Calculate results count based on filter type
+  const getResultsCount = () => {
+    if (!data || !Array.isArray(data)) return 0
+    return data.length
+  }
+
+  const resultsCount = getResultsCount()
+
   if (!data || (Array.isArray(data) && data.length === 0))
     return (
       <Typography
@@ -38,6 +47,11 @@ export const ResultsList: React.FC<ResultsListProps> = ({ filters, query }) => {
 
   return (
     <Stack spacing={4}>
+      {/* Results count display */}
+      <Typography variant='body1' color='text.secondary' sx={{ mb: 2 }}>
+        {t(`admin.projectdetail.tabs.results.list.resultsCount.${filters.filterType}`, { count: resultsCount })}
+      </Typography>
+
       {filters.filterType === 'none' && Array.isArray(data) && (
         <SimpleResultList data={data} />
       )}

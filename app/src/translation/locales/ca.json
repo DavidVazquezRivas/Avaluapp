@@ -827,7 +827,15 @@
           },
           "list": {
             "empty": "No hi ha resultats, ajusta els teus filtres i torna a provar.",
-            "responsible": "Responsable:"
+            "responsible": "Responsable:",
+            "resultsCount": {
+              "none": "{{count}} resultats trobats",
+              "none_one": "{{count}} resultat trobat",
+              "tags": "{{count}} etiquetes amb resultats",
+              "tags_one": "{{count}} etiqueta amb resultats",
+              "surveys": "{{count}} enquestes amb resultats",
+              "surveys_one": "{{count}} enquesta amb resultats"
+            }
           }
         }
       }
@@ -894,7 +902,9 @@
       "empty": "No hi ha respostes a les teves enquestes assignades.",
       "searchPrompt": "Fes clic al botó 'Cercar' per carregar les teves respostes.",
       "project": "Projecte:",
-      "error": "Error al carregar les respostes. Si us plau, torna-ho a intentar."
+      "error": "Error al carregar les respostes. Si us plau, torna-ho a intentar.",
+      "resultsCount": "{{count}} enquestes amb resultats trobades",
+      "resultsCount_one": "{{count}} enquesta amb resultats trobada"
     },
     "survey": {
       "grid": {

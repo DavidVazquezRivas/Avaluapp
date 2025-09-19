@@ -827,7 +827,15 @@
           },
           "list": {
             "empty": "No results found, please adjust your filters and try again.",
-            "responsible": "Responsible:"
+            "responsible": "Responsible:",
+            "resultsCount": {
+              "none": "{{count}} results found",
+              "none_one": "{{count}} result found",
+              "tags": "{{count}} tags with results",
+              "tags_one": "{{count}} tag with results",
+              "surveys": "{{count}} surveys with results",
+              "surveys_one": "{{count}} survey with results"
+            }
           }
         }
       }
@@ -894,7 +902,9 @@
       "empty": "Your assigned surveys have no responses.",
       "searchPrompt": "Click the 'Search' button to load your responses.",
       "project": "Project",
-      "error": "Error loading answers. Please try again."
+      "error": "Error loading answers. Please try again.",
+      "resultsCount": "{{count}} surveys with results found",
+      "resultsCount_one": "{{count}} survey with results found"
     },
     "survey": {
       "grid": {

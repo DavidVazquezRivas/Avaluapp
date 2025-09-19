@@ -831,7 +831,15 @@
           },
           "list": {
             "empty": "No hay resultados, ajusta los filtros y vuelve a buscar.",
-            "responsible": "Responsable:"
+            "responsible": "Responsable:",
+            "resultsCount": {
+              "none": "{{count}} resultados encontrados",
+              "none_one": "{{count}} resultado encontrado",
+              "tags": "{{count}} tags con resultados",
+              "tags_one": "{{count}} tag con resultados",
+              "surveys": "{{count}} encuestas con resultados",
+              "surveys_one": "{{count}} encuesta con resultados"
+            }
           }
         }
       }
@@ -898,7 +906,9 @@
       "empty": "No hay respuestas a tus encuestas asignadas.",
       "searchPrompt": "Haz clic en el botón 'Buscar' para cargar tus respuestas.",
       "project": "Proyecto:",
-      "error": "Error al cargar las respuestas. Por favor, intenta de nuevo."
+      "error": "Error al cargar las respuestas. Por favor, intenta de nuevo.",
+      "resultsCount": "{{count}} encuestas con resultados encontradas",
+      "resultsCount_one": "{{count}} encuesta con resultados encontrada"
     },
     "survey": {
       "grid": {

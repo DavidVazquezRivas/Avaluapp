@@ -58,7 +58,13 @@ export const UserAnswersPage = () => {
           </CardContent>
         </Card>
       ) : (
-        <Stack spacing={3}>
+        <>
+          {/* Results count display */}
+          <Typography variant='body1' color='text.secondary' sx={{ mb: 2 }}>
+            {t('user.answers.resultsCount', { count: Array.isArray(data) ? data.length : 0 })}
+          </Typography>
+          
+          <Stack spacing={3}>
           {Array.isArray(data) &&
             data.map((surveyItem: any, index: number) => (
               <Accordion
@@ -124,7 +130,8 @@ export const UserAnswersPage = () => {
                 </AccordionDetails>
               </Accordion>
             ))}
-        </Stack>
+          </Stack>
+        </>
       )}
     </Layout>
   )
