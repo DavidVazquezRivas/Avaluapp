@@ -69,7 +69,8 @@ export const UserAnswersPage = () => {
             data.map((surveyItem: any, index: number) => (
               <Accordion
                 key={surveyItem.survey?.id || index}
-                variant='outlined'>
+                variant='outlined'
+                defaultExpanded={index === 0}>
                 <AccordionSummary
                   expandIcon={<ExpandMoreIcon />}
                   aria-controls={`panel-${

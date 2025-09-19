@@ -86,8 +86,8 @@ interface TagResultsListProps {
 const TagResultsList: React.FC<TagResultsListProps> = ({ data }) => {
   return (
     <Stack spacing={2}>
-      {data.map((tagItem) => (
-        <Accordion key={tagItem.tag?.id}>
+      {data.map((tagItem, index) => (
+        <Accordion key={tagItem.tag?.id} defaultExpanded={index === 0}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls={`panel-${tagItem.tag?.id}-content`}
@@ -114,8 +114,8 @@ const SurveyResultsList: React.FC<SurveyResultsListProps> = ({ data }) => {
   const { t } = useTranslation()
   return (
     <Stack spacing={3}>
-      {data.map((surveyItem) => (
-        <Accordion key={surveyItem.survey?.id}>
+      {data.map((surveyItem, index) => (
+        <Accordion key={surveyItem.survey?.id} defaultExpanded={index === 0}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls={`panel-${surveyItem.survey?.id}-content`}
