@@ -1,4 +1,4 @@
-export const AppRoute = 'http://localhost:5173'
+export const AppRoute = 'https://avaluapp.vercel.app'
 
 export const PublicRoutes = {
   Login: '/login',

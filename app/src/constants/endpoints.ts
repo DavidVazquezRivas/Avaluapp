@@ -1,4 +1,4 @@
-export const apiBaseUrl = 'http://localhost:8080/api'
+export const apiBaseUrl = 'https://avaluapp-api.onrender.com/api'
 
 const authPath = `${apiBaseUrl}/auth`
 
