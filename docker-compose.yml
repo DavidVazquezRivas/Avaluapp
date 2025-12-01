@@ -1,0 +1,44 @@
+services:
+  # --- Base de Datos ---
+  db:
+    image: postgres:latest
+    container_name: postgres_container
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      - TZ=Europe/Madrid
+
+  # --- Backend ---
+  api:
+    build: ./api
+    container_name: springboot_app
+    depends_on:
+      - db
+    expose:
+      - '8080' # Solo visible para Nginx, no hacia fuera
+    env_file:
+      - .env
+    restart: on-failure
+    environment:
+      - TZ=Europe/Madrid
+      # Mapeo clave para application.properties:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/${POSTGRES_DB}
+      - SPRING_DATASOURCE_USERNAME=${POSTGRES_USER}
+      - SPRING_DATASOURCE_PASSWORD=${POSTGRES_PASSWORD}
+      - JWT_SECRET=${JWT_SECRET}
+
+  # --- Frontend (Nginx) ---
+  frontend:
+    build: ./app
+    container_name: vite_frontend
+    depends_on:
+      - api
+    ports:
+      - '80:80' # Único puerto abierto al mundo
+    restart: always
+
+volumes:
+  postgres-data:

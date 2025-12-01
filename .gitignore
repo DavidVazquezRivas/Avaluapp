@@ -62,3 +62,4 @@ api/.vscode/
 # Environment variables
 app/.env
 api/.env
+.env
