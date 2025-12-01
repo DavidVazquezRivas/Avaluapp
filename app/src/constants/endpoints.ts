@@ -1,4 +1,4 @@
-export const apiBaseUrl = 'https://avaluapp-api.onrender.com/api'
+export const apiBaseUrl = import.meta.env.VITE_API_URL
 
 const authPath = `${apiBaseUrl}/auth`
 
@@ -32,8 +32,7 @@ export const apiEndpoints = {
     reject: (id: number) => `${apiBaseUrl}/surveys/${id}/reject`,
   },
   questions: {
-    getAll: (projectId: number) =>
-      `${apiBaseUrl}/questions/project/${projectId}`,
+    getAll: (projectId: number) => `${apiBaseUrl}/questions/project/${projectId}`,
     get: (id: number) => `${apiBaseUrl}/questions/${id}`,
     create: `${apiBaseUrl}/questions`,
     delete: (id: number) => `${apiBaseUrl}/questions/${id}`,
@@ -47,20 +46,15 @@ export const apiEndpoints = {
     update: (tagId: number) => `${apiBaseUrl}/tags/${tagId}`,
   },
   public: {
-    getQuestions: (surveyCode: string) =>
-      `${apiBaseUrl}/public/answers/${surveyCode}`,
-    submitAnswers: (surveyCode: string) =>
-      `${apiBaseUrl}/public/answers/${surveyCode}`,
+    getQuestions: (surveyCode: string) => `${apiBaseUrl}/public/answers/${surveyCode}`,
+    submitAnswers: (surveyCode: string) => `${apiBaseUrl}/public/answers/${surveyCode}`,
   },
   answers: {
-    getProjectAnswers: (projectId: number) =>
-      `${apiBaseUrl}/answers/${projectId}`,
+    getProjectAnswers: (projectId: number) => `${apiBaseUrl}/answers/${projectId}`,
     getProjectAnswersByTags: (projectId: number, tagIds: number[]) =>
       `${apiBaseUrl}/answers/${projectId}/tags?tagIds=${tagIds.join(',')}`,
     getProjectAnswersBySurveys: (projectId: number, surveyIds: number[]) =>
-      `${apiBaseUrl}/answers/${projectId}/surveys?surveyIds=${surveyIds.join(
-        ','
-      )}`,
+      `${apiBaseUrl}/answers/${projectId}/surveys?surveyIds=${surveyIds.join(',')}`,
     getUserAnswers: `${apiBaseUrl}/answers`,
   },
   dashboards: {

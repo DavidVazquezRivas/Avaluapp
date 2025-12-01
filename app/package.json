@@ -34,9 +34,9 @@
     "react-router-dom": "^7.5.0"
   },
   "devDependencies": {
-    "@types/d3": "^7.4.3",
     "@eslint/js": "^9.21.0",
     "@tanstack/eslint-plugin-query": "^5.81.2",
+    "@types/d3": "^7.4.3",
     "@types/node": "^22.14.1",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",

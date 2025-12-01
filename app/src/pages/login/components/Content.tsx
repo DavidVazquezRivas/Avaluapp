@@ -1,36 +1,38 @@
 import Box from '@mui/material/Box'
 import Stack from '@mui/material/Stack'
 import Typography from '@mui/material/Typography'
-import AutoFixHighRoundedIcon from '@mui/icons-material/AutoFixHighRounded'
-import ConstructionRoundedIcon from '@mui/icons-material/ConstructionRounded'
-import SettingsSuggestRoundedIcon from '@mui/icons-material/SettingsSuggestRounded'
-import ThumbUpAltRoundedIcon from '@mui/icons-material/ThumbUpAltRounded'
+import Link from '@mui/material/Link'
+import PollRoundedIcon from '@mui/icons-material/PollRounded'
+import GroupsRoundedIcon from '@mui/icons-material/GroupsRounded'
+import InsightsRoundedIcon from '@mui/icons-material/InsightsRounded'
+import ShareRoundedIcon from '@mui/icons-material/ShareRounded'
+import EmailRoundedIcon from '@mui/icons-material/EmailRounded'
 import { Icon } from '@/assets/Icon'
+
+const contactEmail = import.meta.env.VITE_CONTACT_EMAIL
 
 const items = [
   {
-    icon: <SettingsSuggestRoundedIcon sx={{ color: 'text.secondary' }} />,
-    title: 'Lorem ipsum',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.',
+    icon: <PollRoundedIcon sx={{ color: 'text.secondary' }} />,
+    title: 'Diseña encuestas',
+    description: 'Crea encuestas personalizadas con diferentes tipos de preguntas.',
   },
   {
-    icon: <ConstructionRoundedIcon sx={{ color: 'text.secondary' }} />,
-    title: 'Lorem ipsum',
-    description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.',
+    icon: <GroupsRoundedIcon sx={{ color: 'text.secondary' }} />,
+    title: 'Gestión por roles',
+    description: 'Los administradores diseñan el contenido mientras los usuarios gestionan la distribución.',
   },
   {
-    icon: <ThumbUpAltRoundedIcon sx={{ color: 'text.secondary' }} />,
-    title: 'Lorem ipsum',
+    icon: <ShareRoundedIcon sx={{ color: 'text.secondary' }} />,
+    title: 'Distribución sencilla',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.',
+      'Genera enlaces públicos únicos para compartir encuestas. Los participantes responden sin necesidad de registrarse.',
   },
   {
-    icon: <AutoFixHighRoundedIcon sx={{ color: 'text.secondary' }} />,
-    title: 'Lorem ipsum',
+    icon: <InsightsRoundedIcon sx={{ color: 'text.secondary' }} />,
+    title: 'Analiza resultados',
     description:
-      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.',
+      'Visualiza respuestas agregadas, filtra por etiquetas y genera informes detallados para tomar decisiones basadas en datos.',
   },
 ]
 
@@ -60,6 +62,22 @@ export default function Content() {
           </div>
         </Stack>
       ))}
+      {contactEmail && (
+        <Stack direction='row' sx={{ gap: 2, mt: 2 }}>
+          <EmailRoundedIcon sx={{ color: 'text.secondary' }} />
+          <div>
+            <Typography gutterBottom sx={{ fontWeight: 'medium' }}>
+              ¿Necesitas acceso?
+            </Typography>
+            <Typography variant='body2' sx={{ color: 'text.secondary' }}>
+              Contacta con el administrador en{' '}
+              <Link href={`mailto:${contactEmail}`} underline='hover'>
+                {contactEmail}
+              </Link>
+            </Typography>
+          </div>
+        </Stack>
+      )}
     </Stack>
   )
 }
