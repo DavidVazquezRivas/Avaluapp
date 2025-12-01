@@ -18,17 +18,20 @@ services:
     depends_on:
       - db
     expose:
-      - '8080' # Solo visible para Nginx, no hacia fuera
+      - '8080' # Only visible to Nginx, not outside
     env_file:
       - .env
     restart: on-failure
     environment:
       - TZ=Europe/Madrid
-      # Mapeo clave para application.properties:
+      # Map for application.properties:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/${POSTGRES_DB}
       - SPRING_DATASOURCE_USERNAME=${POSTGRES_USER}
       - SPRING_DATASOURCE_PASSWORD=${POSTGRES_PASSWORD}
       - JWT_SECRET=${JWT_SECRET}
+      - ADMIN_USERNAME=${ADMIN_USERNAME}
+      - ADMIN_EMAIL=${ADMIN_EMAIL}
+      - ADMIN_PASSWORD=${ADMIN_PASSWORD}
 
   # --- Frontend (Nginx) ---
   frontend:
@@ -37,7 +40,7 @@ services:
     depends_on:
       - api
     ports:
-      - '80:80' # Único puerto abierto al mundo
+      - '80:80' # Only open port to the world
     restart: always
 
 volumes:
