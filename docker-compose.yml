@@ -1,7 +1,7 @@
 services:
   # --- Base de Datos ---
   db:
-    image: postgres:latest
+    image: postgres:16
     container_name: postgres_container
     restart: always
     env_file:
