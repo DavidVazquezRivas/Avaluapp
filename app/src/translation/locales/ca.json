@@ -400,7 +400,31 @@
     "passwordRequired": "La contrasenya és obligatòria",
     "login": "Iniciar sessió",
     "remember": "Recorda'm",
-    "invalid": "Nom d'usuari o contrasenya incorrectes"
+    "invalid": "Nom d'usuari o contrasenya incorrectes",
+    "content": {
+      "features": {
+        "surveys": {
+          "title": "Dissenya enquestes",
+          "description": "Crea enquestes personalitzades amb diferents tipus de preguntes."
+        },
+        "roles": {
+          "title": "Gestió per rols",
+          "description": "Els administradors dissenyen el contingut mentre els usuaris gestionen la distribució."
+        },
+        "distribution": {
+          "title": "Distribució senzilla",
+          "description": "Genera enllaços públics únics per compartir enquestes. Els participants responen sense necessitat de registrar-se."
+        },
+        "analytics": {
+          "title": "Analitza resultats",
+          "description": "Visualitza respostes agregades, filtra per etiquetes i genera informes detallats per prendre decisions basades en dades."
+        }
+      },
+      "contact": {
+        "title": "Necessites accés?",
+        "description": "Contacta amb l'administrador a"
+      }
+    }
   },
   "notFound": {
     "title": "Uops! Pàgina no trobada",

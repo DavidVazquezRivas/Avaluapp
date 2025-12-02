@@ -400,7 +400,31 @@
     "passwordRequired": "La contraseña es obligatoria",
     "login": "Iniciar sesión",
     "remember": "Recuérdame",
-    "invalid": "Nombre de usuario o contraseña incorrectos"
+    "invalid": "Nombre de usuario o contraseña incorrectos",
+    "content": {
+      "features": {
+        "surveys": {
+          "title": "Diseña encuestas",
+          "description": "Crea encuestas personalizadas con diferentes tipos de preguntas."
+        },
+        "roles": {
+          "title": "Gestión por roles",
+          "description": "Los administradores diseñan el contenido mientras los usuarios gestionan la distribución."
+        },
+        "distribution": {
+          "title": "Distribución sencilla",
+          "description": "Genera enlaces públicos únicos para compartir encuestas. Los participantes responden sin necesidad de registrarse."
+        },
+        "analytics": {
+          "title": "Analiza resultados",
+          "description": "Visualiza respuestas agregadas, filtra por etiquetas y genera informes detallados para tomar decisiones basadas en datos."
+        }
+      },
+      "contact": {
+        "title": "¿Necesitas acceso?",
+        "description": "Contacta con el administrador en"
+      }
+    }
   },
   "notFound": {
     "title": "¡Oops! Página no encontrada",
