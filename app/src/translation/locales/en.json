@@ -400,7 +400,31 @@
     "passwordRequired": "Password is required",
     "login": "Login",
     "remember": "Remember me",
-    "invalid": "Invalid username or password"
+    "invalid": "Invalid username or password",
+    "content": {
+      "features": {
+        "surveys": {
+          "title": "Design Surveys",
+          "description": "Create custom surveys with different types of questions."
+        },
+        "roles": {
+          "title": "Role Management",
+          "description": "Administrators design content while users manage distribution."
+        },
+        "distribution": {
+          "title": "Easy Distribution",
+          "description": "Generate unique public links to share surveys. Participants respond without needing to register."
+        },
+        "analytics": {
+          "title": "Analyze Results",
+          "description": "Visualize aggregated responses, filter by tags, and generate detailed reports to make data-driven decisions."
+        }
+      },
+      "contact": {
+        "title": "Need access?",
+        "description": "Contact the administrator at"
+      }
+    }
   },
   "notFound": {
     "title": "Oops! Page Not Found",

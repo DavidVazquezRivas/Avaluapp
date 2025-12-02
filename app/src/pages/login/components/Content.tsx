@@ -8,35 +8,36 @@ import InsightsRoundedIcon from '@mui/icons-material/InsightsRounded'
 import ShareRoundedIcon from '@mui/icons-material/ShareRounded'
 import EmailRoundedIcon from '@mui/icons-material/EmailRounded'
 import { Icon } from '@/assets/Icon'
+import { useTranslation } from 'react-i18next'
 
 const contactEmail = import.meta.env.VITE_CONTACT_EMAIL
 
-const items = [
-  {
-    icon: <PollRoundedIcon sx={{ color: 'text.secondary' }} />,
-    title: 'Diseña encuestas',
-    description: 'Crea encuestas personalizadas con diferentes tipos de preguntas.',
-  },
-  {
-    icon: <GroupsRoundedIcon sx={{ color: 'text.secondary' }} />,
-    title: 'Gestión por roles',
-    description: 'Los administradores diseñan el contenido mientras los usuarios gestionan la distribución.',
-  },
-  {
-    icon: <ShareRoundedIcon sx={{ color: 'text.secondary' }} />,
-    title: 'Distribución sencilla',
-    description:
-      'Genera enlaces públicos únicos para compartir encuestas. Los participantes responden sin necesidad de registrarse.',
-  },
-  {
-    icon: <InsightsRoundedIcon sx={{ color: 'text.secondary' }} />,
-    title: 'Analiza resultados',
-    description:
-      'Visualiza respuestas agregadas, filtra por etiquetas y genera informes detallados para tomar decisiones basadas en datos.',
-  },
-]
-
 export default function Content() {
+  const { t } = useTranslation()
+
+  const items = [
+    {
+      icon: <PollRoundedIcon sx={{ color: 'text.secondary' }} />,
+      title: t('login.content.features.surveys.title'),
+      description: t('login.content.features.surveys.description'),
+    },
+    {
+      icon: <GroupsRoundedIcon sx={{ color: 'text.secondary' }} />,
+      title: t('login.content.features.roles.title'),
+      description: t('login.content.features.roles.description'),
+    },
+    {
+      icon: <ShareRoundedIcon sx={{ color: 'text.secondary' }} />,
+      title: t('login.content.features.distribution.title'),
+      description: t('login.content.features.distribution.description'),
+    },
+    {
+      icon: <InsightsRoundedIcon sx={{ color: 'text.secondary' }} />,
+      title: t('login.content.features.analytics.title'),
+      description: t('login.content.features.analytics.description'),
+    },
+  ]
+
   return (
     <Stack
       sx={{
@@ -67,11 +68,19 @@ export default function Content() {
           <EmailRoundedIcon sx={{ color: 'text.secondary' }} />
           <div>
             <Typography gutterBottom sx={{ fontWeight: 'medium' }}>
-              ¿Necesitas acceso?
+              {t('login.content.contact.title')}
             </Typography>
             <Typography variant='body2' sx={{ color: 'text.secondary' }}>
-              Contacta con el administrador en{' '}
-              <Link href={`mailto:${contactEmail}`} underline='hover'>
+              {t('login.content.contact.description')}{' '}
+              <Link
+                href={`mailto:${contactEmail}`}
+                underline='hover'
+                sx={{
+                  color: 'primary.main',
+                  '&:hover': {
+                    color: 'primary.dark',
+                  },
+                }}>
                 {contactEmail}
               </Link>
             </Typography>
